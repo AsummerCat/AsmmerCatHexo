@@ -11,6 +11,7 @@ tags: hexo
 3.[hexo个性化设置(推荐查看)](http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html)
 
 
+<!--more-->
 
 # 1.安装Node.js
 
@@ -75,8 +76,10 @@ sudo npm install -g hexo
 ```
 deploy:
   type: git
-  repository: http://github.com/AsummerCat/AsummerCat.github.io.git
-  branch: master
+  repo:
+      github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
+      coding: http://git.coding.net/AsummerCat/AummerCat.git,master  
+
 
 ```
 **注意:每个关键字的后面都有个空格**  
@@ -259,5 +262,24 @@ hexo s
 ```
 
 在本地测试下。每次在不同电脑上发表博文时，先git pull一次，然后再写文章。
+
+---
+
+## 9.多平台发布
+
+国内coding 国外github 访问速度快
+
+>在博客根目录下的source路径下新建文件:touch Staticfile #名字必须是Staticfile   
+然后hexo g，再hexo d就可以把博客放到coding和github了!
+
+#### 9.1coding上建仓库
+```
+ 1. 首先，注册个https://coding.net，用户名假设为username,然后新建个仓库(可以是私有哦)，  
+名为username,即建立个跟用户名同名的仓库.然后跟github一样，把本地的ssh公钥添加进去。  
+然后点击项目，在代码--Pages 服务，在部署来源里选中master 分支
+
+需要注意的是 coding上需要设置自定义域名后 才能继续解析  在pages服务里面
+ 剩下就是域名解析之类的处理了
+```
 
 

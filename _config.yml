@@ -132,8 +132,10 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: http://github.com/AsummerCat/AsummerCat.github.io.git
-  branch: master
+  repo:
+      github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
+      #coding: http://git.coding.net/AsummerCat/AummerCat.git,master  
+      #gitee: https://gitee.com/Cat_J/hexo.git,master
 
 search:
   path: search.xml
