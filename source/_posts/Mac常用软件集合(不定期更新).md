@@ -54,7 +54,9 @@ tags: mac
  
 >LogTail &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;日志查看工具  
 
->iTerm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Shell控制台工具
+>iTerm2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Shell控制台工具
+
+>secureCRT&emsp;&emsp;&emsp;&emsp;&emsp;ssh工具
 
 #### 2.7 浏览器
 >Google Chrome &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;google浏览器  
