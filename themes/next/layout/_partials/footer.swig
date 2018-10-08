@@ -1,3 +1,4 @@
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">{#
 #}{% set current = date(Date.now(), "YYYY") %}{#
 #}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} &mdash; {% endif %}{#
@@ -21,9 +22,18 @@
   {% endif %}
 </div>
 
+<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
 
 {% if theme.footer.custom_text %}
   <div class="footer-custom">{#
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共{{ totalcount(site) }}字</span>
+</div>
+
+<div>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> </div>
