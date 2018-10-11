@@ -89,8 +89,10 @@ tag_map:
   SpringBoot: SpringBoot
   书签: 书签
   sublimeText: sublimeText
-  swagger: swagger2
-
+  swagger: swagger
+  SpringSession: SpringSession
+  Ehcache: Ehcache
+  json: json
 
   
 

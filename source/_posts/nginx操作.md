@@ -3,6 +3,8 @@ title: nginx操作
 date: 2018-09-29 17:48:39
 tags: nginx
 ---
+
+
 # 1.配置:
 
 >主要由6个部分组成：
@@ -60,6 +62,9 @@ http {
 
 ---
 ---
+
+>可参考: 
+>1.[Nginx实现负载均衡的几种方式](https://blog.csdn.net/qq_28602957/article/details/61615876)
 
 # 3. 负载均衡
 >nginx支持的负载均衡调度算法方式如下：

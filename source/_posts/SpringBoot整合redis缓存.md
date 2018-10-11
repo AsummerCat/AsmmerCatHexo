@@ -7,7 +7,7 @@ tags: [SpringBoot,redis]
 # 1.导入pom.xml
 >参考:  
 >1.[Spring缓存注解@Cache,@CachePut , @CacheEvict，@CacheConfig使用](https://blog.csdn.net/sanjay_f/article/details/47372967)  
->2.[]()  
+>2.[使用spring-data-redis进行对redis的操作，封装的一些操作方法](https://blog.csdn.net/w172087242/article/details/52190436)  
 >
 ```
       <!-- 缓存依赖 -->

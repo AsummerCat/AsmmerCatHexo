@@ -4,6 +4,10 @@ date: 2018-09-20 22:02:14
 tags: java
 ---
 
+>参考:  
+>1.[java后台对前端输入的特殊字符进行转义](http://www.cnblogs.com/yangzhilong/p/5667165.html)
+
+
 ### **StringEscapeUtils.unescapeHtml4(zzRewards.getRwTimeCon())**
 <!--more-->
 ```
