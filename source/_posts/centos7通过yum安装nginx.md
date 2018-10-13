@@ -3,12 +3,12 @@ title: centos7通过yum安装nginx
 date: 2018-09-28 17:22:46
 tags: [nginx,linux]
 ---
-## 1.YUM安装
+### YUM安装
 `yum install -y nginx`
 
 ---
 
-#### 1.1 通过yum安装的时候提示下面的错误
+### 通过yum安装的时候提示下面的错误
 ```
 [root@localhost yum.repos.d]# yum install nginx
 已加载插件：fastestmirror, langpacks
@@ -31,7 +31,7 @@ nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/m
 
 ---
 
-## 2.以下是Nginx的默认路径：
+### 以下是Nginx的默认路径：
 
 ```
 (1) Nginx配置路径：/etc/nginx/
@@ -51,7 +51,7 @@ nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/m
 ---
 
 
-## 3.nginx相关的验证命令及启动命令
+### nginx相关的验证命令及启动命令
 
 ```
 nginx   启动

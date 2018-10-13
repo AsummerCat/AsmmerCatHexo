@@ -7,21 +7,21 @@ tags: [linux,redis]
 >https://www.linuxidc.com/Linux/2016-08/134003.htm
 >https://www.cnblogs.com/limit1/p/9045183.html  
 >http://www.runoob.com/redis/redis-install.html
-# 1.官网
+# 官网
 ` http://redis.io/download`
 
 ---
 
 <!--more-->
 
-# 2.安装gcc编译
+# 安装gcc编译
 因为后面安装redis的时候需要编译，所以事先得先安装gcc编译，
 
 `yum install gcc-c++`
 
 ---
 
-# 4.下载，解压缩和编译Redis
+# 下载，解压缩和编译Redis
 
 ```
 $ wget http://download.redis.io/releases/redis-4.0.11.tar.gz
@@ -39,7 +39,7 @@ make MALLOC=libc
 
 ---
 
-# 5.移动文件、便于管理
+# 移动文件、便于管理
 
 当然，你也可以不这么做~不过建议自己管理一下命令和配置
 
@@ -52,13 +52,13 @@ make MALLOC=libc
 
 ---
 
-# 6.配置redis为后台启动
+# 配置redis为后台启动
 `vi /usr/local/redis/etc/redis.conf //将daemonize no 改成daemonize yes`
 
 
 ---
 
-# 7.将redis加入到开机启动
+# 将redis加入到开机启动
 ```
 vi /etc/rc.local 
 //在里面添加内容：
@@ -67,7 +67,7 @@ vi /etc/rc.local
 
 ---
 
-# 8.开启redis服务端
+# 开启redis服务端
 ```
 /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf 
 
@@ -77,7 +77,7 @@ vi /etc/rc.local
 
 ---
 
-# 9.启动redis客户端
+# 启动redis客户端
 redis客户端命令也在bin目录下，是redis-cli文件，运行一下即可启动redis客户端：
 
 `./redis-cli`  
@@ -86,7 +86,7 @@ redis客户端命令也在bin目录下，是redis-cli文件，运行一下即可
 
 ---
 
-# 10.关闭redis服务
+# 关闭redis服务
 
 关闭redis服务的话直接使用如下命令即可：
 
@@ -95,7 +95,7 @@ redis客户端命令也在bin目录下，是redis-cli文件，运行一下即可
 
 ---
 
-# 11.修改默认密码
+# 修改默认密码
 我们可以通过以下命令查看是否设置了密码验证：
 
 ```
@@ -128,7 +128,7 @@ OK
 
 ---
 
-# 12.常用命令
+# 常用命令
 ```
 	ps -ef | grep redis    //查看是否启动成功 
 	netstat -tunpl | grep 6379   //查看该端口有没有占用 

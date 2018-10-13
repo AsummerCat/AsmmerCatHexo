@@ -5,7 +5,7 @@ tags: hexo
 ---
 
 
-# 1.使用next主题  
+# 使用next主题  
 <font color="red">**站点配置文件 :  根目录下的_config.yml 配置文件**</font>  
 <font color="red">**主题配置文件 :  next主题下的_config.yml 配置文件**</font>
 
@@ -22,7 +22,7 @@ tags: hexo
 
 <!--more-->
 
-#### 1.1启动主题
+# 启动主题
 
 与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 ， 找到 theme 字段，并将其值更改为 next。
 
@@ -30,7 +30,7 @@ tags: hexo
 
 ---
 
-#### 1.2设置语言
+# 设置语言
 
 编辑 站点配置文件， 将 language 设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下：
 
@@ -38,7 +38,7 @@ tags: hexo
 
 ---
 
-#### 1.3 设置菜单
+# 设置菜单
 
 设定菜单内容，对应的字段是 menu。 菜单内容的设置格式是：item name: link。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。
 
@@ -70,23 +70,23 @@ menu_icons:
 
 ---
 
-#### 1.4设置作者昵称
+# 设置作者昵称
 编辑 站点配置文件， 设置 author 为你的昵称。
 
 `author: 夏天的猫`
 
 ---
 
-#### 1.5设站点描述
+# 设站点描述
 编辑 站点配置文件， 设置 description 字段为你的站点描述。站点描述可以是你喜欢的一句签名:)
 
 ---
 
-#### 1.6集成常用的第三方服务
+# 集成常用的第三方服务
 
 >[集成第三方服务的文档](http://theme-next.iissnan.com/third-party-services.html#wei-sousuo)
 
-##### 1.6.1 搜索功能Local Search
+## 搜索功能Local Search
 
 ```
 添加百度/谷歌/本地 自定义站点内容搜索
@@ -109,7 +109,7 @@ local_search:
 ```
 ---
 
-#### 1.6.2 选择动画背景
+# 选择动画背景
 
 在 主题配置文件 中搜索并配置如下信息，最好四选一。
 
@@ -128,7 +128,7 @@ canvas_sphere: false    # 屏幕中央有一个爆炸状的球球
 ```
 ---
 
-### 1.6.3 代码块语法高亮设置
+# 代码块语法高亮设置
 在 站点配置文件 设置
 
 ```
@@ -139,17 +139,17 @@ highlight:
   tab_replace: true
 ```
 
-### 1.6.4 SEO配置
+# SEO配置
 想要让我们的站点被搜索引擎收录，要提交给他们站点文件。
 首先安装两个插件,并生成两个站点文件，sitemap.xml与baidusitemap.xml文件
 
-npm install hexo-generator-sitemap --save-dev
+npm install hexo-generator-sitemap --save -dev
 hexo d -g
-npm install hexo-generator-baidu-sitemap --save-dev
+npm install hexo-generator-baidu-sitemap --save -dev
 hexo d -g
 在 站点配置文件 配置如下信息:
 
-### 1.6.5 SEO优化
+## SEO优化
 
 sitemap:  
   path: sitemap.xml  
@@ -180,7 +180,7 @@ baidu_push: true
 
 ---
 
-### 1.6.6自动打开脚本
+# 自动打开脚本
 
 为了每次新建博文我们可以直接编辑，而不是在一堆文件中找到它再打开。我们需要在博客根目录新建`script`文件夹（已有就不用新建）
 在新建的文件夹新建一个.js文件，其中填写的代码如下所示。  
@@ -217,5 +217,3 @@ hexo.on('new', function(data){
 ```
 
 ---
-
-#

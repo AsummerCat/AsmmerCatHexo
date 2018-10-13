@@ -4,7 +4,7 @@ date: 2018-09-20 22:02:14
 tags: 前端
 ---
 
-## JS时间格式转换:
+## JS时间格式转换
 
 ```
 function getMyDate(time){

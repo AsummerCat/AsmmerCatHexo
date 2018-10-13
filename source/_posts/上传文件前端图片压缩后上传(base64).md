@@ -5,6 +5,7 @@ date: 2018-09-20 22:02:14
 tags: [前端,java]
 
 ---
+## 前言
  ** 之前做项目,有涉及到多张大图片上传效率很慢 有考虑使用 
  1.多线程上传 结果发现 数据还是需要先进入servce层进行 处理  没啥用
  2.使用第三方图片保存文件 结果可能图片还是有点大 没保存成功 
@@ -16,7 +17,7 @@ tags: [前端,java]
 
 ----
 
-主要内容是:
+## 主要内容
 
 ```
 1.创建画布(压缩的成品) ,不想显示就隐藏(但是我们需要这个) 
@@ -58,9 +59,9 @@ img.src=src; //这里的src是指之前上传文件的图片流
 
 ----
 
-## 以下是例子:
+## 以下是例子
 
- ## <font color="red">前端部分:</font>
+ ## <font color="red">前端部分</font>
 
 ```html
     PC:<input type="file" id="idCard">
@@ -69,7 +70,7 @@ img.src=src; //这里的src是指之前上传文件的图片流
 ```
 ---
 
-##  <font color="red">js部分:</font>
+###  <font color="red">js部分</font>
 
 ```javascript
 
@@ -89,7 +90,7 @@ var reader=new FileReader();   //前端文件流
 )
 ```
 
-#### 图片校验类型
+### 图片校验类型
 
 ```javascript
 //图片校验类型
@@ -116,7 +117,7 @@ function checkImgSize(file){
 
 ```
 
-#### //上传图片内容到后台
+### 上传图片内容到后台
 
 ```javascript
 //上传图片内容到后台
@@ -158,7 +159,7 @@ img.src=src;
 
 
 
-##  <font color="red">后端部分:</font>
+###  <font color="red">后端部分</font>
 
 ```java
 @RequsestMapping(value="路径",method=RequstMethod.POST)

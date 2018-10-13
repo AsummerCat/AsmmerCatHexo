@@ -11,8 +11,8 @@ tags: SpringBoot
 
 <!--more-->
 
-#  1.devtools
-#### 1.1Pom.xml中直接添加依赖即可：
+#  devtools
+# Pom.xml中直接添加依赖即可
 
 ```
     <dependency>
@@ -24,7 +24,7 @@ tags: SpringBoot
     </dependency>
 ```
 
-#### 1.2 添加spring-boot-maven-plugin：
+# 添加spring-boot-maven-plugin
 
 ```
 <build>
@@ -34,7 +34,7 @@ tags: SpringBoot
             <artifactId>spring-boot-maven-plugin</artifactId>
             <configuration>
                 <fork>true</fork>    
-                 <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                 <!--fork :  如果没有该项配置，这个devtools不会起作用，即应用不会restart -->
             </configuration>
         </plugin>
     </plugins>
@@ -52,7 +52,7 @@ tags: SpringBoot
 ----
 
 
-#### 1.3 如果使用如果使用`Intellij IEDA`
+# 如果使用如果使用`Intellij IEDA`
 
 **<font color="red">Tips:</font>**需要到设置里将`project automatically`勾选上；`File->Setting->Build,…->Compiler`  将右侧`project automatically`勾上
 

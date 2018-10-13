@@ -4,7 +4,7 @@ date: 2018-10-04 15:30:15
 tags: mac
 ---
 
-# 1.参考
+# 参考
 
 >1.[Mac OS 终端利器 iTerm2](https://www.cnblogs.com/xishuai/p/mac-iterm2.html)  
 >2.[mac攻略(八) -- 神器zsh和iterm2的配置](https://www.cnblogs.com/redirect/p/6429731.html)
@@ -14,7 +14,7 @@ tags: mac
 
 <!--more-->
 
-# 2.安装 iTerm2
+# 安装 iTerm2
 
 下载地址：https://www.iterm2.com/downloads.html
 
@@ -26,7 +26,7 @@ tags: mac
 
 ---
 
-# 3. 配置 iTerm2 主题
+# 配置 iTerm2 主题
 
 iTerm2 最常用的主题是 Solarized Dark theme，下载地址：http://ethanschoonover.com/solarized
 
@@ -36,7 +36,7 @@ iTerm2 最常用的主题是 Solarized Dark theme，下载地址：http://ethans
 
 ---
 
-# 4.配置 Oh My Zsh
+# 配置 Oh My Zsh
 
 Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyrussell/oh-my-zsh
 
@@ -57,7 +57,7 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 
 ---
 
-# 5.配置 Meslo 字体
+# 配置 Meslo 字体
 
 使用上面的主题，需要 Meslo 字体支持，要不然会出现乱码的情况，字体下载地址：Meslo LG M Regular for Powerline.ttf
 
@@ -72,7 +72,7 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 
 ---
 
-# 6.声明高亮
+# 声明高亮
 
 效果就是上面截图的那样，特殊命令和错误命令，会有高亮显示。
 
@@ -84,7 +84,7 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 `source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`  
 ![](/img/2018-10-4/oh-my-zshConfig5.png)  
 
-# 7.自动建议填充
+# 自动建议填充
 
 这个功能是非常实用的，可以方便我们快速的敲命令。
 
@@ -102,7 +102,7 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 
 ---
 
-# 8.左右键跳转
+# 左右键跳转
 
 主要是按住`option + → or ←`键，在命令的开始和结尾跳转切换，原本是不生效的，需要手动开启下。
 
@@ -110,14 +110,14 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 
 ---
 
-# 9.iTerm2 快速隐藏和显示
+# iTerm2 快速隐藏和显示
 
 这个功能也非常使用，就是通过快捷键，可以快速的隐藏和打开 iTerm2，示例配置（`Commond + .`）：  
 ![](/img/2018-10-4/oh-my-zshConfig9.png)   
 
 ---
 
-# 10.11. iTerm2 快捷命令
+# iTerm2 快捷命令
 
 快捷命令说明：
 
@@ -145,7 +145,7 @@ ctrl + r	搜索命令历史
 
 ```
 
-# 11.扩展
+# 扩展
  
 shell 就是和上面这些系统内核指令打交道的一座桥梁,我们通过键盘输入一种自己容易记忆识别的符号标识(shell 命令)
 其实 zsh 也是一种 shell ,但是并不是我们系统默认的 shell ,unix 衍生系统的默认shell 都是 bash
@@ -172,7 +172,7 @@ brew cask uninstall qq #卸载 QQ
 ```
 
 
-# 12.远程连接
+# 远程连接
  打开`Preferences` -> `Profiles` -> `左下角加号点击添加`
   
   ![iTerm2配置](/img/2018-10-4/iTerm2Config1.png)

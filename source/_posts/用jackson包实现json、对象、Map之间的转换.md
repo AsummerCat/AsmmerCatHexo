@@ -7,7 +7,7 @@ tags: [SpringBoot,java,json]
 >1.[用jackson包实现json、对象、Map之间的转换](http://rsy.iteye.com/blog/2303323)  
 >2.[jackson完成json和对象/map/list互转](https://blog.csdn.net/qq_37936542/article/details/79268402)
 
-# 1.导入依赖
+# 导入依赖
 
 ```
 
@@ -17,7 +17,7 @@ tags: [SpringBoot,java,json]
 	<version>2.7.3</version>
 </dependency>
 ```
-转换器:
+# 转换器
 
 `private static ObjectMapper mapper=new ObjectMapper();`
 
@@ -26,7 +26,7 @@ tags: [SpringBoot,java,json]
 
 ---
 
-# 2.编写工具类 
+# 编写工具类 
 
 ```
 package top.linjingc.utils;

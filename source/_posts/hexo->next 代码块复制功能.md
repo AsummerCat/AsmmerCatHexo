@@ -5,7 +5,7 @@ date: 2018-10-05 14:14:10
 tags: hexo
 ---
 
-# 1.下载 clipboard.js
+# 下载clipboard.js
 下载地址：
 
 [clipboard.js](https://raw.githubusercontent.com/zenorocha/clipboard.js/master/dist/clipboard.js)  
@@ -16,11 +16,11 @@ tags: hexo
 
 <!--more-->
 
-# 2.使用 
+# 使用 
 保存文件`clipboard.js / clipboard.min.js` ，目录如下：
 `.\themes\next\source\js\src`
 
-#### 2.1 创建初始JS
+# 创建初始JS
 在`.\themes\next\source\js\src`目录下，创建`clipboard-use.js`，文件内容如下：
 
 ```
@@ -46,7 +46,7 @@ tags: hexo
 
 ---
 
-#### 2.2添加样式
+# 添加样式
 
 在`.\themes\next\source\css\_custom\custom.styl`样式文件中添加下面代码：
 
@@ -90,7 +90,7 @@ tags: hexo
 ```
 ---
 
-#### 2.3 引用
+# 引用
 
 在`.\themes\next\layout\_layout.swig`文件中，添加引用（注：在 `swig` 末尾或 `body` 结束标签`（</body>）`之前添加）：
 

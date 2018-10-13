@@ -4,7 +4,7 @@ date: 2018-10-05 01:01:09
 tags: [mac,sublimeText]
 ---
 
-# 1.下载sublime text 3
+# 下载sublime text 3
 
  >[官网](https://www.sublimetext.com/3)
  
@@ -12,13 +12,13 @@ tags: [mac,sublimeText]
  
  ---
  
-# 2.打开sublime text 3主页面
+# 打开sublime text 3主页面
  
  ![](/img/2018-10-5/sublimeText/sublimeText1.png)
  
  ---
  
-# 3.进入包选项
+# 进入包选项
 
 点击菜单栏中“`preferences`”，弹出选项中找到“`package control`”；  
 
@@ -26,7 +26,7 @@ tags: [mac,sublimeText]
 
 ---
 
-# 4.安装包选项
+# 安装包选项
  输入 `Install Package ` 或者选中下面的 `Paclage Control Install Package`  
  ![](/img/2018-10-5/sublimeText/sublimeText3.png)  
  
@@ -37,7 +37,7 @@ tags: [mac,sublimeText]
 
 ---
 
-# 5.安装完成
+# 安装完成
 
 选中后自动安装完成 完成后显示
 
@@ -47,7 +47,7 @@ tags: [mac,sublimeText]
 
 ---
 
-# 6.切换语言
+# 切换语言
 
 点击 `help` 选中 `Language` 然后切换语言
 ![](/img/2018-10-5/sublimeText/sublimeText6.png)

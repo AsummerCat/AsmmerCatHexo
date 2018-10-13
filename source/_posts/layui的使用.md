@@ -3,7 +3,7 @@ title:  layui的使用
 date: 2018-09-27 14:32:31
 tags:  前端
 ---
-## 1.关闭当前窗口
+## 关闭当前窗口
 
 ```javascript
 function clearALL(){
@@ -20,7 +20,7 @@ function clearALL(){
 
 
 
-## 2.弹出层
+## 弹出层
 
 ```javascript
  layer.open({
@@ -58,7 +58,7 @@ function clearALL(){
 
 ---
 
-## 2.1父页面调用子页面JS方法
+## 父页面调用子页面JS方法
 
 ```javascript
 //获取子页面窗口
@@ -70,7 +70,7 @@ var id= iframeWin.findAllSelectId();
 
 ---
 
-## 2.2父页面获取子页面元素
+## 父页面获取子页面元素
 
 ```javascript
 //获取子页面的body		

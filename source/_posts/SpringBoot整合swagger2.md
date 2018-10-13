@@ -11,7 +11,7 @@ tags: [SpringBoot,swagger]
 >3.[springfox-swagger原理解析与使用过程中遇到的坑](https://blog.csdn.net/w4hechuan2009/article/details/68892718)  
 >4.[SwaggerAPI注解详解,以及注解常用参数配置](https://blog.csdn.net/java_yes/article/details/79183804)
 
-# 1.认识Swagger
+# 认识Swagger
 
  作用:  
 1. 接口的文档在线自动生成。  
@@ -34,7 +34,7 @@ Swagger是一组开源项目，其中主要要项目如下：
      6.Swagger-codegen：一个模板驱动引擎，通过分析用户Swagger资源声明以各种语言生成客户端代码。
 ```
 
-# 2.导入pom.xml
+# 导入pom.xml
 
 版本号请根据实际情况自行更改。
 
@@ -55,7 +55,7 @@ Swagger是一组开源项目，其中主要要项目如下：
 
 ---
 
-# 3.创建Swagger2配置类
+# 创建Swagger2配置类
 
 在Application.java同级创建Swagger2的配置类Swagger2
 
@@ -129,7 +129,7 @@ public class Swagger2 {
 
 ---
 
-# 4.Swagger使用的注解及其说明
+# Swagger使用的注解及其说明
 
 
 ```
@@ -154,61 +154,7 @@ public class Swagger2 {
 ```
 
 注意：@ApiImplicitParam的参数说明：
-<table border="1" cellspacing="0" cellpadding="0">
-<tbody>
-	<tr>
-		<td>
-			<p><span style="color:#FF0000;"><strong>paramType</strong></span>：指定参数放在哪个地方</p>
-		</td>
-		<td>
-			<p>header：请求参数放置于Request Header，使用@RequestHeader获取</p><p>query：请求参数放置于请求地址，使用@RequestParam获取</p>
-		<p>path：（用于restful接口）--&gt;请求参数的获取：@PathVariable</p>
-		<p>body：（不常用）</p>
-		<p>form（不常用）</p>
-	  </td>
-  </tr>
-  <tr>
-  	  <td>
-  	  		<p>name：参数名</p>
-  	  </td>
-  	  <td>
-  	  		<p>&nbsp;</p>	
-  	  </td>
-  </tr>
-  <tr>
-  	  <td>
-  	  		<p>dataType：参数类型</p>
-  	  </td>
-  	  <td>
-  	  		<p>&nbsp;</p>
-  	  </td>
-  </tr>
-  <tr>
-  	  <td>
-  	  		<p>required：参数是否必须传</p>
-  	  </td>
-  	  <td>
-  	  		<p>true | false</p>
-  	  </td>
- </tr>
- <tr>
- 	  <td>
- 	  	   <p>value：说明参数的意思</p>
- 	  </td>
- 	  <td>
- 	  		<p>&nbsp;</p>
- 	  </td>
- </tr>
- <tr>
- 		<td>
- 			<p>defaultValue：参数的默认值</p>
- 		</td>
- 		<td>
- 		<p>&nbsp;</p>
- 		</td>
- </tr>
- </tbody>
- </table>
+![参数说明](/img/2018-10-6/Swagger6.png) 
 
 <font color="red">例子：</font>
 
@@ -289,7 +235,7 @@ public class UserController {
 
 ---
 
-# 5.接收对象传参
+# 接收对象传参
 
 ```
 package com.linjingc.springbootdemo;
@@ -323,7 +269,7 @@ public class User {
 
 ---
 
-# 6.定义返回值
+# 定义返回值
 **@ApiResponse:**  
 用于方法，描述操作的可能响应。
 

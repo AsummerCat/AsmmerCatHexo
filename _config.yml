@@ -93,6 +93,7 @@ tag_map:
   SpringSession: SpringSession
   Ehcache: Ehcache
   json: json
+  shiro: shiro
 
   
 

@@ -8,8 +8,9 @@ tags: SpringBoot
 >1.[SpringBoot使用Actuator进行健康监控](https://blog.csdn.net/pengjunlee/article/details/80235390)
 
 
-# 1.健康监控退出
-#### 1.1添加POM依赖：
+# 健康监控
+
+# 添加POM依赖
 
 ```
 <!-- spring-boot-监控-->
@@ -37,7 +38,7 @@ management:
 
 ---
 
-#### 1.2监控和管理端点  
+# 监控和管理端点  
 
 ```
 端点名           描述
@@ -74,7 +75,7 @@ endpoints.shutdown.enabled=true
 ```
 ---
 
-#### 1.3自定义配置说明：
+# 自定义配置说明
 
 ```
 #关闭metrics功能

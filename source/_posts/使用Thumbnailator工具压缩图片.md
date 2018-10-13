@@ -17,7 +17,7 @@ tags: java
 
 > 可以參考文章 ：https://blog.csdn.net/qiaqia609/article/details/53171149
 
-#### TEST.java
+### TEST.java
 
 ```java
 import net.coobird.thumbnailator.Thumbnails;
@@ -38,7 +38,7 @@ public class Test {
 
 例子:
 
-## 从图像文件创建缩略图
+### 从图像文件创建缩略图
 
 ```
 Thumbnails.of(new File("original.jpg"))
@@ -58,7 +58,7 @@ Thumbnails.of("original.jpg")
 
 在编写快速原型代码或从脚本语言中使用*Thumbnailator*时，此表单非常有用。
 
-## 使用旋转和水印创建缩略图
+### 使用旋转和水印创建缩略图
 
 ```
 Thumbnails.of(new File("original.jpg"))
@@ -71,7 +71,7 @@ Thumbnails.of(new File("original.jpg"))
 
 在此示例中，`original.jpg`调整图像大小，然后顺时针旋转90度，然后在右下角放置一个半透明水印，然后`image-with-watermark.jpg`以80％压缩质量设置保存。
 
-## 创建缩略图并写入 `OutputStream`
+### 创建缩略图并写入 `OutputStream`
 
 ```
 OutputStream os = ...;
@@ -84,7 +84,7 @@ Thumbnails.of("large-picture.jpg")
 
 在此示例中，将文件中的图像`large-picture.jpg`调整为最大尺寸200 x 200（保持原始图像的纵横比），并将其写入指定`OutputStream`的PNG图像。
 
-## 创建固定大小的缩略图
+### 创建固定大小的缩略图
 
 ```
 BufferedImage originalImage = ImageIO.read(new File("original.png"));
@@ -96,7 +96,7 @@ BufferedImage thumbnail = Thumbnails.of(originalImage)
 
 上面的代码将图像带入`originalImage`并创建一个200像素乘200像素的缩略图，并将结果存储在其中`thumbnail`。
 
-## 按给定因子缩放图像
+### 按给定因子缩放图像
 
 ```
 BufferedImage originalImage = ImageIO.read(new File("original.png"));
@@ -108,7 +108,7 @@ BufferedImage thumbnail = Thumbnails.of(originalImage)
 
 上面的代码将图像`originalImage`带入并创建一个缩略图，该缩略图是原始图像的25％，并使用默认缩放技术来制作存储在其中的缩略图`thumbnail`。
 
-## 创建缩略图时旋转图像
+### 创建缩略图时旋转图像
 
 ```
 BufferedImage originalImage = ImageIO.read(new File("original.jpg"));
@@ -121,7 +121,7 @@ BufferedImage thumbnail = Thumbnails.of(originalImage)
 
 上面的代码采用原始图像并创建一个顺时针旋转90度的缩略图。
 
-## 使用水印创建缩略图
+### 使用水印创建缩略图
 
 ```
 BufferedImage originalImage = ImageIO.read(new File("original.jpg"));
@@ -139,7 +139,7 @@ BufferedImage thumbnail = Thumbnails.of(originalImage)
 
 缩略图的不透明度（或相反地，透明度）可以通过改变最后一个参数来调整，其中`0.0f`缩略图是完全透明的，并且`1.0f`水印是完全不透明的。
 
-## 将缩略图写入特定目录
+### 将缩略图写入特定目录
 
 ```
 File destinationDir = new File("path/to/output");

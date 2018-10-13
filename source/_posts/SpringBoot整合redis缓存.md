@@ -4,7 +4,7 @@ date: 2018-10-08 17:00:15
 tags: [SpringBoot,redis]
 ---
 
-# 1.导入pom.xml
+# 导入pom.xml
 >参考:  
 >1.[Spring缓存注解@Cache,@CachePut , @CacheEvict，@CacheConfig使用](https://blog.csdn.net/sanjay_f/article/details/47372967)  
 >2.[使用spring-data-redis进行对redis的操作，封装的一些操作方法](https://blog.csdn.net/w172087242/article/details/52190436)  
@@ -28,15 +28,15 @@ tags: [SpringBoot,redis]
 ---
 
 
-# 2. 在启动类上加入注解
+# 在启动类上加入注解
 
 `@EnableCaching : 开启SpringBoot缓存策略，放在启动主类。`
 
 ---
 
-# 3.application.properties 配置
+# application.properties 配置
 
-#### 3.1.单机
+## 单机
 ```
 # Redis 配置(默认配置)
 # Redis 数据库索引（默认为0）
@@ -60,7 +60,7 @@ spring.redis.timeout=0
 
 ```
 
-#### 3.2集群模式
+## 集群模式
 
 ```
 spring:
@@ -84,7 +84,7 @@ spring:
 
 
 
-# 4.关于 SpringBoot 缓存注解
+# 关于 SpringBoot 缓存注解
 
 ```
 在支持 Spring Cache 的环境下，
@@ -100,7 +100,7 @@ spring:
 
 ---
 
-# 5.新建一个redis简单工具类
+# 新建一个redis简单工具类
 
 ```
 package springboot.config;
@@ -182,7 +182,7 @@ public class RedisConfig extends CachingConfigurerSupport{
 
 ---
 
-# 6.编写相关的实体类
+# 编写相关的实体类
 
 这里注意一定要实现序列化接口用于序列化！
 
@@ -190,7 +190,7 @@ public class RedisConfig extends CachingConfigurerSupport{
 
 ---
 
-# 7.使用
+# 使用
 
 >接下来就是如何使用注解啦,这一步反而是最简单的.其实只用到了两个注解,@Cacheable和@CacheEvict.第一个注解代表从缓存中查询指定的key,如果有,从缓存中取,不再执行方法.如果没有则执
 行方法,并且将方法的返回值和指定的key关联起来,放入到缓存中.而@CacheEvict则是从缓存中清除指定的key对应的数据.使用的代码如下:
@@ -217,9 +217,9 @@ public class RedisConfig extends CachingConfigurerSupport{
 ---
 
 
-# 8.注解详解
+# 注解详解
 
-#### 8.1 @Cacheable
+# @Cacheable
 @Cacheable的属性的意义  
 **cacheNames:这个会在redis中出现一个zset集合的数组用来记录已经缓存的数据**  
 cacheNames：指定缓存的名称  
@@ -307,7 +307,7 @@ key：定义组成的key值，如果不定义，则使用全部的参数计算�
 
 ```
 
-#### 8.2 @CacheEvict
+# @CacheEvict
 
 >删除缓存  
 allEntries = true: 清空缓存book1里的所有值  
@@ -336,7 +336,7 @@ allEntries = false: 默认值，此时只删除key对应的值
 
 ```
 
-#### 7.3 @CachePut
+# @CachePut
 
 每次执行都会执行方法，无论缓存里是否有值，同时使用新的返回值的替换缓存中的值。这里不同于@Cacheable：@Cacheable如果缓存没有值，从则执行方法并缓存数据，如果缓存有值，则从缓存中获取值
 
@@ -350,7 +350,7 @@ allEntries = false: 默认值，此时只删除key对应的值
 
 ```
 
-#### 8.4 @CacheConfig
+# @CacheConfig
 
 @CacheConfig: 类级别的注解：如果我们在此注解中定义cacheNames，则此类中的所有方法上 @Cacheable的cacheNames默认都是此值。当然@Cacheable也可以重定义cacheNames的值  
 
@@ -390,7 +390,7 @@ public class BookService2 extends AbstractService {
 
 ---
 
-#### 注意事项
+# 注意事项
 
 比如 你的 `cacheNames="books_custom"`  或者 `@CacheConfig(cacheNames="booksAll")`
 

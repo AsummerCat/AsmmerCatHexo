@@ -4,9 +4,9 @@ date: 2018-10-09 15:48:49
 tags: [SpringBoot,tomcat]
 ---
 
-# 1.修改pom.xml
+# 修改pom.xml
 
-#### 1.1 移除嵌入式tomcat插件
+# 移除嵌入式tomcat插件
 
 ```
  <dependency>
@@ -27,7 +27,7 @@ tags: [SpringBoot,tomcat]
 <!--more--> 
 
 
-#### 1.2  El表达式
+#  El表达式
 
 ```
 <dependency>
@@ -37,7 +37,7 @@ tags: [SpringBoot,tomcat]
 </dependency>
 ```
 
-#### 1.3 添加servlet-api的依赖
+# 添加servlet-api的依赖
 二选一
 
 ```
@@ -60,7 +60,7 @@ tags: [SpringBoot,tomcat]
 </dependency>
 ```
 
-#### 1.4 修改启动类，并重写初始化方法
+# 修改启动类，并重写初始化方法
 
 在原本启动类上 继承 `SpringBootServletInitializer `
 
@@ -73,7 +73,7 @@ tags: [SpringBoot,tomcat]
 
 ```
 
-#### 1.5 打包部署
+# 打包部署
 
 搞定~~~
 

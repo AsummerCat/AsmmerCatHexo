@@ -4,7 +4,7 @@ date: 2018-09-27 14:54:31
 tags: mac
 ---
  
-## 1.DownLoad网站
+## DownLoad网站
  
 [XClient](http://http://xclient.info)   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 [威峰论坛](https://bbs.feng.com/thread-htm-fid-68.html) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -19,22 +19,22 @@ tags: mac
 
 <!--more-->
 
-## 2.开发
-#### 2.1 文本编辑器
+## 开发
+### 文本编辑器
 >Sublime Text
 
-#### 2.2 编译器
+### 编译器
 >PyCharm  
  
 >IntelliJ IDEA
 
-#### 2.3 原型设计
+### 原型设计
 >原型设计工具:Axure RP 8
 
-#### 2.4 数据库管理工具
+### 数据库管理工具
 >Navicat Premium
 
-#### 2.5 版本控制工具
+### 版本控制工具
 >SVN管理工具: Cornerstone 
 >
 >Git管理工具:  Sourcetree  &emsp;&emsp;&emsp;
@@ -43,7 +43,7 @@ tags: mac
 > 和 					&emsp;&emsp;&emsp;
 > Tower
 
-#### 2.6 LINUX
+### LINUX
 >Transmit &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;可视化FTP连接软件 
  
 >Throng  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;HTTP压力测试工具  
@@ -58,14 +58,14 @@ tags: mac
 
 >secureCRT&emsp;&emsp;&emsp;&emsp;&emsp;ssh工具
 
-#### 2.7 浏览器
+### 浏览器
 >Google Chrome &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;google浏览器  
  
 >Firefox &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;火狐浏览器
 
 ---
 
-## 3.日常
+## 日常
 >MacDown&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Markdown编辑器 (小巧)
 
 >Typora&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Markdown编辑器 (完善)
@@ -94,12 +94,12 @@ tags: mac
 
 ---
 
-## 4.密码管理
+## 密码管理
 >1Password 6 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 密码管理工具
 
 ---
 
-## 5.开机自启 
+## 开机自启 
 >Alfred 3 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  MAC上工作流神器  
  
 >AppCleaner &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  卸载工具  

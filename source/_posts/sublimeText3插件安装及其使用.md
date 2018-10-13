@@ -4,7 +4,7 @@ date: 2018-10-05 01:22:26
 tags: [mac,sublimeText]
 ---
 
-# 1.Bracket Highlighter
+# Bracket Highlighter
 
 
 功能：代码匹配
@@ -17,7 +17,7 @@ tags: [mac,sublimeText]
 
 <!--more-->
 
-# 2. jQuery
+# jQuery
 
 功能：jQ函数提示
 
@@ -25,7 +25,7 @@ tags: [mac,sublimeText]
 
 ---
 
-# 3.ConvertToUTF8
+# ConvertToUTF8
 
 功能：文件转码成utf-8
 
@@ -36,14 +36,14 @@ tags: [mac,sublimeText]
 ---
 
 
-# 4.Sublime Text 主题 – ayu
+# Sublime Text 主题 – ayu
 
-#### 4.1 字体
+## 字体
 ayu 使用 Roboto Mono 作为主要的字体，强烈建议安装这个字体，这样在文件树就可以显示为等宽字体了。但是，如果你安装这个字体，那么UI主题将降级到 Sublime Text 标准用户界面字体。
 
 ---
 
-#### 4.2 激活
+## 激活
 Sublime Text 3
 添加这几行代码到你的设置中 `Preferences > Setting – User:`
 
@@ -67,7 +67,7 @@ js 代码:
 
 ---
 
-#### 4.4 Sublime Text3 更改默认字体
+# Sublime Text3 更改默认字体
 
 菜单 -> `Preference`
 `Settings - User`
@@ -82,7 +82,7 @@ js 代码:
 
 
 ---
-#### 4.4 关闭自动更新
+# 关闭自动更新
 添加这几行代码到你的设置中 `Preferences > Setting – User:`
 
 `"update_check":false`

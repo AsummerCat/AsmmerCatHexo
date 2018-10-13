@@ -3,17 +3,19 @@ title: html的Dom操作(不定时更新)
 date: 2018-09-20 22:02:14
 tags: 前端
 ---
-## 1.弹出确认tip函数
 
-#### *confirm*() 方法用于显示一个带有指定消息和 OK 及取消按钮的对话框。 语法 *confirm*(message) 参数描述 message 要在window 上弹出的对话框中显示的纯文本
+## 弹出确认tip函数
+
+> *confirm*() 方法用于显示一个带有指定消息和 OK 及取消按钮的对话框。 语法 *confirm*(message) 参数描述 message 要在window 上弹出的对话框中显示的纯文本
 
 ```html
 <a onclick="return confirmx('确认要删除该专员用户吗？', this.href)">删除</a>
 ```
 <!--more-->
+
 -----
 
-## 2.刷新页面 
+## 刷新页面 
 
 reload() 方法用于重新加载当前文档。
 
@@ -23,7 +25,7 @@ reload() 方法用于重新加载当前文档。
 
 ---
 
-## 3.跳转
+## 跳转
 
 window.location.herf="url地址";
 
@@ -38,7 +40,7 @@ top.location.href="/url" 在顶层页面打开新页面
 
 -----
 
-## 4.退回上一级
+## 退回上一级
 
 go() 方法可加载历史列表中的某个具体的页面。
 

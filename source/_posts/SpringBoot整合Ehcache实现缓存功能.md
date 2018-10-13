@@ -9,7 +9,7 @@ tags: [SpringBoot,Ehcache]
 >2.[SpringBoot集成ehcache](https://blog.csdn.net/zhangxing52077/article/details/73511694)
 
 
-# 1.导入pom.xml
+# 导入pom.xml
 
 ```
  <!-- 缓存依赖 -->
@@ -28,13 +28,13 @@ tags: [SpringBoot,Ehcache]
 
 <!--more-->
 
-# 2. 在启动类上加入  开启缓存注解
+# 在启动类上加入  开启缓存注解
 
 `@EnableCaching`
 
 ---
 
-# 3.在resources目录下创建ehcache.xml文件
+# 在resources目录下创建ehcache.xml文件
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -72,20 +72,20 @@ tags: [SpringBoot,Ehcache]
 ---
 
 
-# 4.在application.properities中配置
+# 在application.properities中配置
 
 `#ehcache配置`  
 `spring.cache.jcache.config=classpath:ehcache.xml`
 
 ---
 
-# 5.随便写一个vo类
+# 随便写一个vo类
 
 略
 
 ---
 
-# 6.使用缓存注解
+# 使用缓存注解
 
 ```
 @CacheConfig(cacheNames = "emp")

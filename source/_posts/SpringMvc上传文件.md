@@ -4,7 +4,7 @@ date: 2018-09-20 22:02:14
 tags: java
 ---
 
-## 1.第一种方式:
+## 第一种方式
 <!--more-->
 ```java
 <bean id="multipartResolver"    
@@ -79,7 +79,7 @@ private static void checkAllowFiles(String ext) throws IOException {
 
 ---
 
-## 2.第二种 方式:
+## 第二种方式
 
 ```
 

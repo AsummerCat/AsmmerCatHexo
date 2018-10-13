@@ -4,25 +4,25 @@ date: 2018-09-30 22:12:12
 tags: linux
 ---
 
-# 1.下载Tomcat
+# 下载Tomcat
 >http://tomcat.apache.org/
 
 <!--more-->
 
-# 2.wget命令下载到你的目录
+# wget命令下载到你的目录
 
 >wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz
 
-# 3.解压
+# 解压
 >ar -zxvf apache-tomcat-8.5.34.tar.gz
 
 
-# 4.重命名
+# 重命名
 >mv apache-tomcat-8.5.34/ tomcat8.5.34  
 >cp -r tomcat8.5.34/ /usr/local/tomcat
 
 
-# 5. 配置服务脚本
+# 配置服务脚本
 配置 Tomcat 服务
 
 ```
@@ -64,7 +64,7 @@ chmod 755 tomcat
 重启：service tomcat restart
 ```
 
-# 6.开机启动
+# 开机启动
 
 ```
 Tomcat 配置开机自启动
@@ -88,7 +88,8 @@ tomcat 0:off 1:off 2:on 3:on 4:on 5:on 6:off
 删除tomcat服务在chkconfig上的管理：chkconfig –del tomcat
 ```
 
-## 6.1 启动错误
+# 启动错误
+## 第一个
 >错误提示:Neither the JAVA_HOME nor the JRE_HOME environment variable is defined 完美解决（tomcat error）
 
 原因：
@@ -107,7 +108,7 @@ windows下将export改为set即可。
 
 成功用service tomcat start开启tomcat服务。
 
-## 6.2
+## 第二个
 >错误提示:Tomcat启动时卡在“INFO: Deploying web application directory ......”的解决方法
 
 

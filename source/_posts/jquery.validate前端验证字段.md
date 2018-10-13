@@ -14,7 +14,7 @@ jQuery校验官网地址：<http://bassistance.de/jquery-plugins/jquery-plugin-v
 
 <!-- more -->
 
-#### 需要引入JS
+### 需要引入JS
 
 ```html
         <script type="text/javascript" src="<%=request.getContextPath()%>/validate/jquery-1.6.2.min.js"></script>  
@@ -26,7 +26,7 @@ jQuery校验官网地址：<http://bassistance.de/jquery-plugins/jquery-plugin-v
 
 
 
-### 基础语法:
+### 基础语法
 
 ```html
 $("#signupForm").validate({
@@ -40,7 +40,7 @@ $("#signupForm").validate({
 
 ---
 
-### 默认规则:
+### 默认规则
 
 ```
 (1)、required:true               必输字段
@@ -64,7 +64,7 @@ $("#signupForm").validate({
 
 ---
 
-### 默认的错误提示:
+### 默认的错误提示
 
 ```html
 messages: {
@@ -126,7 +126,7 @@ $.extend($.validator.messages, {
 
 ### 使用方式
 
-#### 初始化：
+#### 初始化
 
 一般来说是根据name 来确认验证
 
@@ -185,15 +185,15 @@ $.extend($.validator.messages, {
 
 
 
-### 1.class方式
+#### class方式
 
-#### 2.将校验规则写到js代码中
+#### 将校验规则写到js代码中
 
 
 
 ----
 
-### 异步验证
+#### 异步验证
 
 ```html
 remote: {
@@ -209,7 +209,7 @@ remote: {
 远程地址只能输出 "true" 或 "false"，不能有其他输出。
 ```
 
-#### 例:
+#### 例
 
 前端验证字段   (1)
 
@@ -228,7 +228,7 @@ remote: {
                 },
 ```
 
-2. 前端验证字段   (2):
+ 前端验证字段   (2)
 
 ```
 
@@ -246,7 +246,7 @@ data: {oldidCard:function(){ return "${user.idCard}";},idCard:function(){ return
 
 
 ### 常用方法及注意问题
-#### 1、用其他方式替代默认的submit
+#### 用其他方式替代默认的submit
 
 ```html
 $(function(){
@@ -264,7 +264,7 @@ submitHandler: function(form) { alert("submit!"); form.submit(); }
 });
 ```
 
-#### 2. ignore：忽略某些元素不验证
+####  ignore：忽略某些元素不验证
 
 ```html
 ignore: ".ignore"
@@ -287,9 +287,7 @@ addMethod(name,method,message)方法
 value 是元素的值，element 是元素本身，param 是参数。
 ```
 
-#### 例子:
-
-  #### 身份证号码验证
+#### 身份证号码验证
 
 ```
 jQuery.validator.addMethod(“idcardno”, function(value, element) {
@@ -305,7 +303,7 @@ jQuery.validator.addMethod(“alnum”, function(value, element) {
         }, “只能包括英文字母和数字”);
 ```
 
- #### 邮政编码验证
+#### 邮政编码验证
 
 ```
 jQuery.validator.addMethod(“zipcode”, function(value, element) {
@@ -372,7 +370,7 @@ jQuery.validator.addMethod(“begin”, function(value, element, param) {
         }, $.validator.format(“必须以 { 0 } 开头!”));
 ```
 
- #### 验证两次输入值是否不相同
+#### 验证两次输入值是否不相同
 
 ```
 jQuery.validator.addMethod(“notEqualTo”, function(value, element, param) {
@@ -380,7 +378,7 @@ jQuery.validator.addMethod(“notEqualTo”, function(value, element, param) {
         }, $.validator.format(“两次输入不能相同!”));
 ```
 
- #### 验证值不允许与特定值等于
+#### 验证值不允许与特定值等于
 
 ```
 jQuery.validator.addMethod(“notEqual”, function(value, element, param) {

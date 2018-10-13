@@ -3,10 +3,10 @@ title: linux安装jdk
 date: 2018-09-26 22:34:21
 tags: linux
 ---
-# 1.yum安装
+# yum安装
 **centos7安装Openjdk1.8**
 
-#### 1.检查是否存在旧版本
+## 检查是否存在旧版本
 
 ```
 安装之前先检查一下系统有没有自带open-jdk
@@ -30,7 +30,7 @@ rpm -qa | grep java | xargs rpm -e --nodeps
 ```
 ---
 
-#### 2.检索包含java的列表
+## 检索包含java的列表
 ```
 首先检索包含java的列表
 
@@ -46,7 +46,7 @@ yum install java-1.8.0-openjdk* -y
 
 ```
 ---
-#### 3.安装完成
+## 安装完成
 
 ```
 使用命令检查是否安装成功
@@ -64,7 +64,7 @@ java -version
 
 
 
-# 2.普通安装 
+# 普通安装 
 
 ```
 第一种：安装tar.gz类型的jdk

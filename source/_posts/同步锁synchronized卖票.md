@@ -3,7 +3,7 @@ title: 同步锁synchronized卖票
 date: 2018-09-17 20:52:19
 tags: java线程
 ---
-### 运行例子:
+### 运行例子
 ```
 class TicketDemo
 {
@@ -19,7 +19,7 @@ class TicketDemo
 }
 ```
 <!--more-->
-### 线程类:
+### 线程类
 ```
 class Ticket extends Thread
 {

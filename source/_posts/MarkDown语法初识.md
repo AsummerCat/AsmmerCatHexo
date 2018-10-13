@@ -23,13 +23,13 @@ categories: 基础
 <!--more-->
 
 ## 图片
-##### 1.可以直接使用html语言,直接定义img
+### 可以直接使用html语言,直接定义img
 ```
 <img src="/img/2018-9-12/小丑.jpeg" width="300px" height="257px" align=center />
 ```
    <img src="/img/2018-9-12/小丑.jpeg" width="200px" height="257px" />
   
-##### 2.使用markdown的语法(无法更改图片大小)
+### 使用markdown的语法(无法更改图片大小)
 ```
 ![Alt text](/img/WechatIMG230.jpeg)
 ![Alt text](/img/WechatIMG230.jpeg "这里指的是图片下方的title")
@@ -107,7 +107,7 @@ categories: 基础
 ----
 
 ## 列表
-##### 无序列表
+### 无序列表
 ```
 无序列表就是前面加个小圆点
 语法: 
@@ -148,7 +148,7 @@ categories: 基础
 
 ---
 
-##### 有序列表
+### 有序列表
 ```
 语法: 有序列表就是前面加个序列号  (哈哈 还真的... 通俗易懂)
 tips:如果排序错误不影响 默认升序
