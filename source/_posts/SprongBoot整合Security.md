@@ -108,6 +108,22 @@ Using generated security password: 07dc7832-2928-4eea-8329-b5fecdd51d57
 ```
 ---
 
+# 获取登录后的用户信息
+
+**<font color="red">这里说明一下:这里最好是写一个自己的User类继承UserDetails 这样就可以获取更多的属性了</font>**
+
+```
+ UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();   //登陆后的账号 转换为 UserDetails
+ 
+ accountnonexpired=true  代表当前这个账户不过期
+ accountNonLocked=true   代表当前账户未锁定
+ credentialsNonExpired=true 代表当前账户凭证未过期
+ authorities             用户的权限集合set
+ enabled=true            代表当前账户可用
+```
+
+---
+
 # 创建自定义凭证匹配器(密码校验器)
  需要实现 `PasswordEncoder` 接口
  需要注意的是 如果没有配置这个的话 在下面重写验证登录的方法 会报错 :
