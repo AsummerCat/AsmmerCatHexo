@@ -94,6 +94,9 @@ tag_map:
   Ehcache: Ehcache
   json: json
   shiro: shiro
+  算法: 算法
+  数据结构: 数据结构
+  Security: Security
 
   
 
