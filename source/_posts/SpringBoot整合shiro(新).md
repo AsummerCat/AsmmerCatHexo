@@ -3,7 +3,9 @@ title: SpringBoot整合shiro(新)
 date: 2018-10-12 19:11:10
 tags: [SpringBoot,shiro]
 ---
-源代码地址: [SpringBoot整合shiro](https://github.com/AsummerCat/SpringBootAndShiroNow)  
+#[demo地址](https://github.com/AsummerCat/SpringBootAndShiroNow)  
+
+---
 
 >参考: 
 >1.[Spring Boot Shiro 权限信息缓存处理,记住我，thymleaf使用shiro标签](https://blog.csdn.net/u014695188/article/details/52356158)  

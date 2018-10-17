@@ -97,6 +97,8 @@ tag_map:
   算法: 算法
   数据结构: 数据结构
   Security: Security
+  消息队列: 消息队列
+  ActiveMQ: ActiveMQ
 
   
 
