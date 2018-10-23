@@ -73,6 +73,8 @@ source /etc/profile
 
 ```
   > nohup sh mqbroker -n localhost:9876 autoCreateTopicEnable=true &
+  或者
+  >nohup sh mqbroker -c /usr/local/rocketmq/conf/2m-noslave/broker-a.properties >/dev/null 2>&1 &  
   > tail -f ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 172.30.30.233:10911] boot success..
 ```

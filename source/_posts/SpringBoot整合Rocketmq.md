@@ -81,12 +81,12 @@ public class Producer {
 # 编写 Consumer
 
 ```
-package com.linjing.demo;
+package com.linjing.demo.message.ordinary;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
-import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
-import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
+import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
@@ -97,8 +97,8 @@ import java.util.List;
  * @author cxc
  * @date 2018/10/18 17:07
  */
-public class Consumer {
-    public static void main(String[] args) throws MQClientException{
+public class OrdinaryConsumer {
+    public static void main(String[] args) throws MQClientException {
         /**
          * Consumer Group,非常重要的概念，后续会慢慢补充
          */
@@ -113,23 +113,26 @@ public class Consumer {
  */
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 
-        consumer.subscribe("TopicTest", "*");
 
-        consumer.registerMessageListener(new MessageListenerConcurrently() {
+        consumer.subscribe("TopicTest", "TagA || TagC || TagD");
 
+        consumer.registerMessageListener(new MessageListenerOrderly() {
             @Override
-            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
-                                                            ConsumeConcurrentlyContext context) {
+            public ConsumeOrderlyStatus consumeMessage(List<MessageExt> list, ConsumeOrderlyContext consumeOrderlyContext) {
+      consumeOrderlyContext.setAutoCommit(true);
                 try {
-                    for (MessageExt msg : msgs) {
+                    for (MessageExt msg : list) {
                         String msgbody = new String(msg.getBody(), "utf-8");
                         System.out.println("  MessageBody: " + msgbody);//输出消息内容
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return ConsumeConcurrentlyStatus.RECONSUME_LATER; //稍后再试
+                    return ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT; //稍后再试
                 }
-                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS; //消费成功
+                //返回消费状态
+                //SUCCESS 消费成功
+                //SUSPEND_CURRENT_QUEUE_A_MOMENT 消费失败，暂停当前队列的消费
+                return ConsumeOrderlyStatus.SUCCESS;
             }
         });
 
@@ -139,6 +142,7 @@ public class Consumer {
         System.out.printf("Consumer Started.%n");
     }
 }
+
 
 ```
 
