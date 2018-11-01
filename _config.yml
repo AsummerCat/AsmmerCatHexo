@@ -56,21 +56,21 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  程序: java
-  生活: 生活
-  其他: 其他  
-  基础: 基础
-  数据库: 数据库
-  前端: 前端
-  java基础: java基础
-  java线程: java线程
-  javaUtil: javaUtil
-  linux: linux
-  mac: mac
-  docker: docker
-  nginx: nginx
-  hexo: hexo
-  SpringBoot: SpringBoot
+#  程序: java
+#  生活: 生活
+#  其他: 其他  
+#  基础: 基础
+#  数据库: 数据库
+#  前端: 前端
+#  java基础: java基础
+#  javaUtil: javaUtil
+#  linux: linux
+#  mac: mac
+#  docker: docker
+#  nginx: nginx
+#  hexo: hexo
+#  SpringBoot: 
+
 tag_map:
   JAVA: java
   PHP: php
@@ -79,7 +79,6 @@ tag_map:
   数据库: 数据库
   前端: 前端
   java基础: java基础
-  java线程: java线程
   javaUtil: javaUtil
   linux: linux
   mac: mac
@@ -101,6 +100,7 @@ tag_map:
   ActiveMQ: ActiveMQ
   RocketMQ: RocketMQ
   maven: maven
+  多线程: 多线程
   
 
 # Date / Time format
