@@ -53,6 +53,15 @@ public interface Lock {
     Condition newCondition();
 }
 ```
+
+## Condition 等待 通知释放
+
+```
+//获取等待通知组件，该组件与当前锁绑定，当前线程只有获得了锁
+    //才能调用该组件的wait()方法，而调用后，当前线程将释放锁。
+    Condition newCondition();
+```
+
 下面来逐个讲述Lock接口中每个方法的使用，lock()、tryLock()、tryLock(long time, TimeUnit unit)和lockInterruptibly()是用来获取锁的。unLock()方法是用来释放锁的。newCondition()这个方法暂且不在此讲述，会在后面的线程协作一文中讲述。
 
 　　在Lock中声明了四个方法来获取锁，那么这四个方法有何区别呢？
@@ -61,7 +70,7 @@ public interface Lock {
 
 　　由于在前面讲到如果采用Lock，必须主动去释放锁，并且在发生异常时，不会自动释放锁。因此一般来说，使用Lock必须在try{}catch{}块中进行，并且将释放锁的操作放在finally块中进行，以保证锁一定被被释放，防止死锁的发生。通常使用Lock来进行同步的话，是以下面这种形式去使用的：
 　　
-##lock
+## lock
 ```
 Lock lock = ...;
 lock.lock();

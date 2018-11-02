@@ -4,7 +4,7 @@ date: 2018-10-31 16:27:45
 tags:  数据库
 ---
 
-#语法 函数从日期减去指定的时间间隔。
+# 语法 函数从日期减去指定的时间间隔。
 
 * 定义和用法
 
@@ -14,7 +14,7 @@ tags:  数据库
 
 <!--more-->
 
-#语法2 返回周期P1和P2之间的月数。
+# 语法2 返回周期P1和P2之间的月数。
 
 *  `PERIOD_DIFF(P1,P2)` 返回周期P1和P2之间的月数。 P1和P2格式为YYMM或YYYYMM。
 *  注意周期参数 P1 和 P2 都不是日期值。
@@ -62,7 +62,7 @@ FROM Orders
 select * from 表名 where to_days(时间字段名) = to_days(now());
 ```
 
-##昨天
+## 昨天
 
 ```
 SELECT * FROM 表名 WHERE TO_DAYS( NOW( ) ) - TO_DAYS( 时间字段名) <= 1
