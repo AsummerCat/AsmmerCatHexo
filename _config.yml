@@ -101,6 +101,7 @@ tag_map:
   RocketMQ: RocketMQ
   maven: maven
   多线程: 多线程
+  vue.js: vue.js
   
 
 # Date / Time format
