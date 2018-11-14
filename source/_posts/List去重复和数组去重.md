@@ -1,7 +1,7 @@
 ---
 title: List去重复和数组去重
 date: 2018-09-20 22:02:14
-tags: java
+tags: [java,工具类]
 ---
 ## 方式一
 

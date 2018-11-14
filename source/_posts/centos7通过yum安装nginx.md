@@ -63,4 +63,16 @@ nginx -s reload 修改nginx.conf之后，可以重载
 关闭命令: ps -ef|grep nginx
 
 kill -QUIT 2072   (master)
+
+
+kill -int  2072 强制关闭nginx
+
+
+kill -hup 2072 修改配置文件 可以重新读取
+
+kill -usr1 2072 重读日志,在按日志备份切割有用 (大意是: 创建一个新的工作进程 然后关闭旧的工作进程) 
+
+kill -usr2 2072   平滑的升级
+
+kill -winch 2072   优雅的关闭旧的进程 配合 -usr2使用
 ```

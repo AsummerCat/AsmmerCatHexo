@@ -19,6 +19,9 @@ Vue.component('button-counter', {
   template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 })
 ```
+
+<!--more-->  
+
 组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 <button-counter>。我们可以在一个通过 new Vue 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：
 
 
@@ -185,3 +188,42 @@ Vue.component('blog-post', {
   ...
   v-on:enlarge-text="postFontSize += 0.1"></blog-post>
 ```
+
+//重点  v-on:enlarge-text    
+v-on:click="$emit('enlarge-text')
+
+----
+
+# 使用事件抛出一个值
+
+
+有的时候用一个事件来抛出一个特定的值是非常有用的。例如我们可能想让 `<blog-post>` 组件决定它的文本要放大多少。这时可以使用 $emit 的第二个参数来提供这个值：
+
+```
+<button v-on:click="$emit('enlarge-text', 0.1)">
+  Enlarge text
+</button>
+```
+然后当在父级组件监听这个事件的时候，我们可以通过 <font color="red">$event</font> 访问到被抛出的这个值：
+
+```
+<blog-post
+  ...
+  v-on:enlarge-text="postFontSize += $event"></blog-post>
+或者，如果这个事件处理函数是一个方法：
+
+<blog-post
+  ...
+  v-on:enlarge-text="onEnlargeText"></blog-post>
+那么这个值将会作为第一个参数传入这个方法：
+
+methods: {
+  onEnlargeText: function (enlargeAmount) {
+    this.postFontSize += enlargeAmount
+  }
+}
+
+```
+
+
+

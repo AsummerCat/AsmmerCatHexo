@@ -23,6 +23,8 @@ var vm = new Vue({
 
 ​     <font color="red">这里跟methods 有点不一样 </font>
 
+<!--more-->
+
 ## 计算属性默认有get方法
 
 

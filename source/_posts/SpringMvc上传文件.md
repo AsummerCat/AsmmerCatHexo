@@ -1,7 +1,7 @@
 ---
 title: SpringMvc上传文件
 date: 2018-09-20 22:02:14
-tags: java
+tags: SpringMvc
 ---
 
 ## 第一种方式

@@ -71,8 +71,8 @@ vi /etc/rc.local
 ```
 /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf 
 
-	ps -ef | grep redis    //查看是否启动成功 
-	netstat -tunpl | grep 6379   //查看该端口有没有占用 
+   ps -ef | grep redis    //查看是否启动成功 
+   netstat -tunpl | grep 6379   //查看该端口有没有占用 
 ```
 
 ---
