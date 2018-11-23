@@ -6,5 +6,5 @@ var exec = require('child_process').exec;
 //
 // Hexo 3 用户复制这段
 hexo.on('new', function(data){
-    exec('open -a "markdown编辑器绝对路径.app" ' + data.path);
+    exec('/Applications/MacDown.app' + data.path);
 });

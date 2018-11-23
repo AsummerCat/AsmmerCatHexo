@@ -106,6 +106,8 @@ tag_map:
   前端模板引擎: 前端模板引擎
   SpringMvc: SpringMvc
   工具类: 工具类
+  代理工厂: 代理工厂
+  Spring: spring
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
