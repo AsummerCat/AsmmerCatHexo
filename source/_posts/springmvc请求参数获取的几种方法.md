@@ -22,9 +22,6 @@ tags: SpringMvc
         return "demo/index";
     }
 ```
->http://localhost:8080/testGet?username=小明&password=10086
-
-
 ---
 
 # 通过HttpServletRequest接收，post方式和get方式都可以。
@@ -84,7 +81,6 @@ public class UserModel {
 <font colo="red">需要注意的是 如果路径不写完整会报 404  
 所以在不需要的时候添加</font>
 
-http://localhost:8080/testPathVariable/user/password
 
 # 使用@ModelAttribute注解获取POST请求的FORM表单数据
 
@@ -129,6 +125,3 @@ Jsp表单如下：
         return "输入的userName:" + userName + "输入的password:" + password;
     }
 ```
->http://localhost:8080/addUser?password=1&&username=小明
->
->http://localhost:8080/addUser?password=1
