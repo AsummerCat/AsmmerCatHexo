@@ -108,6 +108,7 @@ tag_map:
   工具类: 工具类
   代理工厂: 代理工厂
   Spring: spring
+  设计模式: 设计模式
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
