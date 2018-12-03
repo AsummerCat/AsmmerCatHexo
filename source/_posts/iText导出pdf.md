@@ -55,9 +55,9 @@ tags: 工具类
  ```
  ```
  //中文字体
-			BaseFont bfChinese = BaseFont.createFont( "STSongStd-Light" ,"UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
-			Font font = new Font(bfChinese, 12,Font.NORMAL);
-			PdfPCell cell = new PdfPCell(new Paragraph("测试",bigHoldFont));
+          BaseFont bfChinese = BaseFont.createFont( "STSongStd-Light" ,"UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
+           Font font = new Font(bfChinese, 12,Font.NORMAL);
+           PdfPCell cell = new PdfPCell(new Paragraph("测试",bigHoldFont));
 
  ```
 
