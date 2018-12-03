@@ -287,16 +287,16 @@ bufferedWriter.flush();
 fileWriter.write("\r\n"); 
 ```
 
-##缓冲字符流 BufferedReader,BufferedWriter
+## 缓冲字符流 BufferedReader,BufferedWriter
 
 ```java
 //换行输出
 fileReader.readLine();
 ```
 
-##转换流InputStreamReader和OutputStreamWriter 
+## 转换流InputStreamReader和OutputStreamWriter 
 
-![转换流](/img/2018-12-3/转换流.png)
+![转换流](/img/2018-12-2/转换流.png)
 
  转换流的作用，文本文件在硬盘中以字节流的形式存储时，通过InputStreamReader读取后转化为字符流给程序处理，程序处理的字符流通过OutputStreamWriter转换为字节流保存。
 
