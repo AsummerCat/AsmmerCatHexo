@@ -1,15 +1,15 @@
 ---
 title: linux安装Mysql5.7
 date: 2018-09-26 22:56:22
-tags: linux
+tags: [mysql,数据库,linux]
 ---
->tips:从CentOS 7.0发布以来，yum源中开始使用Mariadb来代替MySQL的安装。  
-即使你输入的是yum install -y mysql , 显示的也是Mariadb的安装内容。使用源代码进行编译安装又太麻烦。  
-因此，如果想使用yum安装MySQL的话，就需要去下载官方指定的yum源  
-网址为： 
-https://dev.mysql.com/downloads/repo/yum/   
-找到Red Hat Enterprise Linux 7 / Oracle Linux 7 (Architecture Independent), RPM Package,
-单击后面的Download，在新的页面中单击最下面的No thanks, just start my download.就可以下载到yum源了.
+>tips:从CentOS 7.0发布以来，yum源中开始使,用Mariadb来代替MySQL的安装。  
+>即使你输入的是yum install -y mysql , 显示的也是Mariadb的安装内容。使用源代码进行编译安装又太麻烦。  
+>因此，如果想使用yum安装MySQL的话，就需要去下载官方指定的yum源  
+>网址为： 
+>https://dev.mysql.com/downloads/repo/yum/   
+>找到Red Hat Enterprise Linux 7 / Oracle Linux 7 (Architecture Independent), RPM Package,
+>单击后面的Download，在新的页面中单击最下面的No thanks, just start my download.就可以下载到yum源了.
 
 <!--more-->
 ---
@@ -66,7 +66,7 @@ cat /var/log/mysqld.log|grep 'A temporary password'
 `
 mysql -u root -p
 `
-  
+
 ---
 ### 更改默认密码
 

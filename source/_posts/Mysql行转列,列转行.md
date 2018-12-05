@@ -2,7 +2,7 @@
 layout: mysql
 title: 行转列
 date: 2018-09-17 20:35:55
-tags: 数据库
+tags: [mysql,数据库]
 categories: 数据库
 ---
 

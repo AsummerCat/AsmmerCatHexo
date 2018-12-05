@@ -1,7 +1,7 @@
 ---
 title: Mysql的索引是什么-怎么优化
 date: 2018-11-15 09:44:45
-tags: mysql
+tags: [mysql,数据库]
 ---
 
 
