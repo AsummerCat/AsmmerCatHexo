@@ -90,6 +90,48 @@ tags: JVM
 
 
 
+## 垃圾收集器选择参数
+
+
+​          **UseSerialGC**：开启此参数使用serial & serial old搜集器（client模式默认值）。  
+
+​          **UseParNewGC**：开启此参数使用ParNew & serial old搜集器（不推荐）。  
+
+​          **UseConcMarkSweepGC**：开启此参数使用ParNew & CMS（serial old为替补）搜集器。  
+
+​          **UseParallelGC**：开启此参数使用parallel scavenge & parallel old搜集器（server模式默认值）。  
+
+​          **UseParallelOldGC**：开启此参数在年老代使用parallel old搜集器（该参数在JDK1.5之后已无用）。
+
+  
+
+## 垃圾收集器性能通用参数
+
+ **PretenureSizeThreshold**：晋升年老代的对象大小。默认为0，比如设为10M，则超过10M的对象将不在eden区分配，而直接进入年老代。  
+
+​          **MaxTenuringThreshold**：晋升老年代的最大年龄。默认为15，比如设为10，则对象在10次普通GC后将会被放入年老代。  
+
+​          **DisableExplicitGC**：禁用System.gc()。  
+
+## 并行搜集器参数
+
+
+​          **ParallelGCThreads**：回收时开启的线程数。默认与CPU个数相等。   
+
+​          **GCTimeRatio**：设置系统的吞吐量。比如设为99，则GC时间比为1/1+99=1%，也就是要求吞吐量为99%。若无法满足会缩小新生代大小。   
+
+​          **MaxGCPauseMillis**：设置垃圾回收的最大停顿时间。若无法满足设置值，则会优先缩小新生代大小，仍无法满足的话则会牺牲吞吐量。 
+
+## 并发搜集器参数
+
+​        **CMSInitiatingOccupancyFraction**：触发CMS收集器的内存比例。比如60%的意思就是说，当内存达到60%，就会开始进行CMS并发收集。
+
+​          **UseCMSCompactAtFullCollection**：这个前面已经提过，用于在每一次CMS收集器清理垃圾后送一次内存整理。
+
+​          **CMSFullGCsBeforeCompaction**：设置在几次CMS垃圾收集后，触发一次内存整理。
+
 ---
----
----
+
+# 总结
+
+本篇文章只是做一个罗列
