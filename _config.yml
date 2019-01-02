@@ -98,7 +98,9 @@ tag_map:
   IO流: IO流
   ELK日志分析框架: ELK日志分析框架
   JVM: JVM
+  分布式配置中心: 分布式配置中心
 
+  
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in

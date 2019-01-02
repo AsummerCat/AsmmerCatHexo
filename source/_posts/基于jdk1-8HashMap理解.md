@@ -8,6 +8,10 @@ tags: [java,hashMap]
 
 
 
+![hashMap](/img/2019-1-2/HashMap.jpeg)
+
+
+
 ## 暂时没有实现迭代器 只有get,set,扩容
 
 ps: 目前只做到了 对于链表的扩容 
