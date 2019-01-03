@@ -18,6 +18,8 @@ ps: 目前只做到了 对于链表的扩容
 
 红黑树 后面继续看看
 
+<!--more-->
+
 ```java
 package MyHashMap;
 
