@@ -236,9 +236,82 @@ management:
 
 # 加入eruka负载均衡
 
+ConfigServer 和ConfigClient
+
+## ConfigServer 
+
+### 加入eruka的pom.xml
+
+```java
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+```
+
+  ### 启动类添加eureka注解
+
+```java
+@EnableEurekaClient
+```
+
+### 接下来添加配置文件信息
+
+```java
+在application.yml中加入
+# 注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+```
+
+使其注册到eureka上
+
+这样configServer就注册上去了
+
+## ConfigClient
+
+跟ConfigServer  前两步一样 同样加入eureka的pom信息,在启动类加入注解  在注册到eureka
+
+### 接下来修改配置文件信息 
+
+修改原先直接调用config url 那部分的内容 使其去eureka寻找configServer
+
+ootstrap.yaml中增加eureka连接配置，同时屏蔽`spring. cloud.config.uri` 增加：`spring.cloud.config.discovery.enabled`和`spring.cloud.config.discovery.serviceId`。
+
+```java
+修改bootStrap.yml
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+    # 配置你需要链接的config-server地址
+    #(注释掉 指定的url) uri: http://user:password@localhost:8081
+      ## 配置文件名称
+      profile: dev
+      discovery:
+      # 表示使用服务发现组件中的Config Server，而不自己指定Config Server的uri，默认false
+        enabled: true
+        # 指定Config Server在服务发现中的serviceId，默认是configserver
+        service-id: config-server
+   #如果config-server需要权限验证的话     
+      username: user
+      password: password
 
 
-1111111111111111
+# 注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/
+```
+
+## 完成
+
+这样就实现了 config的高可用 如果多个configSrever一起运行的时候,服务器挂掉一台 我们还是可以收到 配置信息
 
 # 添加权限控制
 
