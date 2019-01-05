@@ -35,9 +35,9 @@ spring-cloud-config-server 服务端的依赖
 
 ```java
 	<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+    </dependency>
 ```
 
 ### 在启动类上标明一个注解 表示启动config-server服务
@@ -95,16 +95,15 @@ server:
 
 ```java
 	<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-			<version>1.2.2.RELEASE</version>
-		</dependency>
-		
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>1.2.2.RELEASE</version>
+    </dependency>
+        
         <!-- 健康监控-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
 ```
 
 ## 在bootstarp.yml 写入相关配置
@@ -185,7 +184,7 @@ class TestController {
 
 客户端手动通过 /refresh 刷新资源
 
-# 添加actuator 可以手动刷新资源
+# actuator 手动刷新资源
 
 这边加入了健康监控插件  在1.5版本里 如果你要刷新值
 
@@ -243,10 +242,10 @@ ConfigServer 和ConfigClient
 ### 加入eruka的pom.xml
 
 ```java
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
 ```
 
   ### 启动类添加eureka注解
@@ -321,9 +320,9 @@ eureka:
 
 ```java
 <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-security</artifactId>
-		</dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+</dependency>
 ```
 
 ## 这边我们demo 也不做太多的权限 直接在内存中写入一个用户及其密码~~~~ 搞定
