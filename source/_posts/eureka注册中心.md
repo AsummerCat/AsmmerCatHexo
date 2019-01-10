@@ -1,10 +1,10 @@
 ---
 title: eruka注册中心
 date: 2019-01-05 19:41:55
-tags: [SpringCloud,eruka]
+tags: [SpringCloud,eureka]
 ---
 
-# 利用eruka做注册中心 实现微服务的高可用
+# 利用eureka做注册中心 实现微服务的高可用
 
 于Spring Cloud为服务治理做了一层抽象接口，所以在Spring Cloud应用中可以支持多种不同的服务治理框架，比如：Netflix Eureka、Consul、Zookeeper。在Spring Cloud服务治理抽象层的作用下，我们可以无缝地切换服务治理实现，并且不影响任何其他的服务注册、服务发现、服务调用等逻辑。
 

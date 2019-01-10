@@ -100,9 +100,10 @@ server:
             <version>1.2.2.RELEASE</version>
     </dependency>
         
-        <!-- 健康监控-->
+         <!-- 健康监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 ```
 
