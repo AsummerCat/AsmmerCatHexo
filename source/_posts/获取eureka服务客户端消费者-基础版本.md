@@ -4,6 +4,8 @@ date: 2019-01-10 09:41:21
 tags: [SpringCloud,eureka]
 ---
 
+# [demo地址](https://github.com/AsummerCat/springCloudCustomer)
+
 # eureka注册中心 (略)
 
 这个操作简单已经注册成功了  主要是 消费端的使用

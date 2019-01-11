@@ -4,6 +4,8 @@ date: 2019-01-03 10:41:51
 tags: [SpringCloud,SpringCloudConfig,分布式配置中心]
 ---
 
+# [demo地址](https://github.com/AsummerCat/springCloudConfigTest)
+
 # 使用版本 springboot 1.5.3  springCloud Dalston.SR4
 
 友情提示:
