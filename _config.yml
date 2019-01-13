@@ -103,6 +103,7 @@ tag_map:
   ribbon: ribbon
   feign: feign
   eureka: eureka
+  Hystrix: Hystrix
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
