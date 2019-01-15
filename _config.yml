@@ -85,6 +85,7 @@ tag_map:
   消息队列: 消息队列
   ActiveMQ: ActiveMQ
   RocketMQ: RocketMQ
+  RabbitMQ: RabbitMQ
   maven: maven
   多线程: 多线程
   vue.js: vue.js
@@ -104,6 +105,8 @@ tag_map:
   feign: feign
   eureka: eureka
   Hystrix: Hystrix
+  HomeBrew: HomeBrew
+  zuul: zuul
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
