@@ -1,7 +1,7 @@
 ---
 title: eureka高可用的实现互相注册
 date: 2019-01-10 15:50:55
-tags: [SpringCloud,eureka]
+tags: [springCloud,eureka]
 ---
 
 # eureka实现高可用 

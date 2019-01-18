@@ -1,7 +1,7 @@
 ---
 title: 获取eureka服务客户端消费者-基础版本
 date: 2019-01-10 09:41:21
-tags: [SpringCloud,eureka]
+tags: [springCloud,eureka]
 ---
 
 # [demo地址](https://github.com/AsummerCat/springCloudCustomer)

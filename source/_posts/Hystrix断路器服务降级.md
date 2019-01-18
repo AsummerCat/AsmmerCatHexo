@@ -1,7 +1,7 @@
 ---
 title: Hystrix断路器服务降级
 date: 2019-01-13 15:27:59
-tags: [SpringCloud,Hystrix]
+tags: [springCloud,Hystrix]
 ---
 
 # [demo地址](https://github.com/AsummerCat/hystrix)

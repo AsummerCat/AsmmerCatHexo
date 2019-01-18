@@ -1,7 +1,7 @@
 ---
 title: SpringCloudConfig配置中心
 date: 2019-01-03 10:41:51
-tags: [SpringCloud,SpringCloudConfig,分布式配置中心]
+tags: [springCloud,SpringCloudConfig,分布式配置中心]
 ---
 
 # [demo地址](https://github.com/AsummerCat/springCloudConfigTest)

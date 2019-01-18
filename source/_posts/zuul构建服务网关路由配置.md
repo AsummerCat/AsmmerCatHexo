@@ -1,7 +1,7 @@
 ---
 title: zuul构建服务网关路由配置二
 date: 2019-01-15 15:30:30
-tags: [SpringCloud,zuul]
+tags: [springCloud,zuul]
 ---
 
 # 我们可以来配置路由的规则来更好的适应

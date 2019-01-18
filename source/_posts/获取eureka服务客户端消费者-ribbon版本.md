@@ -1,7 +1,7 @@
 ---
 title: 获取eureka服务客户端消费者-ribbon版本
 date: 2019-01-10 11:27:12
-tags: [SpringCloud,eureka,ribbon]
+tags: [springCloud,eureka,ribbon]
 ---
 
 # [demo地址](https://github.com/AsummerCat/springCloudCustomer)

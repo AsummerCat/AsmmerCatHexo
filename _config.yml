@@ -100,13 +100,14 @@ tag_map:
   ELK日志分析框架: ELK日志分析框架
   JVM: JVM
   分布式配置中心: 分布式配置中心
-  SpringCloud: SpringCloud
+  springCloud: springCloud
   ribbon: ribbon
   feign: feign
   eureka: eureka
   Hystrix: Hystrix
   HomeBrew: HomeBrew
   zuul: zuul
+  springCloudStream: springCloudStream
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date

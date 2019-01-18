@@ -1,7 +1,7 @@
 ---
 title: Hystrix监控面板dashboard单机
 date: 2019-01-14 09:41:09
-tags: [SpringCloud,Hystrix,Dashboard]
+tags: [springCloud,Hystrix,Dashboard]
 ---
 
 # 监控台

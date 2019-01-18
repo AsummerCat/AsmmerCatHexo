@@ -1,7 +1,7 @@
 ---
 title: zuul构建服务网关路由过滤器三
 date: 2019-01-15 15:46:22
-tags: [SpringCloud,zuul]
+tags: [springCloud,zuul]
 ---
 
 # 服务网关可以过滤请求

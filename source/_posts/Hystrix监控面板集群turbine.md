@@ -1,7 +1,7 @@
 ---
 title: Hystrix监控面板集群turbine
 date: 2019-01-14 10:32:27
-tags: [SpringCloud,Hystrix,turbine]
+tags: [springCloud,Hystrix,turbine]
 ---
 
 # 利用Turbine实现控制台的聚合

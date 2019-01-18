@@ -1,7 +1,7 @@
 ---
 title: 获取eureka服务客户端消费者-feign版本
 date: 2019-01-10 14:06:48
-tags: [SpringCloud,eureka,feign]
+tags: [springCloud,eureka,feign]
 ---
 
 #  [demo地址](https://github.com/AsummerCat/springCloudCustomer)

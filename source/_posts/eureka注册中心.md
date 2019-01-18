@@ -1,7 +1,7 @@
 ---
 title: eruka注册中心
 date: 2019-01-05 19:41:55
-tags: [SpringCloud,eureka]
+tags: [springCloud,eureka]
 ---
 
 # 利用eureka做注册中心 实现微服务的高可用

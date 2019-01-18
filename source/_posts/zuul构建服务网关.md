@@ -1,7 +1,7 @@
 ---
 title: zuul构建服务网关一
 date: 2019-01-15 14:38:25
-tags: [SpringCloud,zuul]
+tags: [springCloud,zuul]
 ---
 
 # 构建服务网关
