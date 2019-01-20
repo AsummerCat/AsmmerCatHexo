@@ -14,14 +14,14 @@ http：用于进行http协议信息的一些配置
 server：用于进行服务器访问信息的配置  
 location：用于进行访问路由的配置  
 upstream：用于进行负载均衡的配置   
-  
- 
+
+
 >参考配置详情地址:  
- 
+
 >https://blog.csdn.net/tsummerb/article/details/79248015
+
  
- 
- 
+
 
 <!--more-->
 
@@ -58,7 +58,6 @@ http {
 将其它所有请求转发到 http://example.com:portdefault/
 ```
 >**<font style="color:black">提示: 必须把  location / {} 放在最下面不然访问不到 指定后缀</font>**
-
 
 ---
 ---
@@ -108,5 +107,164 @@ server host:port：分发服务器的列表配置
 
 
 
+# 静态页面分离
 
+```java
+
+
+    #对jsp和do结尾的url也去访问tomcat服务
+    location ~ \.(jsp|do)$ {  
+            proxy_pass http://localhost:8080;
+    }
+    
+    #对js、css、png、gif结尾的都去访问根目录下查找
+    location ~ \.（js|css|png|gif）$ {  
+            root F:/javaweb;
+    }
+```
+
+
+
+# 完整配置文件
+
+```java
+#user  nobody;
+worker_processes  2;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    #nginx默认最大并发数是1024个用户线程
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    #http1.1在请求完之后还会保留一段时间的连接，所以这里的timeout时长不能太大，也不能太小，
+    #太小每次都要建立连接，太大会浪费系统资源（用户不再请求服务器）
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+    #nginx监听80端口
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+    #这里的/表示所有的请求
+        #location / {
+        #将80端口的所有请求都转发到8080端口去处理，proxy_pass代表的是代理路径
+     #   proxy_pass http://localhost:8080;
+          #  root   html;
+           # index  index.html index.htm;
+        #}
+
+    #对项目名进行访问就去访问tomcat服务
+    location  /Student_Vote {  
+            proxy_pass http://localhost:8080;
+    }
+
+    #对jsp和do结尾的url也去访问tomcat服务
+    location ~ \.(jsp|do)$ {  
+            proxy_pass http://localhost:8080;
+    }
+    
+    #对js、css、png、gif结尾的都去访问根目录下查找
+    location ~ \.（js|css|png|gif）$ {  
+            root F:/javaweb;
+    }
+
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+```
 

@@ -6,13 +6,9 @@ tags: [springCloud,RabbitMQ,springCloudStream]
 
 上一篇文章介绍了如何实现一个简单的Stream
 
-这里是预计实现以下 自定义通道 
-
 [demo地址](https://github.com/AsummerCat/StreamAndRabbitmq)
 
-<!--more-->
-
- 
+<!--more--> 
 
 ### @SendTo(Processor.OUTPUT) 这个表示将返回值发送出去
 

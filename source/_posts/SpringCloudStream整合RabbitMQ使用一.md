@@ -6,7 +6,7 @@ tags: [springCloud,RabbitMQ,springCloudStream]
 
 [文档地址](https://springcloud.cc/spring-cloud-dalston.html#_spring_cloud_stream)
 
-#SpringCloudStream
+#  SpringCloudStream
 
 SpringCloudStream 就是使用了基于消息系统的微服务处理架构。对于消息系统而言一共分为两类：基于应用标准的 JMS、基于协议标准的 AMQP，在整个 SpringCloud 之中支持有 RabbitMQ、Kafka 组件的消息系统。利用 SpringCloudStream 可以实现更加方便的消息系统的整合处理，但是推荐还是基于 RabbitMQ 实现会更好一些。
 
@@ -51,35 +51,35 @@ SpringCloudStream 就是使用了基于消息系统的微服务处理架构。�
 
 ```java
 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-amqp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
-		</dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
 ```
 
 或者也可以这么导入
 
 ```java
 <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream-rabbit</artifactId>
-		</dependency>
-		<!-- 这个代表了spring-cloud-stream+spring-cloud-stream-binder-rabbit-->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-rabbit</artifactId>
+        </dependency>
+        <!-- 这个代表了spring-cloud-stream+spring-cloud-stream-binder-rabbit-->
 ```
 
 

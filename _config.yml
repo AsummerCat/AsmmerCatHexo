@@ -108,6 +108,9 @@ tag_map:
   HomeBrew: HomeBrew
   zuul: zuul
   springCloudStream: springCloudStream
+  springCloudBus: springCloudBus
+  Nacos: Nacos
+  springCloudAlibaba: springCloudAlibaba
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
