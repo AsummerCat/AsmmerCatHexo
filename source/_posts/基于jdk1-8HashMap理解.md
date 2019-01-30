@@ -1,16 +1,21 @@
 ---
 title: 基于jdk1.8HashMap理解
 date: 2019-01-01 16:45:47
-tags: [java,hashMap]
+tags: [java,hashMap,jdk源码解析]
 ---
 
 #  简单实现MyHashMap(持续更新)
 
 
 
+## 介绍
+
 ![hashMap](/img/2019-1-2/HashMap.jpeg)
 
-
+* `AbstractMap<K,V>` 继承于这个抽象类  实现了get put remove 等一些方法的实现
+* `implements Map<K,V>` 实现这个接口 好像也是没有作用过的 毕竟在 `AbstractMap`中已经实现了这个接口
+* `Cloneable` 这个接口 表示可以使用`java.lang.Object#clone() ` 也就是实现了克隆
+* 'Serializable'序列化 
 
 ## 暂时没有实现迭代器 只有get,set,扩容
 
@@ -19,6 +24,429 @@ ps: 目前只做到了 对于链表的扩容
 红黑树 后面继续看看
 
 <!--more-->
+
+
+
+## 构造方法
+
+### 默认
+
+```java
+// 默认构造方法 ->初始化负载系数 在put的时候默认初始化数组长度为16
+public MyHashMap() {
+    this.loadFactor = DEFAULT_LOAD_FACTOR;
+}
+```
+
+### 创建 初始大小,负载系数
+
+```java
+/**
+ * 构造方法 ->传入扩容系数
+ * 调用MyHashMap(int threshold, float loadFactor)
+ * 修改默认数组大小 ->会自动根据传入的值进行处理 换成2的次幂
+ */
+public MyHashMap(int threshold) {
+    this(threshold, DEFAULT_LOAD_FACTOR);
+}
+
+/**
+ * 创建一个空的hashMap
+ * 构造方法 ->传入 初始的大小,负载系数
+ * 进行初始化
+ */
+public MyHashMap(int initialCapacity, float loadFactor) {
+    //参数校验
+    if (initialCapacity < 0) {
+        throw new IllegalArgumentException("初始容量大小不为小于0" + "传入参数为:" + initialCapacity);
+    }
+    //如果初始化容量>最大容量
+    if (initialCapacity > MAXIMUM_CAPACITY) {
+        initialCapacity = MAXIMUM_CAPACITY;
+    }
+    //判断传入的负载因子 isNaN 防止类似0.0f/0.0f  结果:NaN  这边情况出现
+    if (loadFactor <= 0 || Float.isNaN(loadFactor)) {
+        throw new IllegalArgumentException("初始化负载因子错误" + "传入的参数为" + loadFactor);
+    }
+    //这边会处理初始化阀值(属于优化部分)  变成2的次幂
+    this.threshold = tableSizeFor(initialCapacity);
+    System.out.println("初始化容器大小为:" + threshold);
+    //初始化 负载因数
+    this.loadFactor = loadFactor;
+}
+```
+
+
+
+
+
+## 默认初始化参数
+
+```java
+
+   // 默认的数组大小16
+    private static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
+   // 默认负载系数
+    private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+   // Map最大容量
+    private static final int MAXIMUM_CAPACITY = 1 << 30;
+```
+
+
+
+## 参数
+
+```java
+/**
+     * 阀值/默认“初始”容量。
+     * 如果未分配初始大小 则表示初始容量
+     * 当前数组内的key-value映射如果大于这个阀值 就可以开始扩容
+     * HashMap的扩容阈值，在HashMap中存储的Node键值对超过这个数量时，自动扩容容量为原来的二倍。
+     */
+    private int threshold;
+    /**
+     * 当前HashMap的负载系数
+     * 也就是说如果hashMap的数组的使用达到数组X系数的大小的话 用来扩容数组的
+     */
+    private final float loadFactor;
+    /**
+     * 表示当前Map的数组
+     * HashMap的哈希桶数组，非常重要的存储结构，用于存放表示键值对数据的Node元素。
+     */
+    transient Node<K, V>[] table;
+
+    /**
+     * //HashMap中实际存在的Node数量，
+     * 注意这个数量不等于table的长度，甚至可能大于它，因为在table的每个节点上是一个链表（或RBT）结构，可能不止有一个Node元素存在。
+     */
+    private transient int size;
+
+    /**
+     * 此哈希图在结构上被修改的次数 结构修改是指更改 hashmap或以其他方式修改其内部结构
+     * （例如， 重新整理。此字段用于使集合视图上的迭代器
+     */
+    private transient int modCount;
+```
+
+
+
+## node节点信息
+
+```java
+ /**
+     * 静态内部类
+     * Map Node节点  ->槽点 用来存放key value
+     */
+    static class Node<K, V> implements Map.Entry<K, V> {
+        /**
+         * 用来计算hash
+         */
+        final int hash;
+        /**
+         * 我们输入的key
+         */
+        final K key;
+        /**
+         * 我们输入的value
+         */
+        V value;
+        /**
+         * 下一个节点
+         */
+        MyHashMap.Node<K, V> next;
+
+        /**
+         * 节点的构造方法
+         */
+        Node(int hash, K key, V value, MyHashMap.Node<K, V> next) {
+            this.hash = hash;
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+
+        @Override
+        public K getKey() {
+            return key;
+        }
+
+        @Override
+        public V getValue() {
+            return value;
+        }
+
+        /**
+         * 赋值方法
+         *
+         * @param newValue
+         * @return
+         */
+        @Override
+        public V setValue(V newValue) {
+            //如果有原值
+            V oldValue = value;
+            //新值赋值给value;
+            value = newValue;
+            //最后返回旧的value
+            return oldValue;
+        }
+
+        /**
+         * 重写hashCode散列值算法
+         *
+         * @return
+         */
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(key) ^ Objects.hashCode(value);
+        }
+
+        /**
+         * 重写equals方法
+         *
+         * @param obj
+         * @return
+         */
+        @Override
+        public boolean equals(Object obj) {
+            //如果传入的obj对象=原来的 返回相等
+            if (obj == this) {
+                return true;
+            }
+            //如果Obj 也是Entry类型   继续校验  否则 返回false;
+            if (obj instanceof Map.Entry) {
+                Map.Entry<?, ?> e = (Map.Entry<?, ?>) obj;
+                //如果obj的key==key 并且 obj的value==value 表示 这两个node节点相等
+                if (Objects.equals(key, e.getKey()) &&
+                        Objects.equals(value, e.getValue()))
+                    return true;
+            }
+            return false;
+        }
+
+        /**
+         * 重写节点的toString方法
+         *
+         * @return
+         */
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "hash=" + hash +
+                    ", key=" + key +
+                    ", value=" + value +
+                    ", next=" + next +
+                    '}';
+        }
+    }
+```
+
+
+
+## 工具方法
+
+```java
+ /**
+     * 返回给定目标容量的二次幂。
+     */
+    private static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+
+    /**
+     * 用来计算 该key的hash值
+     */
+    private static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
+    /**
+     * 初始化数组或者扩容数组
+     */
+    final Node<K, V>[] reSize() {
+        //原来的数组
+        Node<K, V>[] oldTab = table;
+        //原数组容量  如果没初始化的话 则为0
+        int oldCap = (oldTab == null) ? 0 : oldTab.length;
+        //原阀值
+        int oldThr = threshold;
+        //扩容操作 新数组参数->新数组长度;
+        int newCap = 0;
+        //新阀值
+        int newThr = 0;
+
+        //如果原table初始化了 进入的肯定是扩容方法 否则进入else分支 根据初始化条件初始化数组
+
+        //这里表明map的数组初始化了 扩容
+        if (oldCap > 0) {
+            //参数校验 如果 已经是map可存放的数组最大长度 直接返回
+            if (oldCap >= MAXIMUM_CAPACITY) {
+                threshold = Integer.MAX_VALUE;
+                return oldTab;
+            }
+            //如果如果原数组长度位运算扩大1倍 如果小于数组最大长度
+            // 阀值并且大于等于默认的数组长度 1<<4 16  新阀值=旧X2 否则根据数组长度计算阀值
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+                    oldCap >= DEFAULT_INITIAL_CAPACITY) {
+                newThr = oldThr << 1;
+            }
+        }
+        //创建初始化方法
+        //如原数组阀值大于0 初始化新数组容量为原阀值 否则使用默认的值 创建一个阀值 也就是16*0.75f
+        else if (oldThr > 0) {
+            //
+            newCap = oldThr;
+        } else {
+            //进入这里表示 new hashMap(); 所有阀值为null
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            newThr = (int) (DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+        }
+
+        //如果新阀值大小还没有设定
+        if (newThr == 0) {
+            float ft = (float) newCap * loadFactor;
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float) MAXIMUM_CAPACITY ?
+                    (int) ft : Integer.MAX_VALUE);
+        }
+
+        //将新阀值设置map的阀值
+        threshold = newThr;
+
+        //将新数组设置map的数组
+        Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
+        //将table的地址指向新起的Table;
+        table = newTab;
+
+        //接下来就是扩容操作了 移动旧table内容遍历 重新计算hash值塞给newTable
+        if (oldTab != null) {
+            //根据旧数组长度遍历
+            for (int j = 0; j < oldCap; ++j) {
+                //创建标记当前操作的node节点
+                Node<K, V> e;
+                //如果当前节点不为空 继续操作 否则直接略过
+                if ((e = oldTab[j]) != null) {
+                    //标记旧节点完毕后 移除旧节点中的内容
+                    oldTab[j] = null;
+                    //判断e这个node中是否有后继节点
+                    if (e.next == null) {
+                        //不存在后继 重新计算hash后 插入newTable
+                        newTab[e.hash & (newCap - 1)] = e;
+                    }
+                    //todo 如果是红黑树类型暂时忽略
+                    //else if(){
+                    //
+                    //}
+
+                    else {
+                        //如果后继有值 需要处理链表
+                        Node<K, V> loHead = null, loTail = null;
+                        Node<K, V> hiHead = null, hiTail = null;
+                        //当前操作的节点
+                        Node<K, V> next;
+                        do {
+                            // 注意：不是(e.hash & (oldCap-1));而是(e.hash & oldCap)
+
+                            // (e.hash & oldCap) 得到的是 元素的在数组中的位置是否需要移动,示例如下
+                            // 示例1：
+                            // e.hash=10 0000 1010
+                            // oldCap=16 0001 0000
+                            //   &   =0  0000 0000       比较高位的第一位 0
+                            //结论：元素位置在扩容后数组中的位置没有发生改变
+
+                            // 示例2：
+                            // e.hash=17 0001 0001
+                            // oldCap=16 0001 0000
+                            //   &   =1  0001 0000      比较高位的第一位   1
+                            //结论：元素位置在扩容后数组中的位置发生了改变，新的下标位置是原下标位置+原数组长度
+
+                            // (e.hash & (oldCap-1)) 得到的是下标位置,示例如下
+                            //   e.hash=10 0000 1010
+                            // oldCap-1=15 0000 1111
+                            //      &  =10 0000 1010
+
+                            //   e.hash=17 0001 0001
+                            // oldCap-1=15 0000 1111
+                            //      &  =1  0000 0001
+
+                            //新下标位置
+                            //   e.hash=17 0001 0001
+                            // newCap-1=31 0001 1111    newCap=32
+                            //      &  =17 0001 0001    1+oldCap = 1+16
+
+                            //元素在重新计算hash之后，因为n变为2倍，那么n-1的mask范围在高位多1bit(红色)，因此新的index就会发生这样的变化：
+                            // 0000 0001->0001 0001
+
+                            next = e.next;
+                            //元素的在数组中的位置是否需要移动
+                            if ((e.hash & oldCap) == 0) {
+                                // 如果原元素位置没有发生变化
+                                if (loTail == null) {
+                                    // 确定首元素
+                                    loHead = e;
+                                    // 第一次进入时     e   -> aa  ; loHead-> aa
+                                } else {
+                                    loTail.next = e;
+                                }
+                                //第二次进入时        loTail-> aa  ;    e  -> bb ;  loTail.next -> bb;而loHead和loTail是指向同一块内存的，所以loHead.next 地址为 bb
+                                //第三次进入时        loTail-> bb  ;    e  -> cc ;  loTail.next 地址为 cc;loHead.next.next = cc
+                                loTail = e;
+                                // 第一次进入时         e   -> aa  ; loTail-> aa loTail指向了和  loHead相同的内存空间
+                                // 第二次进入时               e   -> bb  ; loTail-> bb loTail指向了和  loTail.next（loHead.next）相同的内存空间   loTail=loTail.next
+                                // 第三次进入时               e   -> cc  ; loTail-> cc loTail指向了和  loTail.next(loHead.next.next)相同的内存
+                            } else {
+                                //同理
+                                if (hiTail == null) {
+                                    hiHead = e;
+                                } else {
+                                    hiTail.next = e;
+                                }
+                                hiTail = e;
+                            }
+
+
+                        }
+                        while ((e = next) != null);//这一步就是链表迁移的过程 重新维护关系
+                        //总结：1.8中 旧链表迁移新链表    链表元素相对位置没有变化; 实际是对对象的内存地址进行操作
+                        //在1.7中  旧链表迁移新链表        如果在新表的数组索引位置相同，则链表元素会倒置
+
+                        //这里是元素位置没有被改变
+                        if (loTail != null) {
+                            //将最后一个e.next 设置为null
+                            loTail.next = null;
+                            //原地址不变
+                            newTab[j] = loHead;
+                        }
+                        //改变位置
+                        if (hiTail != null) {
+                            //将最后一个e.next 设置为null
+                            hiTail.next = null;
+                            //重新构建地址
+                            newTab[j + oldCap] = hiHead;
+                        }
+
+                    }
+
+                }
+            }
+        }
+        return newTab;
+    }
+
+
+```
+
+
+
+## 详细
+
+
 
 ```java
 package MyHashMap;

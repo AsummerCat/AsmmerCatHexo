@@ -214,7 +214,7 @@ kibana.index: ".kibana"
 
   ![](/img/2019-1-20/kibana1.png)
 
-![](/img/2019-1-20/elk-log)
+![](/img/2019-1-20/kibana2.png)
 
 这样我们就已经实现了一个简单的elk日志收集
 
