@@ -4,7 +4,7 @@ date: 2019-01-30 14:18:05
 tags: jdk源码解析
 ---
 
-#LinkedList链表集合
+# LinkedList链表集合
 
 **主要注意的是 如果没有实现迭代器 那么在debug中不会出现内容**
 
@@ -19,7 +19,7 @@ tags: jdk源码解析
 * `LinkedList` 实现java.io.Serializable接口，这意味着LinkedList支持序列化，能通过序列化去传输。
 * LinkedList 是非同步的。 
 
-
+<!--more-->
 
 # 实现自定义LinkedList
 

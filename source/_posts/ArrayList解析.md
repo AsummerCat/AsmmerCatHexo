@@ -21,6 +21,8 @@ tags: [jdk源码解析]
 
 和Vector不同，ArrayList中的操作不是线程安全的！
 
+<!--more-->
+
 
 
 #  构造方法
@@ -109,8 +111,6 @@ tags: [jdk源码解析]
 
 
 # 这边照旧创建一个自定义的list
-
-<!--more-->
 
 实现了简单的 add get
 
