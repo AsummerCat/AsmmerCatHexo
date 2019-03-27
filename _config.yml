@@ -115,6 +115,7 @@ tag_map:
   缓存: 缓存
   jdk源码解析: jdk源码解析
   solr: solr
+  orcle: orcle
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
