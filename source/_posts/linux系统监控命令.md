@@ -67,5 +67,24 @@ cpu中的 cs us: 上下文切换频率   us :用户占用的cpu
 
 
 
-## 111
+## pidstat 细致观察进程(需要安装)
+
+![pidstat命令](/img/2019-3-30/pidstat.png)
+
+可以带参数  例如: ` pidstat p 进程号 u 1 3`   -p +进程号  -u表示:查看cpu的值  1:采集频率 3:采集条数
+
+![例子](/img/2019-3-30/pidstat1.png)
+
+```
+pidstat 
+需要安装插件 一般来说 云服务器上都有 如果没有手动安装
+安装命令: sudo apt-get install sysstat
+ 作用: 
+  -- 监控cpu -u
+  -- 监控io -d
+  -- 监控内存 
+  -- 监控线程 -t
+  
+  一般来说使用这个 `参数 -t` 用来监控进程下的线程 搭配上面例子使用 
+```
 
