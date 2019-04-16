@@ -117,6 +117,7 @@ tag_map:
   solr: solr
   orcle: orcle
   统计学: 统计学
+  guava: guava
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
