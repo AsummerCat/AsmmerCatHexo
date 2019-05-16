@@ -121,6 +121,7 @@ tag_map:
   keepalive: keepalive
   sharding-jdbc: sharding-jdbc
   zookepper: zookepper
+  Hadoop: Hadoop
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
