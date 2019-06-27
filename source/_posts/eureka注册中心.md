@@ -179,3 +179,43 @@ eureka:
 
 多种方式 (待更新)
 
+
+
+
+
+# 完整配置文件
+
+```java
+spring:
+  application:
+    name: eureka-Server
+
+    # 添加密码校验
+  security:
+    user:
+      name: admin
+      password: pass
+server:
+  port: 8100
+
+
+eureka:
+  instance:
+    #设置当前实例的主机名称
+    #hostname: ${spring.cloud.client.ipAddress}
+    #路径
+    prefer-ip-address: true
+    #显示的Id
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    #关闭本身的服务注册
+    register-with-eureka: false
+    #检索服务
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka
+  ##关闭保护模式
+  server:
+    enableSelfPreservation: false
+```
+

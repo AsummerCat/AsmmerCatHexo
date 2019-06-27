@@ -122,6 +122,7 @@ tag_map:
   sharding-jdbc: sharding-jdbc
   zookepper: zookepper
   Hadoop: Hadoop
+  JWT: JWT
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
