@@ -12,10 +12,9 @@ http://docs.spring.io/spring-session/docs/current/reference/html5/guides/httpses
 
 ```
 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
-		
 <dependency>
     <groupId>org.springframework.session</groupId>
     <artifactId>spring-session</artifactId>
@@ -94,7 +93,6 @@ logging.level.com.linjingc.springbootandredis.controller=info
 # 针对超时时间，注解方式提供了响应的设置
 
 `@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 3600)`
-
 
 ---
 
