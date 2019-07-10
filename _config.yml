@@ -111,6 +111,7 @@ tag_map:
   springCloudBus: springCloudBus
   Nacos: Nacos
   springCloudAlibaba: springCloudAlibaba
+  SpringCloudConfig: SpringCloudConfig
   Jenkins: Jenkins
   缓存: 缓存
   jdk源码解析: jdk源码解析
@@ -123,6 +124,9 @@ tag_map:
   zookepper: zookepper
   Hadoop: Hadoop
   JWT: JWT
+  sidecar: sidecar
+  redis: redis
+  Oauth2: Oauth2
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
