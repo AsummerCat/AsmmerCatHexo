@@ -15,8 +15,8 @@ tags: [Security,Oauth2,springCloud]
 ```java
      <dependency>
 	    <groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+	    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
