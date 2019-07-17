@@ -127,6 +127,7 @@ tag_map:
   sidecar: sidecar
   redis: redis
   Oauth2: Oauth2
+  mybaitis: mybaitis
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
