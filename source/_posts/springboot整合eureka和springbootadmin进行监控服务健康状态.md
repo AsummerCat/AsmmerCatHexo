@@ -13,15 +13,15 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 ### 监控端
 
 ```java
-<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-server</artifactId>
-		</dependency>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+      
+   <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-starter-server</artifactId>
+   </dependency>
 		
 ```
 
@@ -29,16 +29,16 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 
 ### 被监控端 —>客户端
 
-```
-<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-client</artifactId>
-		</dependency>
+```java
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+      
+   <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-starter-client</artifactId>
+   </dependency>
 ```
 
 <!--more-->

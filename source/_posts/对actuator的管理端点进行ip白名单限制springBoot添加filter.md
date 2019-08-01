@@ -76,7 +76,6 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * shutdown和pause的管理端点的ip白名单过滤
- * @author yangzhilong
  *
  */
 @WebFilter(filterName="shutdownFilter",urlPatterns= {"/shutdown","/pause","/restart"})
