@@ -129,6 +129,8 @@ tag_map:
   Oauth2: Oauth2
   mybaitis: mybaitis
   单点登录: 单点登录
+  actuator: actuator
+  springBootAdmin: springBootAdmin
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
