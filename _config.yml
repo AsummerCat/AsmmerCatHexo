@@ -131,6 +131,8 @@ tag_map:
   单点登录: 单点登录
   actuator: actuator
   springBootAdmin: springBootAdmin
+  Zipkin: Zipkin
+  sleuth: sleuth
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
