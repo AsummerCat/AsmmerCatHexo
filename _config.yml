@@ -136,6 +136,8 @@ tag_map:
   分布式锁: 分布式锁
   redisson: redisson
   跨域: 跨域
+  curator: curator
+
   
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
