@@ -1,7 +1,7 @@
 ---
 title: springboot整合zookeeper实现分布式一curator基础版本
 date: 2019-08-20 20:06:05
-tags: [springboot,zookepper,分布式锁,curator]
+tags: [springboot,zookeeper,分布式锁,curator]
 ---
 
 # springboot整合zookeeper实现分布式一curator基础版本

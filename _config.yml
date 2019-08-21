@@ -121,7 +121,7 @@ tag_map:
   guava: guava
   keepalive: keepalive
   sharding-jdbc: sharding-jdbc
-  zookepper: zookepper
+  zookeeper: zookeeper
   Hadoop: Hadoop
   JWT: JWT
   sidecar: sidecar
