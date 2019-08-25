@@ -137,6 +137,8 @@ tag_map:
   redisson: redisson
   跨域: 跨域
   curator: curator
+  分布式任务调度平台: 分布式任务调度平台
+  xxl-job: xxl-job
 
   
 # Date / Time format
