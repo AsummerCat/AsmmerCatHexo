@@ -139,6 +139,7 @@ tag_map:
   curator: curator
   分布式任务调度平台: 分布式任务调度平台
   xxl-job: xxl-job
+  分布式事务: 分布式事务
 
   
 # Date / Time format
