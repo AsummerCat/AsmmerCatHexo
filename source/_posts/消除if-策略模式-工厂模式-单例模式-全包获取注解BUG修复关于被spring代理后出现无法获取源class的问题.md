@@ -42,6 +42,102 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
 
 无法使用
 
+<!--more-->
+
+这样获取到的bean 如果要是被spring利用cglib代理或者jdk代理后 获取到的object 就是代理类
+
+代理类中无法获取到注解
+
+然后会产生无法获取注解 并且获取的getname 也是代理类的名称
+
+无法使用
+
 # 修复方案
 
-利用工具类获取源class
+利用AopTargetUtils工具类获取源class
+
+```java
+	for (Object bean : beans.values()) {
+				try {
+					//获取源class
+					Object target = AopTargetUtils.getTarget(bean);
+					indexBiMap.put(target.getClass().getAnnotation(IndexBi.class).value(), lowerFirst(target.getClass().getSimpleName()));
+				} catch (Exception e) {
+					//错误
+					logger.error("获取注解失败");
+				}
+			}
+			IndexBiFactory.setIndexBiMap(indexBiMap);
+```
+
+
+
+## 工具类
+
+```
+package com.mdt.util;
+
+import org.springframework.aop.framework.AdvisedSupport;
+import org.springframework.aop.framework.AopProxy;
+import org.springframework.aop.support.AopUtils;
+
+import java.lang.reflect.Field;
+
+/**
+ * 获取源class
+ * @date 2019年9月4日10:48:47
+ * @author cxc
+ */
+public class AopTargetUtils {
+	/**
+	 * 获取 目标对象
+	 *
+	 * @param proxy 代理对象
+	 * @return
+	 * @throws Exception
+	 */
+	public static Object getTarget(Object proxy) throws Exception {
+
+		if (!AopUtils.isAopProxy(proxy)) {
+			return proxy;//不是代理对象
+		}
+		if (AopUtils.isJdkDynamicProxy(proxy)) {
+			return getJdkDynamicProxyTargetObject(proxy);
+		} else { //cglib
+			return getCglibProxyTargetObject(proxy);
+		}
+	}
+
+
+	private static Object getCglibProxyTargetObject(Object proxy) throws Exception {
+		Field h = proxy.getClass().getDeclaredField("CGLIB$CALLBACK_0");
+		h.setAccessible(true);
+		Object dynamicAdvisedInterceptor = h.get(proxy);
+
+		Field advised = dynamicAdvisedInterceptor.getClass().getDeclaredField("advised");
+		advised.setAccessible(true);
+
+		Object target = ((AdvisedSupport) advised.get(dynamicAdvisedInterceptor)).getTargetSource().getTarget();
+
+		return target;
+	}
+
+
+	private static Object getJdkDynamicProxyTargetObject(Object proxy) throws Exception {
+		Field h = proxy.getClass().getSuperclass().getDeclaredField("h");
+		h.setAccessible(true);
+		AopProxy aopProxy = (AopProxy) h.get(proxy);
+
+		Field advised = aopProxy.getClass().getDeclaredField("advised");
+		advised.setAccessible(true);
+
+		Object target = ((AdvisedSupport) advised.get(aopProxy)).getTargetSource().getTarget();
+
+		return target;
+	}
+
+
+}
+
+```
+
