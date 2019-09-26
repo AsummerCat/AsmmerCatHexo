@@ -143,6 +143,8 @@ tag_map:
   dubbo: dubbo
   springmvc: springmvc
   源码解析: 源码解析
+  mybatis源码解析: mybatis源码解析
+  调优: 调优
 
   
 # Date / Time format
