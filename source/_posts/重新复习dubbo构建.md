@@ -1,6 +1,6 @@
 ---
-title: 重新复习dubbo构建一
-date: 2019-09-16 23:02:34
+title: 重新复习dubbo构建
+date: 2019-09-26 14:46:31
 tags: [SpringBoot,dubbo,zookeeper]
 ---
 
