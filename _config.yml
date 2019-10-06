@@ -147,6 +147,7 @@ tag_map:
   调优: 调优
   TDD测试:  TDD测试
   Gradle: Gradle
+  gateway: gateway
 
   
 # Date / Time format
