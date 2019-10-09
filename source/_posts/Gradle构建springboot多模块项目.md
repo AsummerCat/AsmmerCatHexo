@@ -1,5 +1,5 @@
 ---
-title: Gradle构建多模块项目
+title: Gradle构建springboot多模块项目
 date: 2019-09-27 11:55:29
 tags: [Gradle]
 ---

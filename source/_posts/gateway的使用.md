@@ -1,7 +1,7 @@
 ---
 title: gateway的使用
 date: 2019-10-06 09:14:59
-tags: [gateway,springCloud]
+tags: [gateway,springCloud,微服务]
 ---
 
 # 创建gateway网关项目
