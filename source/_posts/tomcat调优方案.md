@@ -48,7 +48,7 @@ catalina.bat和startup.bat修改都行，因为startup.bat会调用catalina.bat
 
 ## 方式一
 
-在tomcat\conf\server.xml中的<host></host>
+在tomcat\conf\server.xml中的`<host></host>`
 
 ```
 <Context debug="0" docBase="D:\demo1\web" path="/demo1"  reloadable="true"/>
@@ -78,7 +78,74 @@ conf\Catalina\localhost中添加一个XML文件
 <Context docBase="D:\demo1\web" reloadable="true" /> 
 ```
 
+# 关闭shutdown端口
+
+shown端口是写在Server参数里的，直接去掉是不管用，也是会默认启动的，一般在安全设置时候建议把端口修改为其他端口，shutdown修改为其他复杂字串。实际上这个端口是可以直接屏蔽不监听的。
+
+这边可以通过 
+
+```
+telnet 127.0.0.1 8080 
+---> shotdown 
+进行关闭的
+```
+
+修改server.xml中的
+
+```java
+<Server port="8005" shutdown="SHUTDOWN">
+```
+
+## 方式一 更改port的参数值
+
+进入Tomcat文件的conf文件夹的server.xml中，将port的参数值更改为-1：
+
+```
+<Server port="-1" shutdown="SHUTDOWN">
+```
+
+## 方式二 更改shutdown的参数值
+
+进入Tomcat文件的conf文件夹的server.xml中，将shutdown的参数值更改为QWEASD：
+
+```
+<Server port="8005" shutdown="QWEASD">
+```
 
 
-# 2333
+
+# 隐藏版本信息
+
+黑客可以根据指定版本漏洞进行攻击
+
+```
+进入tomcat根目录->lib->catalina.jar文件
+```
+
+```
+进入org/apache/catalina/util
+编辑文件ServerInfo.properties
+```
+
+```java
+修改以下内容:
+
+server.info=Apache Tomcat/8.5.28   ->改为 99999
+server.number=8.5.28.0             -> 10086
+server.built=Feb 6 2018 23:10:25 UTC   -> Feb 6 2010 23:10:25 UTC 
+```
+
+# 禁用Tomcat管理界面
+
+## 重命名tomcat目录下的ROOT 
+
+进入Tomcat文件夹下的webapps文件夹，将其中的ROOT文件重命名，然后新建一个ROOT文件夹即可
+
+# 启动cookie的HttpOnly属性
+
+
+
+# 优化配置
+
+## 缓存优化 (niginx,gzip)
 
