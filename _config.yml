@@ -148,6 +148,8 @@ tag_map:
   TDD测试:  TDD测试
   Gradle: Gradle
   gateway: gateway
+  cxf: cxf
+  webService: webService
 
   
 # Date / Time format
