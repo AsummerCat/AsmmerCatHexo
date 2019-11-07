@@ -1,7 +1,7 @@
 ---
 title: SpringMVC源码解析之初始化handlerMapping二
 date: 2019-09-10 23:44:30
-tags: [springmvc,源码解析]
+tags: [SpringMvc,源码解析]
 ---
 
 # SpringMVC源码解析之初始化handlerMapping二

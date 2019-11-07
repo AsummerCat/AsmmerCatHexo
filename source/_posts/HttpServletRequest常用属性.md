@@ -1,7 +1,7 @@
 ---
 title: HttpServletRequest常用属性
 date: 2019-09-26 15:02:21
-tags: [java,springMvc,springboot]
+tags: [java,SpringMvc,SpringBoot]
 ---
 
 # HttpServletRequest常用属性

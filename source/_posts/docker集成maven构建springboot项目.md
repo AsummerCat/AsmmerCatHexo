@@ -1,10 +1,10 @@
 ---
 title: docker集成maven构建springboot项目
 date: 2019-08-03 17:26:49
-tags: [docker,maven,springboot]
+tags: [docker,maven,SpringBoot]
 ---
 
-#docker集成maven构建springboot项目 
+# docker集成maven构建springboot项目 
 
 暂时基本可用 后期再学习
 

@@ -1,7 +1,7 @@
 ---
 title: springboot整合redis实现分布式锁一
 date: 2019-08-06 20:57:43
-tags: [springboot,redis,分布式锁]
+tags: [SpringBoot,redis,分布式锁]
 ---
 
 # springboot整合redis实现分布式锁一 基础版本

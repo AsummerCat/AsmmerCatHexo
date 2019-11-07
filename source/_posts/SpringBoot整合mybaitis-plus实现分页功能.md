@@ -1,7 +1,7 @@
 ---
 title: SpringBoot整合mybaitis-plus实现分页功能
 date: 2019-07-16 17:17:05
-tags: [springboot,mybaitis]
+tags: [SpringBoot,mybaitis]
 ---
 
 # SpringBoot整合mybaitis-plus实现分页功能

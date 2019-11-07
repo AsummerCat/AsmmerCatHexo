@@ -1,7 +1,7 @@
 ---
 title: springboot整合redis实现分布式锁二redisson版本
 date: 2019-08-13 23:18:41
-tags: [redis,springboot,分布式锁,redisson]
+tags: [redis,SpringBoot,分布式锁,redisson]
 ---
 
 # springboot整合redis实现分布式锁二redisson版本

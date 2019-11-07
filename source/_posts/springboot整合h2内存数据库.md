@@ -1,7 +1,7 @@
 ---
 title: springboot整合h2内存数据库
 date: 2019-07-16 17:09:43
-tags: [springboot,数据库]
+tags: [SpringBoot,数据库]
 ---
 
 # springboot整合h2内存数据库

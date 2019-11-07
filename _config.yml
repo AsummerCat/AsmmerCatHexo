@@ -150,6 +150,7 @@ tag_map:
   gateway: gateway
   cxf: cxf
   webService: webService
+  WebSocket: WebSocket
 
   
 # Date / Time format

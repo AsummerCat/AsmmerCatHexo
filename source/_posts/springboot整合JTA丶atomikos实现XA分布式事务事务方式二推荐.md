@@ -1,7 +1,7 @@
 ---
 title: springboot整合JTA丶atomikos实现XA分布式事务事务方式二推荐
 date: 2019-09-04 08:14:08
-tags: [springBoot,分布式事务]
+tags: [SpringBoot,分布式事务]
 ---
 
 # springboot整合JTA丶atomikos实现XA分布式事务事务方式二 推荐

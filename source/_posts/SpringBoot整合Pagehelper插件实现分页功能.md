@@ -1,7 +1,7 @@
 ---
 title: SpringBoot整合Pagehelper插件实现分页功能
 date: 2019-07-16 17:16:32
-tags: [springboot,mybaitis]
+tags: [SpringBoot,mybaitis]
 ---
 
 # SpringBoot整合Pagehelper插件实现分页功能

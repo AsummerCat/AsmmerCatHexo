@@ -1,7 +1,7 @@
 ---
 title: SpringBoot整合mybaitis配置版本
 date: 2019-07-16 17:13:41
-tags: [springboot,mybaitis]
+tags: [SpringBoot,mybaitis]
 ---
 
 # SpringBoot整合mybaitis配置版本

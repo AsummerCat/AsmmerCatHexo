@@ -1,7 +1,7 @@
 ---
 title: SpringBoot整合CXF实现webService
 date: 2019-11-07 13:57:11
-tags: [springBoot,cxf,webService]
+tags: [SpringBoot,cxf,webService]
 ---
 
 # 基于CXF实现WebService
