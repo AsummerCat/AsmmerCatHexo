@@ -151,6 +151,7 @@ tag_map:
   cxf: cxf
   webService: webService
   WebSocket: WebSocket
+  okHttp: okHttp
 
   
 # Date / Time format
