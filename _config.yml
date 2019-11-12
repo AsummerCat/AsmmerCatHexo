@@ -152,6 +152,9 @@ tag_map:
   webService: webService
   WebSocket: WebSocket
   okHttp: okHttp
+  DelayQueue: DelayQueue
+  Queue: Queue
+  netty: netty
 
   
 # Date / Time format
