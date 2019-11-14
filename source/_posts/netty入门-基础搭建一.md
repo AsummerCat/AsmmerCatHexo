@@ -4,7 +4,7 @@ date: 2019-11-12 13:59:20
 tags: [netty]
 ---
 
-# netty
+# netty入门-基础搭建一
 
 [demo地址](https://github.com/AsummerCat/netty-demo)
 
@@ -31,11 +31,20 @@ tags: [netty]
 ## 服务端
 
 ```java
-
-	//连接客户端
+/**
+	 * 连接客户端
+	 */
 	public static ConcurrentHashMap<String, ChannelHandlerContext> map = new ConcurrentHashMap<String, ChannelHandlerContext>();
+	/**
+	 * 维护连接上的客户端
+	 */
+	private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+	private static ChannelFuture serverChannelFuture;
+
+
 
 	public static void main(String[] args) {
+
 		ServerBootstrap serverBootstrap = new ServerBootstrap();
 
 		//接收客户端连接
@@ -78,26 +87,50 @@ tags: [netty]
 
 					                             //接受客户端消息
 					                             nioSocketChannel.pipeline().addLast(new SimpleChannelInboundHandler<String>() {
+						                             /**
+						                              * 读取客户端消息
+						                              */
 						                             @Override
 						                             protected void channelRead0(ChannelHandlerContext channelHandlerContext, String msg) throws Exception {
-							                             System.out.println(msg);
+                                                         System.out.println(msg);
 							                             map.put(msg, channelHandlerContext);
 							                             //回复
 							                             NettyServer.sendMessageClient(msg);
+						                             }
+
+						                             /**
+						                              * 服务端监听到客户端活动
+						                              */
+						                             @Override
+						                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
+							                             //移除全局用户中的这个人
+							                             channelGroup.add(ctx.channel());
+							                             System.out.println(ctx.channel().localAddress().toString()+"已经成功连接");
+							                             //发送全体广播
+							                             sendAllMessage();
+						                             }
+
+						                             /**
+						                              * 服务端监听到客户端不活动
+						                              */
+						                             @Override
+						                             public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+							                             //移除全局用户中的这个人
+							                             channelGroup.remove(ctx.channel());
+							                             System.out.println(ctx.channel().localAddress().toString()+"已经断开");
 						                             }
 					                             });
 				                             }
 			                             }
 			);
 			//启动netty服务
-			serverBootstrap.bind(8000);
-//			serverBootstrap.bind(8000).sync().channel();
+			//serverBootstrap.bind(8000);
+			serverChannelFuture= serverBootstrap.bind(8000).sync();
 		}catch (Exception e){
-			e.printStackTrace();
-		}finally {
 			// 释放线程池资源
-//			boos.shutdownGracefully();
-//			worker.shutdownGracefully();
+			boos.shutdownGracefully();
+			worker.shutdownGracefully();
+			e.printStackTrace();
 		}
 	}
 ```
@@ -128,6 +161,19 @@ nioSocketChannel.pipeline().addLast(new IdleStateHandler(60, 60, 60, TimeUnit.SE
 
 3）allIdleTime：所有类型的超时时间
 
+```
+
+
+
+## 群体广播
+
+```java
+	/**
+	 * 群发广播
+	 */
+	public static void sendAllMessage(){
+		channelGroup.writeAndFlush("新用户登录了"+new Date());
+	}
 ```
 
 
