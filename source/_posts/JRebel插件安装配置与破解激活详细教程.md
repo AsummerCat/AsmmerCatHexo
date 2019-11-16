@@ -10,6 +10,13 @@ tags: 前端
 
 ## 操作
 
+```java
+docker pull ilanyu/golang-reverseproxy
+docker run -d -p 8888:8888 ilanyu/golang-reverseproxy
+```
+
+
+
 <!--more-->
 
 下面是新的jrebel破解方式，采用本地License Server破解，该方法可破解最新版的jrebel（未来的某一天可能会失效，想要更稳定的破解方式请看后面的破解方法）
