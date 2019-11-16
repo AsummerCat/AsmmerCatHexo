@@ -9,7 +9,6 @@ tags: mac
 >1.[Mac OS 终端利器 iTerm2](https://www.cnblogs.com/xishuai/p/mac-iterm2.html)  
 >2.[mac攻略(八) -- 神器zsh和iterm2的配置](https://www.cnblogs.com/redirect/p/6429731.html)
 
-
 ---
 
 <!--more-->
@@ -60,6 +59,19 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 # 配置 Meslo 字体
 
 使用上面的主题，需要 Meslo 字体支持，要不然会出现乱码的情况，字体下载地址：Meslo LG M Regular for Powerline.ttf
+
+```java
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+```
+
+
 
 下载好之后，直接在 Mac OS 中安装即可。
 
@@ -146,10 +158,10 @@ ctrl + r	搜索命令历史
 ```
 
 # 扩展
- 
+
 shell 就是和上面这些系统内核指令打交道的一座桥梁,我们通过键盘输入一种自己容易记忆识别的符号标识(shell 命令)
 其实 zsh 也是一种 shell ,但是并不是我们系统默认的 shell ,unix 衍生系统的默认shell 都是 bash
- 
+
 ```
 chsh命令用于修改你的登录shell。
 1 查看安装了哪些shell
@@ -174,9 +186,37 @@ brew cask uninstall qq #卸载 QQ
 
 # 远程连接
  打开`Preferences` -> `Profiles` -> `左下角加号点击添加`
-  
+
   ![iTerm2配置](/img/2018-10-4/iTerm2Config1.png)
-  
+
   以后就可以直接在 `Profiles` 中登录远程服务器
+
+
+
+
+
+# 这边的话 还有一种主题推荐(五颗星)
+
+按照上面的流程走完后接着来
+
+* 在配置里 的window中修改右下角的style为:Full-Width Bottom of Screen
+
+* 下载Powerline 主题主题
+
+  ```java
+  git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme ~/.ohmyzsh-powerline
+  cd ~/.ohmyzsh-powerline
+  ./install_in_omz.sh
+  ```
+
+  * 配置ZSH
+
+  ​       打开配置文件`~/.zshrc` 修改主题配置
+
+  ```java
+  ZSH_THEME="powerline"
+  ```
+
+  
 
 
