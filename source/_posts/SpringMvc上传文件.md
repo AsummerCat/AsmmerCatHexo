@@ -1,11 +1,11 @@
 ---
 title: SpringMvc上传文件
 date: 2018-09-20 22:02:14
-tags: SpringMvc
+tags: springmvc
 ---
 
-## 第一种方式
-<!--more-->
+## 第一种方式(推荐)
+
 ```java
 <bean id="multipartResolver"    
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
@@ -79,9 +79,97 @@ private static void checkAllowFiles(String ext) throws IOException {
 
 ---
 
+<!--more-->
+
 ## 第二种方式
 
+```java
+/*
+     * 通过流的方式上传文件
+     * @RequestParam("file") 将name=file控件得到的文件封装成CommonsMultipartFile 对象
+     */
+    @RequestMapping("fileUpload")
+    public String  fileUpload(@RequestParam("file") CommonsMultipartFile file) throws IOException {
+         
+        System.out.println("fileName："+file.getOriginalFilename());
+         
+        try {
+            //获取输出流
+            OutputStream os=new FileOutputStream("E:/"+new Date().getTime()+file.getOriginalFilename());
+            //获取输入流 CommonsMultipartFile 中可以直接得到文件的流
+            InputStream is=file.getInputStream();
+            int temp;
+            //一个一个字节的读取并写入
+            while((temp=is.read())!=(-1))
+            {
+                os.write(temp);
+            }
+           os.flush();
+           os.close();
+           is.close();
+         
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "/success"; 
+    }
 ```
 
+## 第三种方式(推荐)
+
+```java
+/*
+     * 采用file.Transto 来保存上传的文件
+     */
+    @RequestMapping("fileUpload2")
+    public String  fileUpload2(@RequestParam("file") CommonsMultipartFile file) throws IOException {
+        System.out.println("fileName："+file.getOriginalFilename());
+        String path="E:/"+new Date().getTime()+file.getOriginalFilename();
+         
+        File newFile=new File(path);
+        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+        file.transferTo(newFile);
+        long  endTime=System.currentTimeMillis();
+        return "/success"; 
+    }
+```
+
+## 第四种方式
+
+```java
+/*
+     *采用spring提供的上传文件的方法
+     */
+    @RequestMapping("springUpload")
+    public String  springUpload(HttpServletRequest request) throws IllegalStateException, IOException
+    {
+         //将当前上下文初始化给  CommonsMutipartResolver （多部分解析器）
+        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(
+                request.getSession().getServletContext());
+        //检查form中是否有enctype="multipart/form-data"
+        if(multipartResolver.isMultipart(request))
+        {
+            //将request变成多部分request
+            MultipartHttpServletRequest multiRequest=(MultipartHttpServletRequest)request;
+           //获取multiRequest 中所有的文件名
+            Iterator iter=multiRequest.getFileNames();
+             
+            while(iter.hasNext())
+            {
+                //一次遍历所有文件
+                MultipartFile file=multiRequest.getFile(iter.next().toString());
+                if(file!=null)
+                {
+                    String path="E:/springUpload"+file.getOriginalFilename();
+                    //上传
+                    file.transferTo(new File(path));
+                }
+                 
+            }
+           
+        }
+    return "/success"; 
+    }
 ```
 

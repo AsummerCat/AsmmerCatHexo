@@ -1,7 +1,7 @@
 ---
 title: java使用拦截器统计每个http请求的响应时间
 date: 2019-09-26 15:03:06
-tags: [java,工具类]
+tags: [java,工具类,springmvc]
 ---
 
 # java使用拦截器统计每个http请求的响应时间
