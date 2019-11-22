@@ -155,6 +155,7 @@ tag_map:
   DelayQueue: DelayQueue
   Queue: Queue
   netty: netty
+  mongodb: mongodb
 
   
 # Date / Time format
