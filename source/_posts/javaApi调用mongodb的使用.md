@@ -369,3 +369,38 @@ Aggregation agg = Aggregation.newAggregation();
     }
 ```
 
+
+
+# 原子性操作
+
+## 查询并更新
+
+```java
+/**
+	 * 原子性操作 查询更新
+	 */
+	public User atomicityFindAndUpdate(){
+		Query query = new Query(Criteria.where("name").is("小明41"));
+		Update update = new Update().set("address", "原子性操作成功");
+		User andModify = mongoTemplate.findAndModify(query, update, User.class);
+		//返回的是原值
+		return andModify;
+	}
+```
+
+## 查询并删除
+
+```java
+/**
+	 * 原子性操作 查询删除
+	 */
+	public User atomicityFindAndRemove(){
+		Query query = new Query(Criteria.where("name").is("小明41"));
+		User andModify = mongoTemplate.findAndRemove(query, User.class);
+		return andModify;
+	}
+
+```
+
+
+

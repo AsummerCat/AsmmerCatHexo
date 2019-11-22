@@ -75,6 +75,27 @@ public class User {
 package com.linjingc.mongdbdemo.dao;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.linjingc.mongdbdemo.entity.User;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.regex.Pattern;
+
+import static org.springframework.data.domain.Sort.Direction;
 
 @Component
 public class MongoDao {
@@ -246,6 +267,28 @@ public class MongoDao {
     	return list;
     }
 
+
+	/**
+	 * 原子性操作 查询更新
+	 */
+	public User atomicityFindAndUpdate(){
+		Query query = new Query(Criteria.where("name").is("小明41"));
+		Update update = new Update().set("address", "原子性操作成功");
+		User andModify = mongoTemplate.findAndModify(query, update, User.class);
+		//返回的是原值
+		return andModify;
+	}
+
+	/**
+	 * 原子性操作 查询删除
+	 */
+	public User atomicityFindAndRemove(){
+		Query query = new Query(Criteria.where("name").is("小明41"));
+		User andModify = mongoTemplate.findAndRemove(query, User.class);
+		return andModify;
+	}
+
+
 }
 
 ```
@@ -375,9 +418,30 @@ public class MongoDbController {
 		return "分组查询成功---->" + users.toString();
 	}
 
+	/**
+	 * 原子性操作 查询更新
+	 * @return
+	 */
+	@RequestMapping("atomicityFindAndUpdate")
+	public String atomicityFindAndUpdate() {
+		User users = mongoDao.atomicityFindAndUpdate();
+		return "原子性操作查询更新成功---->" + users.toString();
+	}
+
+
+	/**
+	 * 原子性操作 查询删除
+	 * @return
+	 */
+	@RequestMapping("atomicityFindAndRemove")
+	public String atomicityFindAndRemove() {
+		User users = mongoDao.atomicityFindAndRemove();
+		return "原子性操作查询删除成功---->" + users.toString();
+	}
 
 
 }
+
 
 ```
 
