@@ -209,8 +209,6 @@ public class JavassisTimingWrong {
 
 ![javassist异常](/img/2019-11-22/javassist1.png)
 
-
-
 这是因为，javassist插入的代码片段中，每次插入操作的代码，称之为一个插入代码块，后面的插入块不能使用前面的插入块定义的局部变量，而言且也不能使用方法中的原有局部变量。而上述代码中，我们分表调用了insertBefore和insertAfter插入了两个代码块，而后面的插入块不能使用前面的插入块定义的局部变量start，因此爆出了上面的错。
 
 而如果代码片段都位于一个插入块中，则局部变量是可以引用的。因此考虑使用如下的方法实现：
@@ -260,7 +258,7 @@ public class JavassisTiming {
 Looper.loop() invoked耗时:1000ms
 ```
 
-###动态代理
+### 动态代理
 
 此外还有一种更加简单的方式
 

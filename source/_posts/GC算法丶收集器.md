@@ -1,7 +1,7 @@
 ---
 title: GC算法丶收集器
 date: 2018-12-07 17:18:35
-tags: JVM
+tags: [JVM,数据结构与算法]
 ---
 
 #  GC算法
