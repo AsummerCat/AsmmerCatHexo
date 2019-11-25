@@ -79,8 +79,6 @@ tag_map:
   Ehcache: Ehcache
   json: json
   shiro: shiro
-  算法: 算法
-  数据结构: 数据结构
   Security: Security
   消息队列: 消息队列
   ActiveMQ: ActiveMQ
@@ -156,6 +154,8 @@ tag_map:
   Queue: Queue
   netty: netty
   mongodb: mongodb
+  javassist: javassist
+  数据结构与算法: 数据结构与算法
 
   
 # Date / Time format
