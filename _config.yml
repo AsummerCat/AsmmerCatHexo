@@ -157,6 +157,7 @@ tag_map:
   javassist: javassist
   数据结构与算法: 数据结构与算法
   python: python
+  django: django
 
   
 # Date / Time format
