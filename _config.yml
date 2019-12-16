@@ -156,6 +156,7 @@ tag_map:
   mongodb: mongodb
   javassist: javassist
   数据结构与算法: 数据结构与算法
+  python: python
 
   
 # Date / Time format
