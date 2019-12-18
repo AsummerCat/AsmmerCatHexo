@@ -1,5 +1,5 @@
 ---
-title: django的学习-模型连接数据库二
+title: django的学习-模型连接数据库三
 date: 2019-12-17 15:28:19
 tags: [python,django]
 ---
