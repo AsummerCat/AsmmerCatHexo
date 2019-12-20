@@ -181,3 +181,46 @@ QueryDict实现所有标准的词典方法。还包括一些特有的方法：
 | setlistdefault(key,list) | 和setdefault有一点不同，它接受list而不是单个value作为参数。  |
 | lists()                  | 和items()有一点不同, 它会返回key的所有值，作为一个list, 例如:`>>> q = QueryDict('a=1&a=2&a=3') >>> q.lists() [('a', ['1', '2', '3'])] ` |
 | urlencode()              | 返回一个以查询字符串格式进行格式化后的字符串(例如："a=2&b=3&b=5")。 |
+
+
+
+# ajax请求相关
+
+## 后台
+
+**需要注意两点：**
+
+1. 视图函数中的字典或列表要用 json.dumps()处理。
+
+2. 在模板上要加 safe 过滤器。
+
+views.py
+
+这边的话 不能直接返回content  需要处理一下
+
+ json.dumps(List)
+
+```python
+def home(request):
+    List = ['1', '渲染Json到模板']
+    Dict = {'site': '1', 'author': '1'}
+    return render(request, 'home.html', {
+            'List': json.dumps(List),
+            'Dict': json.dumps(Dict)
+        })
+        
+      
+```
+
+## 前台
+
+这边的话就正常处理就可以了
+
+需要注意的是 
+
+```
+如果是后台直接传输数据给js的话
+前台需要 var Dict = {{ Dict|safe }};
+
+```
+
