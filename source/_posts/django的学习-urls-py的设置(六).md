@@ -1,8 +1,43 @@
 ---
-title: django的学习-urls.py的设置六
+title: django的学习-urls.py的设置(六)
 date: 2019-12-19 17:08:25
 tags: [python,django]
 ---
+
+## 动态映射路径 (重点)
+
+```python
+# views.py
+def add(request, a, b):
+    c = int(a) + int(b)
+    return HttpResponse(str(c))
+ 
+ 
+# urls.py
+urlpatterns = patterns('',
+    path('add/<int:a>/<int:b>/', calc_views.add2, name='add'),
+)
+ 
+ 
+# template html
+{% url 'add' 4 5 %}
+```
+
+这样网址上就会显示出：/add/4/5/ 这个网址，假如我们以后修改 urls.py 中的 
+
+```
+'add/<int:a>/<int:b>/'
+```
+
+这一部分，改成另的，比如：
+
+```
+'jia/<int:a>/<int:b>/'
+```
+
+这样，我们不需要再次修改模板，当再次访问的时候，网址会自动变成 /jia/4/5/
+
+
 
 ## 项目目录下配置（path方法
 
@@ -55,3 +90,4 @@ tags: [python,django]
 ![](/img/2019-12-19/10.png)
 
 ![](/img/2019-12-19/11.png)
+

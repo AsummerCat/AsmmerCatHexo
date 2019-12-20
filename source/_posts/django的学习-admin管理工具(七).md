@@ -1,5 +1,5 @@
 ---
-title: django的学习-admin管理工具
+title: django的学习-admin管理工具(七)
 date: 2019-12-20 09:08:58
 tags: [python,django]
 ---

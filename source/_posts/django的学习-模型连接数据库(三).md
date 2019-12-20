@@ -1,5 +1,5 @@
 ---
-title: django的学习-模型连接数据库三
+title: django的学习-模型连接数据库(三)
 date: 2019-12-17 15:28:19
 tags: [python,django]
 ---
@@ -122,8 +122,6 @@ python manage.py flush
 
 此命令会询问是 yes 还是 no, 选择 yes 会把**数据全部清空掉**，只留下空表。
 
-
-
 ## 数据库操作 
 
 ## 导包处理
@@ -240,5 +238,96 @@ def testdb(request):
     # Test.objects.all().delete()
     
     return HttpResponse("<p>删除成功</p>")
+```
+
+### 查看django queryset执行的sql
+
+```
+print str(Author.objects.all().query)
+```
+
+输出:
+
+```
+SELECT "blog_author"."id", "blog_author"."name", "blog_author"."qq", "blog_author"."addr", "blog_author"."email" FROM "blog_author"
+```
+
+### **以values_list 获取元组形式结果**
+
+```python
+authors = Author.objects.values_list('name', 'qq')
+list(authors)
+
+
+输出:
+[(u'WeizhongTu', u'336643078'),
+
+ (u'twz915', u'915792575'),
+
+ (u'wangdachui', u'353506297'),
+
+ (u'xiaoming', u'004466315')]
+
+```
+
+如果只需要 1 个字段，可以指定 flat=True
+
+```
+Author.objects.values_list('name', flat=True)
+```
+
+### **以values 获取字典形式的结果**
+
+```
+Author.objects.values('name', 'qq')
+ list(Author.objects.values('name', 'qq'))
+ 
+ 输出:
+ [{'name': u'WeizhongTu', 'qq': u'336643078'},
+
+ {'name': u'twz915', 'qq': u'915792575'},
+
+ {'name': u'wangdachui', 'qq': u'353506297'},
+
+ {'name': u'xiaoming', 'qq': u'004466315'}]
+```
+
+### **extra 实现 别名，条件，排序等**
+
+#### 别名
+
+```
+Tag.objects.all().extra(select={'tag_name': 'name'})
+
+In [45]: tags[0].name
+Out[45]: u'Django'
+In [46]: tags[0].tag_name
+Out[46]: u'Django'
+
+
+```
+
+### **defer 排除不需要的字段**
+
+在复杂的情况下，表中可能有些字段内容非常多，取出来转化成 Python 对象会占用大量的资源。
+
+这时候可以用 defer 来排除这些字段，比如我们在文章列表页，只需要文章的标题和作者，没有必要把文章的内容也获取出来（因为会转换成python对象，浪费内存）
+
+```
+原语句
+Article.objects.all()
+忽略content字段
+Article.objects.all().defer('content')
+
+
+
+```
+
+### **only 仅选择需要的字段**
+
+和 defer 相反，only 用于取出需要的字段，假如我们**只需要查出 作者的名称**
+
+```python
+Author.objects.all().only('name')
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: django的学习-页面传参表单提交五
+title: django的学习-页面传参表单提交(五)
 date: 2019-12-18 16:44:24
 tags: [python,django]
 ---

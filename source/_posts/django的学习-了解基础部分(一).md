@@ -1,5 +1,5 @@
 ---
-title: django的学习-了解基础部分一
+title: django的学习-了解基础部分(一)
 date: 2019-12-17 15:18:19
 tags: [python,django]
 ---
