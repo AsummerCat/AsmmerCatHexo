@@ -37,6 +37,14 @@ $ tree
 
 下载pharm按照流程构建 django项目
 
+### 这边新建一个应用(重要)
+
+```python
+python manage.py startapp learn # learn 是一个app的名称
+```
+
+**把我们新定义的app加到settings.py中的****INSTALL_APPS****中**
+
 ### 创建一个controller层 helloWord.py
 
 ```python
@@ -129,3 +137,32 @@ urlpatterns = [
 ```
 
 ## 这样基本就完成映射了
+
+
+
+# 运行方式
+
+## 本地运行
+
+```;python
+python manage.py runserver 
+```
+
+
+
+## 其他电脑允许访问
+
+```
+python manage.py runserver 0.0.0.0:8000
+
+ 
+监听机器上所有ip 8000端口，访问时用电脑的ip代替 127.0.0.1
+```
+
+### 
+
+**在我们创建的项目里修改setting.py文件**
+
+**ALLOWED_HOSTS = ['\*']  ＃在这里请求的host添加了\***
+
+这样才允许其他ip访问

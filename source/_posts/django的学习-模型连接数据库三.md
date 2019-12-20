@@ -114,6 +114,14 @@ class User(models.Model):
 
 (注意:) 每张表必须都要有主键 不然可能查询失败
 
+## 清空数据库
+
+```python
+python manage.py flush
+```
+
+此命令会询问是 yes 还是 no, 选择 yes 会把**数据全部清空掉**，只留下空表。
+
 
 
 ## 数据库操作 
