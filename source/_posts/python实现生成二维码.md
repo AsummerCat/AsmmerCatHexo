@@ -6,6 +6,8 @@ tags: [python,django]
 
 # 首先要导入需要的包
 
+[demo地址](https://github.com/AsummerCat/qrCodeDemo)
+
 ```
 conda install -c conda-forge qrcode
 python图像处理包
