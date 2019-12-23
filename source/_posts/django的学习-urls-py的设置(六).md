@@ -91,3 +91,17 @@ urlpatterns = patterns('',
 
 ![](/img/2019-12-19/11.png)
 
+## url 传参
+
+默认情况下，以下路径转换器可用：
+
+- `str`- 匹配除路径分隔符之外的任何非空字符串`'/'`。如果转换器未包含在表达式中，则这是默认值。
+- `int` - 匹配零或任何正整数。返回一个int。
+- `slug` - 匹配由ASCII字母或数字组成的任何slug字符串，以及连字符和下划线字符。例如， `building-your-1st-django-site`。
+- `uuid` - 匹配格式化的UUID。要防止多个URL映射到同一页面，必须包含短划线并且字母必须为小写。例如，`075194d3-6885-417e-a8a8-6c931e272f00`。返回一个 [`UUID`](https://docs.python.org/3/library/uuid.html#uuid.UUID)实例。
+- `path`- 匹配任何非空字符串，包括路径分隔符 `'/'`。这使您可以匹配完整的URL路径，而不仅仅是URL路径的一部分`str`。
+
+```python
+path('qrcode/<str:data>', qrController.generate_qrcode),
+```
+
