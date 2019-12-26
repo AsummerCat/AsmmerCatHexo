@@ -84,8 +84,9 @@ def get_pic_list(url):
         link = linkText.get('href')  # 套图链接
         text = picText.get('alt')  # 套图名字
         data = {"link": link, "title": text}
-        # get_pic(link, text)
         pic_list.append(data)
+    print("获取单页数据完毕 wait3秒")
+    time.sleep(3)
     return pic_list
 ```
 
@@ -151,27 +152,31 @@ def get_detail_pic_url(soup):
     return img_src
 ```
 
-## 间隔一秒下载文件 避免被拦截
+## 间隔两秒下载文件 避免被拦截
 
 ```python
 def down_pic(url, title, page):
     # 转义特殊符号
     title = "".join(re.findall('[\u4e00-\u9fa5a-zA-Z0-9]+', title, re.S))
-    path ='E:\\妹子图'
-    if not os.path.exists(path):
-        os.mkdir(path)
     path = 'E:\\妹子图\\{}'.format(title)
+    # 判断文件夹是否存在 不存在直接makedirs 创建多级目录
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
     print("开始下载妹子图:{}[第{}页]".format(title, page))
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0",
                "Referer": url}
-    r = requests.get(url, headers=headers, stream=True)  # 增加headers, 模拟浏览器  stream=分块下载
-    if r.status_code == 200:
-        with open(r'{}\{}第{}页.jpg'.format(path, title, page), 'ab') as f:
-            for data in r.iter_content():
-                f.write(data)
-    time.sleep(1)
+    # 判断文件是否存在
+    data_jpg = r'{}\{}第{}页.jpg'.format(path, title, page)
+
+    if not os.path.exists(data_jpg):
+        r = requests.get(url, headers=headers, stream=True)  # 增加headers, 模拟浏览器  stream=分块下载
+        if r.status_code == 200:
+            with open(data_jpg, 'ab') as f:
+                for content in r.iter_content():
+                    f.write(content)
+        time.sleep(2)
+    else:
+        print(data_jpg + "已存在")
 
 ```
 
@@ -226,6 +231,7 @@ import time
 import threading
 import re
 from bs4 import BeautifulSoup
+
 '''
 开启线程获取妹子图数据
 目测3个线程获取数据比较稳定
@@ -234,6 +240,7 @@ from bs4 import BeautifulSoup
 
 
 '''
+
 
 # 发送http请求
 def sendHttp(url):
@@ -277,8 +284,9 @@ def get_pic_list(url):
         link = linkText.get('href')  # 套图链接
         text = picText.get('alt')  # 套图名字
         data = {"link": link, "title": text}
-        # get_pic(link, text)
         pic_list.append(data)
+    print("获取单页数据完毕 wait3秒")
+    time.sleep(3)
     return pic_list
 
 
@@ -302,7 +310,7 @@ def get_detail_pic_list(url, title):
         else:
             if pageSize <= dataNum:
                 pageSize = dataNum
-    print("最大页数:"+str(pageSize))
+    print("最大页数:" + str(pageSize))
 
     # ## 获取图片地址
     pic_url_list = []
@@ -313,7 +321,7 @@ def get_detail_pic_list(url, title):
     for i in range(2, pageSize + 1):
         next_url = url + "/{}".format(str(i))
         next_link = get_detail_pic(next_url)
-        print("抓取页数:[{}]---->url:[{}]".format(i,next_link))
+        print("抓取页数:[{}]---->url:[{}]".format(i, next_link))
         pic_url_list.append(next_link)
 
     ## 下载
@@ -338,24 +346,29 @@ def get_detail_pic_url(soup):
     return img_src
 
 
+## 下载文件
 def down_pic(url, title, page):
     # 转义特殊符号
     title = "".join(re.findall('[\u4e00-\u9fa5a-zA-Z0-9]+', title, re.S))
-    path ='E:\\妹子图'
-    if not os.path.exists(path):
-        os.mkdir(path)
     path = 'E:\\妹子图\\{}'.format(title)
+    # 判断文件夹是否存在 不存在直接makedirs 创建多级目录
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
     print("开始下载妹子图:{}[第{}页]".format(title, page))
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0",
                "Referer": url}
-    r = requests.get(url, headers=headers, stream=True)  # 增加headers, 模拟浏览器  stream=分块下载
-    if r.status_code == 200:
-        with open(r'{}\{}第{}页.jpg'.format(path, title, page), 'ab') as f:
-            for data in r.iter_content():
-                f.write(data)
-    time.sleep(1)
+    # 判断文件是否存在
+    data_jpg = r'{}\{}第{}页.jpg'.format(path, title, page)
+
+    if not os.path.exists(data_jpg):
+        r = requests.get(url, headers=headers, stream=True)  # 增加headers, 模拟浏览器  stream=分块下载
+        if r.status_code == 200:
+            with open(data_jpg, 'ab') as f:
+                for content in r.iter_content():
+                    f.write(content)
+        time.sleep(2)
+    else:
+        print(data_jpg + "已存在")
 
 
 if __name__ == '__main__':
@@ -367,7 +380,6 @@ if __name__ == '__main__':
     for i in range(1, maxPage + 1):
         url = "http://www.mzitu.com/xinggan/page/{}/".format(i)
         urlList.append(url)
-
     # 线程数
     threads = []
     for i, data in enumerate(urlList):
@@ -386,10 +398,6 @@ if __name__ == '__main__':
                     thread.start()
                     print("开启一个线程----->" + thread.getName())
                     threads.append(thread)
-
-                    # end_time = time
-                    # run_time = end_time - begin_time
-                    # print('该程序运行时间：', run_time)
 
 ```
 
