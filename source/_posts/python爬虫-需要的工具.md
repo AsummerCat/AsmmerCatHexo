@@ -78,5 +78,7 @@ tags: [python,爬虫]
 
   
 
-* 
+* scrapy爬虫框架(推荐) 
+
+* selenium + phantomjs 模拟点击按钮
 
