@@ -85,7 +85,7 @@ def get_pic_list(url):
         text = picText.get('alt')  # 套图名字
         data = {"link": link, "title": text}
         pic_list.append(data)
-    print("获取单页数据完毕 wait3秒")
+    print("{}获取单页数据完毕 wait3秒".format(url))
     time.sleep(3)
     return pic_list
 ```
@@ -112,34 +112,38 @@ def get_detail_pic_list(url, title):
         else:
             if pageSize <= dataNum:
                 pageSize = dataNum
-    print("最大页数:"+str(pageSize))
 
-    # ## 获取图片地址
-    pic_url_list = []
+    # 获取图片地址
     link = get_detail_pic_url(soup)
-    pic_url_list.append(link)
 
     ## 遍历获取其他明细页面的pic_url
-    for i in range(2, pageSize + 1):
-        next_url = url + "/{}".format(str(i))
-        next_link = get_detail_pic(next_url)
-        print("抓取页数:[{}]---->url:[{}]".format(i,next_link))
-        pic_url_list.append(next_link)
+    pic_url_list = get_rosi_all_pic_url(link, pageSize)
 
     ## 下载
     for i, data in enumerate(pic_url_list):
         down_pic(data, title, i)
 ```
 
-## 获取当前页的pic_url
+## 根据第一个图片地址获取套图所有地址
 
 ```python
-def get_detail_pic(url):
-    html = sendHttp(url)
-    time.sleep(0.5)
-    soup = BeautifulSoup(html, 'html.parser')
-    link = get_detail_pic_url(soup)
-    return link
+def get_rosi_all_pic_url(info_pic_url, pageSize):
+    pic_url_list = []
+    # 完整文件名称
+    pic_name = info_pic_url[info_pic_url.rfind('/', 1) + 1:len(info_pic_url) + 1]
+    # 获取后缀+标记-> 01.jpg
+    bit_pic = re.search(r'[^d]+$', pic_name).group(0)
+    # 获取下标
+    bit_pic_index_num = bit_pic.split(".")[0]
+    # 获取后缀
+    pic_type_suffix = "." + bit_pic.split(".")[1]
+    # 循环填充后缀
+    for i in range(1, pageSize + 1):
+        s_i = str(i)
+        if len(str(i)) < 2:
+            s_i = "0" + s_i
+        pic_url_list.append(info_pic_url.replace(bit_pic, s_i + pic_type_suffix))
+    return pic_url_list
 ```
 
 ## 抓取soup的pic_url
@@ -176,54 +180,53 @@ def down_pic(url, title, page):
                     f.write(content)
         time.sleep(2)
     else:
-        print(data_jpg + "已存在")
-
+       print(data_jpg + "已存在")
 ```
 
-## 主函数
+## 常规抓取动作
 
 ```python
-
-if __name__ == '__main__':
-    print("抓取妹子图_主函数")
+# 常规抓取
+def default_mian():
+    print("抓取妹子图_常规抓取")
     # begin_time = time
-    urlList = ["http://www.mzitu.com/xinggan/"]
+    urlList = []
     # 获取出妹子图的总页数
-    maxPage = getMaxPage(urlList[0])
+    maxPage = getMaxPage("http://www.mzitu.com/xinggan/page/1/")
     for i in range(1, maxPage + 1):
         url = "http://www.mzitu.com/xinggan/page/{}/".format(i)
         urlList.append(url)
 
     # 线程数
     threads = []
-    for i, data in enumerate(urlList):
+    for index, data in enumerate(urlList):
+        ## 获取单列表的套图
         pic_list = get_pic_list(data)
-        for next_text in pic_list:
-            while len(pic_list) > 0:
-                for thread in threads:
-                    if not thread.is_alive():
-                        threads.remove(thread)
-                while len(threads) < 3 and len(pic_list) > 0:  # 最大线程数设置为 3  测试 3个线程比较稳定
-                    url = pic_list.pop(0)
-                    thread = threading.Thread(target=get_detail_pic_list,
-                                              args=(pic_list[0]["link"], pic_list[0]["title"]))
-                    thread.setName(pic_list[0]["title"] + "---->" + pic_list[0]["link"])
-                    thread.setDaemon(True)
-                    thread.start()
-                    print("开启一个线程----->" + thread.getName())
-                    threads.append(thread)
-
-                    # end_time = time
-                    # run_time = end_time - begin_time
-                    # print('该程序运行时间：', run_time)
-
+        print("当前进度------------------------------------->{}/{}页".format(index, maxPage))
+        while len(pic_list) > 0:
+            for thread in threads:
+                if not thread.is_alive():
+                    threads.remove(thread)
+            while len(threads) < 5 and len(pic_list) > 0:  # 最大线程数设置为 3  测试 3个线程比较稳定
+                url = pic_list.pop(0)
+                thread = threading.Thread(target=get_detail_pic_list, args=(url["link"], url["title"]))
+                thread.setName(url["title"] + "---->" + url["link"])
+                thread.setDaemon(True)
+                thread.start()
+                print("开启一个线程----->" + thread.getName())
+                threads.append(thread)
 ```
 
+## 主函数
 
+```python
+if __name__ == '__main__':
+    default_mian()
+```
 
 # 完整代码
 
-```
+```python
 # -*- coding:utf-8 -*-
 import requests
 import os
@@ -285,7 +288,7 @@ def get_pic_list(url):
         text = picText.get('alt')  # 套图名字
         data = {"link": link, "title": text}
         pic_list.append(data)
-    print("获取单页数据完毕 wait3秒")
+    print("{}获取单页数据完毕 wait3秒".format(url))
     time.sleep(3)
     return pic_list
 
@@ -310,32 +313,36 @@ def get_detail_pic_list(url, title):
         else:
             if pageSize <= dataNum:
                 pageSize = dataNum
-    print("最大页数:" + str(pageSize))
 
-    # ## 获取图片地址
-    pic_url_list = []
+    # 获取图片地址
     link = get_detail_pic_url(soup)
-    pic_url_list.append(link)
 
     ## 遍历获取其他明细页面的pic_url
-    for i in range(2, pageSize + 1):
-        next_url = url + "/{}".format(str(i))
-        next_link = get_detail_pic(next_url)
-        print("抓取页数:[{}]---->url:[{}]".format(i, next_link))
-        pic_url_list.append(next_link)
+    pic_url_list = get_rosi_all_pic_url(link, pageSize)
 
     ## 下载
     for i, data in enumerate(pic_url_list):
         down_pic(data, title, i)
 
 
-# 获取当前页的pic_url
-def get_detail_pic(url):
-    html = sendHttp(url)
-    time.sleep(0.5)
-    soup = BeautifulSoup(html, 'html.parser')
-    link = get_detail_pic_url(soup)
-    return link
+# 根据第一个图片地址获取套图所有地址
+def get_rosi_all_pic_url(info_pic_url, pageSize):
+    pic_url_list = []
+    # 完整文件名称
+    pic_name = info_pic_url[info_pic_url.rfind('/', 1) + 1:len(info_pic_url) + 1]
+    # 获取后缀+标记-> 01.jpg
+    bit_pic = re.search(r'[^d]+$', pic_name).group(0)
+    # 获取下标
+    bit_pic_index_num = bit_pic.split(".")[0]
+    # 获取后缀
+    pic_type_suffix = "." + bit_pic.split(".")[1]
+    # 循环填充后缀
+    for i in range(1, pageSize + 1):
+        s_i = str(i)
+        if len(str(i)) < 2:
+            s_i = "0" + s_i
+        pic_url_list.append(info_pic_url.replace(bit_pic, s_i + pic_type_suffix))
+    return pic_url_list
 
 
 ## 抓取soup的pic_url
@@ -371,33 +378,39 @@ def down_pic(url, title, page):
         print(data_jpg + "已存在")
 
 
-if __name__ == '__main__':
-    print("抓取妹子图_主函数")
+# 常规抓取
+def default_mian():
+    print("抓取妹子图_常规抓取")
     # begin_time = time
-    urlList = ["http://www.mzitu.com/xinggan/"]
+    urlList = []
     # 获取出妹子图的总页数
-    maxPage = getMaxPage(urlList[0])
+    maxPage = getMaxPage("http://www.mzitu.com/xinggan/page/1/")
     for i in range(1, maxPage + 1):
         url = "http://www.mzitu.com/xinggan/page/{}/".format(i)
         urlList.append(url)
+
     # 线程数
     threads = []
-    for i, data in enumerate(urlList):
+    for index, data in enumerate(urlList):
+        ## 获取单列表的套图
         pic_list = get_pic_list(data)
-        for next_text in pic_list:
-            while len(pic_list) > 0:
-                for thread in threads:
-                    if not thread.is_alive():
-                        threads.remove(thread)
-                while len(threads) < 3 and len(pic_list) > 0:  # 最大线程数设置为 3  测试 3个线程比较稳定
-                    url = pic_list.pop(0)
-                    thread = threading.Thread(target=get_detail_pic_list,
-                                              args=(pic_list[0]["link"], pic_list[0]["title"]))
-                    thread.setName(pic_list[0]["title"] + "---->" + pic_list[0]["link"])
-                    thread.setDaemon(True)
-                    thread.start()
-                    print("开启一个线程----->" + thread.getName())
-                    threads.append(thread)
+        print("当前进度------------------------------------->{}/{}页".format(index, maxPage))
+        while len(pic_list) > 0:
+            for thread in threads:
+                if not thread.is_alive():
+                    threads.remove(thread)
+            while len(threads) < 5 and len(pic_list) > 0:  # 最大线程数设置为 3  测试 3个线程比较稳定
+                url = pic_list.pop(0)
+                thread = threading.Thread(target=get_detail_pic_list, args=(url["link"], url["title"]))
+                thread.setName(url["title"] + "---->" + url["link"])
+                thread.setDaemon(True)
+                thread.start()
+                print("开启一个线程----->" + thread.getName())
+                threads.append(thread)
+
+
+if __name__ == '__main__':
+    default_mian()
 
 ```
 

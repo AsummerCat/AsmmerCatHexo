@@ -1,6 +1,8 @@
-title: python爬虫需要的工具
+---
+title: python需要的工具
 date: 2019-12-26 10:35:33
 tags: [python,爬虫]
+---
 
 # python爬虫的准备知识
 
@@ -51,4 +53,30 @@ tags: [python,爬虫]
 
   
 
+* Workbook库   ->导出xlsx
+
+  ```python
+  '''
+  conda install -c conda-forge openpyxl
+  '''
+  
+  from openpyxl import Workbook
+  
+   wb = Workbook()  # 打开 excel 工作簿
+      ws1 = wb.active  # 激活
+      ws1.title = lang_name  # 给予文件标题
+      ws1.append(row)    #输入列表的列表
+      ws2.save(r'{}\{}的{}岗位信息.xlsx'.format(path, i, lang_name)) # 输出文件
+  ```
+
+*  os库   ->用来操作系统命令 如文件夹创建
+
+  ```python
+      if not os.path.exists(path):  # 创建目录文件 自动递归创建文件夹
+          os.makedirs(path)
+  ```
+
+  
+
 * 
+
