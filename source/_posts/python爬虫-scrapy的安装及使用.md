@@ -8,8 +8,16 @@ tags: [python,爬虫]
 
 ## 安装
 
+### python
+
 ```
 pip install scrapy
+```
+
+### anaconda
+
+```
+conda install scrapy
 ```
 
 
