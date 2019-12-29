@@ -159,6 +159,7 @@ tag_map:
   python: python
   django: django
   爬虫: 爬虫
+  scrapy: scrapy
 
   
 # Date / Time format

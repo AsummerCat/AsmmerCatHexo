@@ -1,7 +1,7 @@
 ---
 title: python爬虫-scrapy的安装及使用
 date: 2019-12-26 21:23:43
-tags: [python,爬虫]
+tags: [python,爬虫,scrapy]
 ---
 
 # scrapy
@@ -22,129 +22,110 @@ conda install scrapy
 
 
 
+<!--more-->
+
+# 这边会用都xPath解析页面
+
+## 下载Chrome插件
+
+```
+XPath Helper 
+```
+
+或者
+
+火狐的
+
+```
+try xpath 
+```
+
+
+
+# 创建项目
+
+```
+scrapy startproject xxx
+```
+
+## 构建爬虫
+
+```
+cd 进入spiders目录 然后
+前面是构建名称 最后一个是抓取的域名
+ scrapy genspider douban douban.com  
+```
+
+
+
+## 启动爬虫
+
+进入spider目录
+
+```
+scrapy crawl XXX   xxx表示爬虫名称
+```
+
+## 导出爬取的数据
+
+```
+scrapy crawl XXX -o  xxx.json
+或者
+scrapy crawl XXX -o  xxx.csv
+```
+
+
+
+# 业务逻辑
+
+## spider.py
+
+```python
+# -*- coding: utf-8 -*-
+import scrapy
+
+'''
+爬虫文件
+
+'''
+
+
+class DoubanSpidersSpider(scrapy.Spider):
+    # 爬虫名称
+    name = 'douban_spiders'
+    # 允许的域名 爬虫
+    allowed_domains = ['movie.douban.com']
+    # 入口url,扔到调度器
+    start_urls = ['http://movie.douban.com/top250']
+
+    def parse(self, response):
+        print("请求成功")
 
 
 ```
 
-		$(function(){
-			if(读取Cookie('shenfen')!=null){
-				bofang()
-			}else{
-				zhuce()
-			}
-		})
-      
-        $(".ceshi").text("将您的推广链接发到，QQ群，贴吧，论坛等地方，只要有人通过您的链接进入本站，可以永久增加每日播放次数，无上限" + 读取Cookie('shenfen'))
-		function bofang(){
-			$.ajax({
-				type: "get",
-				url: "api/play.php",
-				dataType: 'json', //【jsonp进行跨域请求 只支持get】
-				data: {
-					shenfen: 读取Cookie('shenfen')
-				},
-				success: function(data) { //【成功回调】
-				    switch (data.state){
-				    	case "1":
-                         $("#tuiguang").text("播放次数:"+ data.zoncishu +"  剩余次数:"+data.shengyucishu)
-                         $("#tuiguanglianjie").text("推广链接：https://www.mm006.xyz/?tg="+ data.id)
-                         $("#tuiguanglianjie").click(function() {
-							copyToClipboard("分享给大家一个900万宅男全球资源网站。https://www.mm006.xyz/?tg="+ data.id + "复制浏览器打开")
-							alert("复制成功！");
-						})
-				    		break;
-                        
-						case "0":
-                         $("#tuiguang").text("播放次数:"+ data.zoncishu +" 剩余次数:"+data.shengyucishu)
-                         $("#tuiguanglianjie").text("推广链接：https://www.mm006.xyz/?tg="+ data.id)
-                        
-                         $("#tuiguanglianjie").click(function() {
-							copyToClipboard("在吗，分享你个牛逼宅男网站https://www.mm006.xyz/?tg="+ data.id + "复制浏览器打开")
-							alert("复制成功！");
-						})
-                        
-						//alert("播放次数已用完，推广后可继续观看  " +"  推广链接：https://www.mm006.xyz/?tg="+ data.id)
-                           
-                        $("#my-video").remove()
-                        $("#magnet-table").remove()
-                        
-                        $('.videoUiWrapper').append('<img src="/fengmian.png" style="width: 320px;height: 200px;">')
-						    break;
-				    }
-				},
-				error: function(xhr, type) { //【失败回调】
-				}
-			});
-		}
-      
-           function copyToClipboard(s) {
-				if (window.clipboardData) {
-					window.clipboardData.setData('text', s);
-				} else {
-					(function(s) {
-						document.oncopy = function(e) {
-							e.clipboardData.setData('text', s);
-							e.preventDefault();
-							document.oncopy = null;
-						}
-					})(s);
-					document.execCommand('Copy');
-				}
-			}
-      
-		function zhuce() {
-			$.ajax({
-				type: "get",
-				url: "api/register.php",
-				dataType: 'json', //【jsonp进行跨域请求 只支持get】
-				data: {
-					ip: returnCitySN["cip"]
-				},
-				success: function(data) { //【成功回调】
-				    switch (data.state){
-				    	case "1":
-						    写入Cookie("shenfen", data.shenfen, 'd360')
-                            if(读取Cookie('shenfen')!=null){
-				bofang()
-			}else{
-				zhuce()
-			}
-				    		break;
-				    }
-				},
-				error: function(xhr, type) { //【失败回调】
-				}
-			});
-		}
-		
+## item.py
 
-      
-      
-		function 读取Cookie(name) {
-			var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-			if (arr = document.cookie.match(reg))
-				return unescape(arr[2]);
-			else
-				return null;
-		}
-		function 写入Cookie(name, value, time) {
-			var strsec = getsec(time);
-			var exp = new Date();
-			exp.setTime(exp.getTime() + strsec * 1);
-			document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
-		
-			function getsec(str) {
-				var str1 = str.substring(1, str.length) * 1;
-				var str2 = str.substring(0, 1);
-				if (str2 == "s") {
-					return str1 * 1000;
-				} else if (str2 == "h") {
-					return str1 * 60 * 60 * 1000;
-				} else if (str2 == "d") {
-					return str1 * 24 * 60 * 60 * 1000;
-				}
-			}
-		}
-	
+```python
+# -*- coding: utf-8 -*-
+
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+
+
+class ScrapyDemoItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    # # 需要抓取的逻辑
+    movie_num = scrapy.Field()  # 序号
+    introduce = scrapy.Field()  # 电影介绍
+    star = scrapy.Field()  # 星级
+    evaluate = scrapy.Field()  # 评论
+    describe = scrapy.Field()  # 描述
+    pass
+
 ```
-
