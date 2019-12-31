@@ -160,6 +160,8 @@ tag_map:
   django: django
   爬虫: 爬虫
   scrapy: scrapy
+  chrome: chrome
+  aira2: aira2
 
   
 # Date / Time format
