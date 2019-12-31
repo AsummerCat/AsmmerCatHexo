@@ -161,7 +161,7 @@ tag_map:
   爬虫: 爬虫
   scrapy: scrapy
   chrome: chrome
-  aira2: aira2
+  aria2: aria2
 
   
 # Date / Time format
