@@ -162,6 +162,7 @@ tag_map:
   scrapy: scrapy
   chrome: chrome
   aria2: aria2
+  机器学习: 机器学习
 
   
 # Date / Time format
