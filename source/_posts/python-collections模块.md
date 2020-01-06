@@ -175,9 +175,78 @@ default_dict['boddy']
 
 # deque双端队列
 
+有点: 线程安全 GTL保护
+
 ### 导入
 
 ```python
 from collections import deque
+```
+
+##  语法构造
+
+传入一个可迭代的对象 deque()
+
+```python
+user_list=deque(['boddy1','boddy2'])
+或者
+user_list=deque=(('boddy1','boddy2'))
+或者 key值初始化
+user_list=deque=({
+'boddy1':28,
+'boddy2':29
+})
+
+## 返回值都是:
+
+deque(['boddy1','boddy2'])
+
+```
+
+### 内置函数 appendleft() 往头部加入数据
+
+加入数据进入队列头部
+
+```python
+user_list=deque(['boddy1','boddy2'])
+user_list.appendleft('boddy8')
+```
+
+### 内置函数 clear() 清空函数
+
+```python
+user_list.clear()
+```
+
+### 内置函数 copy() 浅拷贝
+
+如果结构中有 可变的对象 调用的同一个代码区域 例如 list里面的list    基础类型除外
+
+```python
+user_list1=user_list.copy()
+```
+
+## python内置的深拷贝
+
+```python
+import copy
+user_list2=copy.deepcopy(user_list)
+```
+
+### 内置函数 count() 计算元素数量
+
+```python
+user_list.count()
+```
+
+### 内置函数 extend() 合并deque 动态扩容 没有返回值
+
+```python
+user_list=deque(['boddy1','boddy2'])
+user_list1=deque(['boddy3','boddy4'])
+
+# 合并 追加到前面一个
+user_list.extend(user_list1)
+print(user_list) 
 ```
 
