@@ -1,5 +1,5 @@
 ---
-title: python-numpy库的使用
+title: python-机器学习numpy库的使用
 date: 2020-01-07 13:56:34
 tags: [python,机器学习]
 ---
@@ -141,9 +141,29 @@ a = np.array([2, 3, 4])  # 创建一维数组
     
     i = np.full((4, 3), 7)  # 创建4行3列元素都是7的矩阵
     
-    j = np.eye(3)  # 创建3行3列的单位矩阵
+   
 
 ```
+
+### 生成单位矩阵
+
+一个二维2的数组(N,M)，对角线的地方为1，其余的地方为0.
+
+```python
+# 创建3行3列的单位矩阵
+j = np.eye(3)  
+  # 矩阵求逆
+  inv(lst) 
+  # T 行列转换
+  lst.transpose()
+  # Det 行列式
+  det(lst)
+  # 计算矩阵A的特征值 和特征向量 前面是特征值 后面是向量
+  eig(lst)
+  
+```
+
+
 
 对应的`zeros、ones、empty`还有`zeros_like、ones_like、empty_like`，它们以另一个数组为参数，根据其形状和dtype创建数组。
 
@@ -176,8 +196,59 @@ np.empty( (2,3) )
 
 ### reshape()函数
 
-```
+```python
+ # -1表示缺省
 np.arange(6).reshape(1,-1)
+# 1-10的 二维矩阵
+np.arange(1,11).reshape(2,-1)
+```
+
+### 生成随机
+
+```python
+# 0-1之间的随机数
+np.random.rand()
+# 2行4列随机数矩阵 均匀分布
+np.random.rand(2,4)
+# 1,10 之间的 随机整数
+np.random.randint(1,10)
+# 1,10之间的 3个随机整数
+np.random.randint(1,10,3)
+# 正态分布的随机数
+np.random.randn()
+# 2行4列正态分布的矩阵
+np.random.randn(2,4)
+#  在传入的参数中 随机选择一个
+np.random.choice([10,20,30])
+```
+
+### 生成数学模型中的分布
+
+```python
+# beta分布
+np.random.beta(1,10,100)
+```
+
+### 矩阵追加
+
+```python
+lis1=np.arange(6).reshape(1,-1)
+lis2=np.arange(5,11).reshape(1,-1)
+# 拼接
+np.concatenate((lis1,list2),axis=0)
+# 拼接分离   两行 生成二维 一组数据一块
+np.vstack((lis1,list2))
+# 合并
+np.hstack((lis1,list2))
+# 切割矩阵 分成2份
+np.split(lis1,2)
+```
+
+### 拷贝
+
+```python
+# 拷贝
+np.copy(list1)
 ```
 
 
@@ -200,7 +271,7 @@ np.arange(6).reshape(1,-1)
     print("a/b 相除\n", a / b)
     # 对数组a开平方
     print("a对应位置开平方\n", np.sqrt(a))
-    # 矩阵点乘
+    # 矩阵点乘 矩阵相乘 
     print("矩阵点乘\n", a.dot(b))
     # 矩阵点乘
     print("矩阵点乘\n", np.dot(a, b))
@@ -259,5 +330,63 @@ np.arange(6).reshape(1,-1)
 
     print("在横向为2增加一个数组a,纵向1不增加", np.tile(a, (2, 1)))
     print("在横向为3增加2个数组a,纵向2增加1个数组", np.tile(a, (3, 2)))
+```
+
+### 自然指数操作
+
+```python
+# 自然指数
+np.exp(a)
+# 自然指数 平方
+np.exp2(a)
+# 自然指数 开方
+np.sqrt(a)
+# 自然指数  三角函数
+np.sin(a)
+# 自然函数  对数
+np.log(a)
+```
+
+### 求解代数方程
+
+```python
+solve(lst,y)
+```
+
+### 皮尔逊相关系数
+
+```python
+np.corrcoef([1,0,1],[0,2,1])
+```
+
+### 生成一元多项式函数
+
+```python
+np.polyld([2,1,3])
+
+np.poly1d()此函数有两个参数：
+
+　　参数1：为一个数组，若没有参数2，则生成一个多项式，例如：
+
+　　　　　　p = np.poly1d([2,3,5,7])   
+
+　　　　　　print(p)    ==>>2x3 + 3x2 + 5x + 7    数组中的数值为coefficient（系数），从后往前 0，1，2.。。为位置书的次数
+
+       参数2：若参数2为True，则表示把数组中的值作为根，然后反推多项式，例如：
+
+　　　　　　q = np.poly1d([2,3,5],True)
+
+　　　　　　print(q)   ===>>(x - 2)*(x - 3)*(x - 5)  = x3 - 10x2 + 31x -30
+
+　　参数3：variable=‘z’表示改变未知数的字母，例如：
+
+　　　　　　q = np.poly1d([2,3,5],True,varibale = 'z')
+
+　　　　　　print(q)   ===>>(z - 2)*(z - 3)*(z - 5)  = z3 - 10z2 + 31z -30
+     
+    其他的
+     a.　deriv([m])表示求导，参数m表示求几次导数
+
+　　　b.　　integ([m,k])表示积分，参数m表示积几次分，k表示积分后的常数项的值
 ```
 

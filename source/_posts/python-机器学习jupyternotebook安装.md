@@ -1,5 +1,5 @@
 ---
-title: python-机器学习-jupyternotebook安装
+title: python-机器学习jupyternotebook安装
 date: 2020-01-07 13:50:46
 tags: [python,机器学习]
 ---
