@@ -16,10 +16,6 @@ tags: [python,机器学习]
 <!--more-->
 
 ```
-本课程介绍Python计算生态中最优秀的数据分析和展示技术，所讲授内容是数据领域最优秀的编程模块，在理学、工程、信息、管理、经济等学科领域具有极其广泛的应用潜力。
-
-本课程共包括4周内容，分别讲解：
-
 （1）Python第三方库NumPy，讲解N维数据的表达及科学计算的基本概念和运算方法；
 
 （2）Python第三方库Matplotlib，讲解绘制坐标系、散点图、极坐标图等直观展示数据趋势和特点的方法；
@@ -31,4 +27,10 @@ tags: [python,机器学习]
 机器学习
 scikit-learn 一组简单有效的工具集    依赖->NumPy Matplotlib Pandas
 ```
+
+```python
+jupyter notebook安装_飞桨PaddlePaddle-开源深度学习平台
+```
+
+
 

@@ -250,3 +250,159 @@ user_list.extend(user_list1)
 print(user_list) 
 ```
 
+# Counter  统计
+
+直接统计传入对象的个数
+
+排序 由大到小
+
+### 导入
+
+```python
+from collections import Counter 
+```
+
+### 语法构造
+
+传入一个可迭代的对象 或者字符串
+
+```python
+user_counter=Counter(users)
+```
+
+### 测试
+
+```python
+users=['boddy1','boddy2','boddy3','boddy4','boddy5']
+user_counter=Counter(users)
+```
+
+### 内置函数 .update() 合并统计
+
+```python
+users=['boddy1','boddy2','boddy3','boddy4','boddy5']
+user_counter=Counter(users)
+users2=['boddy6','boddy7','boddy8','boddy9','boddy10']
+user_counter.update(users2)
+
+也能传入Counter
+```
+
+### 内置函数 .most_common() 出现次数最多的前n个元素 (常用)     -> top n
+
+```python
+users=['boddy1','boddy2','boddy3','boddy4','boddy5']
+user_counter=Counter(users)
+# 出现次数最多的前两个
+print(user_counter.most_common(2))
+```
+
+# OrderedDIct 可排序的dict
+
+继承了dict 
+
+保证添加的顺序
+
+### 导入
+
+```python
+from collections import OrderedDIct  
+```
+
+### 语法构造
+
+```python
+user_dict=OrderedDict()
+```
+
+### 测试
+
+```python
+user_dict=OrderedDict()
+user_dict["b"]='boddy2'
+user_dict["a"]='boddy1'
+user_dict["c"]='boddy3'
+# 保证添加的顺序 python2的dict是无序的 python3的dict默认有序 等于OrderedDict()
+print(user_dict)
+
+```
+
+### 内置函数  .popitem()  弹出最后一个item
+
+```python
+user_dict=OrderedDict()
+user_dict["b"]='boddy2'
+user_dict["a"]='boddy1'
+user_dict["c"]='boddy3'
+# 弹出最后一个键值对
+user_dict.popitem()
+## 如果是使用pop()必须带入一个key
+```
+
+### 内置函数 .move_to_end(self,key,last) 移动指定元素到最后
+
+```python
+user_dict=OrderedDict()
+user_dict["b"]='boddy2'
+user_dict["a"]='boddy1'
+user_dict["c"]='boddy3'
+
+ # 移动指定元素到最后
+user_dict.move_to_end('b')
+
+```
+
+# ChainMap   连接数据合并进行遍历
+
+### 导入
+
+```python
+from collections import OrderedDIct 
+```
+
+### 语法构造
+
+```python
+new_dict=ChainMap()
+```
+
+### 测试
+
+```python
+user_dict1={'a':'boddy1','b':'boddy2'}
+user_dict2={'a':'boddy1','b':'boddy2'}
+new_dict=ChainMap(user_dict1,user_dict2)
+for key,value in new_dict.items():
+    print(key,value)
+```
+
+### 注意 
+
+```python
+如果两个dict 中存在同名的key 遍历的时候只会保留前一个
+```
+
+### 内置函数 .new_child() 动态添加   不带参数添加一个null的
+
+```python
+user_dict1={'a':'boddy1','b':'boddy2'}
+user_dict2={'a':'boddy1','b':'boddy2'}
+new_dict=ChainMap(user_dict1,user_dict2)
+# 动态添加
+new_dict.new_child({'e':'boddy5','f':'boddy6'})
+for key,value in new_dict.items():
+    print(key,value)
+```
+
+### 内置函数  maps ( )      把ChainMap对象转化为list对象，可以被访问和修改。
+
+```python
+dict1={"hello":1,"world":2}
+    dict2={"hello":3,"java":3}
+    dict4={"hello":5,"java":5}
+    dict3=ChainMap(dict1,dict2)
+    print(dict3)
+    # maps:把ChainMap对象转化为list对象，可以被访问和修改。
+    print(dict3.maps)
+```
+
