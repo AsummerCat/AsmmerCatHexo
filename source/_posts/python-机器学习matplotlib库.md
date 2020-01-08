@@ -13,3 +13,15 @@ Python第三方库Matplotlib，讲解绘制坐标系、散点图、极坐标图�
 <!--more-->
 
 ## 官网 ->matplotlib.org
+
+
+
+## demo
+
+## 导入模块
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
