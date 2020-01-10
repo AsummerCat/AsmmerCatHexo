@@ -253,6 +253,20 @@ np.copy(list1)
 
 
 
+## 创建等差数列
+
+```python
+>>> np.linspace(2.0, 3.0, num=5)
+array([ 2.  ,  2.25,  2.5 ,  2.75,  3.  ])
+>>> np.linspace(2.0, 3.0, num=5, endpoint=False)
+array([ 2. ,  2.2,  2.4,  2.6,  2.8])
+>>> np.linspace(2.0, 3.0, num=5, retstep=True)
+(array([ 2.  ,  2.25,  2.5 ,  2.75,  3.  ]), 0.25)
+
+```
+
+
+
 ## 数组基本数学操作
 
 ### 加减操作
