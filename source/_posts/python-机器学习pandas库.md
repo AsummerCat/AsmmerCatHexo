@@ -193,6 +193,36 @@ print(df1.drop([dates[0], dates[2]]))
 
 ```
 
+### 科学计算
+
+```python
+    '''
+    科学计算
+    '''
+    # 求平均值
+    print(df.mean())
+    # 方差
+    print(df.var())
+
+    s = pd.Series([1, 2, 4, np.nan, 5, 7, 9, 10], index=dates)
+    print(s)
+    # 所有的值移后两位 后面的值不会移动至前面
+    print(s.shift(2))
+
+    # 阶分 填入数值表示多阶 后面一个减去前面一个
+    print(s.diff())
+
+    # 每个值在series出现的次数
+    print(s.value_counts())
+
+    print(df)
+    # 累加 后面的值都是前面的累加值
+    print(df.apply(np.cumsum))
+
+    # 自定义  极差
+    print(df.apply(lambda x: x.max() - x.min()))
+```
+
 
 
 ## 缺失值处理
@@ -254,25 +284,100 @@ df1.add(df2,fill_value=0)
 
 ![相加2](/img/2020-01-13/2.png)
 
+```python
+  '''
+    拼接
+    '''
+    # 获取前三行后三行
+    pieces = [df[:3], df[-3:]]
+    # 拼接
+    print(pd.concat(pieces))
+
+    left = pd.DataFrame({"key": ["x", "y"], "value": [1, 2]})
+    right = pd.DataFrame({"key": ["x", "z"], "value": [3, 4]})
+
+    #   合并  类似数据库的left join   对比两个DataFrame  on=对比的key how=默认inner  left right outer(全部显示)
+    print(pd.merge(left, right, on="key", how="left"))
+
+    df3 = pd.DataFrame({"A": ["a", "b", "c", "b"], "B": list(range(4))})
+
+    # 聚合函数 类似数据库的group by 
+    print(df3.groupby("A").sum())
+```
+
 ![灵活的算术方法](/img/2020-01-13/3.png)
 
+###   重塑 Reshape
+
+重塑 透视表 交叉分析
+
+```python
+ '''
+    重塑 透视表->交叉分析
+    '''
+    import datetime
+    df4 = pd.DataFrame({"A": ['one', 'one', 'two', 'three'] * 6,
+                        "B": ['a', 'b', 'c'] * 8,
+                        "C": ['foo', 'foo', 'foo', 'bar', 'bar', 'bar'] * 4,
+                        "D": np.random.randn(24),
+                        # 状态分布
+                        "E": np.random.randn(24),
+                        "F": [datetime.datetime(2017, i, 1) for i in range(1, 13)] +
+                             [datetime.datetime(2017, i, 15) for i in range(1, 13)]})
+
+    # 透视表
+    ## 输出值:D 主键:AB 字段:C
+    print(pd.pivot_table(df4, values="D", index=["A", "B"], columns=["C"]))
+```
 
 
-###  2
 
+## 时间、绘图、文件操作
 
+### 时间序列 time series
 
+```python
+    '''
+    时间序列
+    time series
+    '''
+      # 定义时间序列 periods=时间段 feq:时间格式 Y M H D S
+    t_exam = pd.date_range("20170301", periods=10, freq="S")
+    print(t_exam)
+```
 
+### 绘图  Graph
 
+```python
+    '''
+    绘图功能 
+    Graph
+    '''
+    # 创建序列
+    ts = pd.Series(np.random.randn(1000), index=pd.date_range("20170301", periods=1000))
+    # 累加
+    ts = ts.cumsum()
+    # 需要引入  from pylab import *
+    ts.plot()
+    show()
+```
 
+## 文件操作
 
+```python
+    '''
+    文件操作
+    '''
+    # 读取csv文件
+    df6 = pd.read_csv("./test.csv")
+    print(df6)
+    # 读取xlsx文件 第一块
+    df7 = pd.read_excel("./test.xlsx", "Sheet1")
+    print(df7)
 
-
-
-
-
-
-
-
-https://www.imooc.com/video/14990
+    # 保存csv
+    df6.to_csv("/test2.csv")
+    # 保存xlsx
+    df7.to_excel("/test2.xlsx")
+```
 
