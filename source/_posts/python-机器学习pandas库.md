@@ -23,7 +23,7 @@ import pandas as pd
 
 <!--more-->
 
-## 基础数据结构
+## 基础数据结构 dataFrame
 
 ```python
 # -*- coding: utf-8 -*-
@@ -33,7 +33,7 @@ import pandas as pd
 
 
 '''
-基础数据结构
+表格型基础数据结构
 '''
 def test():
     # 基本数据结构 Data Structure
@@ -172,6 +172,29 @@ if __name__ == '__main__':
     print(df2)
 ```
 
+### 删除列
+
+```python
+# 创建一个新的数据项
+    s1 = pd.Series(list(range(10, 18)), index=pd.date_range("20170301", periods=8))
+    
+# 删除列
+del df['A']
+# 查询列名
+print(df.columns)
+
+#丢弃指定轴上的项
+s1.drop('C')
+s1.drop(['C','D'])
+
+df = pd.DataFrame(np.random.randn(8, 5), index=dates, columns=list(["Colorado","Ohio"]))
+# 对于dataFrame 可以删除任意轴上的索引值
+print(df1.drop([dates[0], dates[2]]))
+
+```
+
+
+
 ## 缺失值处理
 
 ```python
@@ -183,6 +206,13 @@ if __name__ == '__main__':
     ## 仅给第一行第二行 赋值
     df1.loc[dates[0]:dates[1], "G"] = 1
     print(df1)
+    
+   
+   '''
+   缺失值
+   '''
+   # series的reindex将会根据新索引进行重排,吐过某个索引值不当前不存在,就就引入缺失值
+   obj.reindex(['a','b','c','d','e'].fill_value=0)
 
     ## 缺失值处理方式
     ### 一  ->直接丢弃
@@ -191,11 +221,40 @@ if __name__ == '__main__':
     print(df1.fillna(value=2))
 ```
 
+### 检测缺失数据 判断是否为空
+
+```python
+ # 列表返回true false
+ pd.isnull(df)
+ 
+ # 列表返回false true
+ pd.notnull(df)
+```
+
+
+
 ## 表的拼接和重塑
 
-### 1
+###  拼接
 
+###  dataFrame相加   df1+df2  
 
+```python
+df1+df2
+将他们相加时,没有重叠的位置会产生Na值
+```
+
+![相加](/img/2020-01-13/1.png)
+
+### 也可以使用 df1.add方法
+
+```python
+df1.add(df2,fill_value=0)
+```
+
+![相加2](/img/2020-01-13/2.png)
+
+![灵活的算术方法](/img/2020-01-13/3.png)
 
 
 
