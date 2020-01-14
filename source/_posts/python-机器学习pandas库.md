@@ -94,6 +94,12 @@ if __name__ == '__main__':
     print(df.describe())
 
     print("=" * 100)
+    
+     # 求和 默认 根据列求和 axis根据行求和 axis简约的轴 行为0 1为列
+    print(df.sum(axis=0))
+    print(df.sum(axis=1))
+    ## NA值会被自动排除 ,除非全都是NA 通过skipna选项 可禁用
+    print(df.sum(axis=0,skipna=False))
 ```
 
 ### 选择数据 切片操作
@@ -125,6 +131,8 @@ if __name__ == '__main__':
     print(df.iloc[0, 4])
     # 跟上面类似 获取指定位置的值
     print(df.iat[0, 4])
+    # 获取 指定行数的 A属性
+    print(df.ix[[0, 2], 'A'])
 ```
 
 ### 筛选数据
@@ -138,6 +146,7 @@ if __name__ == '__main__':
 
     ## 筛选 E属性存在某个几个值的 类似 数据库的in
     print(df[df["E"].isin([1, 2])])
+
 ```
 
 ### 赋值 dataFrame
@@ -191,9 +200,22 @@ df = pd.DataFrame(np.random.randn(8, 5), index=dates, columns=list(["Colorado","
 # 对于dataFrame 可以删除任意轴上的索引值
 print(df1.drop([dates[0], dates[2]]))
 
+
+    
+    
+    df1 = pd.DataFrame(np.random.rand(7, 3))
+    df1.iat[4, 1] = NaN
+    df1.iat[4, 2] = NaN
+    df1.iat[2, 2] = NaN
+    #### 过滤时间序列数据及其行问题 保留完整数据 thresh 指定保留属性非空个数
+    print(df1)
+    print(df1.dropna(thresh=2))
+
 ```
 
 ### 科学计算
+
+![](/img/2020-01-13/6.png)
 
 ```python
     '''
@@ -247,8 +269,21 @@ print(df1.drop([dates[0], dates[2]]))
     ## 缺失值处理方式
     ### 一  ->直接丢弃
     print(df1.dropna())
+    #### 将直接丢弃全是Na的行
+    print(df1.dropna(how='all'))
+    #### 将直接丢弃列 全是Na的
+    print(df1.dropna(how='all', axis=1))
+    #### 过滤时间序列数据及其行问题 保留完整数据 thresh 指定保留属性个数
+    print(df1.dropna(thresh=3))
+    
+    
     ### 二 ->赋值一个指定值 或者插值
     print(df1.fillna(value=2))
+    #### 通过一个一个字典调用fillna, 可以实现对不同的列填充
+    print(df1.fillna({1: 0.5, 3: -1}))
+    #### fillna默认会返回新对象 ,但也可以对现有对象就地就该 inplace=True
+    print(df1.fillna(value=2, inplace=True))
+
 ```
 
 ### 检测缺失数据 判断是否为空
@@ -379,5 +414,19 @@ df1.add(df2,fill_value=0)
     df6.to_csv("/test2.csv")
     # 保存xlsx
     df7.to_excel("/test2.xlsx")
+```
+
+## 其他操作
+
+## 判断index是否唯一
+
+```python
+obj = pd.Series(range(5), index=['a', 'a', 'b', 'b', 'c'])
+
+    ## 判断索引值是否唯一
+    print(obj.index.is_unique)
+    ## 如果是重复的索引获取的值为多个  DataFrame也是同样的
+    print(obj['a'])
+
 ```
 
