@@ -50,6 +50,8 @@ http://scikit-learn.org
 
 ## 数据集
 
+[视频地址](https://www.icourse163.org/learn/BIT-1001872001?tid=1001965001#/learn/content?type=detail&id=1002847912&cid=1003244067&replay=true)
+
 ![数据集](/img/2020-01-13/7.png)
 
 ## 测试
