@@ -190,8 +190,10 @@ theme: next
 deploy:
   type: git
   repo:
-      github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
-      #coding: http://git.coding.net/AsummerCat/AsummerCat.git,master  
+      # github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
+      github: git@github.com:AsummerCat/AsummerCat.github.io.git,master
+      coding: git@git.dev.tencent.com:AsummerCat/AsummerCat.git,master
+      # coding: https://git.dev.tencent.com/AsummerCat/AsummerCat.git,master 
       #gitee: https://gitee.com/Cat_J/hexo.git,master
 
 search:
