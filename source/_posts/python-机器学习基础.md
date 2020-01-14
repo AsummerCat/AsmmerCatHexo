@@ -21,7 +21,7 @@ tags: [python,机器学习]
 
 <!--more-->
 
-```
+```python
 （1）Python第三方库NumPy，讲解N维数据的表达及科学计算的基本概念和运算方法；
 
 （2）Python第三方库Matplotlib，讲解绘制坐标系、散点图、极坐标图等直观展示数据趋势和特点的方法；
