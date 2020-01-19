@@ -28,3 +28,6 @@ jmeter, Apache下的测试工具, 常用来进行压测, 项目中, 接口通常
 ### 配置header
 
 ![添加cookie](/img/2020-01-15/12.png)
+
+直接将Request Headers头消息里面的所有内容复制粘贴进去 就ok了
+
