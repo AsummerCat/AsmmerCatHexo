@@ -124,8 +124,6 @@ isolation.READ_COMMITTED 读已提交 ORCLE默认级别
 
 
 
-## 1
-
 
 
 # 真题
