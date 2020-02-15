@@ -2,7 +2,6 @@
 title: 面试相关-java基础
 date: 2020-02-03 20:30:13
 tags: [java,面试相关]
-
 ---
 
 # 基础知识
@@ -101,13 +100,11 @@ Map包
      Vector
 ```
 
+### hashSet 底层是hashMap
 
-
-
-
-
-
-
+```
+因为: hashSet 的key就是添加的那个值 value是默认object常量
+```
 
 # 真题
 
@@ -227,4 +224,29 @@ Servlet的生命周期由Web容器来进行管理
 5.最后，Servlet 是由 JVM 的垃圾回收器进行垃圾回收的。
 ```
 
-## 
+### ArrayList线程不安全?
+
+```
+ 报错: ConcurrentModificationException
+ 
+ 原因: 并发修改错误会造成list中标记的modifyCount 不相等
+ 
+ 优化:  1.使用Vector (线程安全)
+       2.Collections.synchronizedList 生成
+       3.copyOnWriteArrayList 读时复制(读写分离思想 ) add(加锁+复制array[]+1)
+       
+```
+
+### hashSet底层为什么是hashMap 并且key value是什么?
+
+```
+hashSet 的key就是添加的那个值 
+value是定义的一个默认object常量
+```
+
+###  hashSet线程不安全?
+
+```
+跟ArrayList线程不安全一样
+```
+
