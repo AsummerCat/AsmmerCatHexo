@@ -250,3 +250,12 @@ value是定义的一个默认object常量
 跟ArrayList线程不安全一样
 ```
 
+### hashcode相等对象是否相等?
+
+```
+在不重写equals和hashcode的情况下
+1.对象相等(则里的相等是指，通过equals()比较两个对象时返回true。) hashcode相等 , 
+2.hashcode不相等 两个对象不相等
+3.hashCode相等，则对象不一定相等
+```
+

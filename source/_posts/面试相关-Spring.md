@@ -165,3 +165,11 @@ Spring AOP基于代理（Proxying），而AspectJ基于字节码操作（Bytecod
 7.适配器模式 :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配Controller。
 ```
 
+## bean的循环引用如何处理
+
+```
+1. 拆开依赖 在代码中 引入依赖
+
+2.任意对象使用懒加载 @lazy
+```
+

@@ -37,3 +37,10 @@ Mapper 接口的工作原理是JDK动态代理，Mybatis运行时会使用JDK动
 或者传入Map
 ```
 
+### mybatis和mybaitis-plus的区别?
+
+```
+1.plus 内置分页插件
+2.plus 有通用的service 可以简单配置实现单表查询 类似jpa
+```
+
