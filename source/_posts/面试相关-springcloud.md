@@ -98,6 +98,23 @@ SpringCloud的高级功能(本文不讲)：
 4.还是没有就直接从内存注册表里面获取
 ```
 
+### eureka必须优化的参数
+
+```
+1.eureka.server.responseCacheUpdateIntervalMs = 3000
+  ->注册中心读写缓存刷新到只读缓存的时间间隔
+2.eureka.client.registryFetchIntervalSeconds = 3000
+  ->客户端拉取注册表的时间间隔
+3.eureka.client.leaseRenewalIntervalInSeconds = 30
+  ->客户端发送心跳的间隔
+4.eureka.server.evictionIntervalTimerInMs = 60000
+  ->注册中心的线程定时发送检查心跳请求的间隔
+5.eureka.instance.leaseExpirationDurationInSeconds = 90
+  -注册中心 判断多久没有发送心跳 剔除服务
+```
+
+
+
  # 分布式session方案
 
 ```
@@ -201,5 +218,25 @@ dubbo的RPC的性能会比(cloud)http的性能更好,并发能力更强,经过�
 
 dubbo只是一个单纯的服务框架 需要其他第三方组件配合
 spring cloud是提供了一套完整的微服务方案  开箱即用
+```
+
+### 注册中心的选择方案是什么?
+
+```
+1.eureka :  可用性(AP)
+   ->eureka 保证了可用性 某个eureka宕机后,服务仍可以使用  (如果挂了 可能会导致拉取的节点数据不是最新的)
+   ->注册服务的时效性:  同步可能存在延时(注册服务和心跳检测) 默认延时30秒
+   ->容量:rureka不适合大规模的集群上千节点 ,因为会造成网络带宽被占用 
+   
+   
+2. zk: 一致性 (CP)
+   ->zk的选举机制和集群同步 保证了强一致性 保证客户端及时刷新服务节点的信息
+   ->注册服务的时效性:  因为是监听zk节点 所以服务的上线和下线都是秒级通知
+   ->容量:zk也不适合大规模的集群上千节点 ,因为会造成网络带宽被占用 
+   
+3.dubbo使用zk, spring cloud使用eureka
+
+4.Apollo 携程的注册中心 支持其他配置
+5.diamond 阿里出品的一款
 ```
 
