@@ -387,3 +387,31 @@ from dual
            for update;
         P_ROWS := SQL%ROWCOUNT;
 ```
+
+## orcle将数组存入到游标中
+
+```
+定义游标
+ type type_cursor_records is ref cursor;
+ 
+ 存入数组:
+ open paramLis for select * from table (paramList1);
+```
+
+## 发送http请求
+
+```
+ url := 'http://localhost/test.jsp';  
+ req := utl_http.begin_request(url);
+resp := utl_http.get_response(req);
+LOOP
+utl_http.read_line(resp, value, TRUE);
+dbms_output.put_line('网站回复' || value);
+END LOOP;
+utl_http.end_response(resp);
+EXCEPTION
+WHEN utl_http.end_of_body THEN
+utl_http.end_response(resp);
+END;
+```
+
