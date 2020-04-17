@@ -36,11 +36,13 @@ tags:  [guava,java]
 
 ## 主要部分
 
-基于guava创建缓存+限流+惰性删除
+1.基于guava创建缓存+限流+惰性删除
+
+2.再添加一个延迟队列 监控 实现 限流过期删除
 
 ```
 1.缓存池
-private static final Cache<Object, CurrentLimit> cache = CacheBuilder.newBuilder().maximumSize(100000).expireAfterAccess(1L, TimeUnit.DAYS).build();
+private static final Cache<Object, CurrentLimit> cache = CacheBuilder.newBuilder().maximumSize(100000).expireAfterAccess(15L, TimeUnit.DAYS).build();
 2.限流
 RateLimiter.create(limitInfo.getValue());
 
@@ -107,6 +109,14 @@ public @interface RequestLimit {
 	 * @see ReleaseTimeoutStrategy
 	 */
 	ReleaseTimeoutStrategy ReleaseTimeoutStrategy() default ReleaseTimeoutStrategy.NO_OPERATION;
+    /**
+	 * 过期时间
+	 */
+     long delayTime() default 0;
+	/**
+	 * 过期时间的类型 默认分钟
+	 */
+	 TimeUnit unit() default TimeUnit.MINUTES;
 }
 
 ```
@@ -140,13 +150,22 @@ public class AcquireTimeoutException extends RuntimeException {
 
 ```java
 
+
 /**
  * 当前限流属性
+ *
  * @author 一只写Bug的猫
  * @since 2019年8月8日18:19:18
  */
 @Data
 public class LimitInfo {
+
+	public LimitInfo(String name, LimitType type, Double value, Long delayTime) {
+		this.name = name;
+		this.type = type;
+		this.value = value;
+		this.delayTime = delayTime;
+	}
 
 	public LimitInfo(String name, LimitType type, Double value) {
 		this.name = name;
@@ -169,6 +188,12 @@ public class LimitInfo {
 	 * @return
 	 */
 	private Double value;
+	/**
+	 * 延迟时间 -> 多久过期
+	 * 毫秒
+	 */
+	private Long delayTime = 0L;
+
 }
 
 ```
@@ -346,24 +371,38 @@ public enum LimitType implements LimitNameHandler {
 
 ## 创建限流的工厂类
 
+这里就是功能是
+
+1.开启一个监控线程 监控超时
+
+2.创建限流
+
 ```java
 
 /**
  * 创建限流器的工厂
+ *
+ * @author 一只写Bug的猫
+ * @date 2020年3月19日08:55:15
  */
 @Component
-public class CurrentLimitFactory {
+public class CurrentLimitFactory implements InitializingBean {
+
 	/**
 	 * 缓存池
 	 * 用来保存方法的限流策略
 	 * 这边使用guava实现资源回收 避免过量增长
-	 * 1天未读取就删除
+	 * 15天未读取就删除
 	 */
-	private static final Cache<Object, CurrentLimit> cache = CacheBuilder.newBuilder().maximumSize(100000).expireAfterAccess(1L, TimeUnit.DAYS).build();
+	private static volatile Cache<Object, CurrentLimit> cache = CacheBuilder.newBuilder().maximumSize(100000).expireAfterAccess(15L, TimeUnit.DAYS).build();
+	/**
+	 * 手动过期删除策略
+	 */
+	private static ExecutorService executorService = Executors.newSingleThreadExecutor();
+	private static volatile DelayQueue<DelayedTask> delayQueue = new DelayQueue<>();
 
 
 	public CurrentLimit getLimit(LimitInfo limitInfo) {
-
 		//判断缓存池是否有数据 没有数据就创建limit
 		CurrentLimit limit = cache.getIfPresent(limitInfo.getName());
 		if (Objects.isNull(limit)) {
@@ -381,11 +420,104 @@ public class CurrentLimitFactory {
 	 * @return
 	 */
 	private synchronized CurrentLimit createLimit(LimitInfo limitInfo) {
-		CurrentLimit currentLimit = new TokenBucketLimiter(limitInfo);
-		cache.put(limitInfo.getName(), currentLimit);
+		CurrentLimit limit = cache.getIfPresent(limitInfo.getName());
+		CurrentLimit currentLimit;
+		//双重检测
+		if (Objects.isNull(limit)) {
+			currentLimit = new TokenBucketLimiter(limitInfo);
+			cache.put(limitInfo.getName(), currentLimit);
+				//添加超时任务
+				addTimeoutTask(limitInfo);
+		} else {
+			currentLimit = limit;
+		}
 		return currentLimit;
 	}
 
+
+	/**
+	 * 过期手动删除 这里先用类似redis的定时删除 和惰性删除模式
+	 */
+	private void addTimeoutTask(LimitInfo limitInfo){
+		if(limitInfo.getDelayTime()>0){
+		DelayedTask element = new DelayedTask(limitInfo.getDelayTime(),limitInfo);
+		delayQueue.offer(element);
+			System.out.println("添加超时任务到队列:->"+element.msg.getName());
+		}
+	}
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		/**
+		 * 开启监控线程 监控超时移除
+		 */
+		executorService.execute(() -> {
+			System.out.println("启动监控限流超时的队列线程启动中。。。。。。。。。。");
+					while (true) {
+						DelayedTask element;
+						try {
+							element = delayQueue.take();
+							//移除过期key
+							System.out.println("开始移除key:->"+element.msg.getName());
+							cache.invalidate(element.msg.getName());
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+		);
+	}
+
+
+	/**
+	 * 延时队列的内容对象 过期删除
+	 */
+	static class DelayedTask implements Delayed {
+		private final long delay; //延迟时间
+		private final long expire;  //到期时间
+		private final LimitInfo msg;   //数据
+		private final long now; //创建时间
+
+		public DelayedTask(long delay, LimitInfo msg) {
+			this.delay = delay;
+			this.msg = msg;
+			expire = System.currentTimeMillis() + delay;    //到期时间 = 当前时间+延迟时间
+			now = System.currentTimeMillis();
+		}
+
+		/**
+		 * 需要实现的接口，获得延迟时间   用过期时间-当前时间
+		 *
+		 * @param unit
+		 * @return
+		 */
+		@Override
+		public long getDelay(TimeUnit unit) {
+			//根据过期时间-当前时间
+			return unit.convert(this.expire - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+		}
+
+		/**
+		 * 用于延迟队列内部比较排序   当前时间的延迟时间 - 比较对象的延迟时间
+		 *
+		 * @param o
+		 * @return
+		 */
+		@Override
+		public int compareTo(Delayed o) {
+			return (int) (this.getDelay(TimeUnit.MILLISECONDS) - o.getDelay(TimeUnit.MILLISECONDS));
+		}
+
+		@Override
+		public String toString() {
+			final StringBuilder sb = new StringBuilder("DelayedTask{");
+			sb.append("delay=").append(delay);
+			sb.append(", expire=").append(expire);
+			sb.append(", msg='").append(msg.getName()).append('\'');
+			sb.append(", now=").append(now);
+			sb.append('}');
+			return sb.toString();
+		}
+	}
 }
 ```
 
@@ -437,7 +569,6 @@ public class TokenBucketLimiter implements CurrentLimit {
 ## 创建生成限流器的提供者 生成limitInfo类
 
 ```java
-
 /**
  * 获取用户定义业务key
  * 生成限流info的内容
@@ -457,8 +588,14 @@ public class BusinessKeyProvider {
 		String businessKeyName = getKeyName(joinPoint, requestLimit);
 		//根据自定义name配置 如果存在name 则使用name,否则使用方法名当做name
 		String limitName = type.prefixName(joinPoint) + ":" + getName(requestLimit.name(), signature) + businessKeyName;
-		//实例化限流实体类
-		return new LimitInfo(limitName, type, requestLimit.value());
+		//根据过期时间添加 时间戳
+		if(requestLimit.delayTime()>0){
+			//计算毫秒
+			long delayMillis = requestLimit.unit().toMillis(requestLimit.delayTime());
+			return new LimitInfo(limitName, type, requestLimit.value(),delayMillis);
+		}else{
+			return new LimitInfo(limitName, type, requestLimit.value());
+		}
 	}
 
 
@@ -583,16 +720,11 @@ public class CurrentLimitAop {
 			HttpServletResponse response = sra.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
-			PrintWriter out = null;
-			try {
-				out = response.getWriter();
-				out.append(ex.getMessage());
+			try (ServletOutputStream out = response.getOutputStream()) {
+				out.write(ex.getMessage().getBytes(StandardCharsets.UTF_8));
+				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} finally {
-				if (out != null) {
-					out.close();
-				}
 			}
 		} else {
 			// do nothing
