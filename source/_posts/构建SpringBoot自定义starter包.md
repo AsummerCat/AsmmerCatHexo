@@ -1,5 +1,5 @@
 ---
-title: 构建SpringBoot自定义start包
+title: 构建SpringBoot自定义starter包
 date: 2020-04-16 15:10:07
 tags: [SpringBoot]
 ---

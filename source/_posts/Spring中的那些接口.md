@@ -341,6 +341,24 @@ public class TestBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 需要注意的是 这个部分需要 使用@import注册到容器中使用
 ```
 
+## BeanDefinitionRegistryPostProcessor(将指定的类注册到spring容器中)
+
+继承了BeanFactoryPostProcessor接口
+
+```java
+//根据名称和类型获取bean
+            BeanDefinitionRegistryPostProcessor pp = beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class);
+            //把已经调用过postProcessBeanDefinitionRegistry方法的bean全部放在registryPostProcessors中
+            registryPostProcessors.add(pp);
+            //把已经调用过postProcessBeanDefinitionRegistry方法的bean的名称全部放在processedBeans中
+            processedBeans.add(ppName);
+            //执行此bean的postProcessBeanDefinitionRegistry方法
+            pp.postProcessBeanDefinitionRegistry(registry);
+
+```
+
+
+
 ## BeanFactory接口
 
 ```
