@@ -8,6 +8,19 @@ tags: [SpringCloudAlibaba,nacos]
 
 
 
+## 编译
+
+```
+
+单机调试需要加入:
+VM options：-Dnacos.standalone=true
+
+执行打包命令
+mvn -Prelease-nacos clean install -U  -Dmaven.test.skip=true
+```
+
+
+
 ## 当前版本
 
 2020年4月28日16:27:46
