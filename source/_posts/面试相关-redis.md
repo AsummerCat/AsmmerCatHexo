@@ -1,45 +1,8 @@
 ---
-title: 面试相关-缓存
-date: 2020-02-03 22:15:59
-tags: [java,面试相关]
+title: 面试相关-redis
+date: 2020-05-06 14:15:29
+tags: [面试相关,redis]
 ---
-
-## 缓存
-
-```
-缓存分为 本地缓存 多级缓存 分布式缓存
-```
-
-### 淘汰策略
-
-```
-淘汰策略: FIFO(先进先出)   
-         LRU(最近最少使用数据)   
-         LFU(最低使用频率的数据)
-```
-
-### 缓存问题处理
-
-<!--more-->
-
-```java
-缓存问题处理: 
-       1.缓存不一致
-            数据变更,缓存时效性   增加重试,补偿任务,最终一致  尝试在代码中操作的时候先更新DB再更新缓存
-       
-       2.缓存穿透
-              恶意攻击         空对象做缓存, 使用布隆过滤器->不存在直接返回NULL
-         
-       3.缓存击穿
-             热点key失效        互斥更新,随机退避,差异失效时间 比如加上一个锁 或者CAS操作
-         
-       4.缓存雪崩
-            缓存宕机或者大批量的key失效           缓存宕机:   快速失败熔断,主从模式,集群模式
-                                        大批量的key失效:   那就设置不同的过期时间避免同一时间段失效
-         
-```
-
-
 
 ## redis
 
@@ -63,7 +26,7 @@ http://antirez.com/news/126
 2、使用多线程充分利用多核，典型的实现像 Memcached
 ```
 
-
+<!--more-->
 
 ### 数据结构
 
@@ -107,7 +70,6 @@ maxmemory-policy volatile-lru   #默认是noeviction，即不进行数据淘汰
 利用LinkedHashMap 实现
 
 ```
-
 public class UseLinkedHashMapCache<K,V> extends LinkedHashMap<K,V>{
     private int cacheSize;
     public UseLinkedHashMapCache(int cacheSize){
@@ -265,10 +227,6 @@ public class UseLinkedHashMapCache<K,V> extends LinkedHashMap<K,V>{
 3.交换的信息 ->故障转移,节点的增加和删除,hash slot信息 等等
 ```
 
-
-
-
-
 ### redis的分布式方案
 
 ```
@@ -276,32 +234,132 @@ public class UseLinkedHashMapCache<K,V> extends LinkedHashMap<K,V>{
 基于lua操作
 ```
 
-## zk
-
-### zk的作用
-
-```
-统一配置管理、统一命名服务、分布式锁、集群管理
-例如dubbo用zk做注册中心
-```
-
-
-
-### zk的分布式锁方案
-
-```
-分布式方案 curator
-使用临时顺序节点来控制锁
-```
+## 
 
 
 
 # 真题
+
+### 如果redis中的某个列表中的数据量非常大，如果实现循环显示每一个值？
+
+```
+利用分片获取 减少服务器压力
+
+# 通过scan_iter分片取，减少内存压力
+scan_iter(match=None, count=None)增量式迭代获取redis里匹配的的值
+# match，匹配指定key
+# count，每次分片最少获取个数
+    r = redis.Redis(connection_pool=pool)
+    for key in r.scan_iter(match='PREFIX_*', count=100000):
+        print(key)
+```
 
 ### 分布式锁的选择
 
 ```
 redis:  redisson
 zk:     curator 
+```
+
+​     
+
+### 选择 memcached还是redis?
+
+```
+单纯 K-V 缓存的场景可以使用 MC，而需要缓存 list、set 等特殊数据格式，可以使用 Redis；
+redis 可以支持原生集群
+memcached 需要第三方客户端支持集群
+```
+
+### redis单线程为啥效率这么高?
+
+```
+线程模型:  
+ 1.文件事务处理器
+   redis基于reactor模式开发了网络事件处理器,这个处理器也就是文件事务处理器,file event handler,采用IO多路复用机制同时监听多个socket,根据socket上的事件来选择对应的事务处理器处理事务
+   
+  效率高: 1.非阻塞的多路复用IO模型
+         2.纯内存操作
+         3.单线程 ->避免上下文切换
+   
+
+```
+
+### redis集群下寻找key的算法差异是什么?
+
+```
+1.hash算法  ->根据机子数量取模 ->如果宕机 ->需要重新计算key的位置->导致大量缓存无法被找到->导致大量请求入DB
+
+2.一致性hash算法: ->根据虚拟圆环获取数据->如果宕机->只有在宕机的那台的缓存会失效->并且将key移动给下一个顺时针最近node节点 并且有虚拟节点的概念实现(负载均衡)
+
+3.hash slot节点: ->有固定的16385个槽->宕机后->宕机的机子数据失效->槽点移动给其他机子->槽点平均分配给剩余机子
+```
+
+### redis的并发竞争问题是什么?如何解决?
+
+```
+并发竞争: ->多客户端同时并发写了一个key->发送顺序延时->导致数据错误
+解决:
+    1.redis 有自带的CAS乐观锁机制
+    2.或者使用zk分布式锁控制一下
+```
+
+### Redis一个字符串类型的值能存储最大容量是多少？
+
+```
+512M
+```
+
+### 假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？
+
+```
+1.使用keys指令可以扫出指定模式的key列表。
+  -> 会出现阻塞的情况
+  -> keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。
+
+2.线上服务使用 scan指令 
+  ->scan指令可以无阻塞的提取出指定模式的key列表，
+  ->但是会有一定的重复概率，在客户端做一次去重就可以了，
+  ->但是整体所花费的时间会比直接用keys指令长。
+```
+
+### redis ->Pipeline有什么好处，为什么要用pipeline？
+
+```
+1.可以将多次IO往返的时间缩减为一次，
+  ->前提是pipeline执行的指令之间没有因果相关性。
+  ->使用redis-benchmark进行压测的时候可以发现影响redis的QPS峰值的一个重要因素是pipeline批次指令的数目。
+
+```
+
+### Redis 支持的 Java 客户端都有哪些？官方推荐用哪个？
+
+```
+Redisson、Jedis、lettuce 等等，官方推荐使用 Redisson。
+```
+
+### 一个 Redis 实例最多能存放多少的 keys？List、Set、Sorted Set 他们最多能存放多少元素？
+
+```
+1.理论上 Redis 可以处理多达 232 的 keys，
+并且在实际中进行了测试，每个实例至少存放了 2 亿 5 千万的 keys。我们正在测试一些较大的值。任何 list、set、和 sorted set 都可以放 232 个元素。换句话说，Redis 的存储极限是系统中的可用内存值。
+```
+
+### 哪些redis命令禁止生产使用?
+
+```
+1.线上Redis禁止使用Keys正则匹配操作
+
+2. keys *     查询所有key
+
+3.Flushdb     命令用于清空当前数据库中的所有 key
+
+4.Flushall     命令用于清空整个 Redis 服务器的数据(删除所有数据库的所有 key )
+
+CONFIG 客户端连接后可配置服务器
+业内建议使用scan命令来改良keys和SMEMBERS命令
+
+redis2.8版本以后有了一个新命令scan，可以用来分批次扫描redis记录，这样肯定会导致整个查询消耗的总时间变大，但不会影响redis服务卡顿，影响服务使用。
+
 ```
 
