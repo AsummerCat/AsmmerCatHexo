@@ -1,7 +1,7 @@
 ---
 title: 使用Nacos来实现分布式环境下的配置管理和服务注册发现
 date: 2019-01-19 10:12:48
-tags: [Nacos,springCloudAlibaba]
+tags: [Nacos,SpringCloudAlibaba]
 ---
 
 [服务发现文档](https://github.com/spring-cloud-incubator/spring-cloud-alibaba/wiki/Nacos-discovery)

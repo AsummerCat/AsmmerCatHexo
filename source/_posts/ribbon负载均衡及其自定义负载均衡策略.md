@@ -1,7 +1,7 @@
 ---
 title: ribbon负载均衡及其自定义负载均衡策略
 date: 2020-05-09 14:35:18
-tags: [SpringCloud,ribbon]
+tags: [springCloud,ribbon]
 ---
 
 # 实现负载均衡

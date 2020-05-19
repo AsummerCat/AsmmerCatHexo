@@ -1,7 +1,7 @@
 ---
 title: openfeign实现负载均衡
 date: 2020-05-09 14:48:46
-tags: [SpringCloud,feign]
+tags: [springCloud,feign]
 ---
 
 # openfeign默认等待1秒钟超时

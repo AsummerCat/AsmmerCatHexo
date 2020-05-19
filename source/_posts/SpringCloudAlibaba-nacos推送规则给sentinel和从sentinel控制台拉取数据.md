@@ -1,7 +1,7 @@
 ---
 title: SpringCloudAlibaba-nacos推送规则给sentinel和从sentinel控制台拉取数据
 date: 2020-04-27 10:54:17
-tags: [SpringCloudAlibaba,sentinel,nacos]
+tags: [SpringCloudAlibaba,sentinel,Nacos]
 ---
 
 # nacos推送数据给sentinel

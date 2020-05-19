@@ -1,7 +1,7 @@
 ---
 title: 安装Nacos环境
 date: 2019-01-19 10:19:23
-tags: [Nacos,springCloudAlibaba]
+tags: [Nacos,SpringCloudAlibaba]
 ---
 
 [官网文档](https://nacos.io/zh-cn/docs/quick-start.html)

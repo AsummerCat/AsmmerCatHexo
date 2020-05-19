@@ -1,7 +1,7 @@
 ---
 title: NACOS集群和持久化配置
 date: 2020-05-19 20:51:44
-tags: [springcloud,nacos]
+tags: [SpringCloudAlibaba,Nacos]
 ---
 
 # NACOS集群和持久化配置

@@ -1,7 +1,7 @@
 ---
 title: gateway网关
 date: 2020-05-09 15:11:24
-tags: [SpringCloud,gateway]
+tags: [springCloud,gateway]
 ---
 
 # gateway网关

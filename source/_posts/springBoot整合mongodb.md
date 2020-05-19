@@ -1,7 +1,7 @@
 ---
 title: springBoot整合mongodb
 date: 2019-11-22 14:03:45
-tags: [springboot,mongodb]
+tags: [SpringBoot,mongodb]
 ---
 
 # SpringBoot整合mongodb

@@ -1,7 +1,7 @@
 ---
 title: SpringBoot添加自定义配置的属性@value
 date: 2020-03-21 21:53:45
-tags: [java,springboot]
+tags: [java,SpringBoot]
 ---
 
 # SpringBoot添加自定义配置的属性@value

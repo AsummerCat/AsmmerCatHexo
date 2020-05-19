@@ -1,7 +1,7 @@
 ---
 title: Hystrix服务降级限流熔断
 date: 2020-05-09 15:19:19
-tags: [Hystrix,SpringCloud]
+tags: [Hystrix,springCloud]
 ---
 
 # Hystrix服务降级限流熔断

@@ -1,7 +1,7 @@
 ---
 title: SpringCloudAlibaba-nacos整合sentinel后的工作流程
 date: 2020-04-27 17:21:03
-tags: [SpringCloudAlibaba,sentinel,nacos]
+tags: [SpringCloudAlibaba,sentinel,Nacos]
 ---
 
 # nacos整合sentinel后的加载流程

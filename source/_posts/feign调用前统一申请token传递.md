@@ -1,7 +1,7 @@
 ---
 title: feign调用前统一申请token传递
 date: 2020-05-08 17:45:12
-tags: [SpringCloud,feign]
+tags: [springCloud,feign]
 ---
 
 # feign调用前统一申请token传递

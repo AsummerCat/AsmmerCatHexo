@@ -1,7 +1,7 @@
 ---
 title: sentinel的使用及其对feign的支持
 date: 2020-05-19 20:50:57
-tags: [springcloud,sentinel,feign]
+tags: [SpringCloudAlibaba,sentinel,feign]
 ---
 
 # sentinel基础配置

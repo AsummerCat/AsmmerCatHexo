@@ -1,7 +1,7 @@
 ---
 title: nacos初探--作为配置中心
 date: 2019-01-21 10:57:13
-tags: [Nacos,springCloudAlibaba]
+tags: [Nacos,SpringCloudAlibaba]
 ---
 
 Nacos 支持基于 DNS 和基于 RPC 的服务发现（可以作为springcloud的注册中心）、动态配置服务（可以做配置中心）、动态 DNS 服务。

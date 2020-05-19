@@ -1,7 +1,7 @@
 ---
 title: mybaitis拦截自定义显示sql
 date: 2020-04-13 09:21:22
-tags: [java,mybatis]
+tags: [java,mybaitis]
 ---
 
 # mybaitis拦截自定义显示sql

@@ -1,7 +1,7 @@
 ---
 title: SpringCloudAlibaba-nacos注册中心config
 date: 2020-04-26 10:52:48
-tags: [SpringCloudAlibaba,nacos]
+tags: [SpringCloudAlibaba,Nacos]
 ---
 
 # SpringCloudAlibaba-nacos注册中心config

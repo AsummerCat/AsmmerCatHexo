@@ -1,7 +1,7 @@
 ---
 title: springcloudConfig分布式配置
 date: 2020-05-09 14:56:16
-tags: [SpringCloud,SpringCloudConfig]
+tags: [springCloud,SpringCloudConfig]
 ---
 
 # springcloudConfig分布式配置

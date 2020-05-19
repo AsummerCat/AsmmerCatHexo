@@ -1,7 +1,7 @@
 ---
 title: Elaticsearch-javaAPI调用三
 date: 2020-02-15 15:22:51
-tags: [Elaticsearch,springboot,java]
+tags: [Elaticsearch,SpringBoot,java]
 ---
 
 # Elaticsearch-javaAPI调用三
