@@ -1,7 +1,7 @@
 ---
 title: vue-router路由
 date: 2020-06-02 19:49:12
-tags:[vue]
+tags: [vue]
 ---
 
 # vue-router路由
