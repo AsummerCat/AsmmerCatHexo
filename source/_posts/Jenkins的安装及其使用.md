@@ -1,7 +1,7 @@
 ---
 title: Jenkins的安装及其使用
 date: 2019-01-23 11:27:14
-tags: Jenkins
+tags: [Jenkins]
 ---
 
 # Jenkins持续集成部署
