@@ -46,3 +46,6 @@ epoll_ctl(fd8,add,fd5,accept)
  IO thread进行写入的同时,工作线程(单线程)继续计算另外一个
  
 ```
+
+![redis的epoll][/img/2020-06-03/redis.png]
+
