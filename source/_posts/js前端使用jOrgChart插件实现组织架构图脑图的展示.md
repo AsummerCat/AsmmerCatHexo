@@ -6,6 +6,10 @@ tags: [前端]
 
 #  js前端使用jOrgChart插件实现组织架构图脑图的展示
 
+## 文档地址
+
+[文档地址](https://github.com/wesnolte/jOrgChart)
+
 ```java
 需要引入的js插件和css文件：
 
