@@ -191,7 +191,8 @@ deploy:
   type: git
   repo:
       github: git@github.com:AsummerCat/AsummerCat.github.io.git,master
-      coding: git@git.dev.tencent.com:AsummerCat/AsummerCat.git,master
+      coding:  git@e.coding.net:AsummerCat/AsummerCat/AsummerCat.git,master
+      #coding: git@e.coding.net:AsummerCat/AsummerCat.git,master
       #github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
       # coding: https://git.dev.tencent.com/AsummerCat/AsummerCat.git,master 
       #gitee: https://gitee.com/Cat_J/hexo.git,master
