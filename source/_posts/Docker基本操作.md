@@ -10,7 +10,7 @@ tags: docker
 >3.[Docker之容器的创建、启动、终止、删除、迁移等](https://www.dwhd.org/20151115_140935.html)  
 >4.[如何在Docker容器内外互相拷贝数据？](https://blog.csdn.net/yangzhenping/article/details/43667785)  
 >5.[如何在docker和宿主机之间复制文件](https://blog.csdn.net/xtfge0915/article/details/52169445)
- 
+
 <!--more-->
 
 ---
@@ -57,7 +57,6 @@ SIZE：镜像大小
 ```
 runoob@runoob:~$ docker run -t -i ubuntu:15.10 /bin/bash 
 ```
-
 
 ---
 
@@ -144,12 +143,12 @@ runoob@runoob:~# docker run -d -P training/webapp python app.py
  
  2.apt install vim
  ```
- 
- ---
 
- 
+---
+
+
 ### 2.3 查看容器日志
- 
+
  ` docker logs tomcat(容器名称)`
 
 
@@ -209,7 +208,7 @@ runoob@runoob:~$ docker restart wizardly_chandrasekhar
 ### 2.7 移除WEB应用容器
 
 `docker rm wizardly_chandrasekhar `  
- 
+
 删除容器时，容器必须是停止状态，否则会报如下错误:
 >Error response from daemon: You cannot remove a running container  bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85.  
 > Stop the container before attempting removal or force remove
@@ -229,8 +228,12 @@ sudo docker cp containerID:container_path host_path
 
 ```
 
+### 2.9 提交容器 成为镜像
 
- 
- 
+```java
+docker commit -m="提交的描述信息" -a="作者" 容器ID 镜像名称:标签名
+```
+
+
 
 

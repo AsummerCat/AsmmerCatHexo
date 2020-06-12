@@ -18,7 +18,7 @@ tags: [linux,docker]
      安装docker
 
 3. 安装后的配置文件: /etc/sysconfig/docker 
-
+   修改 other_args="--registry-mirror=阿里云加速地址"
 
 4. 启动docker后台服务: service docker start
 
