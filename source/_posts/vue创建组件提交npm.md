@@ -1,8 +1,7 @@
 ---
 title: vue创建组件提交npm
 date: 2020-06-19 16:27:51
-tags: [vue]
-
+tags: [vue,webpack]
 ---
 
 # vue创建组件 提交到npm
