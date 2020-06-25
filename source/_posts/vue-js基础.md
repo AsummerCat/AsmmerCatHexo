@@ -1,7 +1,7 @@
 ---
 title: vue.js基础
 date: 2018-11-07 17:08:56
-tags: vue.js
+tags: vue
 ---
 
 # vue.js

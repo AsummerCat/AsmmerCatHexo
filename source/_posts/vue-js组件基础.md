@@ -1,7 +1,7 @@
 ---
 title: vue.js组件基础
 date: 2018-11-08 14:25:33
-tags: vue.js
+tags: vue
 ---
 
 # 组件基础
@@ -48,7 +48,6 @@ data: function () {
   }
 }
 ```
-
 
 ---
 

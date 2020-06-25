@@ -1,7 +1,7 @@
 ---
 title: vue.js计算属性+方法+监听器
 date: 2018-11-08 09:36:47
-tags: vue.js
+tags: vue
 ---
 # 计算属性 computed
 
