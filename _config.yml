@@ -92,7 +92,7 @@ tag_map:
   SpringMvc: SpringMvc
   工具类: 工具类
   代理工厂: 代理工厂
-  Spring: spring
+  spring: spring
   设计模式: 设计模式
   IO流: IO流
   ELK日志分析框架: ELK日志分析框架
