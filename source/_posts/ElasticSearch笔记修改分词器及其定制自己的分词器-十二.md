@@ -58,7 +58,7 @@ PUT  /my_index
                 "&_to_and":{ //自定义转换字符的名称
                     "type": "mapping",
                     //自定义转换字符的规则
-                    "mappings":["&=> and "]
+                    "mappings":["&=>and"]
                 }
             },
             "filter":{ //配置停义词
@@ -73,7 +73,7 @@ PUT  /my_index
                 // 分词器为自定义用户创建
                     "type":"custom",
                 //自定义转换字符  
-                "char_filter":["html_strip","^_to_and"],
+                "char_filter":["html_strip","&_to_and"],
                 //基于默认的分词器
                     "tokenizer": "standard",
                 //配置自定义停义词   
@@ -97,11 +97,11 @@ GET /my_index/_analyze
 
 #### 将自定义分词器设置给字段
 ```
-PUT /my_inedx/_mapping/my_type
+PUT /my_index/_mapping
 {
     "properties":{
         "title":{
-            "type": "string",
+            "type": "text",
             "analyzer": "my_analyzer"
         }
     }

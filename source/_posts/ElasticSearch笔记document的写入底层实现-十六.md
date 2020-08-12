@@ -18,7 +18,7 @@ tags: [ElasticSearch笔记]
    
 1. 数据先写入buffer,在buffer中数据是搜索不到的,同时将数据写入translog日志文件(预写日志)
 
-2.buffer满了之后或者到一定的时间,将buffer数据refresh新到一个segment file中,这边 不是直接写入磁盘,而是先进入os cache中
+2.buffer满了之后或者到一定的时间,将buffer数据refresh刷新到一个segment file中,这边 不是直接写入磁盘,而是先进入os cache中
 
   |这个过程就是refresh.
   |默认是一秒refresh一次,所以es是实时的,数据写入一秒后才能被看到
@@ -45,9 +45,12 @@ tags: [ElasticSearch笔记]
 
 <font color="red">设置refresh的时间:</font>
 ```
-PUT /my_index/_refresh   手动refresh
+POST /my_index/_refresh   
+手动refresh 将buffer数据refresh刷新到一个segment file中,这边 不是直接写入磁盘,而是先进入os cache中
 ```
 ```
+//创建索引的时候设置自动refresh时间
+//默认是一秒refresh一次
 PUT /my_index
 {
     "settings":{
@@ -57,21 +60,25 @@ PUT /my_index
 ```
 <font color="red">设置异步translog的时间:</font>
 
-```
-PUT /my_index/_settings
+```java
+PUT /new_index/_settings
 {
-    "index.translog.durability":"async //异步执行预写预写日志
+    "index.translog.durability":"async", 
+    //异步执行预写预写日志
     "index.translog.sync_interval": "5s"
+    //同步间隔 5秒一次
 }
 ```
 <font color="red">手动flush 写入磁盘:</font>  
 清空预写日志和刷入磁盘
+
 ```
-POST /my_index/_flush?wait_for_ongoing
+POST /new_index/_flush
 ```
 <font color="red">手动合并segment:</font>  
 默认会在后台执行segment merge操作,  
 在mege的时候,被标记为deleted的document也会被彻底物理删除
+
 ```
 POST /my_index/_optimize?max_num_segments=1
 ```

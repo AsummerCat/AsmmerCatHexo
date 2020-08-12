@@ -19,7 +19,57 @@ tags: [ElasticSearch笔记]
 重新建立一个索引,将旧索引的数据查询出来,再导入新索引
 
 #### 第1️⃣步 重建索引
+
+旧索引
+
+```java
+
+PUT /old_index/_doc/4
+{
+    "age": 24,
+    "date":"2017-01-06"
+}
+
+----------------------------
+  索引的mapping
+{
+  "old_index" : {
+    "mappings" : {
+      "properties" : {
+        "age" : {
+          "type" : "long"
+        },
+        "date" : {
+          "type" : "date"
+        }
+      }
+    }
+  }
+}
+
+```
+
+
+
 创建一个正确类型的index
+
+```
+//创建索引
+PUT /new_index?pretty
+
+PUT /new_index/_mappings
+{
+  "properties":{
+    "date":{
+      "type": "text",
+      "analyzer": "standard"
+    }
+   
+	}
+}
+```
+
+
 
 #### 第2️⃣步 使用scroll查询出旧索引的数据
 一个field的设置是不能被修改的,如果要是该一个field,name应该重新按照新的的mapping,建立一个index,然后将数据批量查询出来,重新用用bulk api 写入index中.
@@ -54,7 +104,7 @@ GET /old_index/_search?scroll=1m
 #### 第3️⃣步 使用bulk api将scoll查出来的一批数据写入新索引
 ```
 POST /_bulk
-{"index":{"_index":"my_index_v2","_type":"test_type","_id":"2"}}
+{"index":{"_index":"new_index","_id":"2"}}
 {"title":"2017-01-01"}
 
 写入到新索引中
@@ -66,9 +116,9 @@ POST /_bulk
 #### 第4️⃣步 基于alias对client透明切换index
 创建一个别名`my_index` 先给外部使用
 ```
-PUT /my_index_v1/_alias/my_index
+PUT /old_index/_alias/my_index_test
 
-client对my_index进行操作
+client对old_index进行操作
 reindex操作,完成之后,切换v1到v2
 ```
 #### 第5️⃣步 删除别名指向的旧index,加入新的index
@@ -76,8 +126,25 @@ reindex操作,完成之后,切换v1到v2
 POST /_aliases
 {
     "actions":[
-    {"remove":{"index":"my_index_v1","alias":"my_index"}},
-    {"add":   {"index":"my_index_v2","alias":"my_index"}}
+    {"remove":{"index":"old_index","alias":"my_index_test"}},
+    {"add":   {"index":"new_index","alias":"my_index_test"}}
     ]
 }
 ```
+
+#### 第6️⃣步 测试数据
+
+```
+别名指向了 new_index
+
+GET /my_index_test/_mapping
+GET /my_index_test/_search
+{
+  "query": {
+    "match_all": {
+    }
+}}
+
+测试数据->都是指向new_index
+```
+
