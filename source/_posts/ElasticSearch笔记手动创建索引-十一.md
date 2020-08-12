@@ -8,16 +8,17 @@ tags: [ElasticSearch笔记]
 
 ## 创建索引的语法
 ```
-PUT /my_index
+PUT /my_index1
 {
     "settings":{
         "number_of_shards":3,  //primary shard数量
         "number_of_replicas": 1 //每个primary shard都有一个replica shard
     },
     "mappings":{
-        "my_type":{
-            "my_field":{"type":"string"}
-        }
+      "properties": {
+            "my_field":{"type":"text"}
+      }
+       
     }
 }
 ```

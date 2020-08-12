@@ -10,19 +10,67 @@ tags: [ElasticSearch笔记]
 
 #### 插入文档
 ```
-PUT /index/document/1
+//指定id
+PUT /test_index/_doc/1
+{
+  "name":"小明",
+  "age":18
+}
+
+//使用随机id
+POST /test_index/_doc
+{
+  "name":"小明",
+  "age":18
+}
 ```
-#### 更新文档
+#### 更新文档 (全量替换)
+
+语句跟插入相同
+
+<!--more-->
+
 ```
-PUT /index/document/1
+全量替换
+PUT /test_index/_doc/1
+{
+  "name":"小明更新了",
+  "age":18
+}
+
+PUT /test_index/_doc/1
 更新文档指定字段:
-PUT /index/document/1/_update
-PUT /index/document/1/_update?retry_on_conflict=5 //基于最新版本号重试5次
+PUT /test_index/_doc/1/_update
+
+//基于最新版本号重试5次:
+POST /test_index/_update/1?retry_on_conflict=5
+```
+#### 更新文档 (部分字段更新)
+
+更新文档指定字段:
+```
+POST /test_index/_update/1
+{
+    "doc": {
+    	"age":19
+    }
+}
+```
+#### 更新文档 (指定版本号重试次数)
+
+基于最新版本号重试5次:
+```
+POST /test_index/_update/1?retry_on_conflict=5
+{
+    "doc": {
+	"name": "小1王"
+    }
+}
 ```
 
 #### 删除文档
 ```
-DELETE /index/document/1?pretty
+DELETE /test_index/_doc/1?pretty
 
 仅仅只是逻辑删除
 当es数据越来越多的时候,es会在后台自动删除这些标记的数据
@@ -35,26 +83,31 @@ DELETE /index/document/1?pretty
 创建文档和全量替换的语法是一样的
 ,如果仅仅是想新建文档的话
 
-PUT /index/type/id?op_type=create
+PUT /index/_doc/id?op_type=create
 或者
-PUT /index/type/id/create
+PUT /index/_doc/id/create
 
+```
+
+#### 查看指定id的文档
+```
+GET /test_index/_doc/1
 ```
 
 #### 批量查询
+
 ```
 //es下的批量查询
+注意这个是 '查询的条件是es自带的属性'
 GET /_mget
 {
     "docs":[
      {
-         "index":"test_index",
-         "_type":"test_type",
+         "_index":"test_index",
          "_id":1
      },
       {
-         "index":"test_index",
-         "_type":"test_type",
+         "_index":"test_index",
          "_id":2
      }
      
@@ -63,21 +116,6 @@ GET /_mget
 
 //索引下的批量查询
 GET /test_index/_mget
-{
-    "docs":[
-     {
-         "_type":"test_type",
-         "_id":1
-     },
-      {
-         "_type":"test_type",
-         "_id":2
-     }
-    ]
-}
-
-//type下的批量查询
-GET /test_index/test_type/_mget
 {
     "docs":[
      {
@@ -101,61 +139,20 @@ bulk request会加载到内存里
 具体操作:  
 需要注意的是每个json串时不能换行的 不然不通   
 要按照`{"action":{"metadata"}}`这种方式写   
-```
+```java
 POST /_bulk
-
-{  //删除
-    "delete":{
-        "_index":"test_index",
-        "_type":"test_type",
-        "_id":"3"
-    }
-}
-
-{  //强制创建document
-    "create":{
-        "_index":"test_index",
-        "_type":"test_type",
-        "_id":"3"
-    }
-}
-{
-    "test_field": "test12"
-}
-
-
-
-{  //   创建document
-    "index":{
-        "_index":"test_index",
-        "_type":"test_type"
-    }
-}
-{
-    "test_field":"replaced_test2"
-}
-
-
-
-{  //更新文档 partial update
-    "update":{
-        "_index":"test_index",
-        "_type":"test_type",
-        "_id":"1",
-        "_retry_on_conflict":3
-    }
-}
-{
-    "doc":{
-        "test_field2":"bulk test1"
-    }
-}
-
-
-
+//删除
+{ "delete":{ "_index":"test_index", "_id":"3"}}
+//创建
+{ "create":{"_index":"test_index","_id":"3"}}
+{ "name": "test12"}
+//index操作:可以是创建文档，也可以是全量替换文档
+{ "index":{ "_index":"test_index"}}
+{"test_field":"replaced_test2"}
+//更新
+{ "update":{ "_index":"test_index", "_id":"3"}}
+{"doc":{"name":"bulk test1"}}
 ```
-
-
 
 
 # 搜索
@@ -201,7 +198,7 @@ query:相反,要计算相关度分数,按照分数进行排序,而且无法cache
 简单来说 就是_search下面body包含一个{}
 ```
 //查询所有的数据
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match_all":{}
@@ -209,7 +206,7 @@ GET /index/document/_search
 }
 
 //查询匹配属性
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match":{
@@ -224,7 +221,7 @@ GET /index/document/_search
 }
 
 //查询指定数量
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match_all":{}
@@ -234,7 +231,7 @@ GET /index/document/_search
 }
 
 //查询显示指定字段
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match_all":{}
@@ -245,7 +242,7 @@ GET /index/document/_search
 
 //查询 不进行分词处理
 
-GET /index/document/_search
+GET /index/_search
 {
     "query":{ 
        "term":{ //不进行分词查询
@@ -257,7 +254,7 @@ GET /index/document/_search
 ```
 #### exist query (搜索的field不能为null)
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "exists":{
@@ -271,7 +268,7 @@ GET /index/document/_search
 #### query filter (条件过滤)
 
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "bool":{
@@ -313,7 +310,9 @@ bool:
 must,must_not,should,filter
 
 ```
-GET /index/document/_search
+GET /index/_search
+{
+"query":{
 {
     "bool":{
         "must": { //必须匹配的条件
@@ -335,9 +334,8 @@ GET /index/document/_search
                 }
     }
 }
-
-
-
+}
+}
 ```
 
 #### full-text search  (全文搜索)
@@ -346,7 +344,7 @@ GET /index/document/_search
 匹配度最高的在搜索结果最上面
 
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match":{
@@ -362,7 +360,7 @@ GET /index/document/_search
 
 短语搜索:必须都存在 两个字符串 才算结果
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match_phrase":{
@@ -375,10 +373,12 @@ GET /index/document/_search
 
 #### highlight search (高亮搜索结果)
 返回结果会分为两段
-一段是高亮字段`yagao producer`会加上`em`高亮显示  
+一段是高亮字段`yagao producer`会加上`em`高亮显示    
+
+需要注意: 高亮的字段必须是查询的字段
 
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "query":{
         "match_phrase":{
@@ -386,7 +386,7 @@ GET /index/document/_search
         }
     },
     "highlight":{
-        "fields"{ //高亮字段
+        "fields":{ //高亮字段
             "producer":{}
         }
     }
@@ -401,7 +401,7 @@ PUT /index/_mapping/document
 {
     "properties":{
         "tags":{
-            "type":"string",
+            "type":"text",
             "fielddata": true
         }
     }
@@ -409,10 +409,10 @@ PUT /index/_mapping/document
 ```
 #### 计算每个tag下的document数量
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "aggs":{ //聚合
-        "all_tags"{ //给聚合一个名称 
+        "all_tags":{ //给聚合一个名称 
             "terms":{ //按照指定的field进行分组 计算数量
                 "field":"tags"
             }
@@ -424,24 +424,23 @@ GET /index/document/_search
 
 #### 聚合查询 (不带出原有数据)
 ```
-GET /index/document/_search
+GET /index/_search
 {   
-    "size": 0, //不带出原有数据
+    "size": 0, //不带出原有数据查询出来,只查聚合结果
     "aggs":{
-        "all_tags"{ 
+        "all_tags":{ 
             "terms":{
                 "field":"tags"
             }
         }
     }
 }
-
 ```
 
 #### 关键词查询后+分组
 
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "size": 0,
     "query":{
@@ -450,7 +449,7 @@ GET /index/document/_search
         }
     },
     "aggs":{
-        "all_tags"{ 
+        "all_tags":{ 
             "terms":{
                 "field":"tags"
             }
@@ -463,7 +462,7 @@ GET /index/document/_search
 #### 分组查询+每组平均数 
 
 ```
-GET /index/document/_search
+GET /index/_search
 {
     "size": 0,
     "aggs":{
@@ -488,78 +487,78 @@ GET /index/document/_search
 
 
 ```
-GET /index/document/_search
+GET /test_index/_search
 {
-    "size": 0,
-    "aggs":{
-        "all_tags"{ 
-            "terms":{
-                "field":"tags",
-                "order":{ //根据平均数排序
-                    "avg_price":desc
-                }
-            "aggs":{
-                "avg_price":{
-                    "avg":{ //求平均数
-                        "field":"price"
-                    }
-                }
-            }
-            }
+  "size": 0,
+  "aggs": {
+    "all_tags": {
+      "terms": {
+        "field": "tags",
+        "order": {   //根据聚合结果,降序的内容先写在上面
+          "avg_price": "desc"
         }
+      },
+      "aggs": {
+        "avg_price": {//求平均数
+          "avg": {
+            "field": "age"
+          }
+        }
+      }
     }
+  }
 }
-
 ```
 
 #### 按照指定的区间进行分组 再每组内再按照tag进行分组,最后再计算每组的平均价格
 
 这样会求出三段 0-20 20-40 40-60    三段内进行分组不干预其他数据
 ```
-GET /index/document/_search
+GET /test_index/_search
 {
-    "size": 0,
-    "aggs":{
-        "group_by_price":{
-            "range":{  
-                "field":"price",
-                "ranges":[ //获取出区间
-                {
-                    "from":0,
-                    "to":20
-                },{
-                    "from":20,
-                    "to":40   
-                },{
-                   "from":40,
-                   "to":60
-                }
-              ]
-            },
-            "aggs":{ //进行分组
-            "group_by_tags":{
-                "terms":{
-                    "field":"tags"
-                },
-                "aggs":{ //分组的同时计算平均数
-                    "average_price":{
-                        "avg":{
-                            "filed":"price"
-                        }
-                    }
-                }
+  "size": 0,
+  "aggs": {
+    "group_by_price": {
+      "range": {
+        "field": "age",
+        "ranges": [ //获取出区间
+          {
+            "from": 0,
+            "to": 20
+          },
+          {
+            "from": 0,
+            "to": 30
+          },
+          {
+            "from": 2,
+            "to": 25
+          }
+        ]
+      },
+      "aggs": { //进行分组
+        "group_by_tags": {
+          "terms": {
+            "field": "tags"
+          },
+          "aggs": { //分组的同时计算平均数
+            "avg_price": {
+              "avg": {
+                "field": "age"
+              }
             }
           }
         }
-    } 
+      }
+    }
+  }
 }
-
 ```
 
 # 自定义搜索结果的排序规则
 sort关键字
 ```
-GET /index/type/_search
+GET /index/_search
 {
     "query":{
         "bool":{
@@ -582,8 +581,9 @@ GET /index/type/_search
 `GET /index/type/_validate/query?explain`  
 body中就是查询条件  
 可以判断查询语句是否合法 及其异常在哪里  
+
 ```
-GET /test_index/text_type/_validate/query?explain
+GET /test_index/_validate/query?explain
 {
     "query":{
         "match":{
@@ -610,29 +610,25 @@ GET /test_index/text_type/_validate/query?explain
 ```
 #### 写法如下
 ```
-PUT /website
+PUT /test_index/_mapping
 {
-    "mappings":{
-        "article":{
-            "properties":{
-                "title":{
-                     "type": "string",
-                     "analyzer": "english",
-                       "fields":{
-                            "raw":{ //再来一个索引
-                            "type":"string",
-                            "index":"not_analyzed"
-                                  }
-                                },
-                     "fielddata": true //开启正排索引   
-                       },
-                "context":{ //第二个字段
-                   "type": "string",
-                   "analyzer": "english", 
-                          }
-                     }
-                 }
-              }
+  "properties": { 
+    "tags": { 
+      "type": "text",
+      "analyzer": "ik_max_word",
+      "fielddata":true, //开启正排索引
+      "fields": {
+        "raw": {  //作为全文搜索 不分词 用来聚合 和排序
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "name": {  //第二个字段
+      "type": "text",
+      "analyzer": "ik_max_word"
+    }
+  }
 }
 
 //查询:

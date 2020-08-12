@@ -118,6 +118,7 @@ GET /_analyze
 {
     "analyzer":"standard",
     "text":"Text to analyze"
+    //ik_max_word 这个是中文分词器
 }
 
 ```
@@ -127,31 +128,39 @@ GET /_analyze
 ## 手动建立mapping和分词器
 #### 手动新建mapping
 ```
-PUT /website
+PUT /website?pretty  //创建索引
+
+//定义mapping
+PUT /website/_mapping
 {
-    "mappings":{
-        "atrticle":{
-            "properties":{
-                "content":{
-                    "type":"string",
-                    "index":"analyzed",//使用分词器
-                    "analyzer":"english"
-                },
-                "post_date":{
-                    "type": "date"
-                },
-                "title":{
-                    "type":"string"
-                },
-                "author_id":{
-                    "type":"long"
-                }
-            }
+  "properties": {
+    "tags": {
+      "type": "text",
+      "analyzer": "ik_max_word",
+      "fielddata": true,
+      "index": true, //使用分词器
+      "fields": {
+        "raw": {
+          "type": "keyword",
+          "ignore_above": 256
         }
+      }
+    },
+    "name": {
+      "type": "text",
+      "analyzer": "ik_max_word"
+    },
+    "post_date": {
+      "type": "date"
+    },
+    "title": {
+      "type": "text"
+    },
+    "author_id": {
+      "type": "long"
     }
+  }
 }
-
-
 ```
 #### 新增设置某个字段关闭分词
 ```
@@ -163,8 +172,9 @@ PUT /website/_mapping/article
 {
     "properties":{
         "tags":{
-            "type": "string",
-            "index": "not_analyzed" //是否使用分词器
+            "type": "text",
+            "index": false //idnex选项控制字段的值是否被索引。
+            接受trueorfalse，默认为true。该参数设置为false的字段是不能被搜索的。
         }
     }
 }

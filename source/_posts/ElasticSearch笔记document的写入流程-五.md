@@ -30,7 +30,14 @@ shard=hash(routing)%number_of_primary_shards
 
 当然也可以手动设置路由id
 
-  put /index/type/id?routing=user_id
+一个index上的数据会被封为多片,每片都在一个shard中
+
+PUT /test_index/_doc/1?routing=age
+{
+  "name":"小明",
+  "age":1
+}
+
 
 ```
 

@@ -27,7 +27,7 @@ scoll主要是用来一批一批检索数据,让系统进行处理的
 
 ## 使用滑动搜索scoll提升查询效率
 ```
-GET /index/type/_search?scroll=1m
+GET /index/_search?scroll=1m
 {
     "query":{"match_all":{}},
     "sort":["_doc"], //排序
@@ -37,10 +37,14 @@ GET /index/type/_search?scroll=1m
 
 
 //下一次请求 只要指定个时间窗口参数就可以继续搜索了
+GET 或者 POST 可以使用
+URL不应该包含 index 或者 type 名字——这些都指定在了原始的 search 请求中。
+scroll 参数告诉 Elasticsearch 保持搜索的上下文等待另一个 1m
+scroll_id 参数
 GET/_search/scroll
 {
     "scroll":"1m",
-    "scroll_id":"scoll_id的内容"
+    "_scroll_id":"scoll_id的内容"
 }
 
 sizze会发送给每个shard,因此每次最多会返回size * primary shard

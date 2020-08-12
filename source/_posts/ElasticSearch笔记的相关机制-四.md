@@ -47,9 +47,11 @@ es使用的是乐观锁方案
 ```
 带上版本号
 例如:
-PUT /index/document/1?version=1
+POST /test_index/_update/1?version=1
 {
-    "test_filed":"111"
+    "doc": {
+   	"name": "小1王1"
+    }
 }
 ```
 也可以自定义一个字段当做`version`来控制
@@ -60,7 +62,12 @@ PUT /index/document/1?version=1
   自定义version>es的version的时候才能完成修改
 
 例子:
-PUT /index/document/1?version=3&vesion_type=external
+POST /test_index/_update/1?version=9&version_type=external
+{
+    "doc": {
+   	"name": "小1王1"
+    }
+}
 
 按照上面的例子:
  本身es的version是1,我们自定义的3 

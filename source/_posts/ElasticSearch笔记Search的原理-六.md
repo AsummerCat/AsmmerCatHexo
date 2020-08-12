@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记Search的原理(六)
 date: 2020-08-11 14:05:51
-tags: [lasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # ElasticSearch笔记Search的原理(六)
