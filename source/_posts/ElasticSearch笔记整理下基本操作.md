@@ -429,6 +429,50 @@ GET /index/_search
     }
 }
 ```
+# 权重 boost参数
+### 基于boost查询细粒度控制
+如果标题中包含 hadoop或elastisearch就优先搜索出来,  
+boost参数(权重) 来控制优先级别 boost越小优先级越低
+```
+数据结构:
+POST /test_index/_doc
+{
+  "name":"6",
+  "age":18,
+  "tags":["hadoop","java"]
+}
+```
+
+```
+GET /test_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "tags": "java"
+          }
+        }
+      ],
+      "should": [
+        {"match": {
+           "tags": {
+             "query": "hadoop",
+             "boost": 1
+           }
+        }},
+        {"match": {
+           "tags": {
+             "query": "elasticsearch",
+             "boost": 5
+           }
+        }}
+      ]
+    }
+  }
+
+```
 
 # 聚合分析
 注意:聚合查询的话 需要分组字段必须为`fielddata:true`
