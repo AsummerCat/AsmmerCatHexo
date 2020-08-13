@@ -474,39 +474,7 @@ GET /test_index/_search
 
 ```
 
-# 利用best fields策略 自定义匹配
-
-按照常规的匹配方式的话:  
-
-是根据多个匹配的分数除以平均的,可能会导致我们想要的数据相关度分数不一样
-
-![best fields策略](/img/2020-08-12/1.png)
-
-```
-//使用dis_max 取相关度最高的分数
-get /test_index/_search
-{
-  "query": {
-    "dis_max": {
-      "queries": [
-        {
-          "match": {
-            "title": "java solution"
-          }
-        },
-        {
-          "match": {
-            "content": "java solution"
-          }
-        }
-      ]
-    }
-  }
-}
-```
-
 # 聚合分析
-
 注意:聚合查询的话 需要分组字段必须为`fielddata:true`
 ```
 可手动修改
