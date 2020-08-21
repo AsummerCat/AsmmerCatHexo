@@ -151,6 +151,16 @@ vi rabbitmq.config
 
 这里的意思是开放使用，rabbitmq默认创建的用户guest，密码也是guest，这个用户默认只能是本机访问，localhost或者127.0.0.1，从外部访问需要添加上面的配置。
 
+```
+二、可以通过 find / -name rabbitmq-defaults 查找rabbitmq-defaults文件，查看config文件的存储路径
+
+三、通过 https://github.com/rabbitmq/rabbitmq-server/blob/master/docs/rabbitmq.conf.example 下载保存为rabbitmq.conf,将其放到config文件的存储路径中，例如/etc/rabbitmq/下
+```
+
+
+
+
+
 保存配置后重启服务：
 
 ```
