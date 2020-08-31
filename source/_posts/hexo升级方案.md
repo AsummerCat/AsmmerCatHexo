@@ -4,7 +4,6 @@ date: 2018-11-23 11:11:45
 tags: [hexo]
 ---
 
-# hexo升级方案
 最好在hexo文件夹路径下执行
 # 升级
 1、全局升级`hexo-cli`，先`hexo version`查看当前版本，然后`npm i hexo-cli -g`，再次`hexo version`查看是否升级成功。

@@ -4,7 +4,6 @@ date: 2020-08-11 14:08:16
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记scoll滚动搜索(十)
 # 作用 (scoll常用)
 一次性查询10w条数据,那么性能会很差,   
 此时一般采用scoll滚动查询,一批一批的差,知道所有数据都查询完处理完

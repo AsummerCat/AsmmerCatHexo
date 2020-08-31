@@ -4,8 +4,6 @@ date: 2020-08-11 14:09:57
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记修改分词器及其定制自己的分词器(十二)
-
 ## 默认的分词器
 ->>>`standard`  
 

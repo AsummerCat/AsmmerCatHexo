@@ -4,7 +4,6 @@ date: 2020-08-11 14:11:22
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记自定义dynamicMapping策略(十四)
 ## 目的
 给自己的index设置默认的mapping生成,  
 设置了自定义dynamic mapping策略  

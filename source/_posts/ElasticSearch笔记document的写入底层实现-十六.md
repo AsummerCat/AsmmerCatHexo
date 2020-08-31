@@ -4,8 +4,6 @@ date: 2020-08-11 14:12:19
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记document的写入底层实现(十六) 
-
 
 # 深入剖析document写入原理(buffer,segment,commit)
 <font color="red">重点:底层原理</font>  

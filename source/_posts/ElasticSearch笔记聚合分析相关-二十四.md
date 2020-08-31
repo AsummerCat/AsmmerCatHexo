@@ -4,8 +4,6 @@ date: 2020-08-25 23:22:08
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记聚合分析相关(二十四)
-
 ## 核心概念
 1. bucket :一个数据分组 类似mysql的`group by`
 2. metric: 对一个数据分组执行的统计 `group by`之后的聚合计算

@@ -4,8 +4,6 @@ date: 2020-08-11 14:09:18
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记手动创建索引(十一)
-
 ## 创建索引的语法
 ```
 PUT /my_index1

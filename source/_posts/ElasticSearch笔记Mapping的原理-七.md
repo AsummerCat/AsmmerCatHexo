@@ -4,7 +4,6 @@ date: 2020-08-11 14:06:15
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记Mapping的原理(七)
 # 大致流程
 ```
 (1)往es里面直接插入数据,es会自动建立索引,同时建立type医技对应的mapping

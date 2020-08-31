@@ -4,8 +4,6 @@ date: 2020-08-23 21:01:05
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记ik分词器相关(二十三)
-
 ## 中文分词器 ik
 
 要下载对应版本 然后放入`es/plugins/ik`目录下

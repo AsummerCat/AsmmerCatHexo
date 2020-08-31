@@ -4,8 +4,6 @@ date: 2020-08-23 14:48:49
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记深度揭秘搜索技术新特性(二十)
-
 # 权重 boost参数
 
 #### 基于boost查询细粒度控制

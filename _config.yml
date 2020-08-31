@@ -108,7 +108,7 @@ tag_map:
   springCloudStream: springCloudStream
   springCloudBus: springCloudBus
   Nacos: Nacos
-  springCloudAlibaba: springCloudAlibaba
+  SpringCloudAlibaba: SpringCloudAlibaba
   SpringCloudConfig: SpringCloudConfig
   Jenkins: Jenkins
   缓存: 缓存

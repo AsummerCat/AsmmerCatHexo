@@ -4,8 +4,6 @@ date: 2020-08-23 15:40:18
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记使用function_score提高自定义计算分数(二十一)
-
 假设场景:   
 我们需要
 按照看帖人数的多少进行排序帖子的顺序

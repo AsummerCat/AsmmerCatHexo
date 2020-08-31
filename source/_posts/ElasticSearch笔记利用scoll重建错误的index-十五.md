@@ -4,8 +4,6 @@ date: 2020-08-11 14:11:54
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记利用scoll重建错误的index(十五)
-
 # 基于scoll滚动搜索和alias别名实现零停机 重建索引
 ## 发生场景
 ```

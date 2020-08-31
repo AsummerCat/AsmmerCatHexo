@@ -4,8 +4,6 @@ date: 2020-08-11 14:07:15
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记相关度评分TF&TDF算法(八)
-
 ## TF&TDF算法
 简单来说就是计算出,  
 一个索引中的文本,与搜索文本,他们之间的关联匹配程度

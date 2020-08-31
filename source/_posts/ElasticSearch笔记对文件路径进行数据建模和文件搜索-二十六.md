@@ -1,10 +1,8 @@
 ---
-title: ElasticSearch笔记对文件路径进行数据建模和文件搜索-二十六
+title: ElasticSearch笔记对文件路径进行数据建模和文件搜索(二十六)
 date: 2020-08-25 23:23:48
 tags: [ElasticSearch笔记]
 ---
-
-# ElasticSearch笔记对文件路径进行数据建模和文件搜索(二十六)
 
 
 # 首先创建一个 文件路径的分词器

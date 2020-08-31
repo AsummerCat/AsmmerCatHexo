@@ -4,8 +4,6 @@ date: 2020-08-11 14:07:47
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记倒排索引与正排索引(九)
-
 ## 本质
 ```
 搜索的时候,要依靠倒排索引;

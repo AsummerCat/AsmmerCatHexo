@@ -4,8 +4,6 @@ date: 2020-08-12 21:41:31
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记查询语句相关内容(十七)
-
 ## ES中match和term差别对比
 match 进行分词查询
 

@@ -4,8 +4,6 @@ date: 2020-08-25 23:23:08
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记fielddata核心原理(二十五)
-
 # fielddata 核心原理
 fieddata加载到内存的过程是懒加载的.对一个analzyed field执行聚合时,才会加载,而且是field-level加载的  
 一个index的一个field,所有doc都会被加载,而不是少数doc  

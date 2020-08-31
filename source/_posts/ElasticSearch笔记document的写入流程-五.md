@@ -4,8 +4,6 @@ date: 2020-08-11 14:05:04
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记document的写入流程(五) 
-
 # document数据路由原理
 ### document路由到shard上
 ```

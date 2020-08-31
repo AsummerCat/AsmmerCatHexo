@@ -4,8 +4,6 @@ date: 2020-08-11 13:59:35
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记简单的集群管理(二)
-
 ## 操作
 ```
 es提供了一套api:叫做 cat api,可以查看es中各种各样的数据

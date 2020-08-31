@@ -4,8 +4,6 @@ date: 2020-08-13 10:31:43
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记多shard场景下相关度不准确的问题(十九)
-
 ## 产生原因
 如果你的一个index有多个shard的话,可能搜索结果会不准确   
 

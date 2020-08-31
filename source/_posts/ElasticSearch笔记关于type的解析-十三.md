@@ -4,7 +4,6 @@ date: 2020-08-11 14:10:58
 tags: [ElasticSearch笔记]
 ---
 
-# ElasticSearch笔记关于type的解析(十三)
 # type的定义
 type,是一个index中用来区分类似的数据的,
 但是可能有不同的fields,而且有不同的属性来控制索引建立,分词器
