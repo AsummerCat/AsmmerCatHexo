@@ -16,8 +16,13 @@ es client提供了一种集群节点自动探查的功能,打开这个自动探�
 
 注意: es client 是不会将master node纳入node list的,
 因为要避免给master node 发送搜索等请求.  
-使用自动探查的话,我们就只要指定几个master node,就好了,client会自动去探查集群的所有节点,并且自动刷新.  
+使用自动探查的话,我们就只要指定几个master node,就好了,client会自动去探查集群的所有节点,并且自动刷新.    
 配置类写法:
+
+<!--more-->
+
+
+
 ```
 @Data
 @Configuration
