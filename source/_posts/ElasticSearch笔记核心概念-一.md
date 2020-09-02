@@ -4,6 +4,10 @@ date: 2020-08-11 13:58:55
 tags: [ElasticSearch笔记]
 ---
 
+# 官方文档
+
+[官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#scroll-search-results)
+
 ## 优点
 
 ```

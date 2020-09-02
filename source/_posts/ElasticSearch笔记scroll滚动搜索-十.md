@@ -1,10 +1,10 @@
 ---
-title: ElasticSearch笔记scoll滚动搜索(十)
+title: ElasticSearch笔记scroll滚动搜索(十)
 date: 2020-08-11 14:08:16
 tags: [ElasticSearch笔记]
 ---
 
-# 作用 (scoll常用)
+# 作用 (scroll常用)
 一次性查询10w条数据,那么性能会很差,   
 此时一般采用scoll滚动查询,一批一批的差,知道所有数据都查询完处理完
 
@@ -24,7 +24,7 @@ scoll看起来挺像分页的,但是使用场景不一样的.
 scoll主要是用来一批一批检索数据,让系统进行处理的
 
 
-## 使用滑动搜索scoll提升查询效率
+## 使用滑动搜索scroll提升查询效率
 ```
 GET /index/_search?scroll=1m
 {
@@ -43,9 +43,9 @@ scroll_id 参数
 GET/_search/scroll
 {
     "scroll":"1m",
-    "_scroll_id":"scoll_id的内容"
+    "scroll_id":"scoll_id的内容"
 }
 
-sizze会发送给每个shard,因此每次最多会返回size * primary shard
+size会发送给每个shard,因此每次最多会返回size * primary shard
 条数据
 ```

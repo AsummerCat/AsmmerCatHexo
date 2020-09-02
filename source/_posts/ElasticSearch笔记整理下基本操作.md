@@ -785,9 +785,9 @@ GET /search
 
 ```
 
-# scoll滚动搜索(常用)
-使用scoll滚动搜索,可以先搜索一批数据没然后下次再搜索一批数据,以此类推,知道搜索出全部的数据来.  
-每次发送scroll请求,我们还需要指定一个scoll参数,指定一个时间窗口,每次搜索请求只要在这个时间窗口内能完成就可以了
+# scroll滚动搜索(常用)
+使用scroll滚动搜索,可以先搜索一批数据没然后下次再搜索一批数据,以此类推,知道搜索出全部的数据来.  
+每次发送scroll请求,我们还需要指定一个scroll参数,指定一个时间窗口,每次搜索请求只要在这个时间窗口内能完成就可以了
 ### 语法
 ```
 GET /index/_search?scroll=1m
@@ -804,10 +804,10 @@ GET /index/_search?scroll=1m
 GET /_search/scroll
 {
     "scroll":"1m",
-    "_scroll_id":"scoll_id的内容"
+    "scroll_id":"scoll_id的内容"
 }
 
-sizze会发送给每个shard,因此每次最多会返回size * primary shard
+size会发送给每个shard,因此每次最多会返回size * primary shard
 条数据
 ```
 
