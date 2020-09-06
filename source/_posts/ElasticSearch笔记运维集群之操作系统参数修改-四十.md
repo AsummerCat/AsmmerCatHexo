@@ -1,5 +1,5 @@
 ---
-title: ElasticSearch笔记运维集群之操作系统参数修改-四十
+title: ElasticSearch笔记运维集群之操作系统参数修改(四十)
 date: 2020-09-06 22:08:17
 tags: [ElasticSearch笔记]
 ---
