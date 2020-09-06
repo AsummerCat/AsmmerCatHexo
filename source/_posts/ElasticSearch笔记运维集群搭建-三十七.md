@@ -159,3 +159,54 @@ discovery.zen.ping.unicast.hosts:
 ```
 
 # 组成生产集群的需要设置的一些重要参数
+
+## 集群名称和节点名称
+```
+1.需要手动设置一个集群名称'cluster.name': xxx
+避免开发人员本地es无意间加入到集群中
+
+2.每个node都要手动设置一个名称,
+每次重启节点都会随机分配,导致node名称每次重启都会变化
+可以配置'node.name':指定节点名称名称
+```
+
+## 文件路径
+数据目录,日志目录和插件目录
+```
+默认情况下,es会将plugin,log,还有data file都放在es的安装目录中.
+这里有一个问题,就是在升级的时候,目录可能被覆盖,
+导致我们丢失之前安装好的plugin,已有的log,已有的数据,已经配置好的配置文件
+
+```
+所以一般建议在`生产环境`中,必须都重新设置一下,放在es安装目录之外.
+```
+'path.data':  用于设置数据文件的目录
+
+'path.logs':  用于设置日志文件的目录
+
+'path.plugins': 用于设置插件存放的目录
+
+
+注意:'path.data'可以指定多个目录,用逗号分隔即可.
+如果多个目录在不同的磁盘上,那么这就是一个最简单的raid0的方式
+
+一般建议的目录地址是:
+elasticsearch.yml中修改
+
+'path.data':  /var/log/elasticsearch
+
+'path.logs':  /var/data/elasticsearch
+
+'path.plugins': /var/plugins/elasticsearch
+```
+
+## 配置文件目录
+es有两个配置文件  
+1.`elasticsearch.yml`用于配置es  
+2.`log4j.properties`用于es日志打印  
+这些文件都被放在config目录下,默认就是`ES_HOME/config`  
+可以通过以下命令重新设置
+```
+ 启动的时候 附带配置文件目录
+ ./bin/elasticsearch -Epath.conf=/path/to/my/config/
+```
