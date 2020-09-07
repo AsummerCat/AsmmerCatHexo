@@ -1,5 +1,5 @@
 ---
-title: ElasticSearch笔记运维集群备份恢复之分布式文件存储系统-四十二
+title: ElasticSearch笔记运维集群备份恢复之分布式文件存储系统(四十二)
 date: 2020-09-08 00:00:03
 tags: [ElasticSearch笔记]
 ---
