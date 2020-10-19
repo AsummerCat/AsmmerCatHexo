@@ -234,6 +234,91 @@ sudo docker cp containerID:container_path host_path
 docker commit -m="提交的描述信息" -a="作者" 容器ID 镜像名称:标签名
 ```
 
+### 3.0  查看一个容器里面的进程信息
+
+```java
+docker top 3b307a09d20d
+UID      PID    PPID    C    STIME  TTY    TIME       CMD
+root     805    787     0    Jul13   ?   00:00:00  nginx: master process nginx -g daemon off;
+systemd+ 941     805     0   Jul13    ?   00:03:18  nginx: worker process
+```
+
+### 3.1 docker load && docker save
+
+加载镜像和打包镜像
+
+```java
+docker save 可以把一个镜像保存到 tar 文件中，你可以这么做：
+~ docker save registry:2.7.1 >registry-2.7.1.tar
+#同时 docker load 可以把镜像从 tar 文件导入到 docker 中
+~ docker load < registry-2.7.1.tar
+```
+
+### 3.2 实时获取docker当前执行的事件
+
+```java
+docker events
+```
+
+### 3.3 更新容器启动时候的参数 动态修改
+
+`docker update`
+
+当你 docker run 了之后却发现里面有一些参数并不是你想要的状态比如你设置的 nginx 容器 cpu 或者内存太小，这个时候你就可以使用 docker update 去修改这些参数。
+
+```
+~ docker update nginx --cpus 2
+```
+
+### 3.4 查看一个镜像是怎么构建的
+
+```
+ docker history
+```
+
+### 3.5 查看容器的退出状态
+
+```
+ docker wait 7f7f0522a7d0
+ 
+ 0显示正常退出
+```
+
+### 3.6 暂停容器运行
+
+`docker pause && docker unpause`
+
+```
+当你运行了一个容器但是想要暂停它运行的时候，你就可以使用这个命令。
+
+docker pause 7f7f0522a7d0
+```
+
+### 3.7  查看你修改了容器中的哪些文件
+
+```
+docker diff 38c59255bf6e
+```
+
+### 3.8 查看所有容器和占用内存和cpu使用的情况
+
+`docker stats`
+
+```
+~ docker stats
+
+CONTAINER ID        NAME                        CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+1c5ade04e7f9        redis                        0.08%               17.53MiB / 47.01GiB   0.04%               10.9GB / 37GB       0B / 0B             4
+afe6d4ebe409        kafka-exporter                0.09%               16.91MiB / 47.01GiB   0.04%               1.97GB / 1.53GB     752MB / 0B          23
+f0c7c01a9c34        kafka-docker_zookeeper         0.01%               308.8MiB / 47.01GiB   0.64%               20.2MB / 12.2MB     971MB / 3.29MB      28
+da8c5008955f        kafka-docker_kafka-manager     0.08%               393.2MiB / 47.01GiB   0.82%               1.56MB / 2.61MB     1.14GB / 0B         60
+c8d51c583c49        kafka-docker_kafka            1.63%               1.256GiB / 47.01GiB   2.67%               30.4GB / 48.9GB     22.3GB / 5.77GB     85
+......
+```
+
+
+
+
 
 
 
