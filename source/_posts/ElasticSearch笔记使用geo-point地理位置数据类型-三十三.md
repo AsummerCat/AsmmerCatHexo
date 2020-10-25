@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用geo_point地理位置数据类型(三十三)
 date: 2020-08-31 22:01:56
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 建立geo_point类型的mapping

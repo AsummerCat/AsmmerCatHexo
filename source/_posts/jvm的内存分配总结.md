@@ -1,13 +1,10 @@
 ---
 title: jvm的内存分配总结
 date: 2018-12-07 14:31:29
-tags: JVM
-
+tags: jvm
 ---
 
 # JVM内存 结构划分
-
-
 
 ![内存结构](/img/2018-12-7/JVMmemory.png)  
 ![内存结构](/img/2018-12-7/JVMmemory2.png)

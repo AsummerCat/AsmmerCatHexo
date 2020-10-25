@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记简单的集群管理(二)
 date: 2020-08-11 13:59:35
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 操作

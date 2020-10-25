@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用动态映射模板定制映射策略(三十二)
 date: 2020-08-31 22:01:09
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 使用场景

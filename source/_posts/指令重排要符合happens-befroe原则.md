@@ -1,7 +1,7 @@
 ---
 title: 指令重排要符合happens-befroe原则
 date: 2020-05-13 10:25:41
-tags: [JVM,java,volatie]
+tags: [jvm,java,volatie]
 ---
 
 # 指令重排要符合happens-befroe原则

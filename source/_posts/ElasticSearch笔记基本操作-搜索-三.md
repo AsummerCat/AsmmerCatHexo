@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记基本操作+搜索(三)
 date: 2020-08-11 14:02:26
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 操作

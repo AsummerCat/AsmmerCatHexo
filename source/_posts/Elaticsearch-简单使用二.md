@@ -1,7 +1,7 @@
 ---
 title: Elaticsearch-简单使用二
 date: 2020-02-14 20:49:45
-tags: [Elaticsearch,SpringBoot]
+tags: [elasticSearch笔记,SpringBoot]
 ---
 
 # Elaticsearch

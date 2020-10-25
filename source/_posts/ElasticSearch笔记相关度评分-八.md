@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记相关度评分(八)
 date: 2020-08-11 14:07:15
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## TF&TDF算法

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记document的写入流程(五)
 date: 2020-08-11 14:05:04
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # document数据路由原理

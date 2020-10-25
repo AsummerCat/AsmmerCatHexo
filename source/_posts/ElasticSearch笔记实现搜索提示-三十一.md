@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记实现搜索提示(三十一)
 date: 2020-08-31 22:00:11
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 介绍

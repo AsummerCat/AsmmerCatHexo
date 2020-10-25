@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记实现锁并发控制(二十七)
 date: 2020-08-31 21:56:57
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 注意:

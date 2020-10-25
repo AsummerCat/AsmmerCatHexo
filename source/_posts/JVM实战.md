@@ -1,7 +1,7 @@
 ---
 title: JVM实战
 date: 2020-04-08 21:31:47
-tags: [虚拟机调优,JVM]
+tags: [虚拟机调优,jvm]
 ---
 
 # JVM调优参数

@@ -2,7 +2,6 @@
 title: MarkDown语法初识
 date: 2018-09-12 22:02:14
 tags: 基础
-categories: 基础
 ---
        html语法 可以使用在markdown中
   ***tips:基本上markdown语法 后面都要加上一个空格 不然不生效***
@@ -28,7 +27,7 @@ categories: 基础
 <img src="/img/2018-9-12/小丑.jpeg" width="300px" height="257px" align=center />
 ```
    <img src="/img/2018-9-12/小丑.jpeg" width="200px" height="257px" />
-  
+
 ### 使用markdown的语法(无法更改图片大小)
 ```
 ![Alt text](/img/WechatIMG230.jpeg)
@@ -87,13 +86,13 @@ categories: 基础
 <del> 删除线 </del>  
 ` 底纹   macDown的快捷键为 command+k`  
 <u>下划线</u>
-   
+
 
 ---
 
 ## 注释 or 引用
 ` 语法: > 这是一个注释` 
- 
+
 显示的内容为:  
 > 这是一个注释  
 
@@ -101,9 +100,10 @@ categories: 基础
 >我是一个java工程师 
 >>没事只能撸代码 
 >>> 噜啦噜啦~~~~
->>>>&emsp;
->>>>>&emsp;
- 
+>>> >&emsp;
+>>> >
+>>> >>&emsp;
+
 ----
 
 ## 列表

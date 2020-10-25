@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记自定义dynamicMapping策略(十四)
 date: 2020-08-11 14:11:22
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 目的

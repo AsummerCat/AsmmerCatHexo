@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记scroll滚动搜索(十)
 date: 2020-08-11 14:08:16
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 作用 (scroll常用)

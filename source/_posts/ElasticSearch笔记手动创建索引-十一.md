@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记手动创建索引(十一)
 date: 2020-08-11 14:09:18
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 创建索引的语法

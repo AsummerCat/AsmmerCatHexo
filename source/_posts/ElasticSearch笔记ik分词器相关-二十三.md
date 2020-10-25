@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记ik分词器相关(二十三)
 date: 2020-08-23 21:01:05
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 中文分词器 ik

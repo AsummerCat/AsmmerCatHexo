@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记利用scoll重建错误的index(十五)
 date: 2020-08-11 14:11:54
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 基于scoll滚动搜索和alias别名实现零停机 重建索引

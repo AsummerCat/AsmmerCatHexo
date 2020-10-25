@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维之升级方案(四十三)
 date: 2020-09-09 08:44:47
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # es版本的升级

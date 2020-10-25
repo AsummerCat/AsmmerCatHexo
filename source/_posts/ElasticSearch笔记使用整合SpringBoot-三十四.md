@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用整合SpringBoot(三十四)
 date: 2020-09-01 23:22:06
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # [demo地址](https://github.com/AsummerCat/es_api_demo)

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记基于nested_Object类型实现关系型数据建模(二十八)
 date: 2020-08-31 21:58:06
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 前言

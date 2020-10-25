@@ -1,7 +1,7 @@
 ---
 title: Java整合MongoDB
 date: 2019-11-22 13:56:30
-tags: [java,SpringBoot,springmvc,mongodb]
+tags: [mongodb笔记]
 ---
 
 # 方案一：Java直接整合Mongo

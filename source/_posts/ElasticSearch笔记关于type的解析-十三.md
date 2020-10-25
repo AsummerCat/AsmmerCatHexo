@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记关于type的解析(十三)
 date: 2020-08-11 14:10:58
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # type的定义

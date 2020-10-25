@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维集群之操作系统参数修改(四十)
 date: 2020-09-06 22:08:17
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 优化操作系统保证es稳定高效运行

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记的相关机制(四)
 date: 2020-08-11 14:03:42
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # ElasticSearch笔记shard与replica机制

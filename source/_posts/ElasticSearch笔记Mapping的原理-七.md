@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记Mapping的原理(七)
 date: 2020-08-11 14:06:15
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 大致流程

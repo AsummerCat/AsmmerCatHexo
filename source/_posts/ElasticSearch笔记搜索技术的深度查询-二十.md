@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记搜索技术的深度查询(二十)
 date: 2020-08-23 14:48:49
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 权重 boost参数

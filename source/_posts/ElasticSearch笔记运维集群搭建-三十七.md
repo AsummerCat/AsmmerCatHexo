@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维集群搭建(三十七)
 date: 2020-09-03 22:17:32
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # es目录结构

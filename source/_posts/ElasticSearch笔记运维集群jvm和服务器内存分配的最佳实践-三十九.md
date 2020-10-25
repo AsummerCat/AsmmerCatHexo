@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维集群jvm和服务器内存分配的最佳实践(三十九)
 date: 2020-09-06 22:07:05
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 #  es的jvm内存大小设置

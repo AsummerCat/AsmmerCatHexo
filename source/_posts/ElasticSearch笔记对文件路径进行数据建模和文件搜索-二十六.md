@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记对文件路径进行数据建模和文件搜索(二十六)
 date: 2020-08-25 23:23:48
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 

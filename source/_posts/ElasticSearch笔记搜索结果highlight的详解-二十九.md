@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记搜索结果highlight的详解(二十九)
 date: 2020-08-31 21:58:44
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 普通写法

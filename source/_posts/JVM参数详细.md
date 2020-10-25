@@ -1,9 +1,9 @@
 ---
 title: JVM参数详细
 date: 2018-12-11 14:08:13
-tags: JVM
+tags: jvm
 ---
-	
+
 
 堆设置 
 -Xms=n 

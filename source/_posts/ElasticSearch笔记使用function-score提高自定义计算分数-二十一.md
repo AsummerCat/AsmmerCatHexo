@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用function_score提高自定义计算分数(二十一)
 date: 2020-08-23 15:40:18
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 假设场景:   

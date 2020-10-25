@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记fielddata核心原理(二十五)
 date: 2020-08-25 23:23:08
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # fielddata 核心原理

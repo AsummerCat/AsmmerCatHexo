@@ -1,7 +1,7 @@
 ---
 title: javaApi调用mongodb的使用
 date: 2019-11-22 14:25:44
-tags: [java,mongodb]
+tags: [java,mongodb笔记]
 ---
 
 # 插入

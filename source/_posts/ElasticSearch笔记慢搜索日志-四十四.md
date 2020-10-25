@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记慢搜索日志(四十四)
 date: 2020-09-10 21:51:39
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 跟sql慢查询日志一个道理的

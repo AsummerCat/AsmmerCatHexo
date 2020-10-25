@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记Docker下安装ElasticSearch和Kibana
 date: 2020-08-11 13:57:55
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # ElasticSearch安装

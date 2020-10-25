@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维集群针专门定制的重要参数(三十八)
 date: 2020-09-03 22:17:35
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 针对脑裂问题的重要参数

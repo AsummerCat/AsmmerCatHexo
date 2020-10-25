@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记核心概念(一)
 date: 2020-08-11 13:58:55
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 官方文档

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记搜索的时候自动纠错(二十二)
 date: 2020-08-23 15:40:57
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 使用fuzzy搜索技术

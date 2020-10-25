@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维硬件和JVM(三十六)
 date: 2020-09-03 22:16:40
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 运维管理

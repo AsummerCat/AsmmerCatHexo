@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记查询语句相关内容(十七)
 date: 2020-08-12 21:41:31
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## ES中match和term差别对比

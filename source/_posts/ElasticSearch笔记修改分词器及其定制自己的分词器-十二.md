@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记修改分词器及其定制自己的分词器(十二)
 date: 2020-08-11 14:09:57
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 默认的分词器

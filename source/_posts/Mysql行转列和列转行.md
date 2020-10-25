@@ -1,9 +1,8 @@
 ---
 layout: mysql
-title: 行转列
+title: Mysql行转列和列转行
 date: 2018-09-17 20:35:55
 tags: [mysql,数据库]
-categories: 数据库
 ---
 
 

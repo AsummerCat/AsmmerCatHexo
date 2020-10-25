@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记整理下基本操作
 date: 2020-08-11 13:56:55
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 

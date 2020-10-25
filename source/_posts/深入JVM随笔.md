@@ -1,7 +1,7 @@
 ---
 title: 深入JVM随笔
 date: 2020-02-27 16:00:32
-tags: [JVM,java]
+tags: [jvm,java]
 ---
 
 ## Java对象布局

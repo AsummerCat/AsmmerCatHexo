@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记多shard场景下相关度不准确的问题(十九)
 date: 2020-08-13 10:31:43
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 产生原因

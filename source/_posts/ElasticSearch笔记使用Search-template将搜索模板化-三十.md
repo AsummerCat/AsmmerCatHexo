@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用Search_template将搜索模板化(三十)
 date: 2020-08-31 21:59:37
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 创建搜索模板

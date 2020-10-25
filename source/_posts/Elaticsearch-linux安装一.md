@@ -1,7 +1,7 @@
 ---
 title: Elaticsearch-linux安装一
 date: 2020-02-13 21:42:45
-tags: [linux,Elaticsearch,SpringBoot]
+tags: [linux,elasticSearch笔记,SpringBoot]
 ---
 
 # 安装Elaticsearch

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记使用JAVA_API(三十五)
 date: 2020-09-02 22:51:55
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 使用java_api

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记优化建议-四十五
 date: 2020-09-10 21:52:39
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # document查询和结构的优化

@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记聚合分析相关(二十四)
 date: 2020-08-25 23:22:08
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 核心概念

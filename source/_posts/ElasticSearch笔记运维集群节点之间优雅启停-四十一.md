@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记运维集群节点之间优雅启停(四十一)
 date: 2020-09-06 22:010:17
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 # 以后台模式运行 

@@ -1,7 +1,7 @@
 ---
 title: JVM参数
 date: 2018-12-06 16:58:03
-tags: JVM
+tags: jvm
 ---
 
 

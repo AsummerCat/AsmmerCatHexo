@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch笔记倒排索引与正排索引(九)
 date: 2020-08-11 14:07:47
-tags: [ElasticSearch笔记]
+tags: [elasticSearch笔记]
 ---
 
 ## 本质
