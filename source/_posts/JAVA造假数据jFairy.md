@@ -6,7 +6,7 @@ tags: [java]
 
 # 快速创建测试数据
 
-# ![DEMO地址](https://github.com/AsummerCat/jfairy_demo)
+# [DEMO地址](https://github.com/AsummerCat/jfairy_demo)
 ## 方案有两种
 1. java-faker
 2. jFairy
