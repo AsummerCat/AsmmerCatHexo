@@ -16,11 +16,12 @@ Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数�
 　　[command line](https://docsstage.liquibase.com/tools-integrations/cli/home.html),   
 　　[Ant](https://docs.liquibase.com/tools-integrations/ant/home.html),  
 　　[Maven](https://docs.liquibase.com/tools-integrations/maven/home.html),   
-　　[Spring](https://docs.liquibase.com/tools-integrations/springboot/using-springboot-with-maven.html), [a servlet listener],  [CDI Environment]
+　　[Spring](https://docs.liquibase.com/tools-integrations/springboot/using-springboot-with-maven.html)
 
-<!--more-->　　
+<!--more-->　
+　
+执行命令
 
-## 执行命令
 ```
  mvn liquibase:update
 ```
