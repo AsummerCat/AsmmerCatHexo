@@ -14,16 +14,17 @@ java -jar arthas-boot.jar
 
 
 ### thread 获取线程信息
-可查看CPU过高,或者死锁信息
 ```
-通过thread加线程id输出当前线程的栈信息
-```
-查询死锁
-```
-thread -b 
+查看当前最忙的几个线程并打印堆栈信息 : thread -n 数量
+查看当前最忙的几个线程并打印堆栈信息 : thread -n
+查看指定线程的堆栈信息:         thread id (可查看CPU过高,或者死锁信息)
+查看死锁:                  thread -b 
 ```
 
+
+
 ## dashboard 查看监控面板
+
 可以查看内存使用情况
 <!--more-->
 
