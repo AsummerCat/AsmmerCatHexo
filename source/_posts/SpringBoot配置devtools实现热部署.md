@@ -1,7 +1,7 @@
 ---
 title: SpringBoot配置devtools实现热部署
 date: 2018-10-05 15:45:18
-tags: SpringBoot
+tags: [SpringBoot]
 ---
 
 >参考:   

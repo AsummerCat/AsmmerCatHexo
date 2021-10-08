@@ -1,7 +1,7 @@
 ---
 title: SpringBoot解决跨域问题的2种方案
 date: 2021-10-09 00:46:40
-tags: [springboot]
+tags: [SpringBoot]
 ---
 
 # SpringBoot解决跨域问题的2种方案
