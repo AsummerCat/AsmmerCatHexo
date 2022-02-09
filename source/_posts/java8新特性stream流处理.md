@@ -1,7 +1,7 @@
 ---
 title: java8新特性stream流处理
 date: 2019-11-21 15:31:16
-tags: java
+tags: [java,jdk新特性]
 ---
 
 # java8新特性stream流处理

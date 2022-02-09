@@ -72,7 +72,6 @@ tag_map:
   nginx: nginx
   hexo: hexo
   SpringBoot: SpringBoot
-  书签: 书签
   sublimeText: sublimeText
   swagger: swagger
   SpringSession: SpringSession
@@ -164,6 +163,7 @@ tag_map:
   aria2: aria2
   机器学习: 机器学习
   数学: 数学
+  大数据: 大数据
 
   
 # Date / Time format
@@ -191,7 +191,7 @@ deploy:
   type: git
   repo:
       github: git@github.com:AsummerCat/AsummerCat.github.io.git,master
-      coding:  git@e.coding.net:AsummerCat/AsummerCat/AsummerCat.git,master
+      #coding:  git@e.coding.net:AsummerCat/AsummerCat/AsummerCat.git,master
       #coding: git@e.coding.net:AsummerCat/AsummerCat.git,master
       #github: http://github.com/AsummerCat/AsummerCat.github.io.git,master
       # coding: https://git.dev.tencent.com/AsummerCat/AsummerCat.git,master 

@@ -1,7 +1,7 @@
 ---
 title: Springcloud整合Zipkin和sleuth微服务链路跟踪
 date: 2019-08-03 11:50:23
-tags: [SpringBoot,springCloud,Zipkin,sleuth]
+tags: [SpringBoot,springCloud,Zipkin,sleuth,链路跟踪]
 ---
 
 # Springcloud整合Zipkin和sleuth微服务链路跟踪
