@@ -18,7 +18,7 @@ Sonarqube 是一个用于代码质量管理的开放平台。通过插件机制�
 
 利用docker安装
 
-```java
+```
 docker search sonarqube
 
 docker pull sonarqube
@@ -87,7 +87,7 @@ docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 
 然后在项目里面加入以下maven依赖
 
-```java
+```
 <plugin>
   <groupId>org.sonarsource.scanner.maven</groupId>
   <artifactId>sonar-maven-plugin</artifactId>

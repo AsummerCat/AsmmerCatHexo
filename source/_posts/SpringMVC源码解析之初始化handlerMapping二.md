@@ -1,7 +1,7 @@
 ---
 title: SpringMVC源码解析之初始化handlerMapping二
 date: 2019-09-10 23:44:30
-tags: [springmvc,源码解析]
+tags: [SpringMvc,源码解析]
 ---
 
 # SpringMVC源码解析之初始化handlerMapping二
@@ -36,13 +36,13 @@ setApplicationContext方法中核心部分就是初始化容器initApplicationCo
 
 获取每个controller中的url,不同的子类有不同的实现,这是一个典型的模板设计模式.
 
-```java
+```
 	protected abstract String[] determineUrlsForHandler(String beanName);
 ```
 
 ![](/img/2019-09-03/23.png)
 
-```java
+```
 determineUrlsForHandler(String beanName)方法的作用是获取每个controller中的url,不同的子类有不同的实现,这是一个典型的模板设计模式.
 
 因为开发中用的最多的就是用注解来配置controller中的url。DefaultAnnotationHandlerMapping是AbstractDetectingUrlHandlerMapping的子类,处理注解形式的url映射.
@@ -52,7 +52,7 @@ determineUrlsForHandler(String beanName)方法的作用是获取每个controller
 
 ### DefaultAnnotationHandlerMapping 从注解获取bean对应url
 
-```java
+```
 /**
      * 获取controller中所有的url
      */

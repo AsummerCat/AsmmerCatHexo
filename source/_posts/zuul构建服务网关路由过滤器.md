@@ -1,7 +1,7 @@
 ---
 title: zuul构建服务网关路由过滤器三
 date: 2019-01-15 15:46:22
-tags: [springCloud,zuul]
+tags: [SpringCloud,zuul]
 ---
 
 # 服务网关可以过滤请求
@@ -14,7 +14,7 @@ tags: [springCloud,zuul]
 
 <!--more-->
 
-```java
+```
 package com.linjing.zuulserver;
 
 import com.netflix.zuul.ZuulFilter;
@@ -154,7 +154,7 @@ private static Logger logger= LoggerFactory.getLogger(AccessFilter.class);
 
 ### 路由时route
 
-```java
+```
 package com.linjing.zuulserver;
 
 import com.netflix.zuul.ZuulFilter;
@@ -194,7 +194,7 @@ private static Logger logger= LoggerFactory.getLogger(RouteFilter.class);
 
 ### 路由后post
 
-```java
+```
 package com.linjing.zuulserver;
 
 import com.netflix.zuul.ZuulFilter;
@@ -254,7 +254,7 @@ private static Logger logger= LoggerFactory.getLogger(PostFilter.class);
 
 ### 发送错误调用error
 
-```java
+```
 package com.linjing.zuulserver;
 
 import com.netflix.zuul.ZuulFilter;
@@ -311,14 +311,16 @@ private static Logger logger= LoggerFactory.getLogger(ErrorFilter.class);
 
 2. 获取当前req
 
-3. ```java
+3.
+```
    RequestContext ctx=RequestContext.getCurrentContext();
            HttpServletRequest request=ctx.getRequest();
-   ```
+```
 
-4. ```java
+4.
+```
    过滤器需要有严格的try()catch 进行处理
-   ```
+```
 
    3.配置属性`zuul.add-host-header=true`就能让原本有问题的重定向操作得到正确的处理。
 
@@ -326,7 +328,7 @@ private static Logger logger= LoggerFactory.getLogger(ErrorFilter.class);
 
 继承 ErrorController
 
-```java
+```
 package com.linjing.zuulserver;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
@@ -355,7 +357,7 @@ public class ErrorHandlerController implements ErrorController {
 
 # 配置文件
 
-```java
+```
 server:
   port: 10010
 spring:

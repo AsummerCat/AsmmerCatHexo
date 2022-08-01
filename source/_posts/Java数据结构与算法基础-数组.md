@@ -42,7 +42,7 @@ tags: [数据结构与算法,java]
 
 下面的代码是按照上述要求实现的数组
 
-```java
+```
 public class Array<V> {
     private Object[] elements;
     private int size=0;//数组中元素的数量
@@ -147,7 +147,7 @@ public class Array<V> {
 
 运行程序，输出：
 
-```java
+```
 初始 1、5、3 ： 1    5    3    null    null   
 
 添加 4       ： 1    5    3    4    null   
@@ -181,7 +181,7 @@ public class Array<V> {
 
 这里我们往数组中存入对象，来说明根据关键字查找的含义
 
-```java
+```
 public class ArrayQueryTest {
     public static class User {
         private int id;

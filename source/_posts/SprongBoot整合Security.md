@@ -263,7 +263,7 @@ Using generated security password: 07dc7832-2928-4eea-8329-b5fecdd51d57
  重写  
  `public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException { `方法
  
- ```
+```
  
  package com.linjingc.demo.securityconfig;
 
@@ -306,7 +306,7 @@ public class CustomUserService implements UserDetailsService { //实现 这个�
     }
 }
  
- ```
+```
  ---
  
 # 启动记住我功能
@@ -488,4 +488,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
 
-```  
+```

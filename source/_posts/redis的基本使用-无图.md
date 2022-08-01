@@ -1,7 +1,7 @@
 ---
 title: redis的基本使用-无图
 date: 2018-11-13 10:08:46
-tags:  redis
+tags:  [redis]
 ---
 # 参考
 [简单说一下redis](https://blog.csdn.net/bushanyantanzhe/article/details/79485441)

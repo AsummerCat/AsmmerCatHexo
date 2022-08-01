@@ -1,7 +1,7 @@
 ---
 title: SpringCloud中eureka_instance为前缀的的常用配置参数说明
 date: 2019-06-27 21:41:16
-tags: [springCloud,eureka]
+tags: [SpringCloud,eureka]
 ---
 
 # Spring Cloud中eureka.instance为前缀的的常用配置参数说明
@@ -12,7 +12,7 @@ tags: [springCloud,eureka]
 
 eureka.instance
 
-```java
+```
 * preferIpAddress                  是否优先使用IP地址作为主机名的标识                   false
 
 * leaseRenewalIntervalInSeconds    Eureka客户端向服务端发送心跳的时间间隔，单位为秒       30

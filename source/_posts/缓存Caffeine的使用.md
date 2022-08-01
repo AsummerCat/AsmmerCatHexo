@@ -1,7 +1,7 @@
 ---
 title: 缓存Caffeine的使用
 date: 2019-01-23 14:18:19
-tags: 缓存
+tags: [缓存]
 ---
 
 # 咖啡因
@@ -20,7 +20,7 @@ cache方面的注解主要有以下5个
 
 <!--more-->
 
-```java
+```
  /**
      * Cacheable
      * value：缓存key的前缀。
@@ -37,7 +37,7 @@ cache方面的注解主要有以下5个
 
 # 与SpringBoot整合 导入pom
 
-```java
+```
 <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-cache</artifactId>
@@ -65,7 +65,7 @@ cache方面的注解主要有以下5个
 
 ### 方式一: 直接写在application.yml中
 
-```java
+```
 server:
   port: 8080
 spring:
@@ -88,7 +88,7 @@ spring:
 
 ### 方式二:在java中使用config
 
-```java
+```
 package com.linjing.caffeine;
 
 import com.github.benmanes.caffeine.cache.Caffeine;

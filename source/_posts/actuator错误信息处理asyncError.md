@@ -1,7 +1,7 @@
 ---
 title: actuator错误信息处理asyncError
 date: 2019-08-01 22:27:16
-tags: [actuator,springCloud,SpringBoot]
+tags: [actuator,SpringCloud,SpringBoot]
 ---
 
 # 这个问题是在搭建spring-admin监控的时候发现的

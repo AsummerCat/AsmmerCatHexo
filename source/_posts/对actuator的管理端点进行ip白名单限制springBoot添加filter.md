@@ -1,7 +1,7 @@
 ---
 title: 对actuator的管理端点进行ip白名单限制springBoot添加filter
 date: 2019-08-01 21:38:26
-tags: [actuator,springCloud,SpringBoot]
+tags: [actuator,SpringCloud,SpringBoot]
 ---
 
 在我们的SpringCloud应用中，我们会引入actuator来进行管理和监控我们的应用

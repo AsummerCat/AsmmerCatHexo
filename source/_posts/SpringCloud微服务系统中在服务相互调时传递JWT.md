@@ -2,7 +2,7 @@
 
 title: jwt如何在SpringCloud微服务系统中在服务相互调时传递JWT
 date: 2021-03-18 17:41:43
-tags: [springCloud,jwt]
+tags: [SpringCloud,jwt]
 ---
 
 在微服务系统中，为了保证微服务系统的安全,常常使用jwt来鉴权，但是服务内部的相互调用呢。经常有人在微信上问我，我给出一个解决办法，采用Feign的拦截器。

@@ -10,7 +10,7 @@ tags: [linux,docker]
 
 ###  centOS 6的安装
 
-```java
+```
 1.  yum install -y epel-release      
     类似安装redis需要先安装gcc库
 
@@ -31,7 +31,7 @@ tags: [linux,docker]
 
 [官网文档地址](https://docs.docker.com/engine/install/centos/)
 
-```java
+```
 1. 卸载老版本
    sudo yum remove docker \
                   docker-client \
@@ -80,7 +80,7 @@ tags: [linux,docker]
 
 #### centos7安装需要注意前置问题
 
-```java
+```
 1.确认系统版本
   cat /etc/redhat-release
 
@@ -98,7 +98,7 @@ tags: [linux,docker]
 
 ## 卸载docker
 
-```java
+```
 卸载Docker 
 卸载Docker Engine，CLI和Containerd软件包：
 1. systemctl stop docker

@@ -1,7 +1,7 @@
 ---
 title: zookeeper的安装及其基本使用
 date: 2019-05-05 22:52:52
-tags: zookeeper
+tags: [zookeeper]
 ---
 
 #分布式的应用服务协调框架

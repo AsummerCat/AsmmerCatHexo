@@ -1,10 +1,10 @@
 ---
-title: springboot整合dubbo基础版本一
+title: SpringBoot整合dubbo基础版本一
 date: 2019-09-26 14:47:31
 tags: [SpringBoot,dubbo]
 ---
 
-# springboot整合dubbo(一)基础版本
+# SpringBoot整合dubbo(一)基础版本
 
 [demo地址](https://github.com/AsummerCat/dubbo-demo)
 
@@ -17,7 +17,7 @@ tags: [SpringBoot,dubbo]
 
 # 首先还是导入pom
 
-```java
+```
      <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -56,7 +56,7 @@ producer存放生产者
 
 ### 创建接口
 
-```java
+```
 package com.linjingc.apidemo.service;
 
 public interface SayService {
@@ -67,7 +67,7 @@ public interface SayService {
 
 ### 及其对应的mock (降级类)
 
-```java
+```
 package com.linjingc.apidemo.service;
 
 public class SayServiceMock implements SayService {
@@ -96,7 +96,7 @@ public class SayServiceMock implements SayService {
 
 ## dubbo项目配置
 
-```java
+```
 server:
   port: 8085 #Tomcat端口
 dubbo:
@@ -120,7 +120,7 @@ qos 是开启检测的内容
 
 ## 在生产者启动类添加注解
 
-```java
+```
 @EnableDubbo
 ```
 
@@ -132,7 +132,7 @@ qos 是开启检测的内容
 
 需要注意的是 这个注解是
 
-```java
+```
 import org.apache.dubbo.config.annotation.Service;
 ```
 
@@ -140,7 +140,7 @@ import org.apache.dubbo.config.annotation.Service;
 
 ### 具体接口案例
 
-```java
+```
 package com.linjingc.producerdemo.service;
 
 import com.linjingc.apidemo.service.SayService;
@@ -164,7 +164,7 @@ public class Say1ServiceImpl implements SayService {
 
 ## 在生产者启动类添加注解
 
-```java
+```
 @EnableDubbo
 ```
 
@@ -176,7 +176,7 @@ public class Say1ServiceImpl implements SayService {
 
  使用`Reference`注解
 
-```java
+```
 import org.apache.dubbo.config.annotation.Reference;
 
 ```
@@ -185,7 +185,7 @@ import org.apache.dubbo.config.annotation.Reference;
 
 ### 具体使用案例
 
-```java
+```
 package com.linjingc.consumerdemo.service;
 
 import com.linjingc.apidemo.service.SayService;

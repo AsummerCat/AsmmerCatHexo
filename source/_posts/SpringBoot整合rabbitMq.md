@@ -45,7 +45,7 @@ topic 交换器通过模式匹配分配消息的路由键属性，将路由键�
 
 # 配置文件中填写RabbitMq的配置连接信息
 
-```java
+```
 server:
   port: 9001
 
@@ -67,7 +67,7 @@ spring:
 - 创建RabbitMQ的配置类`RabbitConfig`，用来配置队列、交换器、路由等高级信息。这里我们以入门为主，先以最小化的配置来定义，以完成一个基本的生产和消费过程。
 - 
 
-```java
+```
 package com.linjing.springbootandrabbitmq;
 
 import org.springframework.amqp.core.Queue;
@@ -100,7 +100,7 @@ public class RabbitConfig {
 
 #AmqpTemplate Spring实现mq的模板
 
-```java
+```
 @Autowired
 private AmqpTemplate rabbitTemplate;
 ```
@@ -111,7 +111,7 @@ amqp规范 就可以使用了
 
 # RabbitMQ发送请求(queue点对点)
 
-```java
+```
 package com.linjing.springbootandrabbitmq.controller;
 
 import org.springframework.amqp.core.AmqpTemplate;
@@ -152,7 +152,7 @@ public class SendController {
 
 #### @RabbitListener 配合 @RabbitHandler
 
-```java
+```
 package com.linjing.springbootandrabbitmq.controller;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -179,7 +179,7 @@ public class ReceiveHello {
 
 这里需要注意的是: 如果一个监听队列 下有两个处理消息的方法 会报错
 
-```java
+```
 Caused by: org.springframework.amqp.AmqpException: Ambiguous methods for payload type: class java.lang.String: receive and receiv1e
 ```
 
@@ -187,7 +187,7 @@ Caused by: org.springframework.amqp.AmqpException: Ambiguous methods for payload
 
 ## 直接使用@RabbitListener
 
-```java
+```
 package com.linjing.springbootandrabbitmq.controller;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

@@ -1,14 +1,14 @@
 ---
 title: hashSet解析
 date: 2019-02-13 10:25:05
-tags: jdk源码解析
+tags: [jdk源码解析]
 ---
 
 # hashSet
 
 `该容器中只能存储不重复的对象`
 
-```java
+```
 public class HashSet<E>
     extends AbstractSet<E>
     implements Set<E>, Cloneable, java.io.Serializable

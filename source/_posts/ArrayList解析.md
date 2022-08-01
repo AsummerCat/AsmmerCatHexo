@@ -114,7 +114,7 @@ tags: [jdk源码解析]
 
 实现了简单的 add get
 
-```java
+```
 package myList;
 
 import java.io.Serializable;

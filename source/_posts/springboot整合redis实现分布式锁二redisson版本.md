@@ -1,10 +1,10 @@
 ---
-title: springboot整合redis实现分布式锁二redisson版本
+title: SpringBoot整合redis实现分布式锁二redisson版本
 date: 2019-08-13 23:18:41
 tags: [redis,SpringBoot,分布式锁,redisson]
 ---
 
-# springboot整合redis实现分布式锁二redisson版本
+# SpringBoot整合redis实现分布式锁二redisson版本
 
 [demo地址](https://github.com/AsummerCat/redis-lock/tree/master/redisson-redis)
 
@@ -26,7 +26,7 @@ tags: [redis,SpringBoot,分布式锁,redisson]
 
 # 实现 首先导入pom文件
 
-```java
+```
  	<dependency>
       <groupId>org.redisson</groupId>
       <artifactId>redisson</artifactId>
@@ -42,7 +42,7 @@ tags: [redis,SpringBoot,分布式锁,redisson]
 
 redisson-config.yml
 
-```java
+```
 #Redisson配置 https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95
 singleServerConfig:
   address: "redis://112.74.43.136:6379"
@@ -74,7 +74,7 @@ transportMode: "NIO"
 
 ### 实现配置类
 
-```java
+```
 @Configuration
 public class RedissonConfig {
 
@@ -93,7 +93,7 @@ public class RedissonConfig {
 
 ## 还有其他方式具体看官方api
 
-```java
+```
 https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95
 ```
 
@@ -101,7 +101,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 现在具体实现客户端
 
-```java
+```
 @Autowiredprivate RedissonClient redissonClient;
 ```
 
@@ -111,7 +111,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 基础锁
 
-```java
+```
   @RequestMapping("setkey")
     public String setKey() {
         RLock key = redissonClient.getLock("key");
@@ -137,7 +137,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 可重入锁
 
-```java
+```
    /**
      * 可重入锁（Reentrant Lock）
      *
@@ -175,7 +175,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 公平锁
 
-```java
+```
    /**
      * 公平锁（Fair Lock）
      * 公平锁会在redis里面 产生一个key的队列 用来标记  一个超时的Zset队列 一个排序的Zset队列
@@ -207,7 +207,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 联锁
 
-```java
+```
   /**
      * 联锁（MultiLock）
      * Redisson的RedissonMultiLock对象可以将多个RLock对象关联为一个联锁，每个RLock对象实例可以来自于不同的Redisson实例。
@@ -245,7 +245,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 红锁
 
-```java
+```
  /**
      * 红锁（RedLock）
      * 该对象也可以用来将多个RLock对象关联为一个红锁，每个RLock对象实例可以来自于不同的Redisson实例。
@@ -283,7 +283,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 读写锁
 
-```java
+```
 /**
      * 读写锁（ReadWriteLock） 写
      * 一个读写锁同时只能存在一个写锁但是可以存在多个读锁，但不能同时存在写锁和读锁。
@@ -344,7 +344,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 信号量
 
-```java
+```
  /**
      * 信号量（Semaphore）
      * RSemaphore
@@ -381,7 +381,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 可过期信号量
 
-```java
+```
   /**
      * 可过期性信号量（PermitExpirableSemaphore）
      * Redisson的可过期性信号量（PermitExpirableSemaphore）实在RSemaphore对象的基础上，
@@ -422,7 +422,7 @@ https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%9
 
 ## 发令枪
 
-```java
+```
   /**
      * 闭锁（CountDownLatch） 类似发令枪
      * Redisson的分布式闭锁（CountDownLatch）Java对象RCountDownLatch采用了与java.util.concurrent.CountDownLatch相似的接口和用法。

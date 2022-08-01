@@ -8,7 +8,7 @@ tags: [mongodb笔记]
 
 ## 该方案需要使用mongo驱动
 
-```java
+```
  <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
@@ -19,7 +19,7 @@ tags: [mongodb笔记]
 
 ## 创建链接client&操作数据库
 
-```java
+```
  //数据库链接选项        
         MongoClientOptions mongoClientOptions = MongoClientOptions.builder().build();
  
@@ -90,7 +90,7 @@ spring:
 
 ## 添加必要依赖（版本不匹配会出现java.lang.ClassNotFoundException: org.springframework.core.SpringProperties错误）
 
-```java
+```
  <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -112,7 +112,7 @@ spring:
 
 ## 添加spring配置文件（applicationContext.xml）
 
-```java
+```
 <?xml version="1.0" encoding="UTF-8"?>
  
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -166,7 +166,7 @@ spring:
 
 ## 连接数据库
 
-```java
+```
 public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
  

@@ -1,7 +1,7 @@
 ---
-title: springmvc@requestBody注解的使用
+title: SpringMvc@requestBody注解的使用
 date: 2018-11-09 15:19:18
-tags: springmvc
+tags: [SpringMvc]
 ---
 
 # @requestBody注解的使用

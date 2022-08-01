@@ -1,7 +1,7 @@
 ---
 title: HashMap与HashTable与treeMap比对
 date: 2018-10-27 16:36:20
-tags: java
+tags: [java]
 ---
 
 # 对比

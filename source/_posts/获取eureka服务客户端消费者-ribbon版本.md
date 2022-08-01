@@ -1,10 +1,10 @@
 ---
 title: 获取eureka服务客户端消费者-ribbon版本
 date: 2019-01-10 11:27:12
-tags: [springCloud,eureka,ribbon]
+tags: [SpringCloud,eureka,ribbon]
 ---
 
-# [demo地址](https://github.com/AsummerCat/springCloudCustomer)
+# [demo地址](https://github.com/AsummerCat/SpringCloudCustomer)
 
 # eureka注册中心 (略)
 
@@ -18,7 +18,7 @@ tags: [springCloud,eureka,ribbon]
 
 # 导入相关pom文件
 
-```java
+```
   <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-ribbon</artifactId>
@@ -38,14 +38,14 @@ tags: [springCloud,eureka,ribbon]
 
 - 修改应用主类。为`RestTemplate`增加`@LoadBalanced`注解
 
-- ```java
+```
   @Bean
   //注解
   @LoadBalanced
   	public RestTemplate restTemplate() {
   		return new RestTemplate();
   	}
-  ```
+```
 
 
 
@@ -55,7 +55,7 @@ tags: [springCloud,eureka,ribbon]
 
 去掉原来通过`LoadBalancerClient`选取实例和拼接URL的步骤，直接通过RestTemplate发起请求。
 
-```java
+```
 package com.linjing.ribboncustomer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;

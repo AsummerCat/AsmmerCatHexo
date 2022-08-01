@@ -12,7 +12,7 @@ tags:  [guava,java]
 
 ## 导入pom
 
-```java
+```
      <!--guava工具包-->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -54,7 +54,7 @@ RateLimiter.create(limitInfo.getValue());
 
 ## 创建限流注解
 
-```java
+```
 package com.linjingc.guava_limit_demo.requestLimitConfig.annotation;
 
 
@@ -123,7 +123,7 @@ public @interface RequestLimit {
 
 ## 创建自定义异常
 
-```java
+```
 /**
  * 自定义获取令牌失败 错误
  *
@@ -148,7 +148,7 @@ public class AcquireTimeoutException extends RuntimeException {
 
 ## 创建限流info的实体
 
-```java
+```
 
 
 /**
@@ -200,7 +200,7 @@ public class LimitInfo {
 
 ## 获取限流的令牌失败处理策略接口
 
-```java
+```
 /**
  * 获取限流的令牌失败处理策略接口
  *
@@ -219,7 +219,7 @@ public interface AcquireTokenFailureHandler {
 
 ## 限流获取失败的 实现类
 
-```java
+```
 
 /**
  * 限流获取失败的 策略接口
@@ -287,7 +287,7 @@ public interface LimitNameHandler {
 
 ## 创建令牌桶限流的枚举 实现策略接口
 
-```java
+```
 /**
  * 令牌桶限流类型
  * 并且获取限流前缀名称
@@ -377,7 +377,7 @@ public enum LimitType implements LimitNameHandler {
 
 2.创建限流
 
-```java
+```
 
 /**
  * 创建限流器的工厂
@@ -523,7 +523,7 @@ public class CurrentLimitFactory implements InitializingBean {
 
 ## 限流接口
 
-```java
+```
 /**
  * 限流实现接口
  *
@@ -542,7 +542,7 @@ public interface CurrentLimit {
 
 ## 限流接口实现类
 
-```java
+```
 /**
  * 使用限流
  * 基于令牌桶实现
@@ -568,7 +568,7 @@ public class TokenBucketLimiter implements CurrentLimit {
 
 ## 创建生成限流器的提供者 生成limitInfo类
 
-```java
+```
 /**
  * 获取用户定义业务key
  * 生成限流info的内容
@@ -668,7 +668,7 @@ public class BusinessKeyProvider {
 
 ## aop切面 及其异常处理
 
-```java
+```
 /**
  * 限流切面类
  *

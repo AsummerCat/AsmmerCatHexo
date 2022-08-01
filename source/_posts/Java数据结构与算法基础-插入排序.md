@@ -18,7 +18,7 @@ tags: [java,数据结构与算法]
 
 代码实现：
 
-```java
+```
 public class InsertSort {
     public static void sort(int[] arr,boolean asc){
             //有序区最后一个元素位置

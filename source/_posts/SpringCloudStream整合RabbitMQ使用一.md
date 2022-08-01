@@ -1,10 +1,10 @@
 ---
 title: SpringCloudStream整合RabbitMQ使用一
 date: 2019-01-18 11:38:33
-tags: [springCloud,RabbitMQ,springCloudStream]
+tags: [SpringCloud,RabbitMQ,SpringCloudStream]
 ---
 
-[文档地址](https://springcloud.cc/spring-cloud-dalston.html#_spring_cloud_stream)
+[文档地址](https://SpringCloud.cc/spring-cloud-dalston.html#_spring_cloud_stream)
 
 #  SpringCloudStream
 
@@ -31,7 +31,7 @@ SpringCloudStream 就是使用了基于消息系统的微服务处理架构。�
 
 # 开始
 
-自己看文档，springcloud的封装是默认重试3次，3次失败就丢弃消息了。
+自己看文档，SpringCloud的封装是默认重试3次，3次失败就丢弃消息了。
 
 我们这边开启两个项目一个项目作为消费者 一个作为生产者
 
@@ -49,7 +49,7 @@ SpringCloudStream 就是使用了基于消息系统的微服务处理架构。�
 
 导入 Stream的包 和rabbitMQ的包
 
-```java
+```
 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -74,7 +74,7 @@ SpringCloudStream 就是使用了基于消息系统的微服务处理架构。�
 
 或者也可以这么导入
 
-```java
+```
 <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-rabbit</artifactId>
@@ -86,7 +86,7 @@ SpringCloudStream 就是使用了基于消息系统的微服务处理架构。�
 
 # 配置文件
 
-```java
+```
 spring:
   application:
     name: send-server
@@ -105,7 +105,7 @@ server:
 
 
 
-```java
+```
 //发送端
 public interface Source {
 
@@ -129,7 +129,7 @@ public interface Sink {
 
 ### 首先创建一个通道接口
 
-```java
+```
 public interface Sink {
     String INPUT = "input";
 
@@ -150,7 +150,7 @@ public @interface EnableBinding {
 
 
 
-```java
+```
 package com.linjing.customer;
 
 import org.slf4j.Logger;
@@ -174,7 +174,7 @@ public class SinkReceiver {
 
 用来监听INPUT 这个消息
 
-```JAVA
+```
 2019-01-18 15:11:23.920  INFO 74939 --- [suk3B-3SM6k5w-1] com.linjing.customer.SinkReceiver        : Received: 嘿嘿嘿
 ```
 
@@ -184,7 +184,7 @@ public class SinkReceiver {
 
 ### 创建一个通道接口
 
-```java
+```
 package com.linjing.producer.controller;
 
 import org.springframework.cloud.stream.annotation.Output;
@@ -205,7 +205,7 @@ public interface SinkSender {
 
 ### 绑定通道接口
 
-```java
+```
 package com.linjing.producer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -250,7 +250,7 @@ public class SendController {
 
 ### @SendTo(Processor.OUTPUT) 这里可以消费后 返回
 
-```java
+```
 @EnableBinding(Processor.class)
 public class TransformProcessor {
 

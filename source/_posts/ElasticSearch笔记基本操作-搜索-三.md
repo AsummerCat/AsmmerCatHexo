@@ -138,7 +138,7 @@ bulk request会加载到内存里
 具体操作:  
 需要注意的是每个json串时不能换行的 不然不通   
 要按照`{"action":{"metadata"}}`这种方式写   
-```java
+```
 POST /_bulk
 //删除
 { "delete":{ "_index":"test_index", "_id":"3"}}

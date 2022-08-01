@@ -1,7 +1,7 @@
 ---
 title: IO流的学习
 date: 2018-12-03 10:45:33
-tags: IO流
+tags: [IO流]
 ---
 
 # [Demo地址](https://github.com/AsummerCat/ioDemo)
@@ -53,7 +53,7 @@ IO流对象的继承关系(如下图)：
 
 ## InputStream 顶级抽象字节输入类 
 
-```java
+```
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
  * @see     java.io.ByteArrayInputStream
@@ -67,7 +67,7 @@ IO流对象的继承关系(如下图)：
 
 ##  OutputStream 顶级抽象字节输出类
 
-```java
+```
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
  * @see     java.io.ByteArrayOutputStream
@@ -83,7 +83,7 @@ IO流对象的继承关系(如下图)：
 
 ​    Objects.requireNonNull(out).close();
 
-```java
+```
 finally {
             //最终关闭流
             Objects.requireNonNull(out).close();
@@ -109,7 +109,7 @@ FilterOutputStream 的作用是用来“封装其它的输出流，并为它们�
 
 # 字节流基础读写操作
 
-```java
+```
  int len;
             //设置每次读取字节的大小  (如果不设置每次读取字节大小 效率可能会下降)
             byte[] buf = new byte[1024];
@@ -131,7 +131,7 @@ FilterOutputStream 的作用是用来“封装其它的输出流，并为它们�
 
 ## 缓冲输入输出流 BufferedInputStream、BufferedOutputStream
 
-```java
+```
  public
 class BufferedInputStream extends FilterInputStream {
  public BufferedInputStream(InputStream in) {
@@ -143,11 +143,11 @@ class BufferedInputStream extends FilterInputStream {
 
 可以用来包装 基础流 比如
 
-```java
+```
  InputStream in = new BufferedInputStream(new FileInputStream(file));
 ```
 
-```java
+```
 public
 class BufferedOutputStream extends FilterOutputStream { 
 public BufferedOutputStream(OutputStream out) {
@@ -158,13 +158,13 @@ public BufferedOutputStream(OutputStream out) {
 
 ​	也是用来包装基础流 比如
 
-```java
+```
   OutputStream out =  out = new BufferedOutputStream(new FileOutputStream(file2));
 ```
 
 需要注意的是 
 
-```java
+```
 //默认缓冲区大小是8K 强制输出缓冲  在使用缓冲流的时候使用
 out.flush();
 //这样可以保证输出的时候缓冲区中没有缓存的数据
@@ -187,7 +187,7 @@ out.flush();
 
 管道用来把程序、线程或程序块的输出连接到另一个程序、线程或者程序块作为它的输入。
 
-```java
+```
 管道输入/输出流可以用两种方式进行连接，一种方式是使用connect()方法：
     PipedInputStream pis  = new PipedInputStream();
     PipedOutputStream pos = new PipedOutputStream();
@@ -200,7 +200,7 @@ out.flush();
 
   demo
 
-```java
+```
 public static void main(String[] args) throws IOException {
         int ch1 = 0;
         PipedInputStream pis = new PipedInputStream();
@@ -240,7 +240,7 @@ public FileWriter(File file)throws IOException
 
 ## Writer 顶级抽象字符输入类 
 
-```java
+```
  * @see Writer
  * @see   BufferedWriter
  * @see   CharArrayWriter
@@ -254,7 +254,7 @@ public FileWriter(File file)throws IOException
 
 ## Reader 顶级抽象字符输出类
 
-```java
+```
  * @see BufferedReader
  * @see   LineNumberReader
  * @see CharArrayReader
@@ -272,7 +272,7 @@ public FileWriter(File file)throws IOException
 
 ## 输入必须 冲刷缓冲区
 
-```java
+```
 bufferedWriter.flush();
 ```
 
@@ -282,14 +282,14 @@ bufferedWriter.flush();
 
 ## 文件字符输入输出流 FileWriter,FileReader
 
-```java
+```
 //换行
 fileWriter.write("\r\n"); 
 ```
 
 ## 缓冲字符流 BufferedReader,BufferedWriter
 
-```java
+```
 //换行输出
 fileReader.readLine();
 ```
@@ -300,7 +300,7 @@ fileReader.readLine();
 
  转换流的作用，文本文件在硬盘中以字节流的形式存储时，通过InputStreamReader读取后转化为字符流给程序处理，程序处理的字符流通过OutputStreamWriter转换为字节流保存。
 
-```java
+```
    fis = new FileInputStream(src);
             fos = new FileOutputStream(dest);
             InputStreamReader ir = new InputStreamReader(fis, "UTF-8");

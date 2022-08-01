@@ -16,7 +16,7 @@ tags: [mybatis源码解析]
 
 ## 核心组件
 
-```java
+```
 SqlSession            作为MyBatis工作的主要顶层API，表示和数据库交互的会话，完成必要数据库增删改查功能
 Executor              MyBatis执行器，是MyBatis 调度的核心，负责SQL语句的生成和查询缓存的维护
 StatementHandler   封装了JDBC Statement操作，负责对JDBC statement 的操作，如设置参数、将Statement结果集转换成List集合。
@@ -50,7 +50,7 @@ SqlSessionFactoryBuilder->build
 
 ## **SqlSession的获取**
 
-```java
+```
 // 1.读取config目录下Configure.xml文件
 Reader reader = Resources.getResourceAsReader("config/Configure.xml");
 // 2.使用SqlSessionFactoryBuilder创建SqlSessionFactory
@@ -61,7 +61,7 @@ SqlSession session = sqlSessionFactory.openSession();
 
 ## **Resources.getResourceAsReader("config/Configure.xml")读取文件**
 
-```java
+```
   public static Reader getResourceAsReader(String resource) throws IOException {
     Reader reader;
     if (charset == null) {
@@ -108,7 +108,7 @@ SqlSession session = sqlSessionFactory.openSession();
 
 ## **new SqlSessionFactoryBuilder().build(reader)获取SessionFactory**
 
-```java
+```
   public SqlSessionFactory build(Reader reader) {
     return build(reader, null, null);
   }
@@ -139,7 +139,7 @@ SqlSession session = sqlSessionFactory.openSession();
 
 *** 下面看下parse.parse()方法如何进行xml解析**
 
-```java
+```
 //XMLConfigBuilder.parse()  
 public Configuration parse() {
     if (parsed) {
@@ -223,7 +223,7 @@ public Configuration parse() {
 
 ## **sqlSessionFactory.openSession()开启一个SqlSession**
 
-```java
+```
   public SqlSession openSession() {
     //configuration.getDefaultExecutorType() = ExecutorType.SIMPLE;
     return openSessionFromDataSource(configuration.getDefaultExecutorType(), null, false);
@@ -308,7 +308,7 @@ public interface Executor {
 
 ## 总结
 
-```java
+```
  总结3：
 
     * 解析configuration.xml文件，生成对应的Environment、Setting、Mapper，并注册到Configuration。Configuration相当于配置管理中心，所有的配置都在这里体现
@@ -336,7 +336,7 @@ SqlSession.selectList() 等具体逻辑
 
 # 案例
 
-```java
+```
 public class HelloWord {
     private static SqlSessionFactory sqlSessionFactory;
     private static Reader reader;

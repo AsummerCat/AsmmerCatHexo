@@ -1,7 +1,7 @@
 ---
 title: Guava的本地缓存完整实现版本
 date: 2019-06-01 14:03:08
-tags: java
+tags: [java]
 ---
 
 # Guava的本地缓存完整实现版本
@@ -10,7 +10,7 @@ tags: java
 
 ## 创建一个策略接口
 
-```java
+```
 package com.mdt.newdrugreview.utils.localcacheUtil;
 
 
@@ -135,7 +135,7 @@ public abstract class GuavaAbstractLoadingCache<K, V> {
 
 ## 具体实现类
 
-```java
+```
 package com.mdt.newdrugreview.utils.localcacheUtil;
 
 import org.jeecgframework.web.system.service.SystemService;

@@ -8,13 +8,13 @@ tags: [java,jdk新特性]
 
 ## 新特性ForEach
 
-```java
+```
 peoples.forEach(people -> System.out.println(people.getName()));
 ```
 
 ## 过滤年龄大于18的人员
 
-```java
+```
 List<Person> collect = peoples.stream().filter(person -> person.getAge() > 18).collect(toList());
 ```
 
@@ -24,18 +24,18 @@ List<Person> collect = peoples.stream().filter(person -> person.getAge() > 18).c
 
 比如获取`list<user> `下面的用户名称 单独做个list
 
-```java
+```
 	List<String> collect = peoples.stream().map(Person::getName).collect(toList());
 ```
 
 ## 分组统计
 
-```java
+```
    //分组统计  根据名称分组 并且 根据house聚合计算
 Map<String, IntSummaryStatistics> map=  peoples.stream().collect(groupingBy(Person::getName,summarizingInt(Person::getHouse)));
 ```
 
-```java
+```
   //分组统计  根据名称分组 分成相同名称的集合
 		Map<String, List<Person>> map=  peoples.stream().collect(groupingBy(Person::getName));
 ```
@@ -67,7 +67,7 @@ long count = stream.filter(p -> p.getAge() > 20).count();
 
 聚合计算
 
-```java
+```
 Optional<Integer> reduce = streamSupplier.get().filter(s -> s.getAge() < 30).map(Person::getAge).reduce(Integer::sum);
         Integer reduce1 = streamSupplier.get().filter(s -> s.getAge() < 40).map(Person::getAge).reduce(0,(a,b)->a+b);
         Integer reduce2 = streamSupplier.get().filter(s -> s.getAge() < 40).map(Person::getAge).reduce(0,(a,b)->a+b);
@@ -99,7 +99,7 @@ Stream<String> stream = Stream.of("chaimm","peter","john");
 
 ##  max和min
 
-```java
+```
  Artist theMaxAgeArtist = allArtists.stream()
                                        .max(Comparator.comparing(artist -> artist.getAge()))
                                        .get();
@@ -138,7 +138,7 @@ Stream<String> stream = Stream.of("chaimm","peter","john");
 
 ` Supplier<Stream<Person>> streamSupplier = peoples::stream;`
 
-```java
+```
    @Test
     public void testMyErr() throws Exception {
         List<Person> peoples = new ArrayList<>(Arrays.asList(

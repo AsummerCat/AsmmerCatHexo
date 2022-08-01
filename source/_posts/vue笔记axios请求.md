@@ -62,7 +62,7 @@ allowed-origins:表示允许访问源的域名
 ```
 
 ## 解决axios无法传递data的问题 导入axios内置的qs包
-```java
+```
 默认的请求头格式是:
 Content-Type:applcation/json;charset=UTF-8
 

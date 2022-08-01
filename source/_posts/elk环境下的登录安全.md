@@ -1,7 +1,7 @@
 ---
 title: elk环境下的登录安全
 date: 2019-01-20 19:54:07
-tags: ELK日志分析框架
+tags: [ELK日志分析框架]
 ---
 
 # 登录安全
@@ -24,7 +24,7 @@ tags: ELK日志分析框架
 
 #### 修改nginx配置文件
 
-```java
+```
 server {
 # 监听80端口
   listen       80;
@@ -98,7 +98,7 @@ kibana是提供给外网访问的
 
 #### 修改nginx配置文件
 
-```java
+```
 server {
 # 监听80端口
   listen       80;
@@ -142,7 +142,7 @@ htpasswd -c /data/nginx/db/passwd.db cat
 
 开启这两个选项 将用户密码填入
 
-```java
+```
  elasticsearch.username: "cat"
  elasticsearch.password: "password"
 ```

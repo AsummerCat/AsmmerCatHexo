@@ -5,7 +5,7 @@ tags: [java,工具类]
 ---
 ## 方式一
 
-```java
+```
 //如何去除字段b重复的对象呢?
         System.out.println(list.size());
         HashMap<String, String> map = new HashMap<String, String>();
@@ -24,7 +24,7 @@ tags: [java,工具类]
 
 ## 方式二
 
-```java
+```
 private String[] StringjustNO1(String[] frist) {
     List list = Arrays.asList(frist);
     Set set = new HashSet(list);

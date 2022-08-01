@@ -1,7 +1,7 @@
 ---
 title: SpringCloud学习前置
 date: 2019-01-03 15:02:13
-tags: springCloud
+tags: [SpringCloud]
 ---
 
 # 版本的选择
@@ -13,4 +13,4 @@ tags: springCloud
 
 如果用其他版本的话 有可能会导致你所需要的jar包可能不支持该版本
 
-![image-20190103150554148](/img/2019-1-3/springCloud.png)
+![image-20190103150554148](/img/2019-1-3/SpringCloud.png)

@@ -8,7 +8,7 @@ tags: [分布式事务,seata]
 
 ==当前版本基于0.9.0==
 
-```java
+```
 需要注意的是1.0.0以上配置有可能会有点不一样
 自动导入nacos的数据 ->在0.9.0的脚本里
 ```
@@ -154,7 +154,7 @@ service {
 
 #### 第五步 注意需要配置数据源
 
-```java
+```
 package com.linjingc.paydemo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -209,7 +209,7 @@ norollbackFor={xxx.class,哪些异常不需要回滚}
 
 #### 第七步 在查询库存的方法上加入@GlobalLock 读隔离 防止脏读
 
-```java
+```
 
 @GlobalLock
 public String select(String productId){

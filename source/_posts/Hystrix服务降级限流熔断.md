@@ -1,7 +1,7 @@
 ---
 title: Hystrix服务降级限流熔断
 date: 2020-05-09 15:19:19
-tags: [Hystrix,springCloud]
+tags: [Hystrix,SpringCloud]
 ---
 
 # Hystrix服务降级限流熔断
@@ -10,14 +10,14 @@ tags: [Hystrix,springCloud]
 
 ### 主启动类激活
 
-```java
+```
 添加注解
    @EnableCircuitBreaker
 ```
 
 ### 使用的两种方式
 
-```java
+```
 1.注解 :  @HystrixCommand
 2.硬编码  :extends HystrixCommand
 ```
@@ -26,14 +26,14 @@ tags: [Hystrix,springCloud]
 
 ### 单方法降级配置
 
-```java
+```
 @HystrixCommand(fallbackMethod="降级方法",commandProperties={
       //默认超时时间为1s 这边设置3秒
  @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="3000")
 }) 
 ```
 
-```java
+```
 1.fallbackMethod 降级的方法
  2. commandProperties 自定义的配置 比如超时时间的等
 ```
@@ -46,7 +46,7 @@ tags: [Hystrix,springCloud]
 
  ` @HystrixCommand`
 
-```java
+```
 在类上加入
 @DefaultProperties(defaultFallback="")
 ```
@@ -57,7 +57,7 @@ tags: [Hystrix,springCloud]
 
 参数详情: HystrixCommandProperties.java
 
-```java
+```
 @HystrixCommand(fallbackMethod="降级方法",commandProperties={
      //默认超时时间为1s 这边设置3秒
  @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="3000"),
@@ -76,7 +76,7 @@ tags: [Hystrix,springCloud]
 
 ###  第一种 根据线程数
 
-```java
+```
   @HystrixCommand(
             commandKey = "helloCommand",//缺省为方法名
         threadPoolKey = "helloPool",//缺省为类名
@@ -96,7 +96,7 @@ tags: [Hystrix,springCloud]
 
 ### 第二种 根据信号量
 
-```java
+```
 #线程池的大小
 Hystrix.threadpool.default.coreSize=1
 #缓冲区大小，如果为-1则不缓冲，直接进行降级 fallback

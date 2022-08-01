@@ -38,7 +38,7 @@ CORS技术允许跨域访问多种资源，比如javascript，字体文件等，
 
 
 
-```java
+```
 返回结果中加上如下控制字段：
 
 Access-Control-Allow-Origin: 允许跨域访问的域，可以是一个域的列表，也可以是通配符"*"。这里要注意Origin规则只对域名有效，并不会对子目录有效。即http://foo.example/subdir/ 是无效的。但是不同子域名需要分开设置，这里的规则可以参照同源策略
@@ -60,7 +60,7 @@ Access-Control-Allow-Headers: 允许自定义的头部，以逗号隔开，大�
 
 ## CSRF跨站请求伪造
 
-```java
+```
 在他们的钓鱼站点，攻击者可以通过创建一个AJAX按钮或者表单来针对你的网站创建一个请求：
 
 <form action="https://my.site.com/me/something-destructive" method="POST">

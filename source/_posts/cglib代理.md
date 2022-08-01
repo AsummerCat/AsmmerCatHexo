@@ -1,7 +1,7 @@
 ---
 title: cglib代理
 date: 2018-11-16 16:28:52
-tags: 代理工厂
+tags: [代理工厂]
 ---
 
 # 什么是CGLIB?

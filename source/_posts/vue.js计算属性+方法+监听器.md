@@ -1,11 +1,11 @@
 ---
 title: vue.js计算属性+方法+监听器
 date: 2018-11-08 09:36:47
-tags: vue
+tags: [vue]
 ---
 # 计算属性 computed
 
-```javascript
+```script
 var vm = new Vue({
   el: '#example',
   data: {
@@ -29,7 +29,7 @@ var vm = new Vue({
 
 
 
-```javascript
+```script
 计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：
 
 // ...
@@ -62,7 +62,7 @@ computed: {
 
 # 方法 methods
 
-```javascript
+```script
 // 在组件中
 methods: {
   reversedMessage: function () {
@@ -79,7 +79,7 @@ methods: {
 
 
 
-```javascript
+```script
 这也同样意味着下面的计算属性将不再更新，因为 Date.now() 不是响应式依赖：
 
 computed: {
@@ -97,7 +97,7 @@ computed: {
 
 例子:
 
-```javascript
+```script
 <div id="watch-example">
   <p>
     Ask a yes/no question:

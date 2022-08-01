@@ -32,7 +32,7 @@ boolean        1
 
 ## HashMap与ConcurrentHashMap相关
 
-```java
+```
 获取hashMap的数组位置   -> i= 根据key的hashCode % table.length-1     = table[i]=entry
 ```
 
@@ -54,7 +54,7 @@ Hash冲突:用链表解决散列冲突
 
 ### ConcurrentHashMap
 
-```java
+```
 ConcurrentHashMap
 数据结构  : 数组+链表   链表大于8并且总容量长度大于64 ->后转换红黑树,链表长度小于6时重新转为一般链表.(8,6,64为默认参数)
 
@@ -158,7 +158,7 @@ ABA 就是原值A 修改为B 又改回A
 
 ### http 和 socket 有什么区别和联系
 
-```java
+```
 根据 osi 分层，socket 属于传输层，http 属于应用层。
 
 就如 socket 是连接你我的管道，但管道中传送东西流程和规范的最佳实践之一就是 http

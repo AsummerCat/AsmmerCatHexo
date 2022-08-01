@@ -2,7 +2,7 @@
 
 title:  jquery.validate前端验证字段
 date: 2018-09-20 22:02:14
-tags: 前端
+tags: [前端]
 
 ----
 

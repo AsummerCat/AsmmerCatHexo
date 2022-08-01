@@ -1,7 +1,7 @@
 ---
 title: JRebel插件安装配置与破解激活详细教程
 date: 2019-03-05 20:01:53
-tags: 前端
+tags: [前端]
 ---
 
 # JRebel插件安装配置与破解激活（多方案）详细教程
@@ -10,7 +10,7 @@ tags: 前端
 
 ## 操作
 
-```java
+```
 docker pull ilanyu/golang-reverseproxy
 docker run -d -p 8888:8888 ilanyu/golang-reverseproxy
 ```

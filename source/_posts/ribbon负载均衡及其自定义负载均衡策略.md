@@ -1,7 +1,7 @@
 ---
 title: ribbon负载均衡及其自定义负载均衡策略
 date: 2020-05-09 14:35:18
-tags: [springCloud,ribbon]
+tags: [SpringCloud,ribbon]
 ---
 
 # 实现负载均衡
@@ -10,7 +10,7 @@ ribbon包中有个IRule接口
 
 ## 默认实现好几种负载均衡策略
 
-```java
+```
 1.RoundRobbionRule  轮训  默认
 
 2.RandomRule 随机

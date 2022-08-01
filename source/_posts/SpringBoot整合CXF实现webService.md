@@ -22,7 +22,7 @@ tags: [SpringBoot,cxf,webService]
 
 ## 接口
 
-```java
+```
 /**
  * @author cxc
  * WebService接口 发布
@@ -40,7 +40,7 @@ public interface IssueService {
 
 ## 服务实现类
 
-```java
+```
 @WebService(serviceName  = "IssueService",//与前面接口一致
 		targetNamespace = "http://www.webservice.cxfdemo.linjingc.com",  //与前面接口一致
 		endpointInterface = "com.linjingc.cxfdemo.webservice.IssueService")  //接口地址
@@ -60,7 +60,7 @@ public class IssueServiceImpl implements IssueService {
 
 ##  webService服务配置
 
-```java
+```
 @Configuration
 public class WebConfig {
 	@Autowired
@@ -85,7 +85,7 @@ public class WebConfig {
 
 ##  webService服务用户密码拦截器配置
 
-```java
+```
 public class AuthInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
   Logger logger = LoggerFactory.getLogger(this.getClass());
   private static final String USERNAME="root";
@@ -138,7 +138,7 @@ public class AuthInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
 
 ## webService客户端用户密码拦截器配置
 
-```java
+```
 public class LoginInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
   private String username="root";
   private String password="admin";
@@ -172,7 +172,7 @@ public class LoginInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
 
 ## 方式一 (需要有接口类)
 
-```java
+```
 /**
 	 * 方式1.代理类工厂的方式,需要拿到对方的接口
 	 */
@@ -205,7 +205,7 @@ public class LoginInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
 
 ## 方式二 (需要接口名称)
 
-```java
+```
 /**
 	 * 动态调用方式
 	 */
@@ -227,7 +227,7 @@ public class LoginInterceptor extends AbstractPhaseInterceptor<SoapMessage> {
 
 ## 完整版本
 
-```java
+```
 package com.linjingc.cxfdemo.consume;
 
 import com.linjingc.cxfdemo.webservice.IssueService;

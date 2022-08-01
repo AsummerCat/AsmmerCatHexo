@@ -98,7 +98,7 @@ nacos整合sentinel
 
 ## 使用版本
 
-```java
+```
         <dependencies>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>

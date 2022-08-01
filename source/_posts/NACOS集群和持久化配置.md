@@ -47,7 +47,7 @@ db.password=123456
 必须是hostname -i命令能识别的ip
 
 3. 修改startup.sh 让其支持指定端口执行
-```java
+```
 或者 直接修改application.proprtis的文件里的port端口
 
 修改启动脚本:

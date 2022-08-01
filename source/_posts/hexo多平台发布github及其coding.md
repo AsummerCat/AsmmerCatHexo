@@ -59,21 +59,6 @@ deploy:
 
 ---
 
-## 去除coding广告
-
-去除Coding的广告……  
-配置好之后很开心，然而发现，Coding会自动给你的博客加一个滞留好几秒钟的跳转页面，感觉非常非常的不好。
-还好除了升级为它的黄金会员之外还有其他解决方法。
-
-只要在博客主页为它打一点点广告就好了（要两个工作日才会通过！）……毕竟托管在上面还是很方便的。
-
-`<div>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
-</div>`
-对于Next主题来说，在  
-`themes/next/layout/_partials/footer.swig`的文件末尾加入上述代码就可以把Coding要求的小广告加入到主页的页脚位置。
-
----
-
 # 多平台发布
 
 国内coding 国外github 访问速度快

@@ -1,14 +1,14 @@
 ---
 title: 安装elk环境并实现简单的elk
 date: 2019-01-20 17:28:09
-tags: ELK日志分析框架
+tags: [ELK日志分析框架]
 ---
 
 # 安装elk
 
 使用版本    
 
-```java
+```
 elasticsearch-2.4.6
 kibana-4.6.1
 logstash-2.4.0
@@ -38,7 +38,7 @@ felk+kafaka ->每日至少30g以上的日志
 
 `/config/elasticsearch.yml`
 
-```java
+```
 # 集群名称
 cluster.name: my-application 
 # 节点名称
@@ -64,13 +64,13 @@ node.max_local_storage_nodes: 1
 
 ### 安装elasticsearch可视化插件
 
-```java
+```
 ./bin/plugin install mobz/elasticsearch-head
 ```
 
 访问路径:
 
-```java
+```
 http://192.168.1.101:9200/_plugin/head/
 ```
 
@@ -117,7 +117,7 @@ output {
 
 创建一个目录 config,创建一个简单的日志收集规则log.conf
 
-```java
+```
 input {
         file {
         // 收集日志的目录 可以用* 
@@ -167,7 +167,7 @@ output {
 
 添加--configtest参数检查配置语法是否有误！！！
 
-```java
+```
 ./bin/logstash -f ./config/log.conf --auto-reload --configtest
 ```
 

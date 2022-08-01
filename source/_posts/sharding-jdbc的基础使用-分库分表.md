@@ -34,7 +34,7 @@ tags: [数据库,sharding-jdbc]
 
 
 
-```java
+```
 <!--连接池-->
     <dependency>
       <groupId>com.alibaba</groupId>
@@ -54,7 +54,7 @@ tags: [数据库,sharding-jdbc]
 
 ## jpa的配置文件信息
 
-```java
+```
 spring:
   jpa:
     database: mysql

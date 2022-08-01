@@ -325,7 +325,7 @@ Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从�
 
 我们用 v-for 指令根据一组数组的选项列表进行渲染。v-for 指令需要使用 item in items 形式的特殊语法，items 是源数据数组并且 item 是数组元素迭代的别名。
 
-```javascript
+```script
 <ul id="example-1">
   <li v-for="item in items">
     {{ item.message }}
@@ -359,7 +359,7 @@ var example1 = new Vue({
 
 ##  一个对象的  v-for
 
-```javascript
+```script
 你也可以用 v-for 通过一个对象的属性来迭代。
 
 <ul id="v-for-object" class="demo">
@@ -381,7 +381,7 @@ new Vue({
 
  也可以多一个参数作为key 
 
-```javascript
+```script
 <div v-for="(value, key) in object">
   {{ key }}: {{ value }}
 </div>

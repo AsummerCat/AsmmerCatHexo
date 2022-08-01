@@ -45,7 +45,7 @@ https://doc.xiaominfo.com/knife4j/documentation/get_start.html
 </dependency>
 ```
 
-### 基于springboot直接引用
+### 基于SpringBoot直接引用
 该包会引用所有的knife4j提供的资源，包括前端Ui的jar包
 ```
 <dependency>
@@ -56,7 +56,7 @@ https://doc.xiaominfo.com/knife4j/documentation/get_start.html
 
 ```
 
-### 基于springcloud引用
+### 基于SpringCloud引用
 在Spring Cloud的微服务架构下,每个微服务其实并不需要引入前端的Ui资源,因此在每个微服务的Spring Boot项目下,引入knife4j提供的微服务starter
 ```
 <dependency>

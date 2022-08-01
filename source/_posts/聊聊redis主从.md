@@ -1,7 +1,7 @@
 ---
 title: 聊聊redis主从
 date: 2018-11-13 15:30:29
-tags: redis
+tags: [redis]
 ---
 # 【聊聊主从 – 用法】
 像MySQL一样，redis是支持主从同步的，而且也支持一主多从以及多级从结构。

@@ -77,7 +77,7 @@ void changePassword(@P("userId") long userId ){  }
 ```
 还可以这种写法   
 
-```  
+```
 @PreAuthorize("hasRole('ROLE_AAA')")
 @PreAuthorize("hasPermission('add')")
 @PreAuthorize("hasAuthority('ROLE_AAA')")

@@ -10,7 +10,7 @@ tags: [netty]
 
 [netty-demo](https://github.com/AsummerCat/netty-demo)
 
-```java
+```
 Netty自带拆包类
 
 自己实现拆包虽然可以细粒度控制, 但是也会有些不方便, 可以直接调用Netty提供的一些内置拆包类.
@@ -65,7 +65,7 @@ delimiter：分隔符
 
 ### 服务端
 
-```java
+```
    //需要指定需要分包的字符
 ByteBuf delimiter = Unpooled.copiedBuffer("$$".getBytes());
 nioSocketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
@@ -89,7 +89,7 @@ FixedLengthFrameDecoder是固定长度解码器，它能够按照指定的长度
 
 ### 服务端
 
-```java
+```
  //固定长度解码器
 nioSocketChannel.pipeline().addLast(new FixedLengthFrameDecoder(100));//参数为一次接受的数据长度
 
@@ -99,7 +99,7 @@ nioSocketChannel.pipeline().addLast(new FixedLengthFrameDecoder(100));//参数�
 
 ### 客户端
 
-```java
+```
 	/**
 			 * 生成固定长度byte方式一：使用String 拼接
 			 */

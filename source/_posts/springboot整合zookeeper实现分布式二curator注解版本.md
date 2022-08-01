@@ -10,7 +10,7 @@ tags: [SpringBoot,zookeeper,分布式锁,curator]
 
 # 导入pom
 
-```java
+```
   <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
@@ -33,7 +33,7 @@ tags: [SpringBoot,zookeeper,分布式锁,curator]
 
 # 创建配置文件
 
-```java
+```
 server:
   port: 8090
 
@@ -61,7 +61,7 @@ curator:
 
 生成zk客户端
 
-```java
+```
 /**
  * zk 初始化配置
  *
@@ -127,7 +127,7 @@ public class CuratorConfiguration {
 
 ### 方法锁
 
-```java
+```
 /**
  * ZK锁 注解
  *
@@ -160,7 +160,7 @@ public @interface ZkLock {
 
 ### 锁key 用来标记
 
-```java
+```
 /**
  * 这个注解用来标记 参数 使用key lock
  *
@@ -177,7 +177,7 @@ public @interface LockKey {
 
 ## 创建锁实体
 
-```java
+```
 /**
  * 锁基本 信息
  *
@@ -237,7 +237,7 @@ public class LockInfo {
 
 ## 创建锁切面类
 
-```java
+```
 /**
  * zk锁切面类
  * 用来包裹方法使用
@@ -419,7 +419,7 @@ public class ZkLockAspectAop {
 
 ## 创建锁提供者
 
-```java
+```
 /**
  * 锁提供者  创建锁的相关信息都在这里生成
  *
@@ -488,7 +488,7 @@ public class LockInfoProvider {
 
 ## 创建 获取keyname的方法
 
-```java
+```
 package com.linjingc.annotationzklock.lock.core;
 
 import com.linjingc.annotationzklock.lock.annotaion.LockKey;
@@ -611,7 +611,7 @@ public class BusinessKeyProvider {
 
 # 测试方法
 
-```java
+```
 @RestController
 public class TestController {
 

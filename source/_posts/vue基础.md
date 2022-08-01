@@ -190,7 +190,7 @@ var vm =new Vue({
 ## 自定义事件分发
 
  在vue的标签中添加
- ```
+```
  
  v-on:自定义方法="引用方法(参数)"
  
@@ -211,7 +211,7 @@ var vm =new Vue({
    }
  })
  这样可以引用其他new vue的方法
- ```
+```
  父传子: props
  子传父: $emit
 
@@ -220,16 +220,16 @@ var vm =new Vue({
 
  ### 使用严格编写模式
  在js第一行 写入
- ```
+```
  `use strict`
- ```
+```
  来保证编译期的语法完整
 
 
  # vue-cli脚手架
 
  ## 安装node.js
- ```
+```
  1. node+npm下载
  2.查看版本 : 
  node -v   npm -v
@@ -237,38 +237,38 @@ var vm =new Vue({
  npm install cnpm -g
  4. 使用加速器下载镜像:
  npm install --registry=https://registry.npm.taobao.org
- ```
+```
  ## 安装vue-cli
- ```
+```
  cnpm install vue-cli -g
  
  --查看可以基于哪些模板创建vue项目 
  vue list
- ```
+```
  ## 创建一个vue项目
  使用webpack创建
- ```
+```
  vue init webpack 项目名称
- ```
+```
  ## 初始化并运行
- ```
+```
  cd xxx项目目录
  npm install
  npm run dev
- ```
+```
 
  # webpack
 
  ## 安装webpack
- ```
+```
  npm install webpack -g
  npm install webpack-cli -g
  
  查看版本 webpack-cli -v
- ```
+```
  ## 项目结构
  创建webpack.config.js配置文件
- ```
+```
 -  entry: 入口文件,指定webpack用哪个文件作为项目的入口
 -  output: 输出,指定webpack吧处理完成的文件放置到指定路径
 -  module: 模块,用于处理各种类型的文件
@@ -277,7 +277,7 @@ var vm =new Vue({
 -  watch: 监听,用于设置文件改动后直接打包
  
  
- ```
+```
 
 ## 安装vue-router
 
@@ -285,8 +285,8 @@ var vm =new Vue({
 npm install vue-router --save-dev
 ```
 ### 使用:
- ```
+```
 import Vue from 'vue'
 import VueRouter from 'vue-fouter'
 Vue.use(VueRouter);
- ```
+```

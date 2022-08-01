@@ -119,7 +119,7 @@ PROPAGATION_NEVER  不使用事务
 ```
 传播级别
 isolation.REPEATABLE_READ 可重复读默认级别 mysql
-isolation.READ_COMMITTED 读已提交 ORCLE默认级别
+isolation.READ_COMMITTED 读已提交 oracle默认级别
 ```
 
 

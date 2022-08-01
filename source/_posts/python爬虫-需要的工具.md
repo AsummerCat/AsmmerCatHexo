@@ -10,52 +10,52 @@ tags: [python,爬虫]
 
 * Beautiful Soup库          ->抓取页面标签
 
-  ```python
+ ```python
    soup = BeautifulSoup(sendHttp(url), 'html.parser')
       con = soup.find(id='position')
-  ```
+ ```
 
 * requests库     ->发送http请求
 
-  ```python
+ ```python
   def sendHttp(url):
       headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0",
                  "Referer": url}
       r = requests.get(url, headers=headers)  # 增加headers, 模拟浏览器
       return r.text
-  ```
+ ```
 
 * re库    ->正则处理
 
-  ```python
+ ```python
    data = re.findall(r'(\w*[0-9]+)\w*', i)
     dataNum = int(data[0])
-  ```
+ ```
 
 * 文件下载
 
-  ```python
+ ```python
     r = requests.get(url, headers=headers, stream=True)  # 增加headers, 模拟浏览器  stream=分块下载
       if r.status_code == 200:
           with open(r'{}\{}第{}页.jpg'.format(path, title, page), 'ab') as f:
               for data in r.iter_content():
                   f.write(data)
-  ```
+ ```
 
   <!--more-->
 
 * threading库    ->多线程
 
-  ```python
+ ```python
    thread = threading.Thread(target=get_detail_pic_list,
                                                 args=(pic_list[0]["link"], pic_list[0]["title"]))
-  ```
+ ```
 
   
 
 * Workbook库   ->导出xlsx
 
-  ```python
+ ```python
   '''
   conda install -c conda-forge openpyxl
   '''
@@ -67,14 +67,14 @@ tags: [python,爬虫]
       ws1.title = lang_name  # 给予文件标题
       ws1.append(row)    #输入列表的列表
       ws2.save(r'{}\{}的{}岗位信息.xlsx'.format(path, i, lang_name)) # 输出文件
-  ```
+ ```
 
 *  os库   ->用来操作系统命令 如文件夹创建
 
-  ```python
+ ```python
       if not os.path.exists(path):  # 创建目录文件 自动递归创建文件夹
           os.makedirs(path)
-  ```
+ ```
 
   
 

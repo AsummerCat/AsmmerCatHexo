@@ -1,7 +1,7 @@
 ---
 title: 统计学-T检验计算
 date: 2019-04-10 21:15:24
-tags: 统计学
+tags: [统计学]
 ---
 
 # 统计学-T检验计算
@@ -23,7 +23,7 @@ tags: 统计学
 
 # 计算类 
 
-```java
+```
 package com.mdt.newdrugreview.utils.tExamination;
 
 import com.mdt.newdrugreview.utils.Mutil;
@@ -219,7 +219,7 @@ public class IndependentSamplesT {
 
 # 枚举类 维护 T值临界表 双侧
 
-```java
+```
 package com.mdt.newdrugreview.utils.tExamination;
 
 /**

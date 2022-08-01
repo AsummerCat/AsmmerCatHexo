@@ -1,7 +1,7 @@
 ---
 title: hexo安装及其使用
 date: 2018-10-03 13:17:33
-tags: hexo
+tags: [hexo]
 ---
 # 利用hexo用来安装github pages做成静态博客
 

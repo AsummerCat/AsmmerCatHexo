@@ -1,18 +1,18 @@
 ---
-title: springboot整合JTA丶atomikos实现XA分布式事务事务方式一
+title: SpringBoot整合JTA丶atomikos实现XA分布式事务事务方式一
 date: 2019-09-04 08:13:18
 tags: [SpringBoot,分布式事务]
 ---
 
-# springboot整合JTA丶atomikos实现XA分布式事务事务方式一
+# SpringBoot整合JTA丶atomikos实现XA分布式事务事务方式一
 
 [demo地址](https://github.com/AsummerCat/xxa-transactions-demo/tree/9d9b8c8c76f61d8524440293a477bda3e00712b2/jta-atomikos-demo)
 
 # 导入pom
 
-这边使用mybaitis+mysql+atomikos
+这边使用mybatis+mysql+atomikos
 
-```java
+```
  <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -75,7 +75,7 @@ tags: [SpringBoot,分布式事务]
 
 # 修改配置文件创建两个数据源
 
-```java
+```
 server:
   port: 8200
 
@@ -127,7 +127,7 @@ public class DBConfig1 {
 
 ```
 
-```java
+```
 package com.linjingc.jtaatomikosdemo.dbconfig;
 
 import lombok.Data;
@@ -145,10 +145,10 @@ public class DBConfig2 {
 
 ```
 
-# 同时也创建两个mybaitis数据源的配置类
+# 同时也创建两个mybatis数据源的配置类
 
-```java
-package com.linjingc.jtaatomikosdemo.mybaitisconfig;
+```
+package com.linjingc.jtaatomikosdemo.mybatisconfig;
 
 import com.linjingc.jtaatomikosdemo.dbconfig.DBConfig1;
 import com.mysql.cj.jdbc.MysqlXADataSource;
@@ -203,8 +203,8 @@ public class MyBatisConfig1 {
 
 ```
 
-```java
-package com.linjingc.jtaatomikosdemo.mybaitisconfig;
+```
+package com.linjingc.jtaatomikosdemo.mybatisconfig;
 
 import com.linjingc.jtaatomikosdemo.dbconfig.DBConfig2;
 import com.mysql.cj.jdbc.MysqlXADataSource;
@@ -280,7 +280,7 @@ public interface AccountMapper {
 
 ## dao1包
 
-```java
+```
 package com.linjingc.jtaatomikosdemo.dao1;
 
 import com.linjingc.jtaatomikosdemo.entity.BasicUser;
@@ -310,7 +310,7 @@ public interface UserMapper {
 
 现在只要声明spring的事务注解就可以生效xa事务了
 
-```java
+```
 package com.linjingc.jtaatomikosdemo.service;
 
 import com.linjingc.jtaatomikosdemo.dao.AccountMapper;

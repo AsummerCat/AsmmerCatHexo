@@ -8,7 +8,7 @@ tags: [java,mongodb笔记]
 
 ##  普通版本
 
-```java
+```
 @Test
   public void testInsert(){
 
@@ -45,7 +45,7 @@ tags: [java,mongodb笔记]
 
 ## springboot
 
-```java
+```
 	@Autowired
 	private MongoTemplate mongoTemplate;
 
@@ -75,7 +75,7 @@ tags: [java,mongodb笔记]
 
 ## 普通版本
 
-```java
+```
  @Test
   public void test3(){
       MongoClient mongoClient = new MongoClient("192.168.128.156", 27017);
@@ -124,7 +124,7 @@ tags: [java,mongodb笔记]
 
 ## 普通版本
 
-```java
+```
 @Test
   public void test4(){
       MongoClient mongoClient = new MongoClient("192.168.128.156", 27017);
@@ -149,7 +149,7 @@ tags: [java,mongodb笔记]
 
 ## springboot
 
-```java
+```
 /**
 	 * 删除对象
 	 */
@@ -164,7 +164,7 @@ tags: [java,mongodb笔记]
 
 ## 普通版本
 
-```java
+```
 @Test
   public void test5(){
       MongoClient mongoClient = new MongoClient("192.168.128.156", 27017);
@@ -261,7 +261,7 @@ tags: [java,mongodb笔记]
 
 Sort sort = Sort.by(Direction.ASC, "age");
 
-```java
+```
 	/**
 	 * 排序查询
 	 */
@@ -277,7 +277,7 @@ Sort sort = Sort.by(Direction.ASC, "age");
 
 ### 获取指定条数   limit
 
-```java
+```
 	/**
 	 * 获取指定条数
 	 */
@@ -294,7 +294,7 @@ Sort sort = Sort.by(Direction.ASC, "age");
 
 Pageable pageable = PageRequest.of(page, size);
 
-```java
+```
 	/**
 	 * 分页查询
 	 * @return
@@ -317,7 +317,7 @@ Pageable pageable = PageRequest.of(page, size);
 
 Aggregation agg = Aggregation.newAggregation();
 
-```java
+```
 	/**
 	 * 分组查询
 	 */
@@ -375,7 +375,7 @@ Aggregation agg = Aggregation.newAggregation();
 
 ## 查询并更新
 
-```java
+```
 /**
 	 * 原子性操作 查询更新
 	 */
@@ -390,7 +390,7 @@ Aggregation agg = Aggregation.newAggregation();
 
 ## 查询并删除
 
-```java
+```
 /**
 	 * 原子性操作 查询删除
 	 */

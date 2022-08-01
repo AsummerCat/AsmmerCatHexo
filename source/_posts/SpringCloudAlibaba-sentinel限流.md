@@ -39,7 +39,7 @@ tags: [SpringCloudAlibaba,sentinel]
 
 ## 限流策略
 
-```java
+```
 /**
 	 * 限流规则策略
 	 */
@@ -74,7 +74,7 @@ tags: [SpringCloudAlibaba,sentinel]
 
 ## 降级策略
 
-```java
+```
 /**
 	 * 降级规则策略
 	 */
@@ -102,7 +102,7 @@ tags: [SpringCloudAlibaba,sentinel]
 
  ## 系统保护规则策略
 
-```java
+```
 /**
 	 * 系统保护规则策略
 	 * 注意系统规则只针对入口资源（EntryType=IN）生效
@@ -149,7 +149,7 @@ tags: [SpringCloudAlibaba,sentinel]
 
 ## 根据调用方限流
 
-```java
+```
 ContextUtil.enter(resourceName, origin) 方法中的origin 参数标明了调用身份。这些信息会在ClusterBuilderSlot 中统计。
 
 流量规则中的limitApp 字段用于根据调用来源进行流量控制。该字段的值有以下三种选择，分别对应不同的场景：
@@ -164,7 +164,7 @@ ContextUtil.enter(resourceName, origin) 方法中的origin 参数标明了调用
 
 ```
 
-```java
+```
 /*定义根据调用者的流控规则*/
 public static void initFlowRuleForCaller(){
     List<FlowRule> rules = new ArrayList<>();
@@ -277,7 +277,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
 ## 2.配置限流方式
 
-```java
+```
 分为3种 
 1. 手动设置  异常限流处理会抛出异常       -> SphU.entry
 2. 手动设置  if限流处理 返回true和false  -> SphO.entry("HelloWorld");
@@ -287,7 +287,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
 ### 2.1. 异常限流测试代码
 
-```java
+```
 /**
 	 * 异常限流处理  entry=SphU.entry("HelloWorld");
 	 * entry.exit();
@@ -314,7 +314,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
 ### 2.2 if限流处理
 
-```java
+```
 
 	/**
 	 * if限流处理  SphO.entry("HelloWorld");
@@ -336,7 +336,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
 方式一: 直接在当前类下写限流后 和降级后的方法
 
-```java
+```
 	/**
 	 * 注解限流 @SentinelResource
      * 直接写在一个类中 对应限流 降级方法
@@ -365,7 +365,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
 方式二 : 利用mock类去实现相同的内容 来降级
 
-```java
+```
 /**
 	 * 注解限流 @SentinelResource
 	 * blockHandler:blockHandlerClass中对应的异常处理方法名。参数类型和返回值必须和原方法一致
@@ -390,7 +390,7 @@ Warm Up（RuleConstant.CONTROL_BEHAVIOR_WARM_UP）方式，即预热/冷启动�
 
  mock类
 
-```java
+```
 /**
  * 限流业务处理
  */
@@ -405,7 +405,7 @@ public class HelloControllerMock {
 
 ## 3.配置文件yml
 
-```java
+```
 server:
   port: 9090
 spring:

@@ -1,7 +1,7 @@
 ---
 title: Mac常用软件集合
 date: 2018-09-27 14:54:31
-tags: mac
+tags: [mac]
 ---
  
 ## DownLoad网站

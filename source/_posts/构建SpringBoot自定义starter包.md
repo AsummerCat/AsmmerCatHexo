@@ -44,7 +44,7 @@ maven的打包格式要修改为jar
 第一个依赖 主要是为了自动装配
 第二个依赖 主要是为编译器配置的 可以根据properties 鼠标右键 点到用这个属性的类上个
 
-```java
+```
 <dependencies>
       <dependency>
           <groupId>org.springframework.boot</groupId>
@@ -62,7 +62,7 @@ maven的打包格式要修改为jar
 
 ## 添加配置文件信息
 
-```java
+```
 package com.linjingc.hello.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -104,7 +104,7 @@ public class HelloProperties {
 
 ## 业务实现功能类
 
-```java
+```
 public class HelloService {
 	private HelloProperties helloProperties;
 
@@ -122,7 +122,7 @@ public class HelloService {
 
 ## 写一个入口类 也是就当前自动装配的入口类
 
-```java
+```
 @Configuration
 //当类路径classpath下有指定的类的情况下进行自动配置
 @ConditionalOnClass(HelloService.class)
@@ -147,7 +147,7 @@ public class HelloAutoConfiguration {
 
 ## 其他注解部分
 
-```java
+```
 	/**
 	 * @See @ConditionalOnClass：当类路径classpath下有指定的类的情况下进行自动配置
 	 *
@@ -204,7 +204,7 @@ mvn --insert
 
 ## 项目引用
 
-```java
+```
 <dependency>
             <groupId>com.linjingc.hello</groupId>
             <artifactId>hello-spring-cloud-starter</artifactId>

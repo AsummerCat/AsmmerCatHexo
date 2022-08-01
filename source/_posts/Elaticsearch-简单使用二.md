@@ -8,7 +8,7 @@ tags: [elasticSearch笔记,SpringBoot]
 
 ## 好处
 
-```java
+```
 Elasticsearch不仅仅是Lucene和全文搜索引擎，它还提供：
 
 分布式的实时文件存储，每个字段都被索引并可被搜索

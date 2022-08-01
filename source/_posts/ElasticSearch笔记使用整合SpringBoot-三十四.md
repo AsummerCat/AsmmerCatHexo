@@ -93,7 +93,7 @@ public class ElasticsearchConfig {
 
 
 # JAVA配置文件版本
-springboot2.3版本以上
+SpringBoot2.3版本以上
 ### 修改yml
 ```
 spring:

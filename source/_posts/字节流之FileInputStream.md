@@ -1,7 +1,7 @@
 ---
 title: 字节流之FileInputStream
 date: 2018-12-03 15:58:07
-tags: IO流
+tags: [IO流]
 ---
 
 
@@ -17,7 +17,7 @@ tags: IO流
 
 ## 构造方法
 
-```java
+```
 	FileInputStream(File file); 	通过打开一个到实际文件的连接来创建一个文件字节输入流、该文件通过文件系统中的File对象file指定
 	
 	FileInputStream(String file);	通过打开一个到实际文件的连接来创建一个文件字节输入流、该文件通过文件系统中的路径名name来指定
@@ -30,7 +30,7 @@ tags: IO流
 
 
 
-```java
+```
 	int avaliable();	返回连接文件中的可供读取的字节数
 	
 	void close();		关闭fis、并释放所有与此流有关的资源
@@ -49,7 +49,7 @@ tags: IO流
 
 
 
-```java
+```
 /**
  * 关于File的输入输出流中的关键实现方法都是系统方法、所以对于fis、fos的使用、知道中间的过程就行。 
  */
@@ -199,7 +199,7 @@ public class FileInputStream extends InputStream {
 
 ## 构造方法
 
-```java
+```
 	FileOutputStream(File file)		创建一个向指定File表示的文件中写入数据的文件字节输出流 fos、每次写入会替换掉File中原有内容
 	
 	FileOutputStream(File file, boolean append)		创建一个向指定File表示的文件中写入数据的 fos、每次写入会根据append的值判断是否会在File中原有内容之后追加写入的内容。
@@ -214,7 +214,7 @@ public class FileInputStream extends InputStream {
 
 ## 一般方法
 
-```java
+```
 	void close(); 	关闭当前流、释放与此流有关的所有资源
 	
 	void finalize();	清理到文件的连接、并确保不再使用此流的时候关闭此流
@@ -234,7 +234,7 @@ public class FileInputStream extends InputStream {
 
 
 
-```java
+```
 public class FileOutputStream extends OutputStream {
 
     private FileDescriptor fd;
@@ -402,7 +402,7 @@ public class FileOutputStream extends OutputStream {
 
 # 总结
 
-```java
+```
  FileInputStream（fis）、FileOutputStream（fos）、本质是和文件打交道、两者在构造方法中都会通过传入的File对象或者表示File对象的路径名来创建实例、创建实
 
 例的过程中会根据不同的需求打开到指定文件对象的连接（核心是open(String filename)、openAppend(String filename)追加模式）方法、并且一般情况下类中的对单个字节

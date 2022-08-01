@@ -1,7 +1,7 @@
 ---
 title: SpringSecurity整合Oauth2构建基本可用的服务二
 date: 2019-07-10 22:03:57
-tags: [Security,Oauth2,springCloud]
+tags: [Security,Oauth2,SpringCloud]
 ---
 
 
@@ -12,7 +12,7 @@ tags: [Security,Oauth2,springCloud]
 
 # 第一步 老规矩 导入pom
 
-```java
+```
      <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-web</artifactId>
@@ -23,7 +23,7 @@ tags: [Security,Oauth2,springCloud]
 		</dependency>   
 ```
 
-```java
+```
   <!--redis 相关配置信息   2.x版本之后默认使用lettuce -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -40,7 +40,7 @@ tags: [Security,Oauth2,springCloud]
 		</dependency>
 ```
 
-```java
+```
          <!--oauth2整合security的包-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -57,7 +57,7 @@ tags: [Security,Oauth2,springCloud]
 - 注入 RedisConnectionFactory 和 AuthenticationManager
 - 实现三个方法
 
-```java
+```
 声明单个客户端及其属性 最少一个 不然无法启动
  @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -75,7 +75,7 @@ tags: [Security,Oauth2,springCloud]
 
 ## 具体实现
 
-```java
+```
 package com.linjingc.authentication.config;
 
 
@@ -177,7 +177,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 ### * 首先 configure(ClientDetailsServiceConfigurer clients)
 
-```java
+```
    内存模式 和 数据库
    这里就是配置客户端的key 和权限的一些东西
    需要注意的是查询数据库 和内存模式 好像并不是共用的
@@ -189,7 +189,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 #### 自定义的客户端类
 
-```java
+```
 package com.linjingc.authentication.config;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -317,7 +317,7 @@ public class MyClientDetails implements ClientDetails {
 
 #### 自定义获取客户端信息的信息类
 
-```java
+```
 package com.linjingc.authentication.config;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -396,7 +396,7 @@ public class MyClientDetailsService implements ClientDetailsService {
 
 #### 授权失败(forbidden)时返回信息
 
-```java
+```
 package com.linjingc.authentication.config;
 
 import com.linjingc.authentication.utils.HttpUtils;
@@ -432,7 +432,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
 ## 配置下WebSecurityConfigurerAdapter
 
-```java
+```
 package com.linjingc.authentication.config;
 
 import org.springframework.context.annotation.Bean;
@@ -526,7 +526,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## 最后修改配置文件 添加redis
 
-```java
+```
   ## redis 配置
   redis:
     database: 4
@@ -556,7 +556,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## 具体代码
 
-```java
+```
 package com.linjingc.resources.config;
 
 import com.linjingc.resources.config.errormsg.AuthExceptionEntryPoint;
@@ -615,7 +615,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 ### 上面的      resources.authenticationEntryPoint(new AuthExceptionEntryPoint());
 
-```java
+```
 package com.linjingc.resources.config.errormsg;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -654,7 +654,7 @@ public class AuthExceptionEntryPoint implements AuthenticationEntryPoint {
 
 ## 最后配置文件
 
-```java
+```
 spring:
   application:
     name: resouricesOauth
@@ -696,7 +696,7 @@ basic:
 
 ## 导入pom文件 这边需要在服务端进行http请求
 
-```java
+```
   <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -722,7 +722,7 @@ basic:
 
 ## 创建登录入口
 
-```java
+```
   @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public String doLogin(String username, String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String apiToken;
@@ -748,7 +748,7 @@ basic:
 
 ### oauth工具类
 
-```java
+```
 package com.linjingc.client.utils;
 
 import lombok.Data;
@@ -856,7 +856,7 @@ public class OAuthClientUtil {
 
 ## 资源服务器的配置
 
-```java
+```
 package com.linjingc.client.config;
 
 import com.linjingc.client.config.errormsg.AuthExceptionEntryPoint;
@@ -910,7 +910,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 ## 认证异常流程处理返回
 
-```java
+```
 package com.linjingc.client.config.errormsg;
 
 import com.linjingc.client.utils.OAuthClientUtil;
@@ -978,7 +978,7 @@ public class AuthExceptionEntryPoint extends OAuth2AuthenticationEntryPoint {
 
 ## 配置文件
 
-```java
+```
 spring:
   application:
     name: resouricesOauth
@@ -1006,7 +1006,7 @@ basic:
 
 ## html页面
 
-```java
+```
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">

@@ -118,9 +118,9 @@ HOSTNAME=broker-b
   这里可以配置自己的配置文件 不用修改原来的   
   启动borker的时候 带上参数就可以了
   
-  ```
+ ```
   sh mqbroker -c ../conf/me-2m-2s-async/broker.p
-  ```
+ ```
 
 ### 创建配置文件模板(也可不创建)
  就是把原来的conf.p 复制一份

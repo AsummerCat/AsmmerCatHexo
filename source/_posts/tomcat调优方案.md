@@ -22,7 +22,7 @@ set JAVA_OPTS=%JAVA_OPTS% -server -Xms512m -Xmx512m -XX:MaxNewSize=256m -XX:Perm
 
 catalina.bat和startup.bat修改都行，因为startup.bat会调用catalina.bat
 
-```java
+```
 解释一下各个参数：
 
 -Xms1024M：初始化堆内存大小（注意，不加M的话单位是KB）
@@ -73,7 +73,7 @@ conf\Catalina\localhost中添加一个XML文件
 
 这个xml的名称就是路径
 
-```java
+```
 <?xml version="1.0" encoding="UTF-8"?> 
 <Context docBase="D:\demo1\web" reloadable="true" /> 
 ```
@@ -92,7 +92,7 @@ telnet 127.0.0.1 8080
 
 修改server.xml中的
 
-```java
+```
 <Server port="8005" shutdown="SHUTDOWN">
 ```
 
@@ -127,7 +127,7 @@ telnet 127.0.0.1 8080
 编辑文件ServerInfo.properties
 ```
 
-```java
+```
 修改以下内容:
 
 server.info=Apache Tomcat/8.5.28   ->改为 99999

@@ -1,7 +1,7 @@
 ---
 title: CountDownLatch的使用
 date: 2018-11-01 22:42:09
-tags: 多线程
+tags: [多线程]
 ---
 
 # CountDownLatch 用法

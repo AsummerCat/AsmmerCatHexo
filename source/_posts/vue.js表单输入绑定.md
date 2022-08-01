@@ -1,7 +1,7 @@
 ---
 title: vue.js表单输入绑定
 date: 2018-11-08 13:21:35
-tags: vue
+tags: [vue]
 ---
 # v-model=" " 双向数据绑定
 

@@ -1,10 +1,10 @@
 ---
-title: ORCLE递归查询
+title: ORACLE递归查询
 date: 2019-11-15 10:14:41
-tags: [数据库,orcle]
+tags: [数据库,oracle]
 ---
 
-# orcle递归查询
+# oracle递归查询
 
 树结构
 
@@ -30,7 +30,7 @@ select * from tb_menu m where m.parent=1;
 
 查找一个节点的所有直属子节点（所有后代）
 
-```java
+```
 select * from tb_menu m start with m.id=1 connect by m.parent=prior m.id;
 ```
 

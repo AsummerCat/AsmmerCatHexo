@@ -1,7 +1,7 @@
 ---
 title: SpringSecurity整合Oauth2初步认识一
 date: 2019-07-10 22:03:14
-tags: [Oauth2,Security,springCloud]
+tags: [Oauth2,Security,SpringCloud]
 ---
 
 # SpringSecurity整合Oauth2初步认识(一)
@@ -23,7 +23,7 @@ tags: [Oauth2,Security,springCloud]
 
 ## 指定参数
 
-```java
+```
 客户端申请认证的URI，包含以下参数：
 
 response_type：表示授权类型，必选项，此处的值固定为"code"
@@ -44,7 +44,7 @@ state：表示客户端的当前状态，可以指定任意值，认证服务器
 
 ### 授权码模式
 
-```java
+```
 客户端 ->跳转第三方登录(认证) ->认证完毕回调 ->根据回调获取授权码code -> 发送授权码去认证服务器上获取token ->token获取完毕后 ->获取第三方用户信息->注册/登录 -> 进入系统
 ```
 
@@ -56,7 +56,7 @@ state：表示客户端的当前状态，可以指定任意值，认证服务器
 
 - password模式：`http://localhost:8080/oauth/token? username=user_1&password=123456& grant_type=password&scope=select& client_id=client_2&client_secret=123456`，响应如下：
 
-```java
+```
 {
     "access_token":"950a7cc9-5a8a-42c9-a693-40e817b1a4b0",
     "token_type":"bearer",
@@ -76,7 +76,7 @@ state：表示客户端的当前状态，可以指定任意值，认证服务器
 
 - client模式：`http://localhost:8080/oauth/token? grant_type=client_credentials& scope=select& client_id=client_1& client_secret=123456`，响应如下：
 
-```java
+```
 {
     "access_token":"56465b41-429d-436c-ad8d-613d476ff322",
     "token_type":"bearer",

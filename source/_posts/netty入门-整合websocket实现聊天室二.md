@@ -37,7 +37,7 @@ tags: [netty]
 
 ## NioWebSocketHandler 初始化Netty服务器HTTP请求处理器和webSocket请求
 
-```java
+```
 
 @Component()
 @Qualifier("nioHttpAndWebSocketHandler")
@@ -161,7 +161,7 @@ channelRead0中判断消息类型 看是握手请求 还是webSocket请求 分�
 
 ### 管道消息的新增删除 及其群发的工具类
 
-```java
+```
 **
  * 管道消息新增清除 及其群发
  */
@@ -193,7 +193,7 @@ public class ChannelSupervise {
 
 ## netty服务器处理链
 
-```java
+```
 /**
  * Netty服务器处理链
  */
@@ -225,7 +225,7 @@ public class NioWebSocketChannelInitializer extends ChannelInitializer<SocketCha
 
 ## 启动netty服务器
 
-```java
+```
 
 /**
  * 启动nettyServer服务器
@@ -274,7 +274,7 @@ public class NioWebSocketServer {
 
 所以需要新增一个工具类进行获取bean
 
-```java
+```
 
 @Component
 public class SpringContextUtil implements ApplicationContextAware {

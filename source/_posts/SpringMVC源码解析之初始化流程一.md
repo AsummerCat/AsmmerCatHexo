@@ -1,7 +1,7 @@
 ---
 title: SpringMVC源码解析之初始化流程一
 date: 2019-09-10 23:41:30
-tags: [springmvc,源码解析]
+tags: [SpringMvc,源码解析]
 ---
 
 # SpringMVC源码解析之初始化流程(一)
@@ -16,14 +16,14 @@ https://www.liangzl.com/get-article-detail-126117.html
 
 ## onRefresh() 
 
-```java
+```
 @Override
  protected void onRefresh(ApplicationContext context) {
     initStrategies(context);
   }
 ```
 
-```java
+```
 	protected void initStrategies(ApplicationContext context) {
     initMultipartResolver(context);
     initLocaleResolver(context);
@@ -65,7 +65,7 @@ https://www.liangzl.com/get-article-detail-126117.html
 
 ## FrameworkServlet->  initWebApplicationContext ()
 
-```java
+```
  protected WebApplicationContext initWebApplicationContext() {
  
         //此处的 rootContext 在你配置了ContextLoaderListener的时候注入的

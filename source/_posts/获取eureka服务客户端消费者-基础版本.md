@@ -1,10 +1,10 @@
 ---
 title: 获取eureka服务客户端消费者-基础版本
 date: 2019-01-10 09:41:21
-tags: [springCloud,eureka]
+tags: [SpringCloud,eureka]
 ---
 
-# [demo地址](https://github.com/AsummerCat/springCloudCustomer)
+# [demo地址](https://github.com/AsummerCat/SpringCloudCustomer)
 
 # eureka注册中心 (略)
 
@@ -26,7 +26,7 @@ tags: [springCloud,eureka]
 
 ## 引入相关pom文件
 
-```java
+```
  <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,18 +55,18 @@ tags: [springCloud,eureka]
 
 - 创建应用主类。初始化`RestTemplate`，用来真正发起REST请求。`@EnableDiscoveryClient`注解用来将当前应用加入到服务治理体系中。
 
-- ```java
+-```
   @Bean
   	public RestTemplate restTemplate() {
   		return new RestTemplate();
   	}
-  ```
+ ```
 
 
 
 ## 创建一个接口用来消费eureka-client提供的接口
 
-```java
+```
 @RestController
 public class DcController {
 

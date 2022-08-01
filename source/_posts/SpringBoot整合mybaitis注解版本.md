@@ -1,10 +1,10 @@
 ---
-title: SpringBoot整合mybaitis注解版本
+title: SpringBoot整合mybatis注解版本
 date: 2019-07-16 17:15:33
-tags: [SpringBoot,mybaitis]
+tags: [SpringBoot,mybatis]
 ---
 
-# SpringBoot整合mybaitis注解版本
+# SpringBoot整合mybatis注解版本
 
 demo地址:[note-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/note-demo)
 
@@ -12,8 +12,8 @@ demo地址:[note-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/no
 
 ## 导入pom
 
-```java
- <!--mybaitis整合Springboot-->
+```
+ <!--mybatis整合Springboot-->
  <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -25,7 +25,7 @@ demo地址:[note-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/no
 
 ## 配置文件
 
-```java
+```
 server:
   port: 8100
 
@@ -55,7 +55,7 @@ mybatis:
 
 ## controller Server  entity常规写法
 
-```java
+```
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -76,7 +76,7 @@ public class UserController {
 }
 ```
 
-```java
+```
 /**
  * @author cxc
  */
@@ -97,7 +97,7 @@ public class UserService {
 }
 ```
 
-```java
+```
 /**
  * 用户类
  *

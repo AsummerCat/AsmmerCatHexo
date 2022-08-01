@@ -10,7 +10,7 @@ tags: [java,WebSocket]
 
 # 导入pom
 
-```java
+```
  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
@@ -44,7 +44,7 @@ public class WebSocketConfig {
 
 # 开始创建服务端
 
-```java
+```
 package com.linjingc.top.imwebsocketdemo.webService;
 
 import com.alibaba.fastjson.JSON;
@@ -153,7 +153,7 @@ public class WebScoketServer {
 
 # 消息层
 
-```java
+```
 package com.linjingc.top.imwebsocketdemo.webService;
 
 /**
@@ -206,7 +206,7 @@ public class MessageDto {
 
 # html页面
 
-```java
+```
 <!DOCTYPE HTML>
 <html>
 <head>

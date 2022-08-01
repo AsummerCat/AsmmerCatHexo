@@ -529,7 +529,7 @@ GET /index/_search
 
 所有的doc相关度都是1
 
-```java
+```
 GET /index/_search
 {
     "query":{

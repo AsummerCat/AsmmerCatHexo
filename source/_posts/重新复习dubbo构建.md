@@ -6,7 +6,7 @@ tags: [SpringBoot,dubbo,zookeeper]
 
 # 前言
 
-大型微服务架构 springcloud
+大型微服务架构 SpringCloud
 
 小微服务架构 dubbo 远程调用就好了 不用cloud全家桶
 

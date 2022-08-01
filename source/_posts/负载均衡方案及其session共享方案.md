@@ -1,7 +1,7 @@
 ---
 title: 负载均衡方案及其session共享方案
 date: 2019-04-16 09:31:53
-tags: java
+tags: [java]
 ---
 
 # 负载均衡方案及其session共享方案

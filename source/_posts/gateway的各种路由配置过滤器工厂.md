@@ -1,7 +1,7 @@
 ---
 title: gateway的各种路由配置过滤器工厂
 date: 2019-10-08 16:39:42
-tags: [gateway,springCloud,微服务]
+tags: [gateway,SpringCloud,微服务]
 ---
 
 atewayFilter Factory 是 [Spring Cloud](http://c.biancheng.net/spring_cloud/) Gateway 中提供的过滤器工厂。[Spring](http://c.biancheng.net/spring/) Cloud Gateway 的路由过滤器允许以某种方式修改传入的 HTTP 请求或输出的 HTTP 响应，只作用于特定的路由。
@@ -12,7 +12,7 @@ atewayFilter Factory 是 [Spring Cloud](http://c.biancheng.net/spring_cloud/) Ga
 
 符合规则匹配成功的请求，将添加 X-Request-Foo：bar 请求头，将其传递到后端服务中，后方服务可以直接获取请求头信息。代码如下所示。  
 
-```java
+```
 @GetMapping("/hello")
 public String hello(HttpServletRequest request) throws Exception {
     System.err.println(request.getHeader("X-Request-Foo"));
@@ -40,7 +40,7 @@ spring:
 
 SetStatus 过滤器工厂接收单个状态，用于设置 Http 请求的响应码。它必须是有效的 Spring Httpstatus（org.springframework.http.HttpStatus）。它可以是整数值 404 或枚举类型 NOT_FOUND。
 
-```java
+```
 spring:
   cloud:
     gateway:
@@ -55,7 +55,7 @@ spring:
 
 RedirectTo 过滤器工厂用于重定向操作，比如我们需要重定向到百度。
 
-```java
+```
 
 57JWT是什么
 58创建统一认证服务

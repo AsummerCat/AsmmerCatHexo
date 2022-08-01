@@ -1,7 +1,7 @@
 ---
 title: zuul构建服务网关一
 date: 2019-01-15 14:38:25
-tags: [springCloud,zuul]
+tags: [SpringCloud,zuul]
 ---
 
 # 构建服务网关
@@ -12,7 +12,7 @@ tags: [springCloud,zuul]
 
 - 创建一个基础的Spring Boot项目，命名为：zuulTest`。并在`pom.xml`中引入依赖：
 
-```java
+```
   <dependency>
             <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -34,7 +34,7 @@ tags: [springCloud,zuul]
 
  
 
-```java
+```
 package com.linjing.zuulserver;
 
 import org.springframework.boot.SpringApplication;

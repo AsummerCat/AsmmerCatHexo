@@ -1,7 +1,7 @@
 ---
 title: easyui动态添加空间无法渲染$.parser.parse无效
 date: 2018-10-15 10:16:56
-tags: 前端
+tags: [前端]
 ---
 
 # easyui 动态添加空间无法渲染 $.parser.parse()无效

@@ -1,7 +1,7 @@
 ---
 title: Hystrix断路器服务降级
 date: 2019-01-13 15:27:59
-tags: [springCloud,Hystrix]
+tags: [SpringCloud,Hystrix]
 ---
 
 # [demo地址](https://github.com/AsummerCat/hystrix)
@@ -18,7 +18,7 @@ Hystrix具备了服务降级、服务熔断、线程隔离、请求缓存、请�
 
 # 首先导入相关pom文件
 
-```java
+```
 <!-- spring-cloud-starter-hystrix依赖 -->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
@@ -34,7 +34,7 @@ Hystrix具备了服务降级、服务熔断、线程隔离、请求缓存、请�
 
 在应用主类中使用`@EnableCircuitBreaker`或`@EnableHystrix`注解开启Hystrix的使用
 
-```java
+```
 package com.linjing.hystrixconsumer;
 
 import org.springframework.boot.SpringApplication;
@@ -59,7 +59,7 @@ public class HystrixConsumerApplication {
 
 **这里我们还可以使用Spring Cloud应用中的@SpringCloudApplication注解来修饰应用主类，该注解的具体定义如下所示。我们可以看到该注解中包含了上我们所引用的三个注解，这也意味着一个Spring Cloud标准应用应包含服务发现以及断路器。**
 
-```java
+```
 `   @Target({ElementType.TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
@@ -72,7 +72,7 @@ public class HystrixConsumerApplication {
 
 直接可以使用
 
-```JAVA
+```
 package com.linjing.hystrixconsumer;
 
 import org.springframework.boot.SpringApplication;
@@ -94,7 +94,7 @@ public class HystrixConsumerApplication {
 
 ## 添加pom文件
 
-```java
+```
 <dependency>
    <groupId>org.springframework.cloud</groupId>
    <artifactId>spring-cloud-starter-feign</artifactId>
@@ -103,7 +103,7 @@ public class HystrixConsumerApplication {
 
 ## 接着在启动类上加入 开启Feign的注解
 
-```java
+```
 修改应用主类。通过**@EnableFeignClients**注解开启扫描Spring Cloud Feign客户端的功能
 
 ```
@@ -112,7 +112,7 @@ public class HystrixConsumerApplication {
 
 # 配置文件部分
 
-```java
+```
 spring:
   application:
     name: eureka-client
@@ -169,7 +169,7 @@ hystrix:
 
 ## 在配置文件中开启Feign的Hystrix
 
-```java
+```
 ## 开启feign默认开启的hystrix
 feign:
   hystrix:
@@ -195,7 +195,7 @@ index short-circuited and fallback failed.
 
 在为具体执行逻辑的函数上增加`@HystrixCommand`注解来指定服务降级方法
 
-```java
+```
 @HystrixCommand(fallbackMethod = "fallback")
 ```
 
@@ -234,7 +234,7 @@ public interface TestServer {
 
 降级类 实现 feign接口
 
-```java
+```
 package com.linjing.hystrixconsumer.server;
 
 import org.springframework.stereotype.Component;
@@ -251,7 +251,7 @@ class TestServiceFallback implements TestServer {
 
 ### 客户端调用类
 
-```java
+```
 package com.linjing.hystrixconsumer.server;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;

@@ -1,7 +1,7 @@
 ---
 title: gateway网关整合eureka
 date: 2019-10-08 15:06:11
-tags: [gateway,springCloud,eureka,微服务]
+tags: [gateway,SpringCloud,eureka,微服务]
 ---
 
 # [demo地址](https://github.com/AsummerCat/gateway-demo)
@@ -20,7 +20,7 @@ tags: [gateway,springCloud,eureka,微服务]
 
 ## gateway网关配置
 
-```java
+```
 spring:
   application:
     name: gateway-rureka
@@ -56,7 +56,7 @@ eureka:
 
 uri以lb://开头（lb代表从注册中心获取服务），后面接的就是你需要转发到的服务名称，这个服务名称必须跟eureka中的对应，否则会找不到服务,错误如下:
 
-```java
+```
 org.springframework.cloud.gateway.support.NotFoundException: Unable to find instance for fsh-house1
 ```
 
@@ -76,7 +76,7 @@ spring.cloud.gateway.enabled=false.
 
 如果引入了spring-cloud-starter-netflix-eureka-client包，但你不想整合Eureka，也可以通过下面的配置关闭：
 
-```java
+```
 eureka.client.enabled=false
 ```
 
@@ -92,7 +92,7 @@ spring.cloud.gateway.discovery.locator.enabled=true
 
 开启之后我们就可以通过地址去访问服务了，格式如下：
 
-```java
+```
 http://网关地址/服务名称（大写）/**
 
 http://localhost:8084/FSH-HOUSE/house/1
@@ -106,7 +106,7 @@ spring.cloud.gateway.discovery.locator.lowerCaseServiceId=true
 
 配置完成之后我们就可以通过小写的服务名称进行访问了，如下：
 
-```java
+```
 http://网关地址/服务名称（小写）/**
 
 http://localhost:8084/fsh-house/house/1

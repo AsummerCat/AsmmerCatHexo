@@ -1,7 +1,7 @@
 ---
 title: docker构建jar镜像
 date: 2018-12-04 15:25:29
-tags: docker
+tags: [docker]
 
 ---
 

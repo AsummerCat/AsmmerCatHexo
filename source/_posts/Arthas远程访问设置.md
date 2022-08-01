@@ -1,7 +1,7 @@
 ---
 title: Arthas远程访问设置
 date: 2021-03-03 17:48:12
-tags: Arthas
+tags: [Arthas]
 ---
 
 # [arthas下载地址](https://github.com/alibaba/arthas/releases)
@@ -47,7 +47,7 @@ http://192.168.232.100:8081/
 192.168.232.111：是我启动服务是配合的ip地址也就是服务器的地址。端口8081是我自定义的。
 
 
-# 方式三(推荐,整合springboot):
+# 方式三(推荐,整合SpringBoot):
 
 嵌入Springboot项目中
 

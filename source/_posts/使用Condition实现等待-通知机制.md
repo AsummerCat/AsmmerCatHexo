@@ -1,7 +1,7 @@
 ---
 title: 使用Condition实现等待/通知机制
 date: 2018-11-01 22:19:49
-tags: 多线程
+tags: [多线程]
 ---
 
 # Condition介绍

@@ -144,9 +144,9 @@ forloop.parentloop	对于嵌套循环，这是围绕当前循环的循环
 
 - date : 按指定的格式字符串参数格式化 date 或者 datetime 对象，实例：
 
-  ```
+ ```
   {{ create_time | date:"Y-m-d H:i:s" }}
-  ```
+ ```
 
 - length : 返回变量的长度。
 

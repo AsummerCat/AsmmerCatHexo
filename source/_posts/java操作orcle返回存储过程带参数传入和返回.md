@@ -1,10 +1,10 @@
 ---
-title: java操作orcle返回存储过程带参数传入和返回
+title: java操作oracle返回存储过程带参数传入和返回
 date: 2020-04-09 14:37:08
-tags: [java,orcle,存储过程,mybaitis]
+tags: [java,oracle,存储过程,mybatis]
 ---
 
-# java操作orcle返回存储过程带参数传入和返回
+# java操作oracle返回存储过程带参数传入和返回
 
 ## 这边需要注意的一点是
 
@@ -84,7 +84,7 @@ List resultList = (List) jdbcTemplate.execute(
 private ARRAY getArray(List<PresApplyRecords> listData, Connection con) throws SQLException {
         //传入的记录
 		STRUCT[] struts = new STRUCT[listData.size()];
-		//遍历将orcle数组的位置填满
+		//遍历将oracle数组的位置填满
 		for (int i = 0; i < listData.size(); i++) {
 
 			PresApplyRecords presApplyRecords = listData.get(i);
@@ -98,7 +98,7 @@ private ARRAY getArray(List<PresApplyRecords> listData, Connection con) throws S
 		}
 		//获取自定义数组
 		ArrayDescriptor arrayDept = ArrayDescriptor.createDescriptor("ZOEPACKAGE.ZOE_APPLYS.PRES_APPLY_RECORDS_PIPELINE".toUpperCase(), con);
-		//转换为orcle的数据结构
+		//转换为oracle的数据结构
 		ARRAY deptArrayObject = new ARRAY(arrayDept, con, struts);
 		return deptArrayObject;
 	}
@@ -106,7 +106,7 @@ private ARRAY getArray(List<PresApplyRecords> listData, Connection con) throws S
 
 
 
-## mybaitis
+## mybatis
 
 ### 如果传入数组需要建立一个BaseTypeHandler进行类型转换
 
@@ -147,7 +147,7 @@ public class PresApplyRecordsArrayTypeHandler extends BaseTypeHandler {
 	 */
 	@Override
 	public void setNonNullParameter(PreparedStatement preparedStatement, int i, Object o, JdbcType jdbcType) throws SQLException {
-		   //获取连接池 并且这里是进行druid连接池转换orcle
+		   //获取连接池 并且这里是进行druid连接池转换oracle
 //		try (Connection conn = preparedStatement.getConnection().unwrap(OracleConnection.class)) {
 		  //注意了不能关闭当前连接
 			Connection conn = preparedStatement.getConnection().unwrap(OracleConnection.class);
@@ -223,7 +223,7 @@ public class PresApplyRecordsArrayTypeHandler extends BaseTypeHandler {
 }
 
 ```
-### mybaitis接收游标
+### mybatis接收游标
 两种方式
 1. 直接用hashmap接收
 2. 使用对象映射

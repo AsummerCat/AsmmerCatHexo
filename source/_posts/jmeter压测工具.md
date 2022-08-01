@@ -30,7 +30,7 @@ jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]
 
 <!--more-->
 
-```java
+```
 例1：测试计划与结果，都在%JMeter_Home%\bin 目录
 
 > jmeter -n -t test1.jmx -l result.jtl 

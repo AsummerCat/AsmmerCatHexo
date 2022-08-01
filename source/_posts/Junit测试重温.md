@@ -77,7 +77,7 @@ assertNotSame(java.lang.Object unexpected, java.lang.Object actual)
 5.使用定义的私有变量定义测试方法
 ```
 
-```java
+```
 package in.co.javatutorials;
  
 import static org.junit.Assert.*;
@@ -132,7 +132,7 @@ public class EvenNumberCheckerTest {
 
 ## 测试套件 批量执行
 
-```java
+```
 Junit 4允许通过使用测试套件类批量运行测试类 . 为一套测试类创建一个测试套件，要为测试类添加以下注解：
 @RunWith(Suite.class)
 @SuiteClasses(TestClass1.class, TestClass2.class)

@@ -1,7 +1,7 @@
 ---
 title: feign调用前统一申请token传递
 date: 2020-05-08 17:45:12
-tags: [springCloud,feign]
+tags: [SpringCloud,feign]
 ---
 
 # feign调用前统一申请token传递
@@ -14,7 +14,7 @@ tags: [springCloud,feign]
 
 对于 Token 的传递操作，最好在框架层面进行封装，对使用者透明，这样不影响业务代码，但要求通用性一定要强。我们可以定义一个 Feign 的请求拦截器来统一添加请求头信息，代码如下所示。
 
-```java
+```
 /**
 * Feign 请求拦截器
 **/
@@ -35,7 +35,7 @@ public class FeignBasicAuthRequestInterceptor implements RequestInterceptor {
 
 拦截器需要在 Feign 的配置中定义，代码如下所示。
 
-```java
+```
 @Configuration
 public class FeignConfiguration {
     /**

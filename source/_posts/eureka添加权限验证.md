@@ -1,7 +1,7 @@
 ---
 title: eureka添加权限验证
 date: 2019-06-27 21:40:26
-tags: [springCloud,eureka]
+tags: [SpringCloud,eureka]
 ---
 
 # eureka添加权限验证
@@ -10,7 +10,7 @@ tags: [springCloud,eureka]
 
 ## 导入pom文件
 
-```java
+```
   <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
@@ -21,7 +21,7 @@ tags: [springCloud,eureka]
 
 <!--more-->
 
-```java
+```
    # 添加密码校验
  spring:
    security:
@@ -38,7 +38,7 @@ tags: [springCloud,eureka]
 
 ## 高版本的security中默认开启csrf 需要手动关闭
 
-```java
+```
 package com.linjingc.eurekaserver.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 不然可能导致
 
-```java
+```
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 无法注册服务
 ```
@@ -70,7 +70,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 
 # 客户端操作
 
-```java
+```
 配置文件中写入
 
 eureka:

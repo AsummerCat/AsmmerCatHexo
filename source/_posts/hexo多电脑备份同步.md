@@ -1,7 +1,7 @@
 ---
 title: hexo多电脑备份同步
 date: 2018-10-05 09:33:31
-tags: hexo
+tags: [hexo]
 ---
 
 ## hexo多电脑同步

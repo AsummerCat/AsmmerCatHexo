@@ -1,7 +1,7 @@
 ---
 title: queue的使用
 date: 2018-10-30 17:16:43
-tags: java
+tags: [java]
 ---
 
 # 队列的使用

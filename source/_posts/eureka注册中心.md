@@ -1,7 +1,7 @@
 ---
 title: eruka注册中心
 date: 2019-01-05 19:41:55
-tags: [springCloud,eureka]
+tags: [SpringCloud,eureka]
 ---
 
 # 利用eureka做注册中心 实现微服务的高可用
@@ -14,7 +14,7 @@ tags: [springCloud,eureka]
 
 ## 导入pom.xml
 
-```java
+```
 <dependencies>
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -29,7 +29,7 @@ tags: [springCloud,eureka]
 
 通过`@EnableEurekaServer`注解启动一个服务注册中心提供给其他应用进行对话。这一步非常的简单，只需要在一个普通的Spring Boot应用中添加这个注解就能开启此功能，
 
-```java
+```
 package com.linjing.eureka;
 
 import org.springframework.boot.SpringApplication;
@@ -54,7 +54,7 @@ public class EurekaApplication {
 
 在默认设置下，该服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为，只需要在`application.yml `配置文件中增加如下信息：
 
-```java
+```
 spring:
   application:
     name: eureka-Server
@@ -88,7 +88,7 @@ eureka:
 
 ## 导入pom.xml
 
-```java
+```
 <dependencies>
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -106,7 +106,7 @@ eureka:
 如果你的应用使用@EnableEurekaClient注解，那么只能使用eureka来发现服务实例。 
 一个方法是使用com.netflix.discovery.DiscoveryClient
 
-```java
+```
 package com.linjing.eurekaclient;
 
 import org.springframework.boot.SpringApplication;
@@ -127,7 +127,7 @@ public class EurekaClientApplication {
 
 其次，实现/test请求处理接口，通过DiscoveryClient对象，在日志中打印出服务实例的相关内容
 
-```java
+```
 @RestController
 public class TestController {
 
@@ -145,7 +145,7 @@ public class TestController {
 
 ## 修改配置文件内容application.yml
 
-```java
+```
 
 spring:
   application:
@@ -185,7 +185,7 @@ eureka:
 
 # 完整配置文件
 
-```java
+```
 spring:
   application:
     name: eureka-Server

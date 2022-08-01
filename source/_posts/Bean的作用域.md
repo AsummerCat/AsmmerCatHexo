@@ -1,7 +1,7 @@
 ---
 title: Bean的作用域
 date: 2018-11-21 16:31:50
-tags: Spring
+tags: [Spring]
 ---
 
 

@@ -21,7 +21,7 @@ Javassist的官方网站：http://jboss-javassist.github.io/javassist/
 
 假设我们需要生成一个User类：
 
-```java
+```
 package com.linjingc.reflecttest;
 
 public class User {
@@ -53,7 +53,7 @@ public class User {
 
 ## javassist创建代码如下：
 
-```java
+```
 /**
  * 动态创建新类或新接口的二进制字节码
  */
@@ -112,7 +112,7 @@ name=嘿嘿
 
 假设我们现在有如下一个类
 
-```java
+```
 public class Looper {
 	public void loop() {
 		try {
@@ -135,7 +135,7 @@ public class Looper {
 
 如下：
 
-```java
+```
 public class Looper {
  
     public void loop(){
@@ -167,7 +167,7 @@ public class Looper {
 
 javassist的CtClass方法提供的insertBefore和insertAfter方法，允许我们在一个方法开始和结束添加自己的代码。
 
-```java
+```
 /**
  * 错误案例
  * aop切入 环绕
@@ -219,7 +219,7 @@ public class JavassisTimingWrong {
 
 实现如下：
 
-```java
+```
 /**
  * 正确案例
  * aop切入 环绕
@@ -254,7 +254,7 @@ public class JavassisTiming {
 
 输出：
 
-```java
+```
 Looper.loop() invoked耗时:1000ms
 ```
 
@@ -262,7 +262,7 @@ Looper.loop() invoked耗时:1000ms
 
 此外还有一种更加简单的方式
 
-```java
+```
 /**
  * 动态代理
  */

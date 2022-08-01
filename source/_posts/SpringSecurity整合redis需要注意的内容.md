@@ -6,13 +6,13 @@ tags: [redis,Security]
 
 # SpringSecurity整合redis需要注意的内容
 
-springboot2.x版本后 
+SpringBoot2.x版本后 
 
 redis默认是lettuce 做客户端
 
 所以配置文件修改一下
 
-```java
+```
     <dependency>
       <groupId>org.springframework.session</groupId>
       <artifactId>spring-session-data-redis</artifactId>

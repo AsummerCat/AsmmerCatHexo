@@ -1,11 +1,11 @@
 ---
 title: 使用Thumbnailator工具压缩图片
 date: 2018-09-20 22:02:14
-tags: 工具类
+tags: [工具类]
 ---
 ### 使用Thumbnailator工具需要引入thumbnailator-0.4.8.jar包，在pom中添加一下代码即可。
 <!--more-->
-```java
+```
 <dependency>
      <groupId>net.coobird</groupId>
      <artifactId>thumbnailator</artifactId>
@@ -19,7 +19,7 @@ tags: 工具类
 
 ### TEST.java
 
-```java
+```
 import net.coobird.thumbnailator.Thumbnails;
  
 import java.io.File;

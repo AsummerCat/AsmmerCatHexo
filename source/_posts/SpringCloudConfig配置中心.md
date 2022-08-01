@@ -1,12 +1,12 @@
 ---
 title: SpringCloudConfig配置中心
 date: 2019-01-03 10:41:51
-tags: [springCloud,SpringCloudConfig,分布式配置中心]
+tags: [SpringCloud,SpringCloudConfig,分布式配置中心]
 ---
 
-# [demo地址](https://github.com/AsummerCat/springCloudConfigTest)
+# [demo地址](https://github.com/AsummerCat/SpringCloudConfigTest)
 
-# 使用版本 springboot 1.5.3  springCloud Dalston.SR4
+# 使用版本 SpringBoot 1.5.3  SpringCloud Dalston.SR4
 
 友情提示:
 
@@ -35,7 +35,7 @@ tags: [springCloud,SpringCloudConfig,分布式配置中心]
 
 spring-cloud-config-server 服务端的依赖
 
-```java
+```
 	<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -44,8 +44,8 @@ spring-cloud-config-server 服务端的依赖
 
 ### 在启动类上标明一个注解 表示启动config-server服务
 
-```java
-package com.linjingc.springcloudconfigserver;
+```
+package com.linjingc.SpringCloudconfigserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -69,7 +69,7 @@ public class SpringCloudConfigServerApplication {
 
 ## 在application.yml中添加配置信息
 
-```java
+```
 spring:
   application:
     name: config-server
@@ -95,7 +95,7 @@ server:
 
 ### 添加相关jar包信息
 
-```java
+```
 	<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -113,7 +113,7 @@ server:
 
 这里因为虚拟机运行时  bootstarp 执行在application 之前
 
-```java
+```
 spring:
   application:
     name: config-client
@@ -135,7 +135,7 @@ spring:
 
 #### 配置文件
 
-```java
+```
 info:
   profile: dev
 server:
@@ -151,8 +151,8 @@ person:
 
 #### 引用点
 
-```java
-package com.linjingc.springcloudconfigclient.controller;
+```
+package com.linjingc.SpringCloudconfigclient.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -204,7 +204,7 @@ class TestController {
 
 我们需要在bootstrap.yml里面加上需要暴露出来的地址
 
-```java
+```
 management:
   endpoints:
     web:
@@ -220,7 +220,7 @@ management:
 
 这边我们可以手动添加一个内存角色刷新资源   或者关闭权限信息 当然我们这边只是测试
 
-```java
+```
 在配置文件中加入 
 management:
   security:
@@ -244,7 +244,7 @@ ConfigServer 和ConfigClient
 
 ### 加入eruka的pom.xml
 
-```java
+```
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -253,13 +253,13 @@ ConfigServer 和ConfigClient
 
   ### 启动类添加eureka注解
 
-```java
+```
 @EnableEurekaClient
 ```
 
 ### 接下来添加配置文件信息
 
-```java
+```
 在application.yml中加入
 # 注册到eureka
 eureka:
@@ -282,7 +282,7 @@ eureka:
 
 ootstrap.yaml中增加eureka连接配置，同时屏蔽`spring. cloud.config.uri` 增加：`spring.cloud.config.discovery.enabled`和`spring.cloud.config.discovery.serviceId`。
 
-```java
+```
 修改bootStrap.yml
 
 spring:
@@ -321,7 +321,7 @@ eureka:
 
 ## 首先导入相关pom文件
 
-```java
+```
 <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
@@ -330,7 +330,7 @@ eureka:
 
 ## 这边我们demo 也不做太多的权限 直接在内存中写入一个用户及其密码~~~~ 搞定
 
-```java
+```
 在配置文件中写入
 #配置security的账号密码
 security:
@@ -345,7 +345,7 @@ security:
 
 格式:
 
-```java
+```
   uri: http://localhost:8081 改为 uri: http://user:password@localhost:8081
 ```
 
@@ -415,7 +415,7 @@ didispace
 
 例子:
 
-```java
+```
 spring.datasource.username=cat
 spring.datasource.password={cipher}dba6505baa81d78bd08799d8d4429de499bd4c2053c05f029e7cfbf143695f5b
 ```

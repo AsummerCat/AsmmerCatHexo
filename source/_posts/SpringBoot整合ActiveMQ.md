@@ -90,7 +90,7 @@ spring.jms.pub-sub-domain    是否使用默认的destination type来支持 publ
 
 #在SpringBoot的配置文件中写入
 
- ```
+```
 #activemq整合
 # 分为两个端口 其中 8161是本地后台的   61616是远程连接到active的端口号
 spring.activemq.broker-url=tcp://localhost:61616/
@@ -112,7 +112,7 @@ spring.activemq.pool.idleTimeout=30
 spring.activemq.packages.trust-all=true
 
 
- ```
+```
 ---
 
 #在入口类加入 注解

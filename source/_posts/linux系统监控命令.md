@@ -1,7 +1,7 @@
 ---
 title: linux系统监控命令
 date: 2019-03-30 15:48:55
-tags: linux
+tags: [linux]
 ---
 
 # 系统监控类的命令
@@ -10,7 +10,7 @@ tags: linux
 
 ![top命令](/img/2019-3-30/uptime.png)
 
-```java
+```
 uptime
 --系统时间
 
@@ -32,7 +32,7 @@ uptime
 
 ![top命令](/img/2019-3-30/top.png)
 
-```java
+```
 top 
  --最上面几行同 uptime
  

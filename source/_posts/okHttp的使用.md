@@ -12,7 +12,7 @@ tags: [okHttp]
 
 # 导入 pom.xml
 
-```java
+```
    <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
@@ -26,7 +26,7 @@ tags: [okHttp]
 
 ## 方式一
 
-```java
+```
  final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 			OkHttpClient client = new OkHttpClient();
 			//构造builder
@@ -49,7 +49,7 @@ tags: [okHttp]
 
 ## 方式2(推荐)
 
-```java
+```
 public static void test2() {
 		final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 		OkHttpClient client = new OkHttpClient();

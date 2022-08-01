@@ -10,7 +10,7 @@ tags: [前端]
 
 [文档地址](https://github.com/wesnolte/jOrgChart)
 
-```java
+```
 需要引入的js插件和css文件：
 
 　　①jquery.jOrgChart.css
@@ -32,7 +32,7 @@ tags: [前端]
 
 　　后台返回的数据格式必须如下，其中id，pid字段为必须要有。childrens字段也为必须的，不过字段名可以自己定义，name字段是根据自己业务需求的字段，在这里以name字段作为要显示的文本内容：
 
-```java
+```
 {
   "data": [{
     "id": 1,
@@ -152,7 +152,7 @@ tags: [前端]
 
 ### 前端页面处理
 
-```java
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>

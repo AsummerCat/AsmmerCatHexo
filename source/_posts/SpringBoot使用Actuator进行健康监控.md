@@ -1,7 +1,7 @@
 ---
 title: SpringBoot使用Actuator进行健康监控
 date: 2018-10-05 15:41:54
-tags: SpringBoot
+tags: [SpringBoot]
 ---
 
 >参考:  

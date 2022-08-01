@@ -1,7 +1,7 @@
 ---
 title: EasyUI的Tree结构
 date: 2018-09-27 14:32:31
-tags: 前端
+tags: [前端]
 ---
  ## 1.引入JS
 
@@ -19,7 +19,7 @@ tags: 前端
 
 ## 2.结构
 
-```javascript
+```script
 [{
     "id":1,
     "text":"Folder1",
@@ -96,7 +96,7 @@ dnd	            boolean	定义是否启用拖放。	                 false
 
 ## 4.后台写法
 
-```java
+```
  public List listAysnAreaData(String id){
         List<Map<String,Object>> list=new ArrayList<>();
             //首次进入查询:

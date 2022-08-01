@@ -6,7 +6,7 @@ tags: [SpringBoot,RabbitMQ]
 
 ## new queue() 基本队列
 
-```java
+```
  public Queue(String name, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments) {
         Assert.notNull(name, "'name' cannot be null");
         this.name = name;
@@ -18,7 +18,7 @@ tags: [SpringBoot,RabbitMQ]
     }
 ```
 
-```java
+```
 name: 当前队列的名称
 durable: 是否持久化到硬盘 若要使队列中消息不丢失，同时也需要将消息声明为持久化 默认:true
 exclusive:是否声明该队列是否为连接独占，若为独占，连接关闭后队列即被删除 默认:false
@@ -42,7 +42,7 @@ Arguments参数详情 后一篇文章介绍**
 
 这个参数表示 不要同时给一个消费者推送多于N个消息，即一旦有N个消息还没有ack，则该consumer将block掉，直到有消息ack
 
-```java
+```
 public void basicQos(int prefetchSize, int prefetchCount, boolean global) throws IOException {
     if (global) {
         this.prefetchCountGlobal = prefetchCount;
@@ -51,7 +51,7 @@ public void basicQos(int prefetchSize, int prefetchCount, boolean global) throws
     }
 ```
 
-```java
+```
 prefetchSize：预读取的消息内容大小上限(包含)，可以简单理解为消息有效载荷字节数组的最大长度限制，0表示无上限。
 prefetchCount：预读取的消息数量上限，0表示无上限。
 会告诉RabbitMQ不要同时给一个消费者推送多于N个消息，即一旦有N个消息还没有ack，则该consumer将block掉，直到有消息ack
@@ -60,7 +60,7 @@ global：false表示prefetchCount单独应用于信道上的每个新消费者�
 
 案例:
 
-```java
+```
 案例:
  @RabbitListener(queues = RabbitConfig.BASIC_QUEUE)
     public void process(Message message, Channel channel) throws IOException {
@@ -90,7 +90,7 @@ global：false表示prefetchCount单独应用于信道上的每个新消费者�
 
 ## **channel.basicAck()** 控制消息回复 
 
-```java
+```
     /**
      * Acknowledge one or several received
      * messages. Supply the deliveryTag from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
@@ -106,7 +106,7 @@ global：false表示prefetchCount单独应用于信道上的每个新消费者�
     void basicAck(long deliveryTag, boolean multiple) throws IOException;
 ```
 
-```java
+```
 deliveryTag:该消息的index 
 multiple：是否批量.  true:将一次性ack所有小于deliveryTag的消息。 false:只消费当前deliveryTag消息
 ```
@@ -115,7 +115,7 @@ multiple：是否批量.  true:将一次性ack所有小于deliveryTag的消息�
 
 ## **channel.basicNack** 拒绝消息(可以批量) 是否重发或者拒绝
 
-```java
+```
  /**
      * Reject one or several received messages.
      *
@@ -134,7 +134,7 @@ multiple：是否批量.  true:将一次性ack所有小于deliveryTag的消息�
 
 ```
 
-```java
+```
 deliveryTag:该消息的index
 multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。 
 requeue：被拒绝的是否重新入队列 
@@ -142,7 +142,7 @@ requeue：被拒绝的是否重新入队列
 
 案例:
 
-```java
+```
 //重新放入队列中
             //channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
             //丢弃这条消息
@@ -153,7 +153,7 @@ requeue：被拒绝的是否重新入队列
 
 ## **channel.basicReject()** 拒绝当前消息 
 
-```java
+```
 /**
      * Reject a message. Supply the deliveryTag from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
      * or {@link com.rabbitmq.client.AMQP.Basic.Deliver} method
@@ -175,7 +175,7 @@ channel.basicNack 与 channel.basicReject 的区别在于basicNack可以拒绝�
 
 案例:
 
-```java
+```
             channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
 ```
 

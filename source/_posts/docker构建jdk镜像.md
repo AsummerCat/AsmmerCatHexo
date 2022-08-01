@@ -1,7 +1,7 @@
 ---
 title: docker构建jdk镜像
 date: 2018-12-04 15:38:10
-tags: docker
+tags: [docker]
 
 ---
 
@@ -27,9 +27,9 @@ docker pull centos:7
 
 * 然后 docker images
 
-  ```
+ ```
   可以看到centos的基础镜像只有200M
-  ```
+ ```
 
   <!--more-->
 

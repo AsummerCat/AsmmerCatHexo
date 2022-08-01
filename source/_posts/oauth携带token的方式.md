@@ -1,7 +1,7 @@
 ---
 title: oauth携带token的方式
 date: 2019-07-11 22:23:10
-tags: [Security,springCloud,Oauth2]
+tags: [Security,SpringCloud,Oauth2]
 ---
 
 # oauth携带token的方式 

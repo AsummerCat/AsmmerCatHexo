@@ -10,19 +10,19 @@ tags: [Jenkins,docker]
 
 ## pull镜像
 
-```java
+```
  docker pull jenkins:2.60.3
 ```
 
 ## 查看是否最新版本
 
-```java
+```
 docker inspect ba607c18aeb7
 ```
 
 ## 创建一个jenkins目录
 
-```java
+```
 mkdir /home/jenkins_home;
 ```
 
@@ -30,13 +30,13 @@ mkdir /home/jenkins_home;
 
 ## 启动容器
 
-```java
+```
 docker run -d --name jenkins_01 -p 8081:8080 -v /home/jenkins_01:/home/jenkins_01 jenkins/jenkins:lts
 ```
 
 ## 查看jenkins服务 
 
-```java
+```
 docker ps | grep jenkins;
 ```
 
@@ -48,7 +48,7 @@ localhost:8081
 
 ## 获取密码
 
-```java
+```
 进入容器内部   docker exec -it jenkins_01 /bin/sh
 执行：cat /var/jenkins_home/secrets/initialAdminPassword，得到密码并粘贴过去
 ```

@@ -73,7 +73,7 @@ tags: [SpringBoot,RabbitMQ]
 
   #  写一个rabbitMQ的配置类 用来存放接收的和发送的消息类型 
 
-```java
+```
 package com.linjing.springbootandrabbitmq;
 
 import org.springframework.amqp.core.*;
@@ -217,7 +217,7 @@ public class RabbitConfig {
 
 ## 接收消息
 
-```java
+```
 package com.linjing.springbootandrabbitmq.controller;
 
 import com.linjing.springbootandrabbitmq.RabbitConfig;
@@ -261,7 +261,7 @@ public class ReceiveMessage {
 
 # # 发送消息
 
-```java
+```
 package com.linjing.springbootandrabbitmq.controller;
 
 import com.linjing.springbootandrabbitmq.RabbitConfig;
@@ -330,7 +330,7 @@ public class SendController {
 
 ## 修改配置文件
 
-```java
+```
 server:
   port: 9001
 
@@ -357,7 +357,7 @@ spring:
 
 ## 接着修改控制层
 
-```java
+```
 将
 @Autowired
 private AmqpTemplate rabbitTemplate;
@@ -371,7 +371,7 @@ private RabbitTemplate rabbitTemplate;
 
 方式1
 
-```java
+```
 rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
             if (!ack) {
                 System.out.println("HelloSender消息发送失败" + cause + correlationData.toString());
@@ -385,7 +385,7 @@ rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
 
 重写rabbitTemplate 注入
 
-```java
+```
  @Autowired
     private ConnectionFactory connectionFactory;
     
@@ -430,7 +430,7 @@ ReturnCallback 发生情况 交换机未绑定队列 或者无队列接收请求
 
 ## 发送消息
 
-```java
+```
 @RequestMapping("send")
 public String send() {
     String context = "hello基本发送 " + new Date();
@@ -445,7 +445,7 @@ public String send() {
 
 ## 接收消息
 
-```java
+```
    @RabbitListener(queues = RabbitConfig.BASIC_QUEUE)
     public void process(Message message, Channel channel) throws IOException {
         // 采用手动应答模式, 手动确认应答更为安全稳定
@@ -491,7 +491,7 @@ channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
 
 注意 开启事务的话 是同步的 对吞吐率影响较大
 
-```java
+```
 修改配置文件 关闭发布确认模式
 server:
   port: 9001
@@ -518,7 +518,7 @@ spring:
 
 ### 接着修改 rabbitMQ开启事务
 
-```java
+```
 //开启事务
 rabbitTemp.setChannelTransacted(true);
 ```
@@ -542,7 +542,7 @@ rabbitTemp.setChannelTransacted(true);
 
 ### 发送消息
 
-```java
+```
 因为整合了SpringBoot  而且在RabbitTemplate也配置了开启事务 
 所以我们可以直接使用spring的事务注解
 我们通过调用者提供外部事务@Transactional(rollbackFor = Exception.class)，来现实事务方法。一旦方法中抛出异常，比如执行数据库操作时，就会被捕获到，同时事务将进行回滚，并且向外发送的消息将不会发送出去。
@@ -581,7 +581,7 @@ public class TransactionSender2 {
 
 ###  接收事务
 
-```java
+```
  /**
      * 事务模式
      */

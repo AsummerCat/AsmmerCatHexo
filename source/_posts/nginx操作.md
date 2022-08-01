@@ -1,7 +1,7 @@
 ---
 title: nginx操作
 date: 2018-09-29 17:48:39
-tags: nginx
+tags: [nginx]
 ---
 
 
@@ -109,7 +109,7 @@ server host:port：分发服务器的列表配置
 
 # 静态页面分离
 
-```java
+```
 
 
     #对jsp和do结尾的url也去访问tomcat服务
@@ -127,7 +127,7 @@ server host:port：分发服务器的列表配置
 
 # 完整配置文件
 
-```java
+```
 #user  nobody;
 worker_processes  2;
 

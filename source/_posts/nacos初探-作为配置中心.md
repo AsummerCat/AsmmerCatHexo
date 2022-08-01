@@ -4,7 +4,7 @@ date: 2019-01-21 10:57:13
 tags: [Nacos,SpringCloudAlibaba]
 ---
 
-Nacos 支持基于 DNS 和基于 RPC 的服务发现（可以作为springcloud的注册中心）、动态配置服务（可以做配置中心）、动态 DNS 服务。
+Nacos 支持基于 DNS 和基于 RPC 的服务发现（可以作为SpringCloud的注册中心）、动态配置服务（可以做配置中心）、动态 DNS 服务。
 
 官方网址：[http://nacos.io](http://nacos.io/)
 
@@ -14,13 +14,13 @@ Nacos 支持基于 DNS 和基于 RPC 的服务发现（可以作为springcloud�
 
 先在官网上下载nacos中间件 下面教程有启动步骤
 
-```java
+```
 https://nacos.io/zh-cn/docs/quick-start.html
 ```
 
 程序启动默认占用的端口是8848（珠穆朗玛峰的高度），我们可以对端口进行修改，用编辑器打开bin目录下的startup.cmd文件 添加一行代码
 
-```java
+```
 set "JAVA_OPT=%JAVA_OPT% --server.port=9090
 ```
 
@@ -28,7 +28,7 @@ set "JAVA_OPT=%JAVA_OPT% --server.port=9090
 
 还可以在conf文件下的application.properties中添加
 
-```java
+```
 server.port=9090
 ```
 
@@ -40,7 +40,7 @@ server.port=9090
 
 ## 添加pom
 
-```java
+```
 <!-- dependency management 0.2.0 springboot	2.0  0.1 1.0+-->
 	<dependencyManagement>
 		<dependencies>
@@ -85,7 +85,7 @@ server.port=9090
 
 这边基本跟spring cloud config 差不多
 
-```java
+```
 spring.application.name=nacos-config
 spring.cloud.nacos.config.server-addr=112.74.43.136:8848
     

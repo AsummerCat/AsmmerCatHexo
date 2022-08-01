@@ -128,11 +128,11 @@ namesrvAddr=IP:端口   默认是9876
  然后重启  
  注意，重点是: `-c conf/broker.conf`
  
- ```
+```
    > nohup sh bin/mqbroker -n localhost:9876 -c conf/broker.conf &
   > tail -f ~/logs/rocketmqlogs/broker.log 
   The broker[%s, 112.74.43.136:10911] boot success..
- ```
+```
 
 ---
 
@@ -197,8 +197,8 @@ nohup sh mqbroker -n 112.74.43.136:9876 autoCreateTopicEnable=true > ~/logs/rock
  
  解决: 
  
- ```
+```
  关闭docker 
  systemctl stop docker
  
- ```
+```

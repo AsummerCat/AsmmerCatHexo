@@ -20,7 +20,7 @@ tags: [elasticSearch笔记]
 
 旧索引
 
-```java
+```
 
 PUT /old_index/_doc/4
 {

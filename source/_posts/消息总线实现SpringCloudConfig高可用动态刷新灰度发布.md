@@ -1,12 +1,12 @@
 ---
 title: 消息总线实现SpringCloudConfig高可用动态刷新灰度发布
 date: 2019-01-18 17:30:21
-tags: [springCloudBus,springCloud,SpringCloudConfig,分布式配置中心,RabbitMQ]
+tags: [SpringCloudBus,SpringCloud,SpringCloudConfig,分布式配置中心,RabbitMQ]
 ---
 
 # 利用消息总线实现 动态刷新所有节点
 
-工具包:springCloudBus,SpringCloudConfig,RabbitMQ
+工具包:SpringCloudBus,SpringCloudConfig,RabbitMQ
 
 # 照旧导入相关pom文件
 
@@ -24,7 +24,7 @@ tags: [springCloudBus,springCloud,SpringCloudConfig,分布式配置中心,Rabbit
 
 加入rabbitMQ的配置
 
-```java
+```
   rabbitmq: # 现在将集成RabbitMQ作为消息服务总线处理
     host: 112.74.43.136  # RabbitMQ主机服务地址
     port: 5672 # RabbitMQ的监听端口
@@ -34,7 +34,7 @@ tags: [springCloudBus,springCloud,SpringCloudConfig,分布式配置中心,Rabbit
 
 完整
 
-```java
+```
 spring:
   application:
     name: config-server
@@ -78,7 +78,7 @@ eureka:
 
 启动此微服务信息，而后一定要保证该微服务已经注册到了 Eureka 之中，同时还需要观察出现 的访问路径，此时会出现有一个重要的路径信息：
 
-```java
+```
 restartedMain] o.s.b.a.e.mvc.EndpointHandlerMapping : Mapped "{[/bus/refresh],methods=[POST]}"
 onto public void org.springframework.cloud.bus.endpoint.RefreshBusEndpoint.refresh(java.lang.String)
 

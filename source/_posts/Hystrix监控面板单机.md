@@ -1,7 +1,7 @@
 ---
 title: Hystrix监控面板dashboard单机
 date: 2019-01-14 09:41:09
-tags: [springCloud,Hystrix,Dashboard]
+tags: [SpringCloud,Hystrix,Dashboard]
 ---
 
 # 监控台
@@ -12,7 +12,7 @@ tags: [springCloud,Hystrix,Dashboard]
 
 # 添加相关dashboard的pom
 
-```java
+```
 <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-hystrix</artifactId>
@@ -33,7 +33,7 @@ tags: [springCloud,Hystrix,Dashboard]
 
 - 为应用主类加上`@EnableHystrixDashboard`，启用Hystrix Dashboard功能。
 
-```java
+```
 package com.linjing.hystrixdashboard;
 
 import org.springframework.boot.SpringApplication;
@@ -74,7 +74,7 @@ public class HystrixDashboardApplication {
 
 - 在服务实例`pom.xml`中的`dependencies`节点中新增`spring-boot-starter-actuator`监控模块以开启监控相关的端点，并确保已经引入断路器的依赖`spring-cloud-starter-hystrix`：
 
-```java
+```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-hystrix</artifactId>

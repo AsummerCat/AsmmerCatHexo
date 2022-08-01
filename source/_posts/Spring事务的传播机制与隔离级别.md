@@ -1,7 +1,7 @@
 ---
 title: Spring事务的传播机制与隔离级别
 date: 2019-01-11 17:26:44
-tags: Spring
+tags: [Spring]
 ---
 
 # 7种传播级别

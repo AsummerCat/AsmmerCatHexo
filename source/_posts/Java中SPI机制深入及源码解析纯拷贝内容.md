@@ -179,7 +179,7 @@ while(driversIterator.hasNext()) {
 
 # SPI相关的源码解析
 
-```java
+```
 //ServiceLoader实现了Iterable接口，可以遍历所有的服务实现者
 public final class ServiceLoader<S>
     implements Iterable<S>

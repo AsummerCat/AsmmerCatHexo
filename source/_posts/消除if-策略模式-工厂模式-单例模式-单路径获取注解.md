@@ -14,7 +14,7 @@ tags: [java,设计模式]
 
 # 导入pom
 
-```java
+```
 <!-- 操作反射 -->
    <dependency>
       <groupId>org.reflections</groupId>
@@ -28,7 +28,7 @@ tags: [java,设计模式]
 
 # 创建注解
 
-```java
+```
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -99,7 +99,7 @@ public class PayStrategyFactory {
 
 ## 定义价格接口PayStrategy
 
-```java
+```
 public interface PayStrategy {
     /**
      * 根据渠道计算价格
@@ -113,7 +113,7 @@ public interface PayStrategy {
 
 ## 创建实现类 及其标记注解
 
-```java
+```
 @PayChannel(channelId = 1)
 public class ICBCBank implements PayStrategy{
     @Override
@@ -123,7 +123,7 @@ public class ICBCBank implements PayStrategy{
 }
 ```
 
-```java
+```
 @PayChannel(channelId = 2)
 public class CMBCBank implements PayStrategy{
     @Override
@@ -137,7 +137,7 @@ public class CMBCBank implements PayStrategy{
 
 # 创建上下文
 
-```java
+```
 public class PayChannelContext {
     /**
      * 支付渠道上下文：策略模式，根据channelId动态获取对应实现类并执行
@@ -161,7 +161,7 @@ public class PayChannelContext {
 
 # 执行方法
 
-```java
+```
  @RequestMapping("calculatePrice")
     public String calculatePrice(@RequestParam  Integer channelId, @RequestParam Integer goodsId) throws Exception {
         PayChannelContext context=new PayChannelContext();

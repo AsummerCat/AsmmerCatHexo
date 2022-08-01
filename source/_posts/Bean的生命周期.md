@@ -1,7 +1,7 @@
 ---
 title: Bean的生命周期
 date: 2018-11-21 16:47:19
-tags: Spring
+tags: [Spring]
 ---
 
 # 生命周期回调

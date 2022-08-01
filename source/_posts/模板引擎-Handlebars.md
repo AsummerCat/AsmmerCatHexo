@@ -1,7 +1,7 @@
 ---
 title: '模板引擎:Handlebars'
 date: 2018-11-09 10:12:02
-tags:  前端模板引擎
+tags:  [前端模板引擎]
 ---
 
 # Handlebars

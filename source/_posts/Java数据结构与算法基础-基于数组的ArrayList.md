@@ -8,7 +8,7 @@ tags: [数据结构与算法,java]
 
 ArrayList是Java中我们最常使用的List接口的实现类，其是内部就是通过维护一个**无序数组**来实现的。因此ArrayList具备无须数组拥有的所有优点和缺点：
 
-```java
+```
 操作	时间复杂度
 插入	O(1)
 删除	O(N)
@@ -29,7 +29,7 @@ ArrayList是Java中我们最常使用的List接口的实现类，其是内部就
 
 ArrayList的源码中维护了2个重要的变量
 
-```java
+```
 transient Object[] elementData; // 用于存放元素的数据，数组的大小就是ArrayList的容量capacity
 private int size;//数组中已经存放的元素的数量
 ```
@@ -50,7 +50,7 @@ ensureCapacityInternal方法确保elementData数组中还有空间插入新的�
 
 扩容是通过调用grow方法实现：
 
-```java
+```
 private void grow(int minCapacity) {//minCapacity表示的是需要扩容最小容量
     // overflow-conscious code
     int oldCapacity = elementData.length;
@@ -69,7 +69,7 @@ minCapacity表示的是需要扩容的最小容量。例如假设当前elementDa
 
 ### **删除操作remove方法分析**
 
-```java
+```
 public E remove(int index) {
     rangeCheck(index);
  

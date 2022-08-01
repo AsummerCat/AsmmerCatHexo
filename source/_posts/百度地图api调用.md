@@ -1,7 +1,7 @@
 ---
 title: 百度地图api调用
 date: 2019-03-05 19:55:18
-tags: 前端
+tags: [前端]
 ---
 
 # 百度api调用
@@ -14,7 +14,7 @@ tags: 前端
 
 ## 导入相关js文件
 
-```javascript
+```
 <!-- 百度地图API -->
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qZVwWWP2G7aeZdrHKGiPNdkM4KklMFQS"></script>
 <!-- 地图-->
@@ -29,7 +29,7 @@ tags: 前端
 
 ### 替代js
 
-```javascript
+```
 var BMapLib = window.BMapLib = BMapLib || {};  
 
 (function() {  
@@ -382,7 +382,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
 
 # 点聚合
 
-```javascript
+```script
 // 百度地图API功能
     
     var map = new BMap.Map("allmap", {enableMapClick:false});  
@@ -428,7 +428,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
 
 ps: 需要注意的是 如果使用高德转地址再调入百度 这样坐标会发生偏移 最好的结果就是使用只使用一家的api
 
-```javascript
+```script
 
     //百度api调用 批量转换地址
 var index = 0;  

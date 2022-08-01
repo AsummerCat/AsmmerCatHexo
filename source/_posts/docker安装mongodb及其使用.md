@@ -8,7 +8,7 @@ tags: [docker,mongodb笔记]
 
 ##  执行
 
-```java
+```
 docker pull mongo （拉取镜像 默认最新版本）
 
 docker images （查看镜像）
@@ -43,7 +43,7 @@ roles: [ { role: "root", db: "admin" } ]
 mongo --port 27017 -u admin -p password --authenticationDatabase admin 
 ```
 
-```java
+```
 use test
 db.createUser(
 {

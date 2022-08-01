@@ -12,7 +12,7 @@ tags: [docker,mysql,数据库]
 
 ## docker pull mysql 镜像
 
-```java
+```
 docker pull mysql:5.7
 ```
 
@@ -20,7 +20,7 @@ docker pull mysql:5.7
 
 **Master(主)：**
 
-```java
+```
 docker run -p 3339:3306 --name master -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
 ```
 
@@ -50,7 +50,7 @@ docker run -p 3340:3306 --name slave -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
 
 安装vim 可能会报错
 
-```java
+```
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -77,7 +77,7 @@ log-bin=mysql-bin
 
 下一步在Master数据库创建数据同步用户，授予用户 slave REPLICATION SLAVE权限和REPLICATION CLIENT权限，用于在主从库之间同步数据。
 
-```java
+```
 CREATE USER 'slave'@'%' IDENTIFIED BY '123456';
 GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'slave'@'%';
 ```

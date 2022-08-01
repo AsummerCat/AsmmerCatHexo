@@ -1,10 +1,10 @@
 ---
-title: orcle切割字符串函数方法
+title: oracle切割字符串函数方法
 date: 2019-03-24 20:36:46
-tags: [数据库,orcle]
+tags: [数据库,oracle]
 ---
 
-# orcle切割字符串函数方法 
+# oracle切割字符串函数方法 
 
 约等于列转行
 

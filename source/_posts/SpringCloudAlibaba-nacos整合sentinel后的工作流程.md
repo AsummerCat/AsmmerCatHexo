@@ -8,7 +8,7 @@ tags: [SpringCloudAlibaba,sentinel,Nacos]
 
 ## 导入pom
 
-```java
+```
  <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
@@ -21,7 +21,7 @@ tags: [SpringCloudAlibaba,sentinel,Nacos]
 
 类名:com.alibaba.csp.sentinel.datasource.nacos.NacosDataSource
 
-```java
+```
 initNacosListener();
 //这里一步是 根据上面的初始化获取到数据后 加载进环境里面的配置 也就是初始化配置信息的步骤 跟后面的定时线程分开
 loadInitialConfig(); 
@@ -34,7 +34,7 @@ loadInitialConfig();
 
 ### 添加监听器
 
-```java
+```
 configService.addListener(dataId, groupId, configListener);
 这里就是你的dataid 和分组 加监听器
 ```
@@ -47,7 +47,7 @@ configService.addListener(dataId, groupId, configListener);
 
 然后循环监听器 给当前CacheData加入监听器
 
-```java
+```
 for (Listener listener : listeners) {
             cache.addListener(listener);
         }
@@ -193,7 +193,7 @@ clientWorker的内部类   new LongPollingRunnable(i)->public void run() {)
 
 #### 第二步 从Server获取值变化了的DataID列表. 然后进行一系列请求加载处理刷入缓存
 
-```java
+```
 这个步骤比较深 -> 会发送请求给nacos获取数据 再进行判断处理 改变cache.isInitializing状态
 List<String> changedGroupKeys = checkUpdateDataIds(cacheDatas, inInitializingCacheList);
 
@@ -357,7 +357,7 @@ for (String groupKey : changedGroupKeys) {
 
 ##### 5.最后一步 就是判断当前key是否初始化了 如果初始化了判断MD5并且修改初始化状态
 
-```java
+```
    for (CacheData cacheData : cacheDatas) {
                    //判断是否处于初始化状态 , 或者当前数据在返回的更新结果集中 修改初始化状态
                     if (!cacheData.isInitializing() || inInitializingCacheList

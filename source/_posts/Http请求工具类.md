@@ -8,7 +8,7 @@ tags: [java]
 
 ## 导入pom.xml
 
-```java
+```
  <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -25,7 +25,7 @@ tags: [java]
 
 ## 工具类
 
-```java
+```
 package com.linjingc.httpclientdemo.util;
 
 import com.alibaba.fastjson.JSONObject;

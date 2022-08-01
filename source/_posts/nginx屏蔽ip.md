@@ -1,7 +1,7 @@
 ---
 title: nginx屏蔽ip
 date: 2019-04-19 07:29:40
-tags: nginx
+tags: [nginx]
 ---
 
 # nginx屏蔽ip

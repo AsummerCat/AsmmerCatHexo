@@ -16,7 +16,7 @@ tags: [SpringBoot,数据库]
 
 # pom.xml 
 
-```java
+```
   <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -28,7 +28,7 @@ tags: [SpringBoot,数据库]
 
 # 配置文件修改
 
-```java
+```
 server:
   port: 8090
 
@@ -52,7 +52,7 @@ spring:
 
 # 脚本
 
-```java
+```
 create table if not exists USER (
 NAME varchar(100),
 ID NUMBER,

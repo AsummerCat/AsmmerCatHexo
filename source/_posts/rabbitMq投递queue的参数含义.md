@@ -6,7 +6,7 @@ tags: [SpringBoot,RabbitMQ]
 
 ## new queue() 基本队列
 
-```java
+```
  public Queue(String name, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments) {
         Assert.notNull(name, "'name' cannot be null");
         this.name = name;
@@ -18,7 +18,7 @@ tags: [SpringBoot,RabbitMQ]
     }
 ```
 
-```java
+```
 name: 当前队列的名称
 durable: 是否持久化到硬盘 若要使队列中消息不丢失，同时也需要将消息声明为持久化 默认:true
 exclusive:是否声明该队列是否为连接独占，若为独占，连接关闭后队列即被删除 默认:false
@@ -49,7 +49,7 @@ Arguments：可选map类型参数，可以指定队列长度，消息生存时�
 
 标志队列中的消息存活时间，也就是说队列中的消息超过了制定时间会被删除
 
-```java
+```
  @Bean
     public Queue argumentsQueue() {
         Map<String,Object> arguments=new HashMap<>();
@@ -69,7 +69,7 @@ Arguments：可选map类型参数，可以指定队列长度，消息生存时�
 
 队列自身的空闲存活时间，当前的queue在指定的时间内，没有consumer、basic.get也就是未被访问，就会被删除。
 
-```java
+```
 @Bean
     public Queue argumentsQueue() {
         Map<String,Object> arguments=new HashMap<>();
@@ -93,7 +93,7 @@ ReturnCallback会显示 应答码：312 原因：NO_ROUTE
 
 最大长度和最大占用空间，设置了最大长度的队列，在超过了最大长度后进行插入会删除之前插入的消息为本次的留出空间,相应的最大占用大小也是这个道理，当超过了这个大小的时候，会删除之前插入的消息为本次的留出空间。
 
-```java
+```
  @Bean
     public Queue argumentsQueue() {
         Map<String,Object> arguments=new HashMap<>();
@@ -114,7 +114,7 @@ ReturnCallback会显示 应答码：312 原因：NO_ROUTE
 
 再根据routingkey推到queue中
 
-```java
+```
  @Bean
     public Queue argumentsQueue() {
         Map<String,Object> arguments=new HashMap<>();
@@ -135,7 +135,7 @@ ReturnCallback会显示 应答码：312 原因：NO_ROUTE
 
 再根据routingkey推到queue中
 
-```java
+```
  @Bean
     public Queue argumentsQueue() {
         Map<String,Object> arguments=new HashMap<>();
@@ -154,7 +154,7 @@ ReturnCallback会显示 应答码：312 原因：NO_ROUTE
 
 队列所支持的优先级别，列如设置为5，表示队列支持0到5六个优先级别，5最高，0最低，当然这需要生产者在发送消息时指定消息的优先级别，消息按照优先级别从高到低的顺序分发给消费者
 
-```java
+```
  @Bean
     public Queue dieQueue() {
         Map<String, Object> arguments = new HashMap<>();
@@ -169,7 +169,7 @@ ReturnCallback会显示 应答码：312 原因：NO_ROUTE
 
 下面简称AE，当一个消息不能被route的时候，如果exchange设定了AE，则消息会被投递到AE。如果存在AE链，则会按此继续投递，直到消息被route或AE链结束或遇到已经尝试route过消息的AE。
 
-```java
+```
 @Bean
     public Queue argumentsQueue() {
         Map<String, Object> arguments = new HashMap<>();

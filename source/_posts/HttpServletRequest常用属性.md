@@ -6,7 +6,7 @@ tags: [java,SpringMvc,SpringBoot]
 
 # HttpServletRequest常用属性
 
-```java
+```
 setAttribute(String name,Object)：设置名字为name的request 的参数值 
 
 getAttribute(String name)：返回由name指定的属性值 

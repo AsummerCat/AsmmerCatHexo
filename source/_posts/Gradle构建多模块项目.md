@@ -26,7 +26,7 @@ gradle的项目 项目内置保留一个settings.gradle的配置文件 这个就
 
 这个是用来维护父子项目关系的
 
-```java
+```
 rootProject.name = 'gradle-demo'
 include 'entiry'
 include 'web'
@@ -36,7 +36,7 @@ include 'web'
 
 维护包和子模块包类似pom.xml
 
-```java
+```
 group 'com.linjingc'
 version '1.0-SNAPSHOT'
 
@@ -87,7 +87,7 @@ subprojects {
 
 这里因为是一个web模块 需要引入单独的包 就直接操作 其他的都会继承父类拿包
 
-```java
+```
 plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'

@@ -10,7 +10,7 @@ tags: [redis,SpringBoot,分布式锁,redisson]
 
 # 老规矩 导入pom
 
-```java
+```
 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -42,7 +42,7 @@ tags: [redis,SpringBoot,分布式锁,redisson]
 
 # 创建redisson配置类
 
-```java
+```
 /**
  * redis 锁 redisson配置
  * @author cxc
@@ -62,7 +62,7 @@ public class RedissonConfig {
 
 ## 新建 redisson-config.yml
 
-```java
+```
 #Redisson配置 https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95
 singleServerConfig:
   address: "redis://112.74.43.136:6379"
@@ -106,7 +106,7 @@ transportMode: "NIO"
 
 ## 创建 CatLock注解
 
-```java
+```
 /**
  * 方法级别
  * 加锁注解
@@ -186,7 +186,7 @@ public @interface CatLock {
 
 ## 创建参数key 
 
-```java
+```
 /**
  * 这个注解用来标记 参数 使用key lock
  *
@@ -205,7 +205,7 @@ public @interface LockKey {
 
 ## 创建一个锁工厂
 
-```java
+```
 /**
  * 工厂模式 根据lock的类型自动加载 对应的锁类型
  *
@@ -237,7 +237,7 @@ public class LockFactory {
 
 ## 这边是一个标记锁一定实现的两个方法 加锁解锁
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.basiclock;
 
 /**
@@ -270,7 +270,7 @@ public interface Lock {
 
 ## 公平锁
 
-```java
+```
 /**
  * 公平锁
  * @author cxc
@@ -319,7 +319,7 @@ public class FairLock implements Lock {
 
 ## 读锁
 
-```java
+```
 /**
  * 读锁
  *
@@ -370,7 +370,7 @@ public class ReadLock implements Lock {
 
 ## 写锁
 
-```java
+```
 /**
  * 写锁
  *
@@ -418,7 +418,7 @@ public class WriteLock implements Lock {
 
 ## 可重入锁
 
-```java
+```
 /**
  * 可重入锁
  *
@@ -480,7 +480,7 @@ public class ReentrantLock implements Lock {
 
 后期这个可以动态加载 yml里面的信息来更新配置文件
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.config;
 
 import lombok.Data;
@@ -531,7 +531,7 @@ public class RedisLockConfig {
 
  保存锁的基本信息
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.model;
 
 import com.linjingc.annotationredissonlock.lock.LockType;
@@ -578,7 +578,7 @@ public class LockInfo {
 
 ```
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock;
 
 public enum LockType {
@@ -627,7 +627,7 @@ public enum LockType {
 
 ## 创建业务key生成处理类
 
-```java
+```
 /**
  * 获取用户定义业务key
  *
@@ -721,7 +721,7 @@ public class BusinessKeyProvider {
 
 ## 创建 锁提供者
 
-```java
+```
 /**
  * 锁提供者  创建锁的相关信息都在这里生成
  *
@@ -826,7 +826,7 @@ public class LockInfoProvider {
 
 ## 创建注解切面类
 
-```java
+```
 /**
  * redis锁切面类
  * 用来包裹方法使用
@@ -1100,7 +1100,7 @@ public interface ReleaseTimeoutHandler {
 
 ## 自定义加锁超时实现类
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.Strategy;
 
 import com.linjingc.annotationredissonlock.lock.basiclock.Lock;
@@ -1179,7 +1179,7 @@ public enum LockTimeoutStrategy implements LockTimeoutHandler {
 
 ## 自定义释放锁实现类
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.Strategy;
 
 import com.linjingc.annotationredissonlock.lock.exception.CatLockTimeoutException;
@@ -1251,7 +1251,7 @@ public class CatLockInvocationException extends RuntimeException {
 
 ## 自定义超时错误
 
-```java
+```
 package com.linjingc.annotationredissonlock.lock.exception;
 
 
@@ -1280,7 +1280,7 @@ public class CatLockTimeoutException extends RuntimeException {
 
 这里可以手动捕获一个异常
 
-```java
+```
 IllegalArgumentException ->参数异常
 
 ```
@@ -1289,7 +1289,7 @@ IllegalArgumentException ->参数异常
 
 # 测试类
 
-```java
+```
 package com.linjingc.annotationredissonlock.controller;
 
 import com.linjingc.annotationredissonlock.entity.User;

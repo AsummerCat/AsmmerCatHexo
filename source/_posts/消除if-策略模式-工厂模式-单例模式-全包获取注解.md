@@ -16,7 +16,7 @@ tags: [java,设计模式]
 
 # 创建注解
 
-```java
+```
 /**
  * 首页指标注解
  *
@@ -41,7 +41,7 @@ public @interface IndexBi {
 
 ## 定义首页bi接口
 
-```java
+```
 /**
  * 首页bi接口
  *
@@ -62,7 +62,7 @@ public interface BiService {
 
 ## 创建实现类 及其标记注解
 
-```java
+```
 /**
  * 首页BI 
  *
@@ -79,7 +79,7 @@ public class BiAntimicrobialUseRateServiceImpl implements BiService {
 }
 ```
 
-```java
+```
 /**
  * 首页BI
  *
@@ -103,7 +103,7 @@ public class BiDDDSServiceImpl implements BiService {
 - 工厂类这边的话就是 交给spring 处理生成单例的bean
 - 然后创建一个spring context listener 获取被spring捕获的注解 set到工厂类的静态变量中
 
-```java
+```
 /**
  * 工厂模式 根据查看的指标的类型自动加载
  *
@@ -153,7 +153,7 @@ public class IndexBiFactory {
 
 # 这边就了 获取项目下所有注解的部分了
 
-```java
+```
 /**
  * Spring启动后获取所有拥有特定注解的Bean
  *
@@ -185,7 +185,7 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
 
 # 创建上下文
 
-```java
+```
 /**
  * 首页BI指标上下文
  * @author cxc
@@ -210,7 +210,7 @@ public class IndexBiContext {
 
 # 执行方法
 
-```java
+```
 @RestController
 public class testController {
     private static final Logger logger = LoggerFactory.getLogger(testController.class);
@@ -232,7 +232,7 @@ public class testController {
 
 # 实体
 
-```java
+```
 /**
  * 首页Bi搜索条件
  *

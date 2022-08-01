@@ -67,7 +67,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>...
 
 需要注意`SqlSessionFactoryBean`实现了Spring的`FactoryBean`接口。这意味着由Spring最终创建不是`SqlSessionFactoryBean`本身，而是 getObject()的结果。我们来看下getObject()
 
-```java
+```
 @Override
   public SqlSessionFactory getObject() throws Exception {
     if (this.sqlSessionFactory == null) {
@@ -86,7 +86,7 @@ getObject()最终返回了当前类的 SqlSessionFactory，因此，Spring 会�
 2. **configLocation**，它用来指定 MyBatis 的 XML 配置文件路径。通常只用来配置 `<settings>相关。其他均使用Spring方式配置`
 
 ```
-  ```java
+ ```
 public void afterPropertiesSet() throws Exception {
     //dataSource不能为空
     notNull(dataSource, "Property 'dataSource' is required");
@@ -161,7 +161,7 @@ if (this.mapperLocations != null) {
 
 MyBatis-Spring 允许 MyBatis 参与到 Spring 的事务管理中。 借助 Spring 的 DataSourceTransactionManager 实现事务管理。　　
 
-​```java
+​```
 /** 一、XML方式配置 **/
 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
   <constructor-arg ref="dataSource" />
@@ -250,7 +250,7 @@ public class AppConfig {
 
 　　　　( 为什么是SqlSessionTemplate，而不是默认的DefaultSqlSession？SqlSessionTemplate是整合包的核心，是线程安全的SqlSession实现，是我们@Autowired mapper接口编程的基础 )
 
-```java
+```
  @Override
  public <T> T getMapper(Class<T> type) {
  return getConfiguration().getMapper(type, this);

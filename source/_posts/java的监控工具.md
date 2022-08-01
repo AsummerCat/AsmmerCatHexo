@@ -59,7 +59,7 @@ tags: [java,jvm]
 
 # jstack  查看锁情况 打印线程dump
 
-```java
+```
 命令 jstack 
 --
 操作 : 1.强制dump，当jstack没有响应时使用   jstack -F pid 

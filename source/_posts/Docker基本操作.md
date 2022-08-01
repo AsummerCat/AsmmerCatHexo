@@ -1,7 +1,7 @@
 ---
 title: Docker基本操作
 date: 2018-10-01 17:21:31
-tags: docker
+tags: [docker]
 ---
 
 >参考:  
@@ -138,11 +138,11 @@ runoob@runoob:~# docker run -d -P training/webapp python app.py
 
 安装vim 执行两条命令
 
- ```
+```
  1.apt update
  
  2.apt install vim
- ```
+```
 
 ---
 
@@ -230,13 +230,13 @@ sudo docker cp containerID:container_path host_path
 
 ### 2.9 提交容器 成为镜像
 
-```java
+```
 docker commit -m="提交的描述信息" -a="作者" 容器ID 镜像名称:标签名
 ```
 
 ### 3.0  查看一个容器里面的进程信息
 
-```java
+```
 docker top 3b307a09d20d
 UID      PID    PPID    C    STIME  TTY    TIME       CMD
 root     805    787     0    Jul13   ?   00:00:00  nginx: master process nginx -g daemon off;
@@ -247,7 +247,7 @@ systemd+ 941     805     0   Jul13    ?   00:03:18  nginx: worker process
 
 加载镜像和打包镜像
 
-```java
+```
 docker save 可以把一个镜像保存到 tar 文件中，你可以这么做：
 ~ docker save registry:2.7.1 >registry-2.7.1.tar
 #同时 docker load 可以把镜像从 tar 文件导入到 docker 中
@@ -256,7 +256,7 @@ docker save 可以把一个镜像保存到 tar 文件中，你可以这么做：
 
 ### 3.2 实时获取docker当前执行的事件
 
-```java
+```
 docker events
 ```
 

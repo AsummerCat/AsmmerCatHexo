@@ -1,7 +1,7 @@
 ---
 title: linux安装jdk
 date: 2018-09-26 22:34:21
-tags: linux
+tags: [linux]
 ---
 # yum安装
 **centos7安装Openjdk1.8**
@@ -84,4 +84,4 @@ export CLASSPATH=./:JAVA_HOME/lib:$JRE_HOME/lib
 显示出版本信息
 
 
-``` 
+```

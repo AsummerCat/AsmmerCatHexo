@@ -42,7 +42,7 @@ get https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.2.tar
 
 访问显示
 
-```java
+```
 {
   "name" : "h8v_JWT",
   "cluster_name" : "elasticsearch",

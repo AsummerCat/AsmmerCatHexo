@@ -2,11 +2,8 @@
 name: spring-ioc
 title: Spring IOC 容器源码分析
 date: 2019-05-09 14:58:10
-tags: spring
+tags: [Spring]
 ---
-[TOC]
-
-<!--more-->
 
 Spring 最重要的概念是 IOC 和 AOP，本篇文章其实就是要带领大家来分析下 Spring 的 IOC 容器。既然大家平时都要用到 Spring，怎么可以不好好了解 Spring 呢？阅读本文并不能让你成为 Spring 专家，不过一定有助于大家理解 Spring 的很多概念，帮助大家排查应用中和 Spring 相关的一些问题。
 
@@ -18,14 +15,14 @@ Spring 最重要的概念是 IOC 和 AOP，本篇文章其实就是要带领大�
 
 **目录**
 
-<!-- toc -->
+<!--more-->
 
 
 ## 引言
 
 先看下最基本的启动 Spring 容器的例子：
 
-```java
+```
 public static void main(String[] args) {
     ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationfile.xml");
 }
@@ -33,7 +30,7 @@ public static void main(String[] args) {
 
 以上代码就可以利用配置文件来启动一个 Spring 容器了，请使用 maven 的小伙伴直接在 dependencies 中加上以下依赖即可，个人比较反对那些不知道要添加什么依赖，然后把 Spring 的所有相关的东西都加进来的方式。
 
-```java
+```
 <dependency>
   <groupId>org.springframework</groupId>
   <artifactId>spring-context</artifactId>
@@ -65,7 +62,7 @@ public static void main(String[] args) {
 
 首先，定义一个接口：
 
-```java
+```
 public interface MessageService {
     String getMessage();
 }
@@ -73,7 +70,7 @@ public interface MessageService {
 
 定义接口实现类：
 
-```java
+```
 public class MessageServiceImpl implements MessageService {
 
     public String getMessage() {
@@ -84,7 +81,7 @@ public class MessageServiceImpl implements MessageService {
 
 接下来，我们在 **resources** 目录新建一个配置文件，文件名随意，通常叫 application.xml 或 application-xxx.xml 就可以了：
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
@@ -96,7 +93,7 @@ public class MessageServiceImpl implements MessageService {
 
 这样，我们就可以跑起来了：
 
-```java
+```
 public class App {
     public static void main(String[] args) {
         // 用我们的配置文件来启动一个 ApplicationContext
@@ -139,7 +136,7 @@ BeanFactory，从名字上也很好理解，生产 bean 的工厂，它负责生
 
 第一步，我们肯定要从 ClassPathXmlApplicationContext 的构造方法说起。
 
-```java
+```
 public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContext {
   private Resource[] configResources;
   
@@ -166,7 +163,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 
 往下看，refresh() 方法里面调用了那么多方法，就知道肯定不简单了，请读者先看个大概，细节之后会详细说。
 
-```java
+```
 @Override
 public void refresh() throws BeansException, IllegalStateException {
    // 来个锁，不然 refresh() 还没结束，你又来个启动或销毁容器的操作，那不就乱套了嘛
@@ -252,7 +249,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 这个比较简单，直接看代码中的几个注释即可。
 
-```java
+```
 protected void prepareRefresh() {
    // 记录启动时间，
    // 将 active 属性设置为 true，closed 属性设置为 false，它们都是 AtomicBoolean 类型
@@ -284,7 +281,7 @@ protected void prepareRefresh() {
 
 // AbstractApplicationContext.java
 
-```java
+```
 protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
    // 关闭旧的 BeanFactory (如果有)，创建新的 BeanFactory，加载 Bean 定义、注册 Bean 等等
    refreshBeanFactory();
@@ -300,7 +297,7 @@ protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
 
 // AbstractRefreshableApplicationContext.java 120
 
-```java
+```
 @Override
 protected final void refreshBeanFactory() throws BeansException {
    // 如果 ApplicationContext 中已经加载过 BeanFactory 了，销毁所有 Bean，关闭 BeanFactory
@@ -356,7 +353,7 @@ protected final void refreshBeanFactory() throws BeansException {
 
 我们来看下 BeanDefinition 的接口定义：
 
-```java
+```
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
    // 我们可以看到，默认只提供 sington 和 prototype 两种，
@@ -453,7 +450,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 有了 BeanDefinition 的概念以后，我们再往下看 refreshBeanFactory() 方法中的剩余部分：
 
-```java
+```
 customizeBeanFactory(beanFactory);
 loadBeanDefinitions(beanFactory);
 ```
@@ -464,7 +461,7 @@ loadBeanDefinitions(beanFactory);
 
 customizeBeanFactory(beanFactory) 比较简单，就是配置是否允许 BeanDefinition 覆盖、是否允许循环引用。
 
-```java
+```
 protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
    if (this.allowBeanDefinitionOverriding != null) {
       // 是否允许 Bean 定义覆盖
@@ -495,7 +492,7 @@ BeanDefinition 的覆盖问题可能会有开发者碰到这个坑，就是在�
 
 // AbstractXmlApplicationContext.java 80
 
-```java
+```
 /** 我们可以看到，此方法将通过一个 XmlBeanDefinitionReader 实例来加载各个 Bean。*/
 @Override
 protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
@@ -520,7 +517,7 @@ protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throw
 
 // AbstractXmlApplicationContext.java 120
 
-```java
+```
 protected void loadBeanDefinitions(XmlBeanDefinitionReader reader) throws BeansException, IOException {
    Resource[] configResources = getConfigResources();
    if (configResources != null) {
@@ -631,7 +628,7 @@ public void registerBeanDefinitions(Document doc, XmlReaderContext readerContext
 
 ##### doRegisterBeanDefinitions：
 
-```java
+```
 // DefaultBeanDefinitionDocumentReader 116
 protected void doRegisterBeanDefinitions(Element root) {
    // 我们看名字就知道，BeanDefinitionParserDelegate 必定是一个重要的类，它负责解析 Bean 定义，
@@ -673,7 +670,7 @@ preProcessXml(root) 和 postProcessXml(root) 是给子类用的钩子方法，�
 
 接下来，看核心解析方法 parseBeanDefinitions(root, this.delegate) :
 
-```java
+```
 // default namespace 涉及到的就四个标签 <import />、<alias />、<bean /> 和 <beans />，
 // 其他的属于 custom 的
 protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
@@ -706,20 +703,20 @@ parseDefaultElement(ele, delegate) 代表解析的节点是 `<import />`、`<ali
 
 > 这里的四个标签之所以是 default 的，是因为它们是处于这个 namespace 下定义的：
 >
-> ```
+```
 > http://www.springframework.org/schema/beans
-> ```
+```
 >
 > 又到初学者科普时间，不熟悉 namespace 的读者请看下面贴出来的 xml，这里的第二行 **xmlns** 就是咯。
 >
-> ```xml
+```
 > <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >        xmlns="http://www.springframework.org/schema/beans"
 >        xsi:schemaLocation="
 >             http://www.springframework.org/schema/beans
 >           http://www.springframework.org/schema/beans/spring-beans.xsd"
 >        default-autowire="byName">
-> ```
+```
 >
 > 而对于其他的标签，将进入到 delegate.parseCustomElement(element) 这个分支。如我们经常会使用到的 `<mvc />`、`<task />`、`<context />`、`<aop />`等。
 >
@@ -727,8 +724,8 @@ parseDefaultElement(ele, delegate) 代表解析的节点是 `<import />`、`<ali
 >
 > 假如读者想分析 `<context:property-placeholder location="classpath:xx.properties" />` 的实现原理，就应该到 ContextNamespaceHandler 中找答案。
 >
-> ```xml
-> <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+```
+ <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 >       xmlns="http://www.springframework.org/schema/beans"
 >       xmlns:context="http://www.springframework.org/schema/context"
 >       xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -741,11 +738,11 @@ parseDefaultElement(ele, delegate) 代表解析的节点是 `<import />`、`<ali
 >            http://www.springframework.org/schema/mvc/spring-mvc.xsd  
 >        "
 >       default-autowire="byName">
-> ```
+```
 
 回过神来，看看处理 default 标签的方法：
 
-```java
+```
 private void parseDefaultElement(Element ele, BeanDefinitionParserDelegate delegate) {
    if (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) {
       // 处理 <import /> 标签
@@ -775,7 +772,7 @@ private void parseDefaultElement(Element ele, BeanDefinitionParserDelegate deleg
 
 // DefaultBeanDefinitionDocumentReader 298
 
-```java
+```
 protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
    // 将 <bean /> 节点中的信息提取出来，然后封装到一个 BeanDefinitionHolder 中，细节往下看
    BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
@@ -816,7 +813,7 @@ protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate d
 
 简单地说就是像下面这样子：
 
-```xml
+```
 <bean id="exampleBean" name="name1, name2, name3" class="com.javadoop.ExampleBean"
       scope="singleton" lazy-init="true" init-method="init" destroy-method="cleanup">
   
@@ -840,7 +837,7 @@ protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate d
 
 // BeanDefinitionParserDelegate 428
 
-```java
+```
 public BeanDefinitionHolder parseBeanDefinitionElement(Element ele) {
     return parseBeanDefinitionElement(ele, null);
 }
@@ -923,7 +920,7 @@ public BeanDefinitionHolder parseBeanDefinitionElement(Element ele, BeanDefiniti
 
 然后，我们再看看怎么根据配置创建 BeanDefinition 实例的：
 
-```java
+```
 public AbstractBeanDefinition parseBeanDefinitionElement(
       Element ele, String beanName, BeanDefinition containingBean) {
 
@@ -990,7 +987,7 @@ public AbstractBeanDefinition parseBeanDefinitionElement(
 
 我们回到解析 `<bean />` 的入口方法:
 
-```java
+```
 protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
    // 将 <bean /> 节点转换为 BeanDefinitionHolder，就是上面说的一堆
    BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
@@ -1013,7 +1010,7 @@ protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate d
 
 大家再仔细看一下这块吧，我们后面就不回来说这个了。这里已经根据一个 `<bean />` 标签产生了一个 BeanDefinitionHolder 的实例，这个实例里面也就是一个 BeanDefinition 的实例和它的 beanName、aliases 这三个信息，注意，我们的关注点始终在 BeanDefinition 上：
 
-```java
+```
 public class BeanDefinitionHolder implements BeanMetadataElement {
 
   private final BeanDefinition beanDefinition;
@@ -1032,7 +1029,7 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 
 // BeanDefinitionReaderUtils 143
 
-```java
+```
 public static void registerBeanDefinition(
       BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
       throws BeanDefinitionStoreException {
@@ -1057,7 +1054,7 @@ public static void registerBeanDefinition(
 
 // DefaultListableBeanFactory 793
 
-```java
+```
 @Override
 public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
       throws BeanDefinitionStoreException {
@@ -1152,7 +1149,7 @@ public void registerBeanDefinition(String beanName, BeanDefinition beanDefinitio
 
 考虑到篇幅，这里开始大幅缩减掉没必要详细介绍的部分，大家直接看下面的代码中的注释就好了。
 
-```java
+```
 @Override
 public void refresh() throws BeansException, IllegalStateException {
    // 来个锁，不然 refresh() 还没结束，你又来个启动或销毁容器的操作，那不就乱套了嘛
@@ -1240,7 +1237,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 这里简单介绍下 prepareBeanFactory(factory) 方法：
 
-```java
+```
 /**
  * Configure the factory's standard context characteristics,
  * such as the context's ClassLoader and post-processors.
@@ -1331,7 +1328,7 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 
 // AbstractApplicationContext.java 834
 
-```java
+```
 // 初始化剩余的 singleton beans
 protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory beanFactory) {
 
@@ -1381,7 +1378,7 @@ protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory b
 
 // DefaultListableBeanFactory 728
 
-```java
+```
 @Override
 public void preInstantiateSingletons() throws BeansException {
    if (this.logger.isDebugEnabled()) {
@@ -1461,7 +1458,7 @@ public void preInstantiateSingletons() throws BeansException {
 
 // AbstractBeanFactory 196
 
-```java
+```
 @Override
 public Object getBean(String name) throws BeansException {
    return doGetBean(name, null, null, false);
@@ -1642,7 +1639,7 @@ protected <T> T doGetBean(
 
 大家应该也猜到了，接下来当然是分析 createBean 方法：
 
-```java
+```
 protected abstract Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException;
 ```
 
@@ -1652,7 +1649,7 @@ protected abstract Object createBean(String beanName, RootBeanDefinition mbd, Ob
 
 主要是为了以下场景，采用 @Autowired 注解注入属性值：
 
-```java
+```
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private UserService userService;
@@ -1663,7 +1660,7 @@ public class MessageServiceImpl implements MessageService {
 }
 ```
 
-```xml
+```
 <bean id="messageService" class="com.javadoop.example.MessageServiceImpl" />
 ```
 
@@ -1673,7 +1670,7 @@ public class MessageServiceImpl implements MessageService {
 
 // AbstractAutowireCapableBeanFactory 447
 
-```java
+```
 /**
  * Central method of this class: creates a bean instance,
  * populates the bean instance, applies post-processors, etc.
@@ -1729,7 +1726,7 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] ar
 
 我们继续往里看 doCreateBean 这个方法：
 
-```java
+```
 /**
  * Actually create the specified bean. Pre-creation processing has already happened
  * at this point, e.g. checking {@code postProcessBeforeInstantiation} callbacks.
@@ -1867,7 +1864,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 我们先看看 createBeanInstance 方法。需要说明的是，这个方法如果每个分支都分析下去，必然也是极其复杂冗长的，我们挑重点说。此方法的目的就是实例化我们指定的类。
 
-```java
+```
 protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, Object[] args) {
    // 确保已经加载了此 class
    Class<?> beanClass = resolveBeanClass(mbd, beanName);
@@ -1922,7 +1919,7 @@ protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd
 
 挑个简单的**无参构造函数**构造实例来看看：
 
-```java
+```
 protected BeanWrapper instantiateBean(final String beanName, final RootBeanDefinition mbd) {
    try {
       Object beanInstance;
@@ -1954,7 +1951,7 @@ protected BeanWrapper instantiateBean(final String beanName, final RootBeanDefin
 
 我们可以看到，关键的地方在于：
 
-```java
+```
 beanInstance = getInstantiationStrategy().instantiate(mbd, beanName, parent);
 ```
 
@@ -1962,7 +1959,7 @@ beanInstance = getInstantiationStrategy().instantiate(mbd, beanName, parent);
 
 // SimpleInstantiationStrategy 59
 
-```java
+```
 @Override
 public Object instantiate(RootBeanDefinition bd, String beanName, BeanFactory owner) {
 
@@ -2015,7 +2012,7 @@ public Object instantiate(RootBeanDefinition bd, String beanName, BeanFactory ow
 
 // AbstractAutowireCapableBeanFactory 1203
 
-```java
+```
 protected void populateBean(String beanName, RootBeanDefinition mbd, BeanWrapper bw) {
    // bean 实例的所有属性都在这里了
    PropertyValues pvs = mbd.getPropertyValues();
@@ -2100,7 +2097,7 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, BeanWrapper
 
 属性注入完成后，这一步其实就是处理各种回调了，这块代码比较简单。
 
-```java
+```
 protected Object initializeBean(final String beanName, final Object bean, RootBeanDefinition mbd) {
    if (System.getSecurityManager() != null) {
       AccessController.doPrivileged(new PrivilegedAction<Object>() {
@@ -2151,25 +2148,25 @@ protected Object initializeBean(final String beanName, final Object bean, RootBe
 
 我们从 Spring 容器中获取 Bean 的时候，可以根据 beanName，也可以通过别名。
 
-```java
+```
 beanFactory.getBean("beanName or alias");
 ```
 
 在配置 `<bean />` 的过程中，我们可以配置 id 和 name，看几个例子就知道是怎么回事了。
 
-```xml
+```
 <bean id="messageService" name="m1, m2, m3" class="com.javadoop.example.MessageServiceImpl">
 ```
 
 以上配置的结果就是：beanName 为 messageService，别名有 3 个，分别为 m1、m2、m3。
 
-```xml
+```
 <bean name="m1, m2, m3" class="com.javadoop.example.MessageServiceImpl" />
 ```
 
 以上配置的结果就是：beanName 为 m1，别名有 2 个，分别为 m2、m3。
 
-```xml
+```
 <bean class="com.javadoop.example.MessageServiceImpl">
 ```
 
@@ -2177,7 +2174,7 @@ beanName 为：com.javadoop.example.MessageServiceImpl#0，
 
 别名 1 个，为： com.javadoop.example.MessageServiceImpl
 
-```xml
+```
 <bean id="messageService" class="com.javadoop.example.MessageServiceImpl">
 ```
 
@@ -2195,7 +2192,7 @@ beanName 为：com.javadoop.example.MessageServiceImpl#0，
 
 添加这两个属性的作者 Juergen Hoeller 在这个 [jira](https://jira.spring.io/browse/SPR-4374) 的讨论中说明了怎么配置这两个属性。
 
-```java
+```
 public class NoBeanOverridingContextLoader extends ContextLoader {
  
   @Override
@@ -2207,7 +2204,7 @@ public class NoBeanOverridingContextLoader extends ContextLoader {
 }
 ```
 
-```java
+```
 public class MyContextLoaderListener extends org.springframework.web.context.ContextLoaderListener {
  
   @Override
@@ -2218,7 +2215,7 @@ public class MyContextLoaderListener extends org.springframework.web.context.Con
 }
 ```
 
-```xml
+```
 <listener>
     <listener-class>com.javadoop.MyContextLoaderListener</listener-class>  
 </listener>
@@ -2230,7 +2227,7 @@ public class MyContextLoaderListener extends org.springframework.web.context.Con
 
 我们可以把不同环境的配置分别配置到单独的文件中，举个例子：
 
-```xml
+```
 <beans profile="development"
     xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -2243,7 +2240,7 @@ public class MyContextLoaderListener extends org.springframework.web.context.Con
     </jdbc:embedded-database>
 </beans>
 ```
-```xml
+```
 <beans profile="production"
     xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -2258,7 +2255,7 @@ public class MyContextLoaderListener extends org.springframework.web.context.Con
 
 当然，我们也可以在一个配置文件中使用：
 
-```xml
+```
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jdbc="http://www.springframework.org/schema/jdbc"
@@ -2294,7 +2291,7 @@ Spring 会在这几个地方寻找 spring.profiles.active 的属性值：操作�
 
 当然，我们也可以通过代码的形式从 Environment 中设置 profile：
 
-```java
+```
 AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 ctx.getEnvironment().setActiveProfiles("development");
 ctx.register(SomeConfig.class, StandaloneDataConfig.class, JndiDataConfig.class);
@@ -2317,13 +2314,13 @@ java -Dspring.profiles.active=prod -jar JavaDoop.jar
 
 静态工厂：
 
-```xml
+```
 <bean id="clientService"
     class="examples.ClientService"
     factory-method="createInstance"/>
 ```
 
-```java
+```
 public class ClientService {
     private static ClientService clientService = new ClientService();
     private ClientService() {}
@@ -2337,7 +2334,7 @@ public class ClientService {
 
 实例工厂：
 
-```xml
+```
 <bean id="serviceLocator" class="examples.DefaultServiceLocator">
     <!-- inject any dependencies required by this locator bean -->
 </bean>
@@ -2351,7 +2348,7 @@ public class ClientService {
     factory-method="createAccountServiceInstance"/>
 ```
 
-```java
+```
 public class DefaultServiceLocator {
 
     private static ClientService clientService = new ClientServiceImpl();
@@ -2371,7 +2368,7 @@ public class DefaultServiceLocator {
 
 FactoryBean 适用于 Bean 的创建过程比较复杂的场景，比如数据库连接池的创建。
 
-```java
+```
 public interface FactoryBean<T> {
     T getObject() throws Exception;
     Class<T> getObjectType();
@@ -2379,7 +2376,7 @@ public interface FactoryBean<T> {
 }
 ```
 
-```java
+```
 public class Person { 
     private Car car ;
     private void setCar(Car car){ this.car = car;  }  
@@ -2388,7 +2385,7 @@ public class Person {
 
 我们假设现在需要创建一个 Person 的 Bean，首先我们需要一个 Car 的实例，我们这里假设 Car 的实例创建很麻烦，那么我们可以把创建 Car 的复杂过程包装起来：
 
-```java
+```
 public class MyCarFactoryBean implements FactoryBean<Car>{
     private String make; 
     private int year ;
@@ -2414,7 +2411,7 @@ public class MyCarFactoryBean implements FactoryBean<Car>{
 
 我们看看装配的时候是怎么配置的：
 
-```xml
+```
 <bean class = "com.javadoop.MyCarFactoryBean" id = "car">
   <property name = "make" value ="Honda"/>
   <property name = "year" value ="1984"/>
@@ -2428,7 +2425,7 @@ public class MyCarFactoryBean implements FactoryBean<Car>{
 
 说到这里，我们再来点干货。我们知道，现在还用 xml 配置 Bean 依赖的越来越少了，更多时候，我们可能会采用 java  config 的方式来配置，这里有什么不一样呢？
 
-```java
+```
 @Configuration 
 public class CarConfiguration { 
 
@@ -2456,11 +2453,11 @@ public class CarConfiguration {
 
 有以下四种方案：
 
-```xml
+```
 <bean id="exampleInitBean" class="examples.ExampleBean" init-method="init"/>
 ```
 
-```java
+```
 public class AnotherExampleBean implements InitializingBean {
 
     public void afterPropertiesSet() {
@@ -2469,14 +2466,14 @@ public class AnotherExampleBean implements InitializingBean {
 }
 ```
 
-```java
+```
 @Bean(initMethod = "init")
 public Foo foo() {
     return new Foo();
 }
 ```
 
-```java
+```
 @PostConstruct
 public void init() {
     
@@ -2485,11 +2482,11 @@ public void init() {
 
 ### 销毁 Bean 的回调
 
-```xml
+```
 <bean id="exampleInitBean" class="examples.ExampleBean" destroy-method="cleanup"/>
 ```
 
-```java
+```
 public class AnotherExampleBean implements DisposableBean {
 
     public void destroy() {
@@ -2498,14 +2495,14 @@ public class AnotherExampleBean implements DisposableBean {
 }
 ```
 
-```java
+```
 @Bean(destroyMethod = "cleanup")
 public Bar bar() {
     return new Bar();
 }
 ```
 
-```java
+```
 @PreDestroy
 public void cleanup() {
     
@@ -2520,7 +2517,7 @@ public void cleanup() {
 
 像前端传过来的字符串、整数要转换为后端的 String、Integer 很容易，但是如果 controller 方法需要的是一个枚举值，或者是 Date 这些非基础类型（含基础类型包装类）值的时候，我们就可以考虑采用 ConversionService 来进行转换。
 
-```xml
+```
 <bean id="conversionService"
   class="org.springframework.context.support.ConversionServiceFactoryBean">
   <property name="converters">
@@ -2537,7 +2534,7 @@ ConversionService 接口很简单，所以要自定义一个 convert 的话也�
 
 来看一个很简单的例子，这样比什么都管用。
 
-```java
+```
 public class StringToDateConverter implements Converter<String, Date> {
 
     @Override
@@ -2557,7 +2554,7 @@ public class StringToDateConverter implements Converter<String, Date> {
 
 在初始化 Bean 的地方，我们说过了这个：
 
-```java
+```
 RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
 ```
 
@@ -2569,7 +2566,7 @@ Spring 中提供了继承自 AbstractBeanDefinition 的 `ChildBeanDefinition` �
 
 看如下一个例子:
 
-```java
+```
 <bean id="inheritedTestBean" abstract="true" class="org.springframework.beans.TestBean">
     <property name="name" value="parent"/>
     <property name="age" value="1"/>
@@ -2590,7 +2587,7 @@ child bean 会继承 scope、构造器参数值、属性值、init-method、dest
 
 比如下面这个极端 parent bean，它没有指定 class，所以毫无疑问，这个 bean 的作用就是用来充当模板用的 parent bean，此处就必须加上 abstract = true。
 
-```java
+```
 <bean id="inheritedTestBeanWithoutClass" abstract="true">
     <property name="name" value="parent"/>
     <property name="age" value="1"/>
@@ -2610,7 +2607,7 @@ child bean 会继承 scope、构造器参数值、属性值、init-method、dest
 
 我们来看一下 Spring Reference 中提供的一个例子：
 
-```java
+```
 package fiona.apple;
 
 // no more Spring imports!
@@ -2632,7 +2629,7 @@ public abstract class CommandManager {
 
 xml 配置 `<lookup-method />`：
 
-```xml
+```
 <!-- a stateful bean deployed as a prototype (non-singleton) -->
 <bean id="myCommand" class="fiona.apple.AsyncCommand" scope="prototype">
     <!-- inject dependencies here as required -->
@@ -2648,7 +2645,7 @@ Spring 采用 **CGLIB 生成字节码**的方式来生成一个子类。我们�
 
 lookup-method 上的配置也可以采用注解来完成，这样就可以不用配置 `<lookup-method />` 了，其他不变：
 
-```java
+```
 public abstract class CommandManager {
 
     public Object process(Object commandState) {
@@ -2666,7 +2663,7 @@ public abstract class CommandManager {
 
 甚至，我们可以像下面这样：
 
-```java
+```
 public abstract class CommandManager {
 
     public Object process(Object commandState) {
@@ -2686,7 +2683,7 @@ public abstract class CommandManager {
 
 记住它的功能，就是替换掉 bean 中的一些方法。
 
-```java
+```
 public class MyValueCalculator {
 
     public String computeValue(String input) {
@@ -2699,7 +2696,7 @@ public class MyValueCalculator {
 
 方法覆写，注意要实现 MethodReplacer 接口：
 
-```java
+```
 public class ReplacementComputeValue implements org.springframework.beans.factory.support.MethodReplacer {
 
     public Object reimplement(Object o, Method m, Object[] args) throws Throwable {
@@ -2713,7 +2710,7 @@ public class ReplacementComputeValue implements org.springframework.beans.factor
 
 配置也很简单：
 
-```xml
+```
 <bean id="myValueCalculator" class="x.y.z.MyValueCalculator">
     <!-- 定义 computeValue 这个方法要被替换掉 -->
     <replaced-method name="computeValue" replacer="replacementComputeValue">
@@ -2730,7 +2727,7 @@ public class ReplacementComputeValue implements org.springframework.beans.factor
 
 应该说 BeanPostProcessor 概念在 Spring 中也是比较重要的。我们看下接口定义：
 
-```java
+```
 public interface BeanPostProcessor {
 
    Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;

@@ -36,7 +36,7 @@ QoS提供了一些启动参数，来对启动进行配置，他们主要包括�
 
 如果要通过XML配置响应的QoS相关的参数，可以进行如下配置：
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -72,7 +72,7 @@ dubbo.application.qosAcceptForeignIp=false
 
 ## 连接命令:
 
-```java
+```
 telnet localhost 22222
 ```
 
@@ -119,7 +119,7 @@ OK
 
 ## help 命令
 
-```java
+```
 //列出所有命令
 dubbo>help
 

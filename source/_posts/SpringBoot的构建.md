@@ -1,7 +1,7 @@
 ---
 title: SpringBoot的构建
 date: 2018-10-05 13:13:54
-tags: SpringBoot
+tags: [SpringBoot]
 ---
 
 # 项目创建
@@ -53,13 +53,13 @@ server.port=8081    #端口号
 ## 编码配置
 因为中文不做特殊处理会乱码，处理方式为继续在application.properties中添加如下代码
 
- ```
+```
 server.tomcat.uri-encoding=UTF-8
 spring.http.encoding.charset=UTF-8
 spring.http.encoding.enabled=true
 spring.http.encoding.force=true
 spring.messages.encoding=UTF-8
- ```
+```
 
 ---
 ## 常规属性配置

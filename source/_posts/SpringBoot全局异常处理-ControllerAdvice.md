@@ -1,7 +1,7 @@
 ---
 title: SpringBoot全局异常处理@ControllerAdvice
 date: 2018-11-30 10:04:27
-tags: SpringBoot
+tags: [SpringBoot]
 ---
 
 # 使用@ExceptionHandler当前Controller异常处理

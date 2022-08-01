@@ -1,7 +1,7 @@
 ---
 title: Solr基本语法
 date: 2019-03-05 20:12:44
-tags: solr
+tags: [solr]
 ---
 
 # Solr基本语法
@@ -33,7 +33,7 @@ tags: solr
 
 ### 精确查找
 
-```javascript
+```script
  q= 为查询  name:精确查找  
  http://localhost:8983/solr/jcg/select?q=name:A Clash of Kings
 ```
@@ -42,34 +42,34 @@ tags: solr
 
 ## 查询所有
 
-```javascript
+```script
 http://localhost:8080/solr/primary/select?q=*:*
 ```
 
 ### 限定返回字段
 
-```javascript
+```script
 http://localhost:8080/solr/primary/select?q=*:*&fl=productId  
 表示：查询所有记录，只返回productId字段
 ```
 
 ### 分页
 
-```java
+```
 http://localhost:8080/solr/primary/select?q=*:*&fl=productId&rows=6&start=0  
 表示：查询前六条记录，只返回productId字段
 ```
 
 ### 增加限定条件
 
-```javascript
+```script
 http://localhost:8080/solr/primary/select?q=*:*&fl=productId&rows=6&start=0&fq=category:2002&fq=namespace:d&fl=productId+category&fq=en_US_city_i:1101  
 表示：查询category=2002、en_US_city_i=110以及namespace=d的前六条记录，只返回productId和category字段
 ```
 
 ### 添加排序
 
-```java
+```
 http://localhost:8080/solr/primary/select?q=*:*&fl=productId&rows=6&start=0&fq=category:2002&fq=namespace:d&sort=category_2002_sort_i+asc  
 表示：查询category=2002以及namespace=d并按category_2002_sort_i升序排序的前六条记录，只返回productId字段
 ```
@@ -78,7 +78,7 @@ http://localhost:8080/solr/primary/select?q=*:*&fl=productId&rows=6&start=0&fq=c
 
 ## Solr进行数据的增删改查的处理
 
-```java
+```
 package com.hnu.scw.solr;
 import java.io.IOException;
 import java.util.List;

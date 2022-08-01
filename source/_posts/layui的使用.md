@@ -1,11 +1,11 @@
 ---
 title:  layui的使用
 date: 2018-09-27 14:32:31
-tags:  前端
+tags:  [前端]
 ---
 ## 关闭当前窗口
 
-```javascript
+```script
 function clearALL(){
   		  //获取当前窗体索引
         var index=parent.layer.getFrameIndex(window.name); 
@@ -22,7 +22,7 @@ function clearALL(){
 
 ## 弹出层
 
-```javascript
+```script
  layer.open({
         type: 2,
         title: ['添加显示城市', 'font-size:18px;'],
@@ -60,7 +60,7 @@ function clearALL(){
 
 ## 父页面调用子页面JS方法
 
-```javascript
+```script
 //获取子页面窗口
 var iframeWin = window[layero.find('iframe')[0]['name']];  
 //调用子页面的js方法        
@@ -72,7 +72,7 @@ var id= iframeWin.findAllSelectId();
 
 ## 父页面获取子页面元素
 
-```javascript
+```script
 //获取子页面的body		
 var body = layer.getChildFrame('body', index); 
 //判断不为空 再进行追加操作 不然会重复添加

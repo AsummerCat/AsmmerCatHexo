@@ -40,7 +40,7 @@ public class DelayQueueTest {
 
 ## 延时队列的内容对象
 
-```java
+```
 /**
 	 * 延时队列的内容对象
 	 */
@@ -121,7 +121,7 @@ public class DelayQueueTest {
 
 ## 消费任务
 
-```java
+```
 	/**
 	 * 消费任务
 	 *

@@ -10,7 +10,7 @@ tags: [SpringBoot,mongodb笔记]
 
 ## 导入pom.xml	
 
-```java
+```
        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -27,7 +27,7 @@ tags: [SpringBoot,mongodb笔记]
 
 添加数据库配置（application.yml）
 
-```java
+```
 spring:
   data:
     mongodb:
@@ -42,7 +42,7 @@ spring:
 
 ## 使用
 
-```java
+```
 @Resource
     private MongoTemplate mongoTemplate;
 ```
@@ -71,7 +71,7 @@ public class User {
 
 ## dao层
 
-```java
+```
 package com.linjingc.mongdbdemo.dao;
 
 
@@ -297,7 +297,7 @@ public class MongoDao {
 
 ## controller层
 
-```java
+```
 package com.linjingc.mongdbdemo.controller;
 
 import com.alibaba.fastjson.JSONObject;

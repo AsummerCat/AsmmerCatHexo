@@ -1,7 +1,7 @@
 ---
 title: iText导出pdf
 date: 2018-11-23 15:18:25
-tags: 工具类
+tags: [工具类]
 ---
 # [demo地址](https://github.com/AsummerCat/itextdemo)
 
@@ -48,18 +48,18 @@ tags: 工具类
 
 * 方案一:
 
- ```
+```
  下载itext-asian.jar 解压 改变位置 然后导入
  相关信息暂不介绍
  
- ```
- ```
+```
+```
  //中文字体
           BaseFont bfChinese = BaseFont.createFont( "STSongStd-Light" ,"UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
            Font font = new Font(bfChinese, 12,Font.NORMAL);
            PdfPCell cell = new PdfPCell(new Paragraph("测试",bigHoldFont));
 
- ```
+```
 
 * 方案二:
 

@@ -1,10 +1,10 @@
 ---
-title: 面试相关-mybaitis
+title: 面试相关-mybatis
 date: 2020-02-04 11:01:57
 tags: [面试相关]
 ---
 
-# mybaitis
+# mybatis
 
 ## mybatis中的#{} 和${}
 
@@ -37,7 +37,7 @@ Mapper 接口的工作原理是JDK动态代理，Mybatis运行时会使用JDK动
 或者传入Map
 ```
 
-### mybatis和mybaitis-plus的区别?
+### mybatis和mybatis-plus的区别?
 
 ```
 1.plus 内置分页插件

@@ -1,7 +1,7 @@
 ---
 title: oracle11G分区大表月度形式建表和查询
 date: 2019-11-11 14:34:00
-tags: [数据库,orcle,mysql]
+tags: [数据库,oracle,mysql]
 ---
 
 #  oracle11G分区大表月度形式建表和查询
@@ -29,7 +29,7 @@ alter table P_DRUG_SUI_ANALYSIS_OUT rename to P_DRUG_SUI_ANALYSIS_OUT_temp; --�
 
 ## 2.按月创建分区表
 
-```JAVA
+```
 create table P_DRUG_SUI_ANALYSIS_OUT ---按月创建分区表
 ( 
 	ID VARCHAR2(32) not null
@@ -86,7 +86,7 @@ alter table P_DRUG_SUI_ANALYSIS_OUT add constraint P_DRUG_SUI_ANALYSIS_OUT_pk_1 
 
 给分区键 设置索引
 
-```java
+```
 create index P_PRES_TIME_1 on P_DRUG_SUI_ANALYSIS_OUT (PRES_TIME);  --5.设置索引
 ```
 

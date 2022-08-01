@@ -1,14 +1,14 @@
 ---
 title: SpringSecurity整合Oauth2实现使用过期后刷新token四
 date: 2019-07-11 22:25:18
-tags: [Security,springCloud,Oauth2]
+tags: [Security,SpringCloud,Oauth2]
 ---
 
 # SpringSecurity整合Oauth2实现使用过期后刷新token四
 
 # 在认证服务器上添加
 
-```java
+```
 @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // 为解决获取token并发问题
@@ -36,7 +36,7 @@ tags: [Security,springCloud,Oauth2]
 
 这里面的大概逻辑就是
 
-```java
+```
 创建一个DefaultTokenServices  添加 setSupportRefreshToken属性为true 表示为可以刷新token
 默认的情况下是关闭的
 ```
@@ -45,7 +45,7 @@ tags: [Security,springCloud,Oauth2]
 
 ## 请求刷新的路径
 
-```java
+```
 url: http://localhost:8100/oauth/token
 跟认证的一样
 参数的话: refresh_token    xxxx

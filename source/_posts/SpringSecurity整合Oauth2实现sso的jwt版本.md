@@ -1,7 +1,7 @@
 ---
 title: SpringSecurity整合Oauth2实现sso的jwt版本
 date: 2019-07-31 19:47:59
-tags: [springCloud,Oauth2,Security,单点登录]
+tags: [SpringCloud,Oauth2,Security,单点登录]
 ---
 
 # 基于Oauth2实现SSO整合Redis
@@ -12,7 +12,7 @@ tags: [springCloud,Oauth2,Security,单点登录]
 
 这边只要导入
 
-```java
+```
   <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-jwt</artifactId>
@@ -101,7 +101,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## 授权服务
 
-```java
+```
 package com.linjingc.authorizationdemo.config;
 
 
@@ -270,7 +270,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 # 登录和退出的controller
 
-```java
+```
 package com.linjingc.authorizationdemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -396,7 +396,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## 自定义oauth2 注销方法
 
-```java
+```
 package com.linjingc.zuuldemo.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -466,7 +466,7 @@ public class MySsoLogoutHandler extends SecurityContextLogoutHandler implements 
 
 ## 配置文件
 
-```java
+```
 auth-server: http://my.oauth.com:8200
 # 退出sso的目标方法地址
 auth-server-logout-method: oauth/exit
@@ -508,7 +508,7 @@ security:
 
 对称性加密的话 配置: 授权服务器
 
-```java
+```
   @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
@@ -522,7 +522,7 @@ security:
 
 # 非对称加密
 
-```java
+```
   @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
@@ -535,7 +535,7 @@ security:
 
 pom添加
 
-```java
+```
  <build>
          <resources>
             <resource>
@@ -581,7 +581,7 @@ keystore 指定keystore文件
 
 ## **查看keystore详情**
 
-```java
+```
 我们执行如下命令，然后输入密钥库口令再回车，就可以看到我们的keystore详情
 keytool -v -list -keystore tomatocc.keystore
 ```

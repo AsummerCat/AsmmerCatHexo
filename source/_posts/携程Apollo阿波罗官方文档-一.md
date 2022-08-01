@@ -244,11 +244,11 @@ Apollo Config Demo. Please input key to get the value. Input quit to exit.
 
 > 如果运行客户端遇到问题，可以通过修改`client/log4j2.xml`中的level为DEBUG来查看更详细日志信息
 >
-> ```xml
+>```
 > <logger name="com.ctrip.framework.apollo" additivity="false" level="trace">
 > <AppenderRef ref="Async" level="DEBUG"/>
 > </logger>
-> ```
+>```
 
 ### 4.1.3 修改配置并发布
 

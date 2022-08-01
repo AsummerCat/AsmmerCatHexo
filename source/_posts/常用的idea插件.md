@@ -8,7 +8,7 @@ tags: [java]
 
 1. Codota  :代码自动补全
 
-2. Mybatis-log-plugin :查看mybaitis日志
+2. Mybatis-log-plugin :查看mybatis日志
 
 3. Free-idea-mybatis :mybatis对应mapper跳转  
 

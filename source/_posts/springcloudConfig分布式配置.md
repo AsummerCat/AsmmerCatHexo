@@ -1,20 +1,20 @@
 ---
-title: springcloudConfig分布式配置
+title: SpringCloudConfig分布式配置
 date: 2020-05-09 14:56:16
-tags: [springCloud,SpringCloudConfig]
+tags: [SpringCloud,SpringCloudConfig]
 ---
 
-# springcloudConfig分布式配置
+# SpringCloudConfig分布式配置
 
 ## 服务端的使用
 
-```java
+```
 启动类加入@EnableConfigServer
 ```
 
 ### pom 加入config server
 
-```java
+```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-config-server</artifactId>
@@ -25,7 +25,7 @@ tags: [springCloud,SpringCloudConfig]
 
 <!--more-->
 
-```java
+```
 spring:
   application:
     name: ConfigServer
@@ -44,7 +44,7 @@ spring:
 
 ### pom加入 config client
 
-```java
+```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-config</artifactId>
@@ -53,7 +53,7 @@ spring:
 
 ### 创建bootstrap.yml
 
-```java
+```
 spring:
   application:
     name: configClient
@@ -73,7 +73,7 @@ spring:
 
 需要整合actuator 手动刷新资源
 
-```java
+```
 在类上添加
 @RefreshScope
 所以这段话的重点就是:
@@ -102,7 +102,7 @@ management:
 
 ### 导入bus的pom
 
-```java
+```
 dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-bus-amqp</artifactId>
@@ -111,7 +111,7 @@ dependency>
 
 ### 修改application.yml
 
-```java
+```
 加入rabbitMQ的配置
 spring:
   rabbitmq: # 现在将集成RabbitMQ作为消息服务总线处理
@@ -130,14 +130,14 @@ management:
 
 启动此微服务信息，而后一定要保证该微服务已经注册到了 Eureka 之中，同时还需要观察出现 的访问路径，此时会出现有一个重要的路径信息：
 
-```java
+```
 restartedMain] o.s.b.a.e.mvc.EndpointHandlerMapping : Mapped "{[/bus/refresh],methods=[POST]}"
 onto public void org.springframework.cloud.bus.endpoint.RefreshBusEndpoint.refresh(java.lang.String)
 ```
 
 我们可以在控制台中看到如下内容，在启动时候，客户端程序多了一个/bus/refresh请求。
 
-```java
+```
 bus/refresh?destination=服务名:9000 局部刷新
 /bus/refresh 全局刷新
 ```

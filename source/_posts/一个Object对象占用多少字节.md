@@ -6,7 +6,7 @@ tags: [java]
 
 # 一个Object对象占用多少字节
 
-```java
+```
 Object o=new Object();   一般情况16字节
   
   64位 8个字节
@@ -21,7 +21,7 @@ Object o=new Object();   一般情况16字节
 
 <!--more-->
 
-```java
+```
 结构:64位系统
 8个字节的 mark word  (消息头)
 8个字节的   如果开启了类的指针压缩:=>4个字节  -XX:+UseCompressedClassPointers

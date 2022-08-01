@@ -2,7 +2,7 @@
 layout: hexo
 title: NexT主题中添加网页标题崩溃欺骗搞怪特效
 date: 2018-11-23 17:26:37
-tags: hexo
+tags: [hexo]
 ---
 
 给网页title添加一些搞怪特效

@@ -1,7 +1,7 @@
 ---
 title: Spring的多级缓存处理之循环依赖的问题
 date: 2020-04-08 21:34:38
-tags: [spring,循环依赖]
+tags: [Spring,循环依赖]
 ---
 
 # Spring的多级缓存处理->循环依赖的问题

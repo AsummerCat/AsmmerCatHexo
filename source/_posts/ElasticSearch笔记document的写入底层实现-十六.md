@@ -58,7 +58,7 @@ PUT /my_index
 ```
 <font color="red">设置异步translog的时间:</font>
 
-```java
+```
 PUT /new_index/_settings
 {
     "index.translog.durability":"async", 

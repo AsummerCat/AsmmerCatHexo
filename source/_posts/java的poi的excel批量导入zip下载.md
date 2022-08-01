@@ -1,14 +1,14 @@
 ---
 title: java的poi的excel批量导入zip下载
 date: 2019-03-05 20:09:54
-tags: java
+tags: [java]
 ---
 
 # java的poi的excel批量导入zip下载
 
 # 代码
 
-```java
+```
 //todo 手动导出  
         try {  
             File zipFile = new File(request.getSession().getServletContext  ().getRealPath("") + File.separator + "demo.zip");  
@@ -54,7 +54,7 @@ tags: java
 
 ## 工具类
 
-```java
+```
 /**
  * 集合工具类
  */

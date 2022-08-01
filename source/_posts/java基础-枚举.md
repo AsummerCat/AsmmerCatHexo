@@ -1,7 +1,7 @@
 ---
 title: java基础-枚举
 date: 2018-10-09 16:56:03
-tags: java基础
+tags: [java基础]
 ---
 
 那么必须在enum实例序列的最后添加一个分号.
@@ -39,7 +39,7 @@ public class red {
 
 结果:  
 
-```  
+```
 RED---RED  
 GREEN---GREEN  
 BLANK---BLANK  

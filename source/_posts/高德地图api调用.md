@@ -1,14 +1,14 @@
 ---
 title: 高德地图api调用
 date: 2019-03-05 19:59:21
-tags: 前端
+tags: [前端]
 ---
 
 # 高德地图api调用
 
 ## 首先导入相关js
 
-```javascript
+```
 <!-- 经纬度转换-->
      <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=df4aa96bd16299b2ea11c2b572aab88a&plugin=AMap.Geocoder"></script>   
 <!--jqery-->
@@ -21,7 +21,7 @@ tags: 前端
 
 ### 页面
 
-```javascript
+```
 <body>
 <button  onclick="test()">点击事件</button>
 	  <div id="demo"></div>
@@ -30,7 +30,7 @@ tags: 前端
 
 ### js
 
-```javascript
+```
 <script>
 
 function test(){   

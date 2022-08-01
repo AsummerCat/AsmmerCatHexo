@@ -1,7 +1,7 @@
 ---
 title: springsecurity控制session
 date: 2019-07-02 20:10:04
-tags: [springCloud,SpringSession,Security]
+tags: [SpringCloud,SpringSession,Security]
 ---
 
 # spring security控制session
@@ -24,7 +24,7 @@ stateless – Spring Security不会创建session，或使用session；
 
 java config配置方式如下：
 
-```java
+```
 @Override
 protected void configure(HttpSecurity http) throws Exception {
     http.sessionManagement()
@@ -53,7 +53,7 @@ protected void configure(HttpSecurity http) throws Exception {
 当已经认证过的用户尝试再次认证时，应用针对该事件有几种处理方式。可以注销当前用户session，使用新的session重新认证，或允许两个session并存。 
 启用并发session控制，首先需要在配置中增加下面监听器：
 
-```java
+```
 @Bean
 public HttpSessionEventPublisher httpSessionEventPublisher() {
     return new HttpSessionEventPublisher();
@@ -63,7 +63,7 @@ public HttpSessionEventPublisher httpSessionEventPublisher() {
 其本质是确保当session被销毁时，通知spring security session注册器。 
 在这种场景下，允许同一用户拥有多个并发session，配置如下：
 
-```java
+```
 @Override
 protected void configure(HttpSecurity http) throws Exception {
     http.sessionManagement().maximumSessions(2)
@@ -76,7 +76,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 session已经超时后，如果用户使用已经过期的sessionid发送请求，则会被重定向至指定url；同样如果使用未过期但完全无效的sessionid用户发送请求，也会被重定向至特定url，配置如下：
 
-```java
+```
 http.sessionManagement()
   .expiredUrl("/sessionExpired.html")
   .invalidSessionUrl("/invalidSession.html");
@@ -87,7 +87,7 @@ http.sessionManagement()
 防止使用url参数进行session跟踪
 在url中暴露session信息会增加安全风险，自spring3.0开始，追加jsessionId至url的重新逻辑可以被禁用，通过设置disable-url-rewriting=”true” 。另外自servlet3.0开始，session跟踪机制也可以在web.xml中配置：
 
-```xml
+```
 <session-config>
      <tracking-mode>COOKIE</tracking-mode>
 </session-config>
@@ -97,7 +97,7 @@ http.sessionManagement()
 
 javaConfig方式配置如下：
 
-```java
+```
 servletContext.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
 ```
 
@@ -106,7 +106,7 @@ servletContext.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
 spring security防止篡改session
 框架提供了保护典型的session篡改攻击，当用户尝试再次认证时，已经存在的session可以配置实现以不同方式处理。配置方式如下:
 
-```java
+```
 http.sessionManagement()
   .sessionFixation().migrateSession()
 ```

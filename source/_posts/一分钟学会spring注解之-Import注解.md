@@ -1,7 +1,7 @@
 ---
 title: 一分钟学会spring注解之@Import注解
 date: 2018-11-29 16:10:58
-tags: Spring
+tags: [Spring]
 ---
 
 # @Import注解是什么

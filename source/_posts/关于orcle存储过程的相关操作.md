@@ -1,10 +1,10 @@
 ---
-title: 关于orcle存储过程的相关操作
+title: 关于oracle存储过程的相关操作
 date: 2020-04-05 19:55:25
-tags: [数据库,orcle,存储过程]
+tags: [数据库,oracle,存储过程]
 ---
 
-# 关于orcle存储过程的相关操作
+# 关于oracle存储过程的相关操作
 ## 创建包
 
 
@@ -344,14 +344,14 @@ raise_application_error(-20001,error_msg);
 rs_msg  := SUBSTR(SQLERRM, 1, 512);
 ```
 
-## orcle的包中常量定义
+## oracle的包中常量定义
 
 
 ```
 ls_brbs CONSTANT varchar2(6):='30949';
 ```
 
-## orcle使用表结构的定义当做对象
+## oracle使用表结构的定义当做对象
 
 ```
 inpLayDrugPool ZOEAPPLY.APP_INP_LAY_DRUG_POOL%rowtype;
@@ -359,7 +359,7 @@ inpLayDrugPool ZOEAPPLY.APP_INP_LAY_DRUG_POOL%rowtype;
 参数名 表名%rowtype;
 ```
 
-## orcle使用表结构定义的对象插入数据
+## oracle使用表结构定义的对象插入数据
 
 ```
 insert into ZOEAPPLY.APP_INP_LAY_DRUG_POOL values 定义的对象;
@@ -388,7 +388,7 @@ from dual
         P_ROWS := SQL%ROWCOUNT;
 ```
 
-## orcle将数组存入到游标中
+## oracle将数组存入到游标中
 
 ```
 定义游标

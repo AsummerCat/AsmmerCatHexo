@@ -8,7 +8,7 @@ tags: [SpringBoot]
 
 ## spring1.x中处理方式
 
-```java
+```
 @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return new EmbeddedServletContainerCustomizer() {
@@ -27,7 +27,7 @@ tags: [SpringBoot]
 
 ## spring2.x中处理方式
 
-```java
+```
 @Component
 public class ErrorConfig implements ErrorPageRegistrar {
 
@@ -48,7 +48,7 @@ public class ErrorConfig implements ErrorPageRegistrar {
 
 # ErrorPageAction跳转处理
 
-```java
+```
 @Controller
 public class ErrorPageAction {
     @RequestMapping(value = "/error400Page")
@@ -72,7 +72,7 @@ public class ErrorPageAction {
 }
 ```
 
-```java
+```
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -93,7 +93,7 @@ public class ErrorPageAction {
 
  所以这个时候可以单独定义一个页面进行错误的信息显示处理，而这个页面，可以定义在“src/main/view/templates/error.html”， 这个页面里面要求可以输出一些信息；
 
-```java
+```
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class) // 所有的异常都是Exception子类
@@ -108,7 +108,7 @@ public class GlobalExceptionHandler {
 
 error.html
 
-```java
+```
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -125,7 +125,7 @@ error.html
 
 ## 返回Rest错误信息
 
-```java
+```
 package cn.study.microboot.advice;
 
 import javax.servlet.http.HttpServletRequest;

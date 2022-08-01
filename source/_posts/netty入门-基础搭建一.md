@@ -30,7 +30,7 @@ tags: [netty]
 
 ## 服务端
 
-```java
+```
 /**
 	 * 连接客户端
 	 */
@@ -167,7 +167,7 @@ nioSocketChannel.pipeline().addLast(new IdleStateHandler(60, 60, 60, TimeUnit.SE
 
 ## 群体广播
 
-```java
+```
 	/**
 	 * 群发广播
 	 */
@@ -180,7 +180,7 @@ nioSocketChannel.pipeline().addLast(new IdleStateHandler(60, 60, 60, TimeUnit.SE
 
 ## 发送消息给客户端
 
-```java
+```
 /**
 	 * 发送消息给客户端
 	 */
@@ -243,7 +243,7 @@ _上述DecoderHandle全部继承ByteToMessageDecoder,是netty封装的解析二�
 
 ## 客户端
 
-```java
+```
 
 public class NettyClient {
 	public static void main(String[] args) throws InterruptedException {

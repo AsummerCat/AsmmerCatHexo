@@ -1,5 +1,5 @@
 ---
-title: springmvc请求参数获取的几种方法
+title: SpringMvc请求参数获取的几种方法
 date: 2018-11-09 13:55:51
 tags: SpringMvc
 ---

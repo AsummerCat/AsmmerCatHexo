@@ -31,7 +31,7 @@ mysql.server stop
 
 启动这个脚本后，即可根据如下命令提示进行初始化设置
 
-```java
+```
 sunyichaodeMacBook-Pro:~ sunyichao$ /usr/local/opt/mysql/bin/mysql_secure_installation   //mysql 提供的配置向导
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
       SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!

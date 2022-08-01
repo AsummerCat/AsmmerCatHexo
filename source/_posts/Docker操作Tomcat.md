@@ -1,7 +1,7 @@
 ---
 title: Docker操作Tomcat
 date: 2018-10-02 15:11:16
-tags: docker
+tags: [docker]
 ---
 
 # 1.在Docker查看是否已经安装Tomcat
@@ -64,11 +64,11 @@ runoob@runoob:~/tomcat$
 
 # 6.进入交互模式后没有vim 
  安装vim 执行两条命令
- ```
+```
  1.apt update
  
  2.apt install vim
- ```
+```
  
  ---
 

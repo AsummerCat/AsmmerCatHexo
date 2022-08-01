@@ -1,14 +1,14 @@
 ---
 title: SpringColod异构服务整合node.js之sidecar
 date: 2019-07-10 21:59:25
-tags: [sidecar,springCloud]
+tags: [sidecar,SpringCloud]
 ---
 
 # SpringColod异构服务整合node.js之sidecar
 
 # 导入pom文件
 
-```java
+```
   <!-- 异构系统模块 -->
         <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -20,7 +20,7 @@ tags: [sidecar,springCloud]
 
 # 开启注解@EnableSidecar
 
-```java
+```
 @EnableSidecar
 这个是个组合注解
 
@@ -39,7 +39,7 @@ public @interface EnableSidecar {
 
 # 配置文件修改
 
-```java
+```
 添加 didecar的相关配置
 #异构微服务的配置， port 代表异构微服务的端口；health-uri 代表异构微服务的操作链接地址
 sidecar:
@@ -49,7 +49,7 @@ sidecar:
 
 # 新建node.js文件  node-service.js
 
-```java
+```
 var http = require('http');
 var url = require('url');
 var path = require('path');
@@ -81,7 +81,7 @@ server.listen(8060,function(){
 
 ## 启动node服务
 
-```java
+```
 1.启动zureka
 2.启动异构微服务
 node node-service

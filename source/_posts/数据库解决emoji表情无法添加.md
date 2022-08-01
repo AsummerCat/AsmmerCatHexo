@@ -39,7 +39,7 @@ tags: [数据库,mysql]
 
 ## 使用github上一个开源的过滤emoji表情的工具
 
-```java
+```
 <dependency>
    <groupId>com.vdurmont</groupId>
    <artifactId>emoji-java</artifactId>
@@ -65,7 +65,7 @@ tags: [数据库,mysql]
 
 
 
-```java
+```
 /**
      * 检测是否有emoji字符
      * @param source

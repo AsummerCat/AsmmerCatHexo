@@ -31,7 +31,7 @@ ps: 目前只做到了 对于链表的扩容
 
 ### 默认
 
-```java
+```
 // 默认构造方法 ->初始化负载系数 在put的时候默认初始化数组长度为16
 public MyHashMap() {
     this.loadFactor = DEFAULT_LOAD_FACTOR;
@@ -40,7 +40,7 @@ public MyHashMap() {
 
 ### 创建 初始大小,负载系数
 
-```java
+```
 /**
  * 构造方法 ->传入扩容系数
  * 调用MyHashMap(int threshold, float loadFactor)
@@ -82,7 +82,7 @@ public MyHashMap(int initialCapacity, float loadFactor) {
 
 ## 默认初始化参数
 
-```java
+```
 
    // 默认的数组大小16
     private static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
@@ -96,7 +96,7 @@ public MyHashMap(int initialCapacity, float loadFactor) {
 
 ## 参数
 
-```java
+```
 /**
      * 阀值/默认“初始”容量。
      * 如果未分配初始大小 则表示初始容量
@@ -132,7 +132,7 @@ public MyHashMap(int initialCapacity, float loadFactor) {
 
 ## node节点信息
 
-```java
+```
  /**
      * 静态内部类
      * Map Node节点  ->槽点 用来存放key value
@@ -245,7 +245,7 @@ public MyHashMap(int initialCapacity, float loadFactor) {
 
 ## 工具方法
 
-```java
+```
  /**
      * 返回给定目标容量的二次幂。
      */
@@ -448,7 +448,7 @@ public MyHashMap(int initialCapacity, float loadFactor) {
 
 
 
-```java
+```
 package MyHashMap;
 
 import java.io.Serializable;

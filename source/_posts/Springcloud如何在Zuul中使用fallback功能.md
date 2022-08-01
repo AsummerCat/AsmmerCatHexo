@@ -1,7 +1,7 @@
 ---
 title: SpringCloud如何在Zuul中使用fallback功能zuul服务连接失败后的回退处理
 date: 2019-06-30 23:37:34
-tags: [springCloud,zuul]
+tags: [SpringCloud,zuul]
 ---
 
 # zuul服务连接失败后的回退处理
@@ -20,7 +20,7 @@ tags: [springCloud,zuul]
 
 <!--more-->
 
-```java
+```
 package com.linjingc.zuulserver.fallbackProvider;
 
 import com.alibaba.fastjson.JSONObject;

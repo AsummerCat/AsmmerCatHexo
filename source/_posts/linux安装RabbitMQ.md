@@ -14,7 +14,7 @@ tags: [linux,RabbitMQ]
 
 ### 从Erlang Solution安装(**推荐**)
 
-```java
+```
  # 添加erlang solutions源
  $ wget https://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm
  $ sudo rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
@@ -25,7 +25,7 @@ tags: [linux,RabbitMQ]
 
 ### 从EPEL源安装(这种方式安装的Erlang版本可能不是最新的，有时候不能满足RabbitMQ需要的最低版本)
 
-```java
+```
  # 启动EPEL源
  $ sudo yum install epel-release 
  # 安装erlang
@@ -39,13 +39,13 @@ tags: [linux,RabbitMQ]
 
 ## 先下载rpm
 
-```java
+```
 wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el7.noarch.rpm
 ```
 
 ## 安装
 
-```java
+```
 yum install rabbitmq-server-3.6.6-1.el7.noarch.rpm 
 ```
 
@@ -55,7 +55,7 @@ yum install rabbitmq-server-3.6.6-1.el7.noarch.rpm
 
 安装时如果遇到下面的依赖错误
 
-```java
+```
 Error: Package: socat-1.7.2.3-1.el6.x86_64 (epel)
        Requires: libreadline.so.5()(64bit)
 ```
@@ -72,7 +72,7 @@ sudo yum install socat
 
 如果只从命令行操作RabbitMQ，多少有点不方便。幸好RabbitMQ自带了web管理界面，只需要启动插件便可以使用。
 
-```java
+```
 $ sudo rabbitmq-plugins enable rabbitmq_management	
 ```
 

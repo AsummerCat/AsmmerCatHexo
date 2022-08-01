@@ -8,7 +8,7 @@ tags: [docker]
 
 ## 示例如下
 
-```java
+```
 sudo docker run --name seckill0 -p 8080:8080 -m 1024M --cpus=0.2 -d seckill:v0
 sudo docker run --name seckill1 -p 8081:8080 -m 1024M --cpus=0.2 -d seckill:v0
 sudo docker run --name seckill2 -p 8082:8080 -m 1024M --cpus=0.2 -d seckill:v0

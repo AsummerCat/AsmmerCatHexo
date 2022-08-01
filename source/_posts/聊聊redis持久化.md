@@ -1,7 +1,7 @@
 ---
 title: 聊聊redis持久化
 date: 2018-11-13 15:01:15
-tags: redis
+tags: [redis]
 ---
 
 # 聊聊redis持久化 – 两种方式

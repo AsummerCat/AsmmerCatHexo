@@ -18,7 +18,7 @@ tar -cvf /home/zzz.tar 1.py 2.py
 
 tar -xvf 包名
 
-```java
+```
 tar -xvf /home/zzz.tar
 ```
 

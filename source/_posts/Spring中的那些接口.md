@@ -1,7 +1,7 @@
 ---
 title: Spring中的那些接口
 date: 2020-04-15 13:40:28
-tags: [java,spring,源码解析]
+tags: [java,Spring,源码解析]
 ---
 
 # Spring中的那些接口
@@ -33,7 +33,7 @@ Spring中提供了很多的接口来实现Bean的扩展 和注册
 
 ```
 
-```java
+```
     
     public User(){
 		System.out.println("User 被实例化");
@@ -64,7 +64,7 @@ Spring中提供了很多的接口来实现Bean的扩展 和注册
 
 ### 执行顺序
 
-```java
+```
 User 被实例化
 ...postConstruct...
 --自定义的初始化的方法--
@@ -76,7 +76,7 @@ User 被实例化
 
 该接口的作用是：允许一个bean在它的所有必须属性被BeanFactory设置后，来执行初始化的工作，该接口中只有一个方法，afterPropertiesSet
 
-```java
+```
 public interface InitializingBean {
 	void afterPropertiesSet() throws Exception;
 }
@@ -86,7 +86,7 @@ public interface InitializingBean {
 
 该接口的作用是：允许在容器销毁该bean的时候获得一次回调。DisposableBean接口也只规定了一个方法：destroy
 
-```java
+```
 public interface DisposableBean {
 	void destroy() throws Exception;
 }
@@ -100,25 +100,25 @@ Aware接口从字面上翻译过来是感知捕获的含义。单纯的bean（�
 
 ### ApplicationContextAware
 
-```java
+```
 void setApplicationContext(ApplicationContext applicationContext)
 ```
 
 ### BeanClassLoaderAware
 
-```java
+```
 void setBeanClassLoader(ClassLoader classLoader);
 ```
 
 ### BeanFactoryAware
 
-```java
+```
 void setBeanFactory(BeanFactory beanFactory)
 ```
 
 ### BeanNameAware
 
-```java
+```
 void setBeanName(String name);
 ```
 
@@ -135,7 +135,7 @@ Aware系列接口，主要用于辅助Spring bean访问Spring容器
 
 ### 测试
 
-```java
+```
 @Component
 public class TestAware implements ApplicationContextAware, BeanClassLoaderAware, BeanFactoryAware, BeanNameAware {
 	private ApplicationContext ac;
@@ -165,7 +165,7 @@ public class TestAware implements ApplicationContextAware, BeanClassLoaderAware,
 	}
 ```
 
-```JAVA
+```
 public class MainStart {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -201,7 +201,7 @@ public class MainStart {
 
 ### 多个BeanPostProcessor执行执行顺序
 
-```java
+```
 implements  Ordered
 
 @Override
@@ -215,7 +215,7 @@ implements  Ordered
 
 ### 测试
 
-```java
+```
 @Component
 public class TestBeanPostProcessor implements BeanPostProcessor, InitializingBean {
 
@@ -237,7 +237,7 @@ public class TestBeanPostProcessor implements BeanPostProcessor, InitializingBea
 
 ### 输出
 
-```java
+```
 实例化
 初始化之前
 com.linjingc.config.AppConfig$$EnhancerBySpringCGLIB$$7861b138@22a71081
@@ -246,7 +246,7 @@ com.linjingc.config.AppConfig$$EnhancerBySpringCGLIB$$7861b138@22a71081
 
 ## InstantiationAwareBeanPostProcessor接口
 
-```java
+```
 package org.springframework.beans.factory.config;
 public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 
@@ -268,7 +268,7 @@ InstantiationAwareBeanPostProcessor继承于BeanPostProcessor 除了父类的两
 
 ### postProcessPropertyValues 对属性值进行修改
 
-```java
+```
 @Component
 public class TestInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 	@Override
@@ -345,7 +345,7 @@ public class TestBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
 继承了BeanFactoryPostProcessor接口
 
-```java
+```
 //根据名称和类型获取bean
             BeanDefinitionRegistryPostProcessor pp = beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class);
             //把已经调用过postProcessBeanDefinitionRegistry方法的bean全部放在registryPostProcessors中
@@ -370,7 +370,7 @@ BeanFactory接口是Spring容器的核心接口，负责：实例化、定位、
 
 需要实现FactoryBean
 
-```java
+```
 @Component
 public class TestFactoryBean implements FactoryBean {
 	//注入属性
@@ -407,7 +407,7 @@ public class TestFactoryBean implements FactoryBean {
 
 ### 工厂Bean生产两个对象
 
-```java
+```
 @Bean
 	public TestFactoryBean xiaoming(){
 		TestFactoryBean testFactoryBean = new TestFactoryBean();
@@ -426,7 +426,7 @@ public class TestFactoryBean implements FactoryBean {
 
 获取到被工厂类生产的对象
 
-```java
+```
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 //		Person person = (Person) applicationContext.getBean("person");
 		//获取工厂类生产的对象
@@ -459,7 +459,7 @@ public class TestFactoryBean implements FactoryBean {
 
 
 
-```java
+```
 语法:
  ApplicationListener<ContextRefreshedEvent>
 ```
@@ -474,13 +474,13 @@ ContextStartedEvent       启动触发的事件    applicationContext.start();
 ContextStoppedEvent       停止时触发的事件   applicationContext.stop();
 ```
 
-```java
+```
 发布一个事件：applicationContext.publishEvent()；
 ```
 
 ### 测试
 
-```java
+```
 /**
  * Application初始化或者刷新操作的监听器
  */

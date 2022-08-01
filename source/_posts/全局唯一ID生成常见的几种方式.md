@@ -32,7 +32,7 @@ tags: [分布式ID,雪花算法,java]
 
 优化: 设置每个库设置不同的步长 但是4个库就会冲突了
 
-```java
+```
 例如:
 A  0 3 6 9
 B  1 4 7 10
@@ -49,7 +49,7 @@ D  3 6 9 12
 
 常见的方式。可以利用数据库也可以利用程序生成，一般来说全球唯一
 
-```java
+```
 public static void main(String[] args) throws Exception {
     System.out.println(UUID.randomUUID());
 }
@@ -99,7 +99,7 @@ public static void main(String[] args) throws Exception {
 
 ## 源码
 
-```java
+```
 
 
 public class IdGen {

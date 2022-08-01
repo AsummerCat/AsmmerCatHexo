@@ -1,18 +1,18 @@
 ---
 title: SpringBoot整合Pagehelper插件实现分页功能
 date: 2019-07-16 17:16:32
-tags: [SpringBoot,mybaitis]
+tags: [SpringBoot,mybatis]
 ---
 
 # SpringBoot整合Pagehelper插件实现分页功能
 
-这边的话 mybaitis使用的注解的
+这边的话 mybatis使用的注解的
 
 demo地址:[pagehelper-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/pagehelper-demo)
 
 # 首先导入pom
 
-```java
+```
    <!--pagehelper-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -25,7 +25,7 @@ demo地址:[pagehelper-demo](https://github.com/AsummerCat/mybatis-demo/tree/mas
 
 # 创建分页插件配置文件
 
-```java
+```
 /**
  * 分页插件配置文件
  * 将该类加到spring容器里
@@ -51,7 +51,7 @@ public class PageHelperConfig {
 
 # 配置文件
 
-```java
+```
 server:
   port: 8500
 
@@ -83,7 +83,7 @@ mybatis:
 
 # controller Server  entity常规写法
 
-```java
+```
   /**
      * 分页查询
      *
@@ -100,7 +100,7 @@ mybatis:
 
 ```
 
-```java
+```
 package com.linjingc.pagehelperdemo.service;
 
 import com.github.pagehelper.PageHelper;

@@ -1,7 +1,7 @@
 ---
 title: spi扩展机制
 date: 2020-04-08 21:29:57
-tags: [java,spring]
+tags: [java,Spring]
 ---
 
 # SPI扩展机制

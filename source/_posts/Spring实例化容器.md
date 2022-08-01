@@ -1,7 +1,7 @@
 ---
 title: Spring实例化容器
 date: 2018-11-21 14:45:22
-tags: Spring
+tags: [Spring]
 ---
 
 # 实例化容器

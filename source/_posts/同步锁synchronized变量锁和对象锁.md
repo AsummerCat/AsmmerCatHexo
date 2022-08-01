@@ -1,7 +1,7 @@
 ---
 title: 同步锁synchronized变量锁和对象锁
 date: 2018-09-17 20:54:30
-tags: 多线程
+tags: [多线程]
 ---
 
 ### 例子

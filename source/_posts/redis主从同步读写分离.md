@@ -1,7 +1,7 @@
 ---
 title: redis主从同步读写分离
 date: 2018-11-14 14:37:15
-tags: redis
+tags: [redis]
 ---
 
 # Redis主从同步

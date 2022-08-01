@@ -1,14 +1,14 @@
 ---
-title: mybaitis拦截自定义显示sql
+title: mybatis拦截自定义显示sql
 date: 2020-04-13 09:21:22
-tags: [java,mybaitis]
+tags: [java,mybatis]
 ---
 
-# mybaitis拦截自定义显示sql
+# mybatis拦截自定义显示sql
 
 ## 配置
 
-```java
+```
 @Intercepts({@Signature(type = Executor.class,
         method = "query",
         args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
@@ -35,7 +35,7 @@ public class JunliPlugin  implements Interceptor {
 
 ## xml配置插件
 
-```java
+```
  <mappers>
     <mapper resource="xml/TestMapper.xml"/>
     <mapper resource="xml/PostsMapper.xml"/>

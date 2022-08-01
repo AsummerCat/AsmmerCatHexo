@@ -94,9 +94,9 @@ post请求的页面 后面还有一个{% csrf_token %}的标签。csrf 全称是
 
 * 异常处理:Django:You called this URL via POST, but the URL doesn't end in a slash and you have APP END_SLASH s
 
-  ```
+ ```
   这边的话 路径结尾一定要带上/
-  ```
+ ```
 
   
 

@@ -1,7 +1,7 @@
 ---
 title: Volatile共享变量和ThreadLocal线程本地变量
 date: 2018-11-04 19:28:40
-tags: 多线程
+tags: [多线程]
 ---
 
 # 参考

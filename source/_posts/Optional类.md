@@ -1,7 +1,7 @@
 ---
 title: Optional类
 date: 2018-10-25 09:41:18
-tags: java
+tags: [java]
 ---
 
 # 介绍

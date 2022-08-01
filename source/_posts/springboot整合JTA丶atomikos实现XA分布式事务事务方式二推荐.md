@@ -1,10 +1,10 @@
 ---
-title: springboot整合JTA丶atomikos实现XA分布式事务事务方式二推荐
+title: SpringBoot整合JTA丶atomikos实现XA分布式事务事务方式二推荐
 date: 2019-09-04 08:14:08
 tags: [SpringBoot,分布式事务]
 ---
 
-# springboot整合JTA丶atomikos实现XA分布式事务事务方式二 推荐
+# SpringBoot整合JTA丶atomikos实现XA分布式事务事务方式二 推荐
 
 # pom文件添加 
 
@@ -14,7 +14,7 @@ tags: [SpringBoot,分布式事务]
 
 # 创建配置文件
 
-```java
+```
 server:
   port: 8400
 
@@ -70,7 +70,7 @@ mybatis:
 
 需要注意的是 这边还需要要添加一个 jta.properties的文件
 
-```java
+```
 om.atomikos.icatch.service=com.atomikos.icatch.standalone.UserTransactionServiceFactory
 # https://www.atomikos.com/Documentation/KnownProblems#MySQL_XA_bug
 # raised -5: invalid arguments were given for the XA operation
@@ -86,7 +86,7 @@ com.atomikos.icatch.serial_jta_transactions=false
 
 ## dbconfig1
 
-```java
+```
 package com.linjingc.simpleatomikosdemo.dbconfig;
 
 import lombok.Data;
@@ -106,7 +106,7 @@ public class DBConfig1 {
 
 ## dbconfig2
 
-```java
+```
 package com.linjingc.simpleatomikosdemo.dbconfig;
 
 import lombok.Data;
@@ -124,12 +124,12 @@ public class DBConfig2 {
 
 ```
 
-# 配置mybaitis数据源
+# 配置mybatis数据源
 
 ## OneDatabaseConfig数据源
 
-```java
-package com.linjingc.simpleatomikosdemo.mybaitisconfig;
+```
+package com.linjingc.simpleatomikosdemo.mybatisconfig;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -163,8 +163,8 @@ public class OneDatabaseConfig {
 
 ## TwoDatabaseConfig数据源
 
-```java
-package com.linjingc.simpleatomikosdemo.mybaitisconfig;
+```
+package com.linjingc.simpleatomikosdemo.mybatisconfig;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -232,7 +232,7 @@ public interface UserMapper {
 
 ## dao2
 
-```java
+```
 package com.linjingc.simpleatomikosdemo.dao;
 
 import com.linjingc.simpleatomikosdemo.entity.Account;
@@ -250,7 +250,7 @@ public interface AccountMapper {
 
 # 测试
 
-```java
+```
 package com.linjingc.simpleatomikosdemo.service;
 
 import com.linjingc.simpleatomikosdemo.dao.AccountMapper;

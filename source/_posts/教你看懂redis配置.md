@@ -1,7 +1,7 @@
 ---
 title: 教你看懂redis配置
 date: 2018-11-14 12:02:18
-tags: redis
+tags: [redis]
 ---
 
 # 启动

@@ -1,7 +1,7 @@
 ---
 title: 聊聊redis的事务处理
 date: 2018-11-14 11:05:27
-tags: redis
+tags: [redis]
 ---
 
 # 聊聊redis的事务处理

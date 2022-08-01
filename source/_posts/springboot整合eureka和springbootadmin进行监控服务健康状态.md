@@ -1,7 +1,7 @@
 ---
 title: springboot整合eureka和springbootadmin进行监控服务健康状态
 date: 2019-08-01 22:44:41
-tags: [actuator,springCloud,SpringBoot,springBootAdmin]
+tags: [actuator,SpringCloud,SpringBoot,springBootAdmin]
 ---
 
 # 利用SpringBootAdmin 进行服务健康监控的可视化
@@ -12,7 +12,7 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 
 ### 监控端
 
-```java
+```
    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -29,7 +29,7 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 
 ### 被监控端 —>客户端
 
-```java
+```
    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -47,7 +47,7 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 
 ## 启动类添加
 
-```java
+```
 @EnableAdminServer
 ```
 
@@ -57,7 +57,7 @@ tags: [actuator,springCloud,SpringBoot,springBootAdmin]
 
 ## 配置文件
 
-```java
+```
 spring:
   application:
     name: admin-client
@@ -75,7 +75,7 @@ spring:
 
 这边具体端点 在另外一篇端口介绍里有写
 
-```java
+```
 management:
   endpoints:
     web:

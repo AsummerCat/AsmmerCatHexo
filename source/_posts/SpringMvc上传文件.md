@@ -1,12 +1,12 @@
 ---
 title: SpringMvc上传文件
 date: 2018-09-20 22:02:14
-tags: springmvc
+tags: [SpringMvc]
 ---
 
 ## 第一种方式(推荐)
 
-```java
+```
 <bean id="multipartResolver"    
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
         <property name="defaultEncoding" value="UTF-8" />    
@@ -83,7 +83,7 @@ private static void checkAllowFiles(String ext) throws IOException {
 
 ## 第二种方式
 
-```java
+```
 /*
      * 通过流的方式上传文件
      * @RequestParam("file") 将name=file控件得到的文件封装成CommonsMultipartFile 对象
@@ -118,7 +118,7 @@ private static void checkAllowFiles(String ext) throws IOException {
 
 ## 第三种方式(推荐)
 
-```java
+```
 /*
      * 采用file.Transto 来保存上传的文件
      */
@@ -137,7 +137,7 @@ private static void checkAllowFiles(String ext) throws IOException {
 
 ## 第四种方式
 
-```java
+```
 /*
      *采用spring提供的上传文件的方法
      */

@@ -1,7 +1,7 @@
 ---
 title: gateway的各种路由配置断言工厂
 date: 2019-10-08 16:34:15
-tags: [gateway,springCloud,微服务]
+tags: [gateway,SpringCloud,微服务]
 ---
 
 # 断言工厂
@@ -14,7 +14,7 @@ tags: [gateway,springCloud,微服务]
 
 Path 路由断言工厂接收一个参数，根据 Path 定义好的规则来判断访问的 URI 是否匹配。
 
-```java
+```
 spring:
   cloud:
     gateway:
@@ -35,7 +35,7 @@ spring:
 
 Query 路由断言工厂接收两个参数，一个必需的参数和一个可选的正则表达式。
 
-```java
+```
 spring:
   cloud:
     gateway:
@@ -69,7 +69,7 @@ spring:
 
 Header 路由断言工厂接收两个参数，分别是请求头名称和正则表达式。
 
-```java
+```
 spring:
   cloud:
     gateway:
@@ -94,7 +94,7 @@ apply 方法的参数是自定义的配置类，在使用的时候配置参数�
 
 命名需要以 RoutePredicateFactory 结尾，比如 CheckAuthRoutePredicateFactory，那么在使用的时候 CheckAuth 就是这个路由断言工厂的名称。代码如下所示。  
 
-```java
+```
 @Component
 public class CheckAuthRoutePredicateFactory
         extends AbstractRoutePredicateFactory<CheckAuthRoutePredicateFactory.Config> {
@@ -129,7 +129,7 @@ public class CheckAuthRoutePredicateFactory
 
 使用示例如下所示：
 
-```java
+```
 spring:
   cloud:
     gateway:

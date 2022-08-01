@@ -1,7 +1,7 @@
 ---
 title: SpringSecurity整合Oauth2构建授权码模式三
 date: 2019-07-11 22:24:29
-tags: [Security,springCloud,Oauth2]
+tags: [Security,SpringCloud,Oauth2]
 ---
 
 # SpringSecurity整合Oauth2构建授权码模式三
@@ -14,7 +14,7 @@ tags: [Security,springCloud,Oauth2]
 
 # 首先还是导入pom
 
-```java
+```
 这不就写了
 ```
 
@@ -113,7 +113,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 # 服务端配置
 
-```java
+```
 /**
  * 认证服务 和 资源服务
  *
@@ -214,7 +214,7 @@ public class OAuth2ServerConfig {
 
 # 客户端 
 
-```java
+```
 @RestController
 @Slf4j
 public class QQCallbackController {

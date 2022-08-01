@@ -24,7 +24,7 @@ ADD user-server-0.0.1-SNAPSHOT.jar app.jar  要和pom的<artifactId>user-server<
 
 ## Failed to execute goal com.spotify:docker-maven-plugin:0.4.3:build (default) on project users-microservice: Exception caught: java.util.concurrent.ExecutionException: com.spotify.docker.client.shaded.javax.ws.rs.ProcessingException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:2375 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused -> [Help 1]
 
-```java
+```
 docker-maven-plugin的version从0.4.3update到1.0.0就可以了！
 ```
 
@@ -34,7 +34,7 @@ docker-maven-plugin的version从0.4.3update到1.0.0就可以了！
 
 ## 首先加入构建docker的打包程序 记住要放在spring-boot-maven-plugin之后
 
-```java
+```
 <build>
 		<plugins>
 			<plugin>

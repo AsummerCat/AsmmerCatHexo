@@ -1,7 +1,7 @@
 ---
 title: Date的工具类
 date: 2018-10-05 13:32:46
-tags: 工具类
+tags: [工具类]
 ---
    最近在项目中经常会遇到各种的日期格式转化。所以，参考一些资料就写了一个工具类`DateUtil`。日期格式包括：年`（yyyy）`、年月`（yyyyMM、yyyy-MM）`、年月日`（yyyyMMdd、yyyy-MM-dd）`、年月日时分`（yyyyMMddHHmm、yyyy-MM-dd HH:mm）`、年月日时分秒`（yyyyMMddHHMISS、yyyy-MM-dd HH:MI:SS）`等各种格式。
    

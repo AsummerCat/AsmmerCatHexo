@@ -1,7 +1,7 @@
 ---
 title: hexo使用next主题
 date: 2018-10-05 09:35:51
-tags: hexo
+tags: [hexo]
 ---
 
 

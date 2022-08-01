@@ -1,11 +1,11 @@
 ---
-layout: springboot2.x
+layout: SpringBoot2.x
 title: 版本eureka配置文件信息更新
 date: 2019-07-10 21:57:33
-tags: [springCloud,eureka,分布式配置中心]
+tags: [SpringCloud,eureka,分布式配置中心]
 ---
 
-# springboot2.x版本eureka配置文件信息更新
+# SpringBoot2.x版本eureka配置文件信息更新
 
 # 获取ipaddress 修改
 
@@ -17,7 +17,7 @@ tags: [springCloud,eureka,分布式配置中心]
 
 <!--more-->
 
-```java
+```
 ## eureka 客户端基本配置
 eureka:
   instance:

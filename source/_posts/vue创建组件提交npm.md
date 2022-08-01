@@ -12,7 +12,7 @@ tags: [vue,webpack]
 
 ## 第一步创建一个vue组件项目
 
-```java
+```
 vue init webpack-simple xxx-zj
 ```
 
@@ -55,7 +55,7 @@ App.vue修改以下内容
 
 index.js 修改以下内容
 
-```java
+```
 import caSignature from './src/components/caSignature'
 import _Vue from 'vue'
 
@@ -75,7 +75,7 @@ package.json需要修改private字段(private是true的时候不能发布到npm,
 
 ![](/img/2020-06-19/3.png)
 
-```java
+```
   "private": false,
   "main": "./dist/zoe-ca-vue.js",
 ```
@@ -84,7 +84,7 @@ package.json需要修改private字段(private是true的时候不能发布到npm,
 
 ## 修改 webpack.config.js
 
-```java
+```
 var path = require('path')
 var webpack = require('webpack')
 
@@ -137,7 +137,7 @@ module.exports = {
 
 ## 测试组件
 
-```java
+```
 在发正式包之前可以在本地先打一个包，然后测试下有没有问题，如果没问题再发布到npm上。
 首先，打包到本地
 npm run build
@@ -158,7 +158,7 @@ Vue.use(caSignature)
 
 ## npm常用操作
 
-```java
+```
 npm config set registry https://registry.npm.taobao.org //设置淘宝镜像
 
 npm config set registry http://registry.npmjs.org //设置官方镜像

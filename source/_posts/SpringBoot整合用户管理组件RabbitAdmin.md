@@ -22,7 +22,7 @@ tags: [RocketMQ,消息队列,SpringBoot]
 
 # 编写RabbitMQ配置类
 
-```java
+```
 package com.linjing.rabbitmqadmin;
 
 import org.slf4j.Logger;
@@ -170,7 +170,7 @@ public class RabbitMQConfig {
 
 * Exchange 操作
 
-* ```java
+*```
   //创建四种类型的 Exchange，均为持久化，不自动删除
   rabbitAdmin.declareExchange(new DirectExchange("direct.exchange",true,false));
   rabbitAdmin.declareExchange(new TopicExchange("topic.exchange",true,false));
@@ -178,11 +178,11 @@ public class RabbitMQConfig {
   rabbitAdmin.declareExchange(new HeadersExchange("header.exchange",true,false));
   //删除 Exchange
   rabbitAdmin.deleteExchange("header.exchange");
-  ```
+ ```
 
 * Queue 操作
 
-* ```java
+*```
   //定义队列，均为持久化
   rabbitAdmin.declareQueue(new Queue("debug",true));
   rabbitAdmin.declareQueue(new Queue("info",true));
@@ -192,11 +192,10 @@ public class RabbitMQConfig {
   //将队列中的消息全消费掉
   rabbitAdmin.purgeQueue("info",false);
   
-  ```
+ ```
 
   * Binding 绑定
-
-    ```java
+```
     //绑定队列到交换器，通过路由键
     rabbitAdmin.declareBinding(new Binding("debug",Binding.DestinationType.QUEUE,
             "direct.exchange","key.1",new HashMap()));
@@ -223,19 +222,19 @@ public class RabbitMQConfig {
     rabbitAdmin.declareBinding(new Binding("exchange1",Binding.DestinationType.EXCHANGE,
             "exchange2","key.4",new HashMap()));
     
-    ```
+```
 
     ### 接收消息
 
     - receive（返回 Message 对象）
 
-    ```
+```
     // 接收来自指定队列的消息，并设置超时时间
     Message msg = rabbitTemplate.receive("debug",2000l);
-    ```
+```
 
     - receiveAndConvert（将返回 Message 转换成 Java 对象）
 
-    ```java
+```
     User user = (User) rabbitTemplate.receiveAndConvert();
-    ```
+```

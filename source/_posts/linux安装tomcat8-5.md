@@ -1,7 +1,7 @@
 ---
 title: linux安装Tomcat8.5
 date: 2018-09-30 22:12:12
-tags: linux
+tags: [linux]
 ---
 
 # 下载Tomcat

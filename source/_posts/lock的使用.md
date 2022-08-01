@@ -1,7 +1,7 @@
 ---
 title: lock的使用
 date: 2018-11-01 15:02:42
-tags: 多线程
+tags: [多线程]
 ---
 
 # synchronized的缺陷
@@ -375,11 +375,11 @@ public class Test {
 ```
  这里 两个线程同时在进行读操作
  
- ```
+```
  不过要注意的是，如果有一个线程已经占用了读锁，则此时其他线程如果要申请写锁，则申请写锁的线程会一直等待释放读锁。
 
 　　如果有一个线程已经占用了写锁，则此时其他线程如果申请写锁或者读锁，则申请的线程会一直等待释放写锁。
- ```
+```
  
  大概意思就是 :  
  <font color="red">在写操作的时候,读操作无法读取  ;  
@@ -393,7 +393,7 @@ public class Test {
 如果锁具备可重入性，则称作为可重入锁。像synchronized和ReentrantLock都是可重入锁，可重入性在我看来实际上表明了锁的分配机制：基于线程的分配，而不是基于方法调用的分配。举个简单的例子，当一个线程执行到某个synchronized方法时，比如说method1，而在method1中会调用另外一个synchronized方法method2，此时线程不必重新去申请锁，而是可以直接执行方法method2。
 
 　　看下面这段代码就明白了：
-  ```
+```
   class MyClass {
     public synchronized void method1() {
         method2();
@@ -403,7 +403,7 @@ public class Test {
          
     }
 }
-  ``` 
+```
   上述代码中的两个方法method1和method2都用synchronized修饰了，假如某一时刻，线程A执行到了method1，此时线程A获取了这个对象的锁，而由于method2也是synchronized方法，假如synchronized不具备可重入性，此时线程A需要重新申请锁。但是这就会造成一个问题，因为线程A已经持有了该对象的锁，而又在申请获取该对象的锁，这样就会线程A一直等待永远不会获取到的锁。
 
 　　<font color="red">而由于synchronized和Lock都具备可重入性，所以不会发生上述现象。</font>

@@ -1,14 +1,14 @@
 ---
 title: hystrix配合feign降级处理及其超时设置
 date: 2019-06-27 21:36:59
-tags: [springCloud,Hystrix,feign]
+tags: [SpringCloud,Hystrix,feign]
 ---
 
 # hystrix配合feign降级处理及其超时设置
 
 ## 导入pom
 
-```java
+```
  <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
@@ -23,7 +23,7 @@ tags: [springCloud,Hystrix,feign]
 
 ## 启用 feign
 
-```java
+```
 在启动类上添加
 //开启Feign
 @EnableFeignClients
@@ -34,7 +34,7 @@ tags: [springCloud,Hystrix,feign]
 
 ## 配置feign调用类
 
-```java
+```
 @Service
 @FeignClient(value = "Tip-Producer-Server", fallbackFactory = TipsServerFallBackFactory.class)
 public interface TipsService {
@@ -49,7 +49,7 @@ public interface TipsService {
 
 ### FeignClient 详解
 
-```java
+```
 value  连接的服务名
 url    调试时候指定的服务器
 fallbackFactory 降级方法(可以写入异常信息)
@@ -58,7 +58,7 @@ fallback        降级方法
 
 ### fallbackFactory的实现
 
-```java
+```
 @Component
 public class TipsServerFallBackFactory implements FallbackFactory<TipsService> {
     private static final Logger logger = LoggerFactory.getLogger(TipsServerFallBackFactory.class);
@@ -87,7 +87,7 @@ public class TipsServerFallBackFactory implements FallbackFactory<TipsService> {
 
 ## fallback的实现
 
-```java
+```
 @Component
 public class TipsServiceFallBack implements TipsService {
 
@@ -108,7 +108,7 @@ public class TipsServiceFallBack implements TipsService {
 
 ### 基础信息设置
 
-```java
+```
 spring:
   application:
     name: Tip-Consumer
@@ -128,7 +128,7 @@ eureka:
 
 ### 开启feign的hystrix
 
-```java
+```
 ## 开启feign默认开启的hystrix 不开启会导致降级失败
 feign:
   hystrix:
@@ -141,7 +141,7 @@ feign:
 
 feign的重试机制为5次  修改为Ribbon好控制
 
-```java
+```
 ribbon:
   MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
   MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
@@ -150,7 +150,7 @@ ribbon:
   ReadTimeout: 5000 #请求处理的超时时间
 ```
 
-```java
+```
 # 根据上面的参数计算重试的次数：#MaxAutoRetries+MaxAutoRetriesNextServer+(MaxAutoRetries *MaxAutoRetriesNextServer) 即重试3次 则一共产生4次调用
 ```
 
@@ -158,7 +158,7 @@ ribbon:
 
 - 如果你需要开启Feign的重试机制的话
 
-- ```java
+-```
   一般情况下 都是 ribbon 的超时时间（<）hystrix的超时时间（因为涉及到ribbon的重试机制） 
   因为ribbon的重试机制和Feign的重试机制有冲突，所以源码中默认关闭Feign的重试机制
   
@@ -171,11 +171,11 @@ ribbon:
   注意： 
   默认情况下,GET方式请求无论是连接异常还是读取异常,都会进行重试 
   非GET方式请求,只有连接异常时,才会进行重试
-  ```
+ ```
 
 ## 开启断路器的配置
 
-```java
+```
 hystrix:
   # 核心线程池大小  默认10
   coreSize: 20
@@ -193,7 +193,7 @@ hystrix:
 
 #### 默认的断路配置
 
-```java
+```
  command:
     default:
       execution:
@@ -216,7 +216,7 @@ hystrix:
 
 #### 为单独的方法设置断路器配置 和超时时间
 
-```java
+```
   ##单独方法(方法名#方法(类型)) 添加 断路器设置
     TipsService#sendTip(String):
       execution:
@@ -236,7 +236,7 @@ hystrix:
 
 需要注意的是
 
-```java
+```
 command.execution.timeout.enabled=true
           #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
 ```
@@ -257,7 +257,7 @@ command.execution.timeout.enabled=true
 
 # 完整配置文件
 
-```java
+```
 spring:
   application:
     name: Tip-Consumer

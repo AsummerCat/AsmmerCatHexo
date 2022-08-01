@@ -1,5 +1,5 @@
 ---
-title: springboot整合dubbo两个注解的引用
+title: SpringBoot整合dubbo两个注解的引用
 date: 2019-09-26 14:48:29
 tags: [SpringBoot,dubbo]
 ---
@@ -12,7 +12,7 @@ tags: [SpringBoot,dubbo]
 
 首先需要导入
 
-```java
+```
         <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -44,7 +44,7 @@ import org.apache.dubbo.config.annotation.Service;
 
 ### 参数详细解释
 
-```java
+```
 version        ->服务版本，建议使用两位数字版本，如：1.0，通常在接口不兼容时版本号才需要升级
 
 group          ->服务分组，当一个接口有多个实现，可以用分组区分 默认""
@@ -90,7 +90,7 @@ filter         ->服务提供方远程调用过程拦截器名称，多个名称
 
 ### mock详细
 
-```java
+```
 服务提供者不需要写啥内容
 消费者
 @Reference(group="hello",mock = "true") 
@@ -151,7 +151,7 @@ client    ->客户端传输类型设置，如Dubbo协议的netty或mina
 
 ### timeout详细
 
-```java
+```
 如果@Service设置了timeout 
 
 @Reference 也设置了timeout  以Reference 为准

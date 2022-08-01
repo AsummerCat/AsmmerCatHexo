@@ -1,7 +1,7 @@
 ---
 title: MarkDown语法初识
 date: 2018-09-12 22:02:14
-tags: 基础
+tags: [基础]
 ---
        html语法 可以使用在markdown中
   ***tips:基本上markdown语法 后面都要加上一个空格 不然不生效***

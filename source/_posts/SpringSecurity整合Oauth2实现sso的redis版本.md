@@ -1,7 +1,7 @@
 ---
 title: SpringSecurity整合Oauth2实现sso的redis版本
 date: 2019-07-30 23:53:19
-tags: [springCloud,Oauth2,Security,单点登录]
+tags: [SpringCloud,Oauth2,Security,单点登录]
 ---
 
 # 基于Oauth2实现SSO整合Redis
@@ -50,7 +50,7 @@ tags: [springCloud,Oauth2,Security,单点登录]
 
 控制权限登录信息之类的
 
-```java
+```
 /**
  * Security配置类
  *
@@ -137,7 +137,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 
-```java
+```
 
 /**
  * 授权服务
@@ -224,7 +224,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 多添加一些内容
 
-```java
+```
 configure(AuthorizationServerEndpointsConfigurer endpoints)方法中加入
 .accessTokenConverter(jwtAccessTokenConverter())
 
@@ -249,14 +249,14 @@ endpoints.tokenStore(tokenStore()).accessTokenConverter(jwtAccessTokenConverter(
 
 注意点:
 
-```java
+```
 .tokenKeyAccess("permitAll()")//公开/oauth/token的接口
                 .checkTokenAccess("permitAll()");  //检测是否认证
 ```
 
 # 自定义登录入口
 
-```java
+```
 @Controller
 public class LoginController {
 
@@ -275,7 +275,7 @@ public class LoginController {
 
 ### 登录页
 
-```java
+```
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
@@ -308,7 +308,7 @@ sso服务器session过期时间设置需要跟 授权服务器设置的token有�
 
 sso这边的seesion超时时间可以在配置文件中添加
 
-```java
+```
 server:
   servlet:
     session:
@@ -317,7 +317,7 @@ server:
 
 ## 这边的pom只要导入 oauth2的就可以了
 
-```java
+```
 <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
@@ -330,7 +330,7 @@ server:
 
 表示这是一个sso的客户端 
 
-```java
+```
 
 @Configuration
 @EnableOAuth2Sso
@@ -353,15 +353,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 * 这边有一个问题sso登录成功后的如果需要自定义授权成功后置处理器的话使用
 
-* ```java
+*```
   .and().formLogin().successHandler(new MyAuthenticationSuccessHandler());
-  ```
+ ```
 
   这种方式是无法注入的
 
   解决办法 : 直接使用Spring 重新手动赋值给OAuth2ClientAuthenticationProcessingFilter的setAuthenticationSuccessHandler方法
 
-  ```java
+ ```
   
   
   /**
@@ -392,11 +392,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           return bean;
       }
   }
-  ```
+ ```
 
 * 自定义的登录成功后置处理器
 
-```java
+```
 
 /**
  * 自定义登录成功 后置处理
@@ -425,7 +425,7 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
 
 然后就是添加配置文件信息 实现sso的内容了
 
-```java
+```
 auth-server: http://my.oauth.com:8200
 
 security:
@@ -449,7 +449,7 @@ security:
 
 资源服务器这边 就更简单了 直接开启`@EnableResourceServer`就可以了
 
-```java
+```
 
 @EnableResourceServer
 public abstract class ResServerConfig extends ResourceServerConfigurerAdapter {
@@ -470,7 +470,7 @@ public abstract class ResServerConfig extends ResourceServerConfigurerAdapter {
 
 ## 配置文件部分
 
-```java
+```
 auth-server: http://my.oauth.com:8200
 
 security:
@@ -538,7 +538,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 进行手动remove token
 
-```java
+```
 
 
 /**
@@ -587,7 +587,7 @@ public class MySsoLogoutHandler extends SecurityContextLogoutHandler implements 
 
 就设置一个`/oauth/exit`端点
 
-```java
+```
    /**
      * 退出操作
      */

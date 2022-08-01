@@ -1,7 +1,7 @@
 ---
 title: mac上iTerm2终端设置
 date: 2018-10-04 15:30:15
-tags: mac
+tags: [mac]
 ---
 
 # 参考
@@ -60,7 +60,7 @@ Oh My Zsh 是对主题的进一步扩展，地址：https://github.com/robbyruss
 
 使用上面的主题，需要 Meslo 字体支持，要不然会出现乱码的情况，字体下载地址：Meslo LG M Regular for Powerline.ttf
 
-```java
+```
 # clone
 git clone https://github.com/powerline/fonts.git --depth=1
 # install
@@ -203,19 +203,19 @@ brew cask uninstall qq #卸载 QQ
 
 * 下载Powerline 主题主题
 
-  ```java
+ ```
   git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme ~/.ohmyzsh-powerline
   cd ~/.ohmyzsh-powerline
   ./install_in_omz.sh
-  ```
+ ```
 
   * 配置ZSH
 
   ​       打开配置文件`~/.zshrc` 修改主题配置
 
-  ```java
+ ```
   ZSH_THEME="powerline"
-  ```
+ ```
 
   
 

@@ -1,10 +1,10 @@
 ---
-title: orcle存储过程
+title: oracle存储过程
 date: 2019-03-24 20:32:54
-tags: [数据库,orcle]
+tags: [数据库,oracle]
 ---
 
-# ORCLE存储过程
+# oracle存储过程
 
 ## 创建存储过程
 

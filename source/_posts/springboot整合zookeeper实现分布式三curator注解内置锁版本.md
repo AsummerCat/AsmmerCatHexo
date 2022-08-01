@@ -14,7 +14,7 @@ tags: [SpringBoot,zookeeper,分布式锁,curator]
 
 切面 和curator的包
 
-```java
+```
   <!-- 切面声明-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,7 +39,7 @@ tags: [SpringBoot,zookeeper,分布式锁,curator]
 
 基本上都是来自InterProcessLock这个接口的
 
-```java
+```
 1.可重入锁Shared Reentrant Lock   ->InterProcessMutexLock
 2.不可重入锁Shared Lock            ->InterProcessSemaphoreMutex
 3.可重入读写锁Shared Reentrant Read Write Lock   ->InterProcessReadWriteLock
@@ -51,7 +51,7 @@ tags: [SpringBoot,zookeeper,分布式锁,curator]
 
 # 创建配置文件
 
-```java
+```
 server:
   port: 8100
 
@@ -80,7 +80,7 @@ curator:
 
 # 创建curator配置类
 
-```java
+```
 /**
  * zk 初始化配置
  *
@@ -148,7 +148,7 @@ public class CuratorConfiguration {
 
 ### 方法锁注解
 
-```java
+```
 
 /**
  * ZK锁 注解
@@ -224,7 +224,7 @@ public @interface ZkLock {
 
 ### 锁key注解
 
-```java
+```
 
 /**
  * 这个注解用来标记 参数 使用key lock
@@ -242,7 +242,7 @@ public @interface LockKey {
 
 ## 创建锁类型枚举
 
-```java
+```
 package com.linjingc.annotaioncuratorzklock.lock;
 
 public enum LockType {
@@ -277,7 +277,7 @@ public enum LockType {
 
 ### 锁工厂
 
-```java
+```
 /**
  * 工厂模式 根据lock的类型自动加载 对应的锁类型
  *
@@ -309,7 +309,7 @@ public class LockFactory {
 
 ### 基础锁接口 实现加锁 和释放锁
 
-```java
+```
 package com.linjingc.annotaioncuratorzklock.lock.basiclock;
 
 /**
@@ -347,7 +347,7 @@ public interface Lock {
 
 ### 可重入锁
 
-```java
+```
 /**
  * 可重入锁
  *
@@ -407,7 +407,7 @@ public class InterProcessMutexLock implements Lock {
 
 ### 不可重入锁
 
-```java
+```
 /**
  * 不可重入锁
  *
@@ -467,7 +467,7 @@ public class InterProcessSemaphoreMutexLock implements Lock {
 
 ### 读写锁 读锁
 
-```java
+```
 /**
  * 读写锁 读锁
  *
@@ -527,7 +527,7 @@ public class ReadLock implements Lock {
 
 ### 读写锁 写锁
 
-```java
+```
 /**
  * 读写锁 写锁
  *
@@ -589,7 +589,7 @@ public class WriteLock implements Lock {
 
 ### 自定义处理锁错误
 
-```java
+```
 package com.linjingc.annotaioncuratorzklock.lock.exception;
 
 /**
@@ -648,7 +648,7 @@ public class CatLockTimeoutException extends RuntimeException {
 
 # 创建锁切面类
 
-```java
+```
 /**
  * zk锁切面类
  * 用来包裹方法使用
@@ -872,7 +872,7 @@ public class ZkLockAspectAop {
 
 # 创建生成锁key的节点方法
 
-```java
+```
 /**
  * 获取用户定义业务key
  *
@@ -968,7 +968,7 @@ public class BusinessKeyProvider {
 
 # 创建锁提供者 这边生成锁实例
 
-```java
+```
 
 /**
  * 锁提供者  创建锁的相关信息都在这里生成

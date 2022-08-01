@@ -1,7 +1,7 @@
 ---
 title: jedisCommand接口的方法使用
 date: 2018-11-13 13:48:34
-tags: redis 
+tags: [redis] 
 ---
 
 # 参考

@@ -9,7 +9,7 @@ tags: [vue]
 可以百度一下 里面有很多内容的功能 
 https://youzan.github.io/vant/#/zh-CN/
 ## 安装
-```java
+```
 通过 npm 安装
 在现有项目中使用 Vant 时，可以通过npm或yarn安装
 

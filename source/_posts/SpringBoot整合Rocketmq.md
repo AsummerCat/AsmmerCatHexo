@@ -18,7 +18,7 @@ tags: [RocketMQ,消息队列,SpringBoot]
 
 ### 顶级接口
 
-```java
+```
 MessageListener
     ->子类继承接口 
        MessageListenerConcurrently 以下内容都是实现这个的
@@ -40,7 +40,7 @@ messagelistener对象用于按顺序接收异步传递的消息。一个队列,�
 
 ### starter包中有两个实现类
 
-```java
+```
 DefaultMessageListenerConcurrently
 
 DefaultMessageListenerOrderly
@@ -221,7 +221,7 @@ public class OrdinaryConsumer {
 
 ### 可靠同步发送
 
-```java
+```
 	/**
 	 * 发送普通同步消息
 	 */
@@ -245,7 +245,7 @@ public class OrdinaryConsumer {
 
 ### 可靠异步发送
 
-```java
+```
 public void sendAsyncMessage() throws Exception {
 		DefaultMQProducer producer = initDefaultMQProducer();
 		Message msg = initMessage();
@@ -276,7 +276,7 @@ public void sendAsyncMessage() throws Exception {
 
 ### 单向发送 (日志收集)
 
-```java
+```
     /**
 	 * 单向发送
 	 */
@@ -290,7 +290,7 @@ public void sendAsyncMessage() throws Exception {
 
 ### 延时消息发送
 
-```java
+```
 	/**
 	 * 发送延时消息
 	 */
@@ -308,7 +308,7 @@ public void sendAsyncMessage() throws Exception {
 
 #### 创建一个事务监听器
 
-```java
+```
 
 /**
  * 创建事务监听实现类
@@ -346,7 +346,7 @@ public class TransactionListenerImpl implements TransactionListener {
 
 #### 发送事务信息
 
-```java
+```
 /**
 	 * 发送事务消息
 	 */
@@ -390,7 +390,7 @@ RocketMQ提供使用先进先出算法的顺序消息实现。
 
 客户端可以是个集群 如果A消费失败(需要幂等性处理),失败转给另外一个客户端做处理 
 
-```java
+```
  /**
 	 * 发送有序消息 MessageQueueSelector 自定义规则发送数据
 	 * 默认策略 有三种
@@ -425,7 +425,7 @@ RocketMQ提供使用先进先出算法的顺序消息实现。
 
 ### 普通集群消费
 
-```java
+```
 	/**
 	 * 接收到普通消息
 	 */
@@ -457,7 +457,7 @@ RocketMQ提供使用先进先出算法的顺序消息实现。
 
 ### 广播消费
 
-```java
+```
    /**
 	 * 广播消费信息
 	 */
@@ -485,7 +485,7 @@ RocketMQ提供使用先进先出算法的顺序消息实现。
 
 ### 导入starter包
 
-```java
+```
 <dependency>
     <groupId>org.apache.rocketmq</groupId>
     <artifactId>rocketmq-spring-boot-starter</artifactId>
@@ -495,7 +495,7 @@ RocketMQ提供使用先进先出算法的顺序消息实现。
 
 ### 修改application.yml 加入rockermq的相关配置
 
-```java
+```
 ## application.properties
 rocketmq.name-server=127.0.0.1:9876
 rocketmq.producer.group=my-group
@@ -516,7 +516,7 @@ rocketmq.producer.group=my-group
 
 不保证消息不重复 需要自己处理幂等性问题 默认重试2次
 
-```java
+```
 @Resource
     private RocketMQTemplate rocketMQTemplate;  	
 
@@ -588,7 +588,7 @@ rocketmq.producer.group=my-group
 
 ### 自定义的事务RocketMQTemplate
 
-```java
+```
 /**
  * 定义了一个事务发送者的模板配置
  */
@@ -599,14 +599,14 @@ public class ExtRocketMQTemplate extends RocketMQTemplate {
 
 ### 使用自定义的事务RocketMQTemplate
 
-```java
+```
 @Resource(name = "extRocketMQTemplate")
 private RocketMQTemplate extRocketMQTemplate;
 ```
 
 ### 创建一个事务监听器
 
-```java
+```
 /**
  * 创建一个事务监听器
  *
@@ -690,7 +690,7 @@ public class TransactionListener {
 
 ## 使用事务模板发送消息
 
-```java
+```
        /**
 		 * 事务管理器 事务发送者 需要配置rabbitMq事务管理器
 		 */
@@ -712,14 +712,14 @@ public class TransactionListener {
 
 ### 使用 注解
 
-```java
+```
     @Service
 	@RocketMQMessageListener     
 ```
 
 ### 介绍
 
-```java
+```
 /**
 	 * **********************************************************************
 	 * ********************客户端接收的方式**********************************
@@ -737,7 +737,7 @@ public class TransactionListener {
 
 ### 使用
 
-```java
+```
 /**
 	 * **********************************************************************
 	 * ********************客户端接收的方式**********************************

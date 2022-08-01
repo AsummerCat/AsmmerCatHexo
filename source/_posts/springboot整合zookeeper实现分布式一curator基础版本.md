@@ -19,7 +19,7 @@ zk分布式锁实现方式: 创建一个节点 利用临时节点来顺序下去
 
 但是有一个问题 如果手动删除了临时节点 那么其他的监听器会继续执行下去 然后发现都是未获取锁 导致报错...
 
-```java
+```
 zookeeper原生客户端 (官方提供)
 zkClient (开源的zk客户端 在原生api上封装 文档少)
 Curator (netflix公司开源的客户端 apache顶级项目 更多时候用这个) 推荐
@@ -27,7 +27,7 @@ Curator (netflix公司开源的客户端 apache顶级项目 更多时候用这�
 
 我们这边选用的是Curator
 
-```java
+```
 <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
@@ -43,7 +43,7 @@ Curator (netflix公司开源的客户端 apache顶级项目 更多时候用这�
 
 ## 创建配置yml
 
-```java
+```
 server:
   port: 8090
 
@@ -71,7 +71,7 @@ curator:
 
 ## 创建一个配置类 实例化  CuratorFramework
 
-```java
+```
 package com.linjingc.simplezklock.config;
 
 import org.apache.curator.framework.CuratorFramework;
@@ -122,7 +122,7 @@ public class CuratorConfiguration {
 
 ### 初始化
 
-```java
+```
 @Autowired
     private CuratorFramework zkClient;
 
@@ -142,7 +142,7 @@ public class CuratorConfiguration {
 
 ### 创建临时锁节点
 
-```java
+```
  public void lock() {
         try {
             //根节点的初始化放在构造函数里面不生效
@@ -166,7 +166,7 @@ public class CuratorConfiguration {
 
 ### 处理锁
 
-```java
+```
   /**
      * 检查是否获取锁
      * 检查是否获取成功锁 不成功阻塞线程
@@ -185,7 +185,7 @@ public class CuratorConfiguration {
 
 ### 获取锁
 
-```java
+```
  //获取锁
       private boolean tryLock() {
         try {
@@ -213,7 +213,7 @@ public class CuratorConfiguration {
 
 ### 解锁      这边原本是准备在前面先判断下是否删除了前节点 然后发现首节点没有前节点
 
-```java
+```
  public void unlock() {
         try {
                 zkClient.delete().guaranteed().deletingChildrenIfNeeded().forPath(currentPath.get());
@@ -229,7 +229,7 @@ public class CuratorConfiguration {
 
 ### 阻塞监听节点 等待锁处理   使用发令枪 监听到后继续执行 否则阻塞
 
-```java
+```
 /**
      * 阻塞监听节点  锁等待
      */
@@ -270,7 +270,7 @@ public class CuratorConfiguration {
 
 # zk锁完整方法
 
-```java
+```
 package com.linjingc.simplezklock.zklock;
 
 import org.apache.curator.framework.CuratorFramework;

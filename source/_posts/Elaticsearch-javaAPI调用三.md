@@ -40,7 +40,7 @@ spring:
 
 ## 创建实体类并映射
 
-```java
+```
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -62,7 +62,7 @@ public class Supplier implements Serializable {
 
 ## 创建DAO
 
-```java
+```
 public interface SupplierRepository  extends ElasticsearchRepository<Supplier,String> {
     //如果需要自定义基本的查询在这里书写
     //根据name查询
@@ -75,7 +75,7 @@ public interface SupplierRepository  extends ElasticsearchRepository<Supplier,St
 
 ## 使用es
 
-```java
+```
 package top.linjingc.basic_es_demo;
 
 import org.junit.Test;

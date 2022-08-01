@@ -210,7 +210,7 @@ public class AroundAdviceTest {
 # AfterThrowing 异常通知
   没有@Around，则 要代理的方法执行 异常才会被@AfterThrowing捕获；
   
- ```
+```
  /*通过throwing属性指定连接点方法出现异常信息存储在ex变量中，在异常通知方法中就可以从ex变量中获取异常信息了*/
 @AfterThrowing(value="execution(public int lzj.com.spring.aop.ArithmeticCalculator.*(int, int))",
             throwing="ex")
@@ -220,7 +220,7 @@ public class AroundAdviceTest {
         System.out.println("连接点方法为：" + methodName + ",参数为：" + args + ",异常为：" + ex);
     }
 
- ```
+```
 # 关于JoinPoint的方法和简单注释。
 
 ```
@@ -241,7 +241,7 @@ public interface JoinPoint {
     StaticPart getStaticPart(); //返回连接点静态部分
 }
 
-```  
+```
  
  
     

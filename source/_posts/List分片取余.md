@@ -1,7 +1,7 @@
 ---
 title: List分片取余
 date: 2019-03-05 20:07:38
-tags: java
+tags: [java]
 ---
 
 # javaList分片

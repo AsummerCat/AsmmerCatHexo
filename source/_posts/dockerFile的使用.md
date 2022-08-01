@@ -1,7 +1,7 @@
 ---
 title: dockerFile的使用
 date: 2018-12-04 15:38:21
-tags: docker
+tags: [docker]
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: CyclicBarrier回环栅栏可以重复使用
 date: 2018-11-05 13:54:30
-tags: 多线程
+tags: [多线程]
 ---
 
 # CyclicBarrier

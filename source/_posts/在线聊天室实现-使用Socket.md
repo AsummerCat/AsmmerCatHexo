@@ -55,7 +55,7 @@ public class SendMessage {
 
 # (服务端推送消息)线程
 
-```java
+```
 package com.linjingc.top.imwebsocketdemo.socketService;
 
 import java.io.IOException;

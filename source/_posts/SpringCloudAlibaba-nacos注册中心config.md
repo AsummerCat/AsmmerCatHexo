@@ -16,7 +16,7 @@ nacos 可以用来做注册中心 和 动态config参数
 
 ## 1.导入jar
 
-```java
+```
 <dependency>
     <groupId>com.alibaba.boot</groupId>
     <artifactId>nacos-config-spring-boot-starter</artifactId>
@@ -33,7 +33,7 @@ nacos.config.server-addr=127.0.0.1:8848
 
 ## 3.通过 Nacos 的 `@NacosValue` 注解设置属性值。
 
-```java
+```
 @Controller
 @RequestMapping("config")
 public class ConfigController {
@@ -55,7 +55,7 @@ public class ConfigController {
 
 ## 1.导入nacos的starter包
 
-```java
+```
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
     <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -132,7 +132,7 @@ public class ConfigController {
 
 ### 编写@value注解
 
-```java
+```
 	@Value("${hello.flag:默认值}")
 	private String test;
 ```
@@ -147,7 +147,7 @@ public class ConfigController {
 
 ### 配置bootstartp.Properties
 
-```java
+```
 spring:
   profiles:
     active: dev
@@ -178,7 +178,7 @@ spring:
     ## 默认规则  >  ext-config[n]  >  shared-dataids
 ```
 
-```java
+```
 spring:
   profiles:
     active: dev
@@ -214,7 +214,7 @@ spring:
 
 第一种的话是没办法指定分组的
 
-```java
+```
  这样可以实现指定分组
  extension-configs:
           - data-id: greeting.yml
@@ -247,7 +247,7 @@ cloud:
 
 ##  (重点)还有种方式 在启动时候传入namespaceId 动态选择
 
-```java
+```
 注意：不论用哪一种方式实现。对于指定环境的配置（spring.profiles.active=DEV、spring.cloud.nacos.config.group=DEV_GROUP、spring.cloud.nacos.config.namespace=83eed625-d166-4619-b923-93df2088883a），都不要配置在应用的bootstrap.properties中。而是在发布脚本的启动命令中，用-Dspring.profiles.active=DEV的方式来动态指定，会更加灵活！。
 ```
 
@@ -259,7 +259,7 @@ cloud:
 
 spring.cloud.nacos.server-addr 
 
-```JAVA
+```
 spring:
   profiles:
     active: dev

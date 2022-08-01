@@ -38,15 +38,14 @@ conda install jupyter notebook
 
    - Python 3.x
 
-   ```
+```
    pip3 install --upgrade pip
-   ```
+```
 
    - Python 2.x
-
-   ```
+```
    pip install --upgrade pip
-   ```
+```
 
 - 注意：老版本的pip在安装Jupyter Notebook过程中或面临依赖项无法同步安装的问题。因此**强烈建议**先把pip升级到最新版本。
 
@@ -54,15 +53,14 @@ conda install jupyter notebook
 
    - Python 3.x
 
-   ```
+```
    pip3 install jupyter
-   ```
+```
 
    - Python 2.x
-
-   ```
+```
    pip install jupyter
-   ```
+```
 
 # 三、运行Jupyter Notebook
 

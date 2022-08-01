@@ -1,7 +1,7 @@
 ---
 title: SpringMVC源码解析之请求处理流程三
 date: 2019-09-10 23:45:43
-tags: [springmvc,源码解析]
+tags: [SpringMvc,源码解析]
 ---
 
 # SpringMVC源码解析之请求处理流程(三)
@@ -36,7 +36,7 @@ tags: [springmvc,源码解析]
 
 在这个方法中，依旧如上，主要代码是 this.doDispatch(request, response);，这个方法，由此可看，代码到这里，还没有进入核心区域。然后我们进入，这个方法。才算正式进入springMNV的最核心代码区域：如下
 
-```java
+```
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     HttpServletRequest processedRequest = request;
     HandlerExecutionChain mappedHandler = null;

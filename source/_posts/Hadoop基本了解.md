@@ -1,7 +1,7 @@
 ---
 title: Hadoop基本了解
 date: 2019-05-16 11:42:41
-tags: Hadoop
+tags: [大数据,Hadoop]
 ---
 
 # Hadoop基本了解
@@ -123,7 +123,3 @@ storm是一个分布式的，容错的计算系统，storm属于流处理平台�
 
 Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。
 
-作者：AA赵师傅 
-来源：CSDN 
-原文：https://blog.csdn.net/zcb_data/article/details/80402411 
-版权声明：本文为博主原创文章，转载请附上博文链接！

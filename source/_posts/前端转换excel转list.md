@@ -1,7 +1,7 @@
 ---
 title: 前端转换excel转list
 date: 2019-03-05 19:51:13
-tags: 前端
+tags: [前端]
 ---
 
 # 前端导入excel转成列表
@@ -10,7 +10,7 @@ tags: 前端
 
 ## 首先导入 xlsx.full.min.js;
 
-```javascript
+```script
 <!-- 导出xlex-->
  <script src="http://oss.sheetjs.com/js-xlsx/xlsx.full.min.js"></script>
 ```
@@ -19,7 +19,7 @@ tags: 前端
 
 ## js部分
 
-```javascript
+```script
 var showAddressList=new Array();  
             /*
             FileReader共有4种读取方法：  
@@ -74,7 +74,7 @@ var showAddressList=new Array();
 
 ## 页面部分
 
-```javascript
+```script
 <body>
      <div><input type="file"onchange="importf(this)" />
      <div><button type="button" onclick="bdGEO()">导出结果</div>

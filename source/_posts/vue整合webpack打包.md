@@ -8,30 +8,30 @@ tags: [vue,webpack]
 
 ## 创建一个vue项目
  使用webpack创建
- ```
+```
  vue init webpack 项目名称
- ```
+```
  ## 初始化并运行
- ```
+```
  cd xxx项目目录
  npm install
  npm run dev
- ```
+```
 
 <!--more-->
 
  # webpack
 
  ## 安装webpack
- ```
+```
  npm install webpack -g
  npm install webpack-cli -g
  
  查看版本 webpack-cli -v
- ```
+```
  ## 项目结构
  创建webpack.config.js配置文件
- ```
+```
 -  entry: 入口文件,指定webpack用哪个文件作为项目的入口
 -  output: 输出,指定webpack吧处理完成的文件放置到指定路径
 -  module: 模块,用于处理各种类型的文件
@@ -40,7 +40,7 @@ tags: [vue,webpack]
 -  watch: 监听,用于设置文件改动后直接打包
  
  
- ```
+```
 
 
 ## 使用webpack的js等文件

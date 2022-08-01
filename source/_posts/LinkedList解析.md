@@ -1,7 +1,7 @@
 ---
 title: LinkedList解析
 date: 2019-01-30 14:18:05
-tags: jdk源码解析
+tags: [jdk源码解析]
 ---
 
 # LinkedList链表集合
@@ -29,7 +29,7 @@ tags: jdk源码解析
 
 ### 默认参数
 
-```java
+```
     //node节点数量
     transient int size = 0;
 
@@ -141,7 +141,7 @@ tags: jdk源码解析
 
 ### 内部方法 集合的
 
-```java
+```
   //获取链表内部node数量
     @Override
     public int size() {
@@ -268,7 +268,7 @@ tags: jdk源码解析
 
 ### 对外方法 队列
 
-```java
+```
 
 
     @Override
@@ -465,7 +465,7 @@ tags: jdk源码解析
 
 ### 迭代器方法
 
-```java
+```
  @Override
     public ListIterator<E> listIterator(int index) {
         checkPositionIndex(index);
@@ -592,7 +592,7 @@ tags: jdk源码解析
 
 # 完整
 
-```java
+```
 package myLinkList;
 
 import java.util.*;

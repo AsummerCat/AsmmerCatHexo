@@ -1,10 +1,10 @@
 ---
-title: SpringBoot整合mybaitis配置版本
+title: SpringBoot整合mybatis配置版本
 date: 2019-07-16 17:13:41
-tags: [SpringBoot,mybaitis]
+tags: [SpringBoot,mybatis]
 ---
 
-# SpringBoot整合mybaitis配置版本
+# SpringBoot整合mybatis配置版本
 
 demo地址:[config-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/config-demo)
 
@@ -17,7 +17,7 @@ demo地址:[config-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/
 ## 导入pom
 
 ```
- <!--mybaitis整合Springboot-->
+ <!--mybatis整合Springboot-->
  <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -29,7 +29,7 @@ demo地址:[config-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/
 
 ## 配置文件
 
-```java
+```
 server:
   port: 8200
 
@@ -64,7 +64,7 @@ mybatis:
 
 @MapperScan("com.linjingc.configdemo.dao")
 
-```java
+```
 /**
  * 配置篇
  */
@@ -82,7 +82,7 @@ public class ConfigDemoApplication {
 
 ## controller Server  entity常规写法
 
-```java
+```
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -103,7 +103,7 @@ public class UserController {
 }
 ```
 
-```java
+```
 /**
  * @author cxc
  */
@@ -124,7 +124,7 @@ public class UserService {
 }
 ```
 
-```java
+```
 /**
  * 用户类
  *
@@ -145,7 +145,7 @@ public class BasicUser {
 
 添加 @Repository注解
 
-```java
+```
 @Repository
 public interface UserMapper {
     BasicUser findUser(@Param("name") String name);
@@ -157,14 +157,14 @@ public interface UserMapper {
 
 这里需要注意
 
-- ```java
+-```
   #{name} 和${name}的区别    #{}代表自动拼接``  ${}表示需要手动添加``
-  ```
+ ```
 
-  - ```
+  -```
     这是一个很容易忽视的点，记住：接口名与Mybatis的映射文件名一定要一模一样
     
-    ```
+```
 
 ## 接着维护映射xml
 
@@ -172,7 +172,7 @@ public interface UserMapper {
 
 这里就是 mapper-locations: classpath:mapping/*Mapper.xml 维护的
 
-```java
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.linjingc.configdemo.dao.UserMapper">

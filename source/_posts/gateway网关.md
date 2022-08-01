@@ -1,12 +1,12 @@
 ---
 title: gateway网关
 date: 2020-05-09 15:11:24
-tags: [springCloud,gateway]
+tags: [SpringCloud,gateway]
 ---
 
 # gateway网关
 
-```java
+```
  gateway 非阻塞异步模型 (推荐)
  zuul 同步阻塞模型 
  zuul2 异步非阻塞模型 (还没完全上架)
@@ -20,7 +20,7 @@ fiter前后拦截 类似前置通知和后置通知
 
 内容:
 
-```java
+```
 1.Route(路由)
 2.Predicate(断言)
 3.Filter(过滤)
@@ -32,13 +32,13 @@ fiter前后拦截 类似前置通知和后置通知
 
 ### 引入相关pom
 
-```java
+```
 gateway的
 ```
 
 ### 在启动类上加入注解
 
-```java
+```
 注册中心的注解 @EnableDiscoveryClient
 ```
 
@@ -46,7 +46,7 @@ gateway的
 
 ### 第一种 yml配置
 
-```java
+```
 spring:
   application:
     name: gateway-api
@@ -77,7 +77,7 @@ spring:
 
 ### 第二种 硬编码版本
 
-```java
+```
 package com.linjingc.gatewayapi;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -111,7 +111,7 @@ public class GatewayRoutes {
 
 ### 第一种 根据负载均衡自动路由  -> 默认根据服务自动匹配
 
-```java
+```
    application:
     name: gateway-rureka
 
@@ -129,7 +129,7 @@ public class GatewayRoutes {
 
 ### 第二种 根据自定义路由规则路由  -> 自定义路由
 
-```java
+```
   application:
     name: gateway-rureka
 
@@ -148,14 +148,14 @@ public class GatewayRoutes {
 
 ## redicates 断言重点解析
 
-```java
+```
 这个就是根据不同的断言进行匹配路径
 常见的有上面的 -path
 ```
 
 ###  predicates的断言方法
 
-```java
+```
 具体内容官网查看 predicates的内容
 
 1.After         在什么时间之前允许访问     可以用ZonedDateTime.now();获取默认时区的时间
@@ -173,7 +173,7 @@ public class GatewayRoutes {
 
 可以参考[linnjingc.top的gateway的各种路由配置过滤器工厂](https://linjingc.top/2019/10/08/gateway%E7%9A%84%E5%90%84%E7%A7%8D%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E8%BF%87%E6%BB%A4%E5%99%A8%E5%B7%A5%E5%8E%82/)
 
-```java
+```
 可以实现GlobalFilter接口和Orders(用来过滤链排序)来完成 自定义全局过滤器
 可以实现GatewayFilter接口来实现 自定义单一的过滤器 (可以直接写在yml文件中)
 ```

@@ -1,7 +1,7 @@
 ---
 title: Hystrix生产环境中的线程池大小以及Timeout超时时长优化经验总结
 date: 2019-06-27 21:36:06
-tags: [springCloud,Hystrix]
+tags: [SpringCloud,Hystrix]
 ---
 
 # Hystrix生产环境中的线程池大小以及Timeout超时时长优化经验总结

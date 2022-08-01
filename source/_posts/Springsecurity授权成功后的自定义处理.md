@@ -1,7 +1,7 @@
 ---
 title: Springsecurity授权成功后的自定义处理
 date: 2019-07-10 22:00:10
-tags: [springCloud,Security,SpringBoot]
+tags: [SpringCloud,Security,SpringBoot]
 ---
 
 # Springsecurity授权成功后的自定义处理
@@ -22,7 +22,7 @@ tags: [springCloud,Security,SpringBoot]
 
 继承了默认的SimpleUrlAuthenticationSuccessHandler 实现了AuthenticationSuccessHandler
 
-```java
+```
 package com.linjingc.loginserversessiontoken.config.security;
 
 import lombok.extern.slf4j.Slf4j;
@@ -61,7 +61,7 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
 
 # 创建配置文件
 
-```java
+```
 package com.linjingc.loginserversessiontoken.config.security;
 
 import com.linjingc.loginserversessiontoken.config.security.jwt.JwtUtils;
@@ -224,7 +224,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ` setAuthenticationSuccessHandler(new MyAuthenticationSuccessHandler());`
 
-```java
+```
 package com.linjingc.loginserversessiontoken.config.security;
 
 import com.linjingc.loginserversessiontoken.config.security.jwt.JwtUtils;
@@ -292,14 +292,14 @@ public class MyAuthenticationFilter extends AbstractAuthenticationProcessingFilt
 
 ### 下一步修改配置类 添加这个过滤器到配置文件中
 
-```java
+```
          http.addFilterBefore(new MyAuthenticationFilter(authenticationManager(), jwtConfig, jwtUtils), UsernamePasswordAuthenticationFilter.class);
 
 ```
 
 ## 方式二
 
-```java
+```
 直接在配置类上写入
  @Autowired
     private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;

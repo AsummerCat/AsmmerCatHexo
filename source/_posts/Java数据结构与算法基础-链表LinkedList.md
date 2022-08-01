@@ -6,13 +6,13 @@ tags: [数据结构与算法,java]
 
 在本节中，我们将看到一种新的数据存储结构，它可以解决上面的一些问题。这种数据存储结构就是`链表`。**链表可能是继数组之后第二种使用最广泛的通用存储结构。**
 
-​    在本章中，我们将学习：
+    在本章中，我们将学习：
 
-- ​    单链表
-- ​    双端链表
-- ​    有序链表
-- ​    双向列表
-- ​    有迭代器的列表
+-     单链表
+-    双端链表
+-     有序链表
+-    双向列表
+-    有迭代器的列表
 
 链表与数组一样，都作为数据的基本存储结构，但是在存储原理上二者是不同的。在数组中，数据是存储在一段连续的内存空间中，我们可以通过下标来访问数组中的元素；而在链表中，元素是存储在不同的内存空间中，前一个元素的位置维护了后一个元素在内存中的地址，在Java中，就是前一个元素维护了后一个元素的引用。在本教程我们，我们将链表中的每个元素称之为一个节点(`Node`)。对比数组， 链表的数据结构可以用下图表示
 
@@ -51,13 +51,13 @@ public class Node {
 
 **4、删除操作分析**
 
-​     首先查找到要删除的元素节点，同时将这个节点的上一个节点和下一个节点也要记录下来，只要将上一个节点的next引用直接指向下一个节点即可，这就相当于 删除了这个节点。如果要删除的是第一个节点，直接将LinkList的firstNode指向第二个节点即可。如果删除的是最后一个节点，只要将上一个节 点的next引用置为null即可。上述分析，可以删除任意节点，具有通用性但是效率较低。通常情况下，我们还会提供一个`removeFirst`方法，因为这个方法效率较高，同样只要改变fisrtNode的引用即可。  
+     首先查找到要删除的元素节点，同时将这个节点的上一个节点和下一个节点也要记录下来，只要将上一个节点的next引用直接指向下一个节点即可，这就相当于 删除了这个节点。如果要删除的是第一个节点，直接将LinkList的firstNode指向第二个节点即可。如果删除的是最后一个节点，只要将上一个节 点的next引用置为null即可。上述分析，可以删除任意节点，具有通用性但是效率较低。通常情况下，我们还会提供一个`removeFirst`方法，因为这个方法效率较高，同样只要改变fisrtNode的引用即可。  
 
 此外，根据情况而定，可以选择是否要维护链表中元素的数量`size`，不过这不是实现一个链表必须的核心特性。
 
 SingleLinkList.java
 
-```java
+```
 public class SingleLinkList<T> {
     //链表中第一个节点
     protected Node firstNode=null;
@@ -236,7 +236,7 @@ public void testRemoveFisrt() {
 
 **测试包含：**
 
-```java
+```
 @Test
 public void testContains() {
     SingleLinkList<Integer> linkList=new SingleLinkList<Integer>();
@@ -271,7 +271,7 @@ addLast方法分析：直接将链表中维护的lastNode的next引用指向新�
 
 DoubleLinkList.java
 
-```java
+```
 package com.tianshouzhi.algrithm.list;
  
 public class DoubleLinkList<T> extends SingleLinkList<T>{
@@ -331,7 +331,7 @@ public class DoubleLinkList<T> extends SingleLinkList<T>{
 
 测试addLast
 
-```java
+```
 @Test
     public void testAddFisrt() {
         DoubleLinkList<Integer> linkList=new DoubleLinkList<Integer>();
@@ -359,7 +359,7 @@ public class DoubleLinkList<T> extends SingleLinkList<T>{
 
 为了在一个有序链表中插入，算法必须首先搜索链表，直到找到合适的位置：它恰好在第一个比它大的数据项前面。
 
-​    当算法找到了要插入的数据项的位置，用通常的方式插入数据项：把新的节点Node指向下一个节点，然后把前一个节点Node的next字段改为指向新的节点。然而，需要考虑一些特殊情况，连接点有可能插入在表头或者表尾。
+​   当算法找到了要插入的数据项的位置，用通常的方式插入数据项：把新的节点Node指向下一个节点，然后把前一个节点Node的next字段改为指向新的节点。然而，需要考虑一些特殊情况，连接点有可能插入在表头或者表尾。
 
 
 

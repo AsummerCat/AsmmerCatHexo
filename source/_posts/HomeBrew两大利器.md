@@ -1,7 +1,7 @@
 ---
 title: HomeBrew两大利器
 date: 2019-01-14 15:12:52
-tags: HomeBrew
+tags: [HomeBrew]
 ---
 
 

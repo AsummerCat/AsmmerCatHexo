@@ -1,7 +1,7 @@
 ---
 title: SpringBootActuator端点
 date: 2019-08-01 21:29:39
-tags: [actuator,springCloud,SpringBoot]
+tags: [actuator,SpringCloud,SpringBoot]
 ---
 
 # **SpringBoot actuator各个端点报告及说明**

@@ -1,7 +1,7 @@
 ---
 title: SpringCloudStream整合RabbitMQ使用二
 date: 2019-01-18 15:19:00
-tags: [springCloud,RabbitMQ,springCloudStream]
+tags: [SpringCloud,RabbitMQ,SpringCloudStream]
 ---
 
 上一篇文章介绍了如何实现一个简单的Stream
@@ -12,7 +12,7 @@ tags: [springCloud,RabbitMQ,springCloudStream]
 
 ### @SendTo(Processor.OUTPUT) 这个表示将返回值发送出去
 
-```java
+```
 
 package com.linjing.customer;
 
@@ -38,7 +38,7 @@ public class SinkReceiver {
 
 使用`@StreamListener`具有调度条件的示例可以在下面看到。在此示例中，带有值为`foo`的标题`type`的所有消息将被分派到`receiveFoo`方法，所有带有值为`bar`的标题`type`的消息将被分派到`receiveBar`方法。
 
-```java
+```
 @EnableBinding(Sink.class)
 @EnableAutoConfiguration
 public static class TestPojoWithAnnotatedArguments {
@@ -57,7 +57,7 @@ public static class TestPojoWithAnnotatedArguments {
 
 ### 轮询发送
 
-```java
+```
 // 定时轮询发送消息到 binding 为 Processor.OUTPUT
     @Bean
     @InboundChannelAdapter(value = Processor.OUTPUT, poller = @Poller(fixedDelay = "3000", maxMessagesPerPoll = "1"))
@@ -77,7 +77,7 @@ public static class TestPojoWithAnnotatedArguments {
 
 #### 生产者
 
-```java
+```
 server:
   port: 8082
 
@@ -107,7 +107,7 @@ spring:
 
 destination: firstMeExchange # 表示要使用的Exchange名称定义
 
-```java
+```
 server:
   port: 8082
 
@@ -190,7 +190,7 @@ DLX也是一个正常的Exchange，和一般的Exchange没有区别，它能在�
 
 ### Spring Cloud Stream 中使用
 
-```java
+```
 spring.cloud.stream.rabbit.bindings.[channelName].consumer.autoBindDlq=true
 
 spring.cloud.stream.rabbit.bindings.[channelName].consumer.republishToDlq=true

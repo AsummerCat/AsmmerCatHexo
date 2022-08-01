@@ -1,7 +1,7 @@
 ---
 title: vue.js路由
 date: 2018-11-09 09:13:12
-tags: vue
+tags: [vue]
 ---
 # Vue.js路由(Vue-router)
 

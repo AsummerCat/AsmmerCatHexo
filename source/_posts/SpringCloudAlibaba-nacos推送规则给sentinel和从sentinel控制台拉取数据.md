@@ -14,7 +14,7 @@ tags: [SpringCloudAlibaba,sentinel,Nacos]
 
 ### 修改nacos的配置文件
 
-```java
+```
 添加数据库的相关信息
 ```
 
@@ -36,7 +36,7 @@ tags: [SpringCloudAlibaba,sentinel,Nacos]
 
 ## 修改bootstrap.yml
 
-```java
+```
 # 连接sentinel监控台
 spring.cloud.sentinel.transport.dashboard=localhost:8080
 
@@ -49,7 +49,7 @@ spring.cloud.sentinel.datasource.ds.nacos.rule-type=flow
 
 `Nacos`存储的具体配置类源码如下：
 
-```java
+```
 public class NacosDataSourceProperties extends AbstractDataSourceProperties {
 
     private String serverAddr;
@@ -72,7 +72,7 @@ json类型
 
 `注意了count": 2,   在2020年4月27日17:19:431   1.71版本中可能会出现死循环 `
 
-```java
+```
 [
     {
         "resource": "hello",
@@ -86,7 +86,7 @@ json类型
 ]
 ```
 
-```java
+```
 可以看到上面配置规则是一个数组类型，数组中的每个对象是针对每一个保护资源的配置对象，每个对象中的属性解释如下：
 
 resource：资源名，即限流规则的作用对象
@@ -102,7 +102,7 @@ clusterMode：是否为集群模式
 
 ## 代码中埋点
 
-```java
+```
 @SentinelResource(value = "hello",
 			blockHandler = "block",
 			fallback = "fallback")

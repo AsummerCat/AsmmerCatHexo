@@ -1,14 +1,14 @@
 ---
-title: spring在代码中获取bean的几种方式
+title: Spring在代码中获取bean的几种方式
 date: 2019-08-27 21:33:11
-tags: [spring,java,SpringBoot]
+tags: [Spring,java,SpringBoot]
 ---
 
 # spring在代码中获取bean的几种方式
 
 # 第一种
 
-```java
+```
 @Service
 public class BeanFactoryHelper implements BeanFactoryAware {
     
@@ -35,7 +35,7 @@ public class BeanFactoryHelper implements BeanFactoryAware {
 
 实现ApplicationContextAware接口，代码也很简单：
 
-```java
+```
 @Service
 public class ApplicationContextHelper implements ApplicationContextAware {
     
@@ -60,7 +60,7 @@ public class ApplicationContextHelper implements ApplicationContextAware {
 
 效率低于上面两种
 
-```java
+```
 WebApplicationContext webApplication = ContextLoader.getCurrentWebApplicationContext();   
 helloService = (HelloService) webApplication.getBean("helloService");  
 logger.info(helloService.processService("ContextLoader.getCurrentWebApplicationContext() test"));  
@@ -70,7 +70,7 @@ logger.info(helloService.processService("ContextLoader.getCurrentWebApplicationC
 
 上面三种方法，只有容器启动的时候，才会把BeanFactory和ApplicationContext注入到自定义的helper类中，如果在本地junit测试的时候，如果需要根据bean的名称获取bean对象，则可以通过ClassPathXmlApplicationContext来获取一个ApplicationContext，代码如下：
 
-```java
+```
 @Test
     public void test() throws SQLException {
         //通过从classpath中加载spring-mybatis.xml实现bean的获取

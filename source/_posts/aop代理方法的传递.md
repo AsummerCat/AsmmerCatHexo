@@ -1,7 +1,7 @@
 ---
 title: aop代理方法的传递
 date: 2020-04-08 21:30:40
-tags: [spring,java,aop]
+tags: [Spring,java,aop]
 ---
 
 # aop代理方法的传递

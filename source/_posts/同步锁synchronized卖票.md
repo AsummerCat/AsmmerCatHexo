@@ -1,7 +1,7 @@
 ---
 title: 同步锁synchronized卖票
 date: 2018-09-17 20:52:19
-tags: 多线程
+tags: [多线程]
 ---
 ### 运行例子
 ```

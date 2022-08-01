@@ -6,7 +6,7 @@ tags: [jvm,java,volatie]
 
 # 指令重排要符合happens-befroe原则
 
-```java
+```
 1、程序次序法则，如果A一定在B之前发生，则happen before；
 2、监视器法则,对一个监视器的解锁一定发生在后续对同一监视器加锁之前；
 3、Volatie变量法则：写volatile变量一定发生在后续对它的读之前；

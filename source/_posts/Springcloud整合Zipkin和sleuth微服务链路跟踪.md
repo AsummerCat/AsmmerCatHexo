@@ -1,10 +1,10 @@
 ---
-title: Springcloud整合Zipkin和sleuth微服务链路跟踪
+title: SpringCloud整合Zipkin和sleuth微服务链路跟踪
 date: 2019-08-03 11:50:23
-tags: [SpringBoot,springCloud,Zipkin,sleuth,链路跟踪]
+tags: [SpringBoot,SpringCloud,Zipkin,sleuth,链路跟踪]
 ---
 
-# Springcloud整合Zipkin和sleuth微服务链路跟踪
+# SpringCloud整合Zipkin和sleuth微服务链路跟踪
 
 [demo地址](https://github.com/AsummerCat/sleuth-demo)
 
@@ -20,7 +20,7 @@ https://github.com/openzipkin/zipkin/issues/1962
 
 需要注意的是zipkin下载后maven编译下载包比较多
 
-```java
+```
 无论您如何启动Zipkin，请浏览http：// your_host：9411以查找跟踪！
 ```
 
@@ -42,7 +42,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 
 ### 导入pom
 
-```java
+```
         <!--开启zipkin服务链路跟踪 这个组合包 zipkin+sleuth-->
     <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -52,7 +52,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 
 ## 添加配置信息
 
-```java
+```
 spring:
   application:
     name: server-a-demo
@@ -82,7 +82,7 @@ spring:
 
 ### 导入pom
 
-```java
+```
         <!--开启zipkin服务链路跟踪 这个组合包 zipkin+sleuth-->
     <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -92,7 +92,7 @@ spring:
 
 ## 添加配置文件
 
-```java
+```
 spring:
   application:
     name: server-b-demo
@@ -114,11 +114,11 @@ spring:
 
 # 理解
 
-```java
-springcloud_ribbon_client1：
+```
+SpringCloud_ribbon_client1：
 
 INFO [ribbon-client1,144f1891d3547500,144f1891d3547500,true] 1612 --- [nio-3333-exec-1] c.s.w.c.RibbonClient1Controller          : RibbonClient1Controller--test() is requesting....
-springcloud_ribbon_client2：
+SpringCloud_ribbon_client2：
 
  INFO [ribbon-client2,144f1891d3547500,e3822e407ad26f52,true] 5160 --- [nio-4444-exec-1] c.s.w.c.RibbonClient2Controller          : RibbonClient2Controller--callRabbitClient2 is requesting...
 由此可以看到sleuth进行服务链路跟踪的一些重要元素，[ribbon-client2,144f1891d3547500,e3822e407ad26f52,true] 的含义如下：

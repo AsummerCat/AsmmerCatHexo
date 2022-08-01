@@ -1,7 +1,7 @@
 ---
 title: TreeMap解析红黑树
 date: 2019-02-13 11:06:15
-tags: jdk源码解析
+tags: [jdk源码解析]
 ---
 
 参考:[[Java提高篇（二七）-----TreeMap](https://www.cnblogs.com/chenssy/p/3746600.html)](https://www.cnblogs.com/chenssy/p/3746600.html)
@@ -12,7 +12,7 @@ tags: jdk源码解析
 
 ## TreeMap的定义如下
 
-```java
+```
 public class TreeMap<K,V>
     extends AbstractMap<K,V>
     implements NavigableMap<K,V>, Cloneable, java.io.Serializable
@@ -34,7 +34,7 @@ TreeMap的基本操作 containsKey、get、put 和 remove 的时间复杂度是 
 
 ## 构造函数
 
-```java
+```
 // 默认构造函数。使用该构造函数，TreeMap中的元素按照自然排序进行排列。
 TreeMap()
 

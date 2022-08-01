@@ -1,7 +1,7 @@
 ---
 title: gateway的使用
 date: 2019-10-06 09:14:59
-tags: [gateway,springCloud,微服务]
+tags: [gateway,SpringCloud,微服务]
 ---
 
 # 创建gateway网关项目
@@ -10,7 +10,7 @@ tags: [gateway,springCloud,微服务]
 
 ## 这边的话使用gradle创建项目
 
-```java
+```
 主要配置差别就是
 dependencies {
     implementation('org.springframework.cloud:spring-cloud-starter-gateway')
@@ -30,7 +30,7 @@ dependencies {
 
 ## 代码
 
-```java
+```
 package com.linjingc.gatewayapi;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -60,7 +60,7 @@ public class GatewayRoutes {
 
 ## 配置文件
 
-```java
+```
 spring:
   application:
     name: gateway-api

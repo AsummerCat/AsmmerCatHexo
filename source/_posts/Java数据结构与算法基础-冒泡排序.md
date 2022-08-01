@@ -24,7 +24,7 @@ tags: [数据结构与算法,java]
 
 # **算法实现**
 
-```java
+```
 public class BubbleSort {
     /**
      * @param arr 需要排序的数组

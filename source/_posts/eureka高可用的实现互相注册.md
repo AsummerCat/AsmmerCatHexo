@@ -1,7 +1,7 @@
 ---
 title: eureka高可用的实现互相注册
 date: 2019-01-10 15:50:55
-tags: [springCloud,eureka]
+tags: [SpringCloud,eureka]
 ---
 
 # eureka实现高可用 
@@ -14,7 +14,7 @@ tags: [springCloud,eureka]
 
 # 修改host 当做三台不同的测试机
 
-```java
+```
 # eureka测试环境
 127.0.0.1 localhost
 127.0.0.1 server1
@@ -27,7 +27,7 @@ tags: [springCloud,eureka]
 
 
 
-```java
+```
 spring:
   application:
     name: eureka-Server
@@ -71,7 +71,7 @@ hostname 这里也修改成不同的
 
 # 服务如何注册到eureka 
 
-```java
+```
 spring:
   application:
     name: test-server

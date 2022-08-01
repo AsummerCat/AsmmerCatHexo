@@ -1,7 +1,7 @@
 ---
 title: nginx防盗链
 date: 2019-04-19 07:27:18
-tags: nginx
+tags: [nginx]
 ---
 
 # nginx防盗链

@@ -72,7 +72,7 @@ img.src=src; //这里的src是指之前上传文件的图片流
 
 ###  <font color="red">js部分</font>
 
-```javascript
+```script
 
 $().ready(function(){
         #(“图片ID”).on(‘change’,function(event){
@@ -92,7 +92,7 @@ var reader=new FileReader();   //前端文件流
 
 ### 图片校验类型
 
-```javascript
+```script
 //图片校验类型
 function checkImgType(file){
 var fileName=file.name;
@@ -119,7 +119,7 @@ function checkImgSize(file){
 
 ### 上传图片内容到后台
 
-```javascript
+```script
 //上传图片内容到后台
 //src  图片流
 //showImg  图片回显Id
@@ -161,7 +161,7 @@ img.src=src;
 
 ###  <font color="red">后端部分</font>
 
-```java
+```
 @RequsestMapping(value="路径",method=RequstMethod.POST)
 @ResponseBody
 public boolean uploadImg(String token,String fileName,String data)throws Exception{

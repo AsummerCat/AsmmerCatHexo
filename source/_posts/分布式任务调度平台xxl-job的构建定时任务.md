@@ -10,7 +10,7 @@ tags: [xxl-job,分布式任务调度平台]
 
 # 首先还是导入pom
 
-```java
+```
 <dependency>
     <groupId>com.xuxueli</groupId>
     <artifactId>xxl-job-core</artifactId>
@@ -26,7 +26,7 @@ tags: [xxl-job,分布式任务调度平台]
 
 ## 表名的解释:
 
-```java
+```
 - xxl_job_lock：任务调度锁表；
 - xxl_job_group：执行器信息表，维护任务执行器信息；
 - xxl_job_info：调度扩展信息表： 用于保存XXL-JOB调度任务的扩展信息，如任务分组、任务名、机器地址、执行器、执行入参和报警邮件等等；
@@ -38,7 +38,7 @@ tags: [xxl-job,分布式任务调度平台]
 
 ## 脚本
 
-```java
+```
 #
 # XXL-JOB v2.1.1-SNAPSHOT
 # Copyright (c) 2015-present, xuxueli.
@@ -155,7 +155,7 @@ commit;
 
 # 创建配置文件
 
-```java
+```
 spring:
   application:
     name: xxl-job-execute-demo
@@ -248,7 +248,7 @@ public class xxlJobConfig {
 
 继承IJobHandler  添加注解 JobHandler->标识执行器名称
 
-```java
+```
 package com.linjingc.xxljobexecutedemo.execute;
 
 import com.xxl.job.core.biz.model.ReturnT;

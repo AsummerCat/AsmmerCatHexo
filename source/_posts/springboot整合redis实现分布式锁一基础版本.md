@@ -1,10 +1,10 @@
 ---
-title: springboot整合redis实现分布式锁一
+title: SpringBoot整合redis实现分布式锁一
 date: 2019-08-06 20:57:43
 tags: [SpringBoot,redis,分布式锁]
 ---
 
-# springboot整合redis实现分布式锁一 基础版本
+# SpringBoot整合redis实现分布式锁一 基础版本
 
 ## 理解
 
@@ -42,7 +42,7 @@ tags: [SpringBoot,redis,分布式锁]
 
 ## redis 序列化配置
 
-```java
+```
 package com.linjingc.simpleredislock.utils;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -102,7 +102,7 @@ public class RedisConfig {
 
 # redis工具类
 
-```java
+```
 package com.linjingc.simpleredislock.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -692,7 +692,7 @@ public final class RedisUtil {
 
 # redis 锁工具类
 
-```java
+```
 package com.linjingc.simpleredislock.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -748,7 +748,7 @@ public class RedisLockUtil {
 
 ##  实现
 
-```java
+```
 package com.linjingc.simpleredislock.controller;
 
 import com.linjingc.simpleredislock.utils.RedisLockUtil;

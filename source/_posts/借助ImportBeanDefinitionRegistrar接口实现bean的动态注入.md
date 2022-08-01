@@ -1,7 +1,7 @@
 ---
 title: 借助ImportBeanDefinitionRegistrar接口实现bean的动态注入
 date: 2019-09-26 14:44:09
-tags: [spring,java,动态注入]
+tags: [Spring,java,动态注入]
 ---
 
 # 借助ImportBeanDefinitionRegistrar接口实现bean的动态注入
@@ -16,8 +16,8 @@ tags: [spring,java,动态注入]
 
 <!--more-->
 
-```java
-package com.linjingc.mybaitissourcecodedemo;
+```
+package com.linjingc.mybatissourcecodedemo;
 
 import org.springframework.stereotype.Service;
 
@@ -42,8 +42,8 @@ class CountryMapper {
 - ResourceLoaderAware
 - EnvironmentAware
 
-```java
-package com.linjingc.mybaitissourcecodedemo;
+```
+package com.linjingc.mybatissourcecodedemo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -67,7 +67,7 @@ public class MapperAutoConfiguredMyBatisRegistrar
         MyClassPathBeanDefinitionScanner scanner = new MyClassPathBeanDefinitionScanner(registry, false);
         scanner.setResourceLoader(resourceLoader);
         scanner.registerFilters();
-        scanner.doScan("com.linjingc.mybaitissourcecodedemo.dao");
+        scanner.doScan("com.linjingc.mybatissourcecodedemo.dao");
     }
 
     @Override
@@ -94,8 +94,8 @@ public class MapperAutoConfiguredMyBatisRegistrar
 
 #### 需要继承`ClassPathBeanDefinitionScanner`，扫描使用`@Mapper`的注解的类，`ClassPathBeanDefinitionScanner`又继承`ClassPathScanningCandidateComponentProvider`类，`ClassPathScanningCandidateComponentProvider`中有两个TypeFilter集合，includeFilters、excludeFilters。满足任意includeFilters会被加载，同样的满足任意excludeFilters不会被加载。看下具体实现：
 
-```java
-package com.linjingc.mybaitissourcecodedemo;
+```
+package com.linjingc.mybatissourcecodedemo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -125,21 +125,21 @@ public class MyClassPathBeanDefinitionScanner extends ClassPathBeanDefinitionSca
 
 #### 核心代码就是**registerFilters()方法**，然后在我们的`ImportBeanDefinitionRegistrar`实现类中调用
 
-```java
+```
 	//ImportBeanDefinitionRegistrar实现
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         MyClassPathBeanDefinitionScanner scanner = new MyClassPathBeanDefinitionScanner(registry, false);
         scanner.setResourceLoader(resourceLoader);
         scanner.registerFilters();
-        scanner.doScan("com.linjingc.mybaitissourcecodedemo.dao");
+        scanner.doScan("com.linjingc.mybatissourcecodedemo.dao");
     }
 ```
 
 #### 测试
 
-```java
-package com.linjingc.mybaitissourcecodedemo;
+```
+package com.linjingc.mybatissourcecodedemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -169,7 +169,7 @@ public class DemoApplicationTests {
 #### 结果
 
 ```
-class com.linjingc.mybaitissourcecodedemo.CountryMapper
+class com.linjingc.mybatissourcecodedemo.CountryMapper
 ```
 
 #### 最后

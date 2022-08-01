@@ -1,7 +1,7 @@
 ---
 title: nginx基本配置与参数说明
 date: 2019-04-19 07:28:17
-tags: nginx
+tags: [nginx]
 ---
 
 # nginx基本配置与参数说明

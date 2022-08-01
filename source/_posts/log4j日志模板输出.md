@@ -1,7 +1,7 @@
 ---
 title: log4j日志模板输出
 date: 2022-02-06 21:49:44
-tags: java
+tags: [java]
 ---
 
 # log4j日志模板输出

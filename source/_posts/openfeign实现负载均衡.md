@@ -1,7 +1,7 @@
 ---
 title: openfeign实现负载均衡
 date: 2020-05-09 14:48:46
-tags: [springCloud,feign]
+tags: [SpringCloud,feign]
 ---
 
 # openfeign默认等待1秒钟超时
@@ -14,7 +14,7 @@ tags: [springCloud,feign]
 
 ### 3.修改yml配置文件 修改超时时间
 
-```java
+```
  设置feign客户端超时时间(OpenFeign默认支持ribbon)      r
  ibbon:  
    MaxAutoRetries: 1
@@ -31,14 +31,14 @@ tags: [springCloud,feign]
 
 ### 4.开启Feign的日志
 
-```java
+```
 NONE : 默认的 ,不显示任何日志
 BASIC: 仅记录请求方法,url,响应状态码及执行时间
 HEADERS: 除了BASIC中定义的信息之外,请求请求和响应的头消息
 FULL: 除了HEADERS中定义的信息之外,还有请求和响应的正文及元数据
 ```
 
-```java
+```
 开启方式:
     第一种:
 @Bean
@@ -65,7 +65,7 @@ feign.client.config.baidu.loggerLevel= full
 
 ## 需要yml 开启feign的hystrix
 
-```java
+```
 feign:
     hystrix:
         enabled: true
@@ -75,7 +75,7 @@ feign:
 
 ## 在主启动类上加入开启hystrix的注解
 
-```java
+```
 @EnableHystrix
 ```
 
@@ -83,7 +83,7 @@ feign:
 
 ### 第一种->fallbackFactory
 
-```java
+```
 @Service
 @FeignClient(value = "TipProducerServer", fallbackFactory = TipsServerFallBackFactory.class)
 public interface TipsService {
@@ -98,7 +98,7 @@ public interface TipsService {
 
 降级工厂位置:
 
-```java
+```
 @Component
 public class TipsServerFallBackFactory implements FallbackFactory<TipsService> {
     private static final Logger logger = LoggerFactory.getLogger(TipsServerFallBackFactory.class);
@@ -126,7 +126,7 @@ public class TipsServerFallBackFactory implements FallbackFactory<TipsService> {
 
 ### 第二种->fallback
 
-```java
+```
 @Service
 @FeignClient(value = "TipProducerServer", fallback = TipsServerFallBack.class)
 public interface TipsService {
@@ -141,7 +141,7 @@ public interface TipsService {
 
 降级方法位置:
 
-```java
+```
 
 public class TipsServerFallBack implements TipsService {
 

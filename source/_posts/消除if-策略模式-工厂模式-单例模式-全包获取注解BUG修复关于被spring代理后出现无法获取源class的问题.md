@@ -10,7 +10,7 @@ tags: [java,设计模式]
 
 获取注解的方式是这样的:
 
-```java
+```
 @Component
 public class ContextRefreshedListener implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
@@ -56,7 +56,7 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
 
 利用AopTargetUtils工具类获取源class
 
-```java
+```
 	for (Object bean : beans.values()) {
 				try {
 					//获取源class

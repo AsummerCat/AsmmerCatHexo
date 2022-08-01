@@ -1,18 +1,18 @@
 ---
-title: SpringBoot整合mybaitis-plus实现分页功能
+title: SpringBoot整合mybatis-plus实现分页功能
 date: 2019-07-16 17:17:05
-tags: [SpringBoot,mybaitis]
+tags: [SpringBoot,mybatis]
 ---
 
-# SpringBoot整合mybaitis-plus实现分页功能
+# SpringBoot整合mybatis-plus实现分页功能
 
-这边的话 mybaitis使用的注解的
+这边的话 mybatis使用的注解的
 
-demo地址: [mybaitis-plus-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/mybaitis-plus-demo)
+demo地址: [mybatis-plus-demo](https://github.com/AsummerCat/mybatis-demo/tree/master/mybaitis-plus-demo)
 
 # 老规矩 导入pom
 
-```java
+```
   <!--mybatis plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -25,13 +25,13 @@ demo地址: [mybaitis-plus-demo](https://github.com/AsummerCat/mybatis-demo/tree
 
 # 创建一个配置类 加载 mybatis-plus
 
-```java
+```
 /**
- * mybaitis配置文件 加入mybaitis-plus
+ * mybatis配置文件 加入mybatis-plus
  */
 @Configuration
 //@MapperScan("com.neo.mapper")
-public class MybaitisConfig {
+public class MybatisConfig {
     /**
      * 分页插件
      */
@@ -46,7 +46,7 @@ public class MybaitisConfig {
 
 # controller Server  entity常规写法
 
-```java
+```
 /**
      * 分页查询
      * @param page 页数
@@ -72,7 +72,7 @@ public class MybaitisConfig {
     }
 ```
 
-```java
+```
  /**
      * 分页查询
      */
@@ -89,7 +89,7 @@ public class MybaitisConfig {
 
 ### Page<T> page
 
-```java
+```
  Page<BasicUser> basicUserPage = new Page<>();
         //页数 0和1的效果一样 从1选择
         basicUserPage.setCurrent(page);
@@ -109,7 +109,7 @@ public class MybaitisConfig {
 
 例如:
 
-```java
+```
  /**
      * 分页查询
      * 分页对象,xml中可以从里面进行取值,传递参数 Page 即自动分页,必须放在第一位(你可以继承Page实现自己的分页对象)
@@ -122,7 +122,7 @@ public class MybaitisConfig {
 
 ## 完整
 
-```java
+```
 @Mapper
 public interface UserMapper extends BaseMapper<BasicUser> {
     @Select("SELECT * FROM USER WHERE NAME = #{name}")

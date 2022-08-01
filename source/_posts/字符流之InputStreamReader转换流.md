@@ -1,7 +1,7 @@
 ---
 title: 字符流之InputStreamReader转换流
 date: 2018-12-03 18:05:52
-tags: IO流
+tags: [IO流]
 ---
 # 参考
 [Java_io体系之OutputStreamWriter、InputStreamReader简介、走进源码及示例——17](https://blog.csdn.net/crave_shy/article/details/17239313)

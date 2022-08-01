@@ -12,13 +12,13 @@ tags: [vue]
 npm install vue-router --save-dev
 ```
 ### 使用:
- ```
+```
 import Vue from 'vue'
 import VueRouter from 'vue-fouter'
 
 <!--显示声明使用 -->
 Vue.use(VueRouter);
- ```
+```
 <!--more-->
 
 ## 配置路由地址

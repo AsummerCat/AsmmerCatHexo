@@ -1,16 +1,16 @@
 ---
 title: spring-security整合JWT实现token登录
 date: 2019-07-10 21:56:21
-tags: [Security,JWT,springCloud]
+tags: [Security,JWT,SpringCloud]
 ---
 
 # spring-security整合JWT实现token登录
 
-[demo地址](https://github.com/AsummerCat/springcloudAll/tree/master/loginServer-token)  demo中的loginServer-token模块
+[demo地址](https://github.com/AsummerCat/SpringCloudAll/tree/master/loginServer-token)  demo中的loginServer-token模块
 
 # SpirngBoot 和cloud版本
 
-```java
+```
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -24,7 +24,7 @@ tags: [Security,JWT,springCloud]
 
 # 导入pom文件
 
-```java
+```
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-security</artifactId>
@@ -51,7 +51,7 @@ tags: [Security,JWT,springCloud]
 
 # JWT 整合Spring Security 密码校验类
 
-```java
+```
 package com.linjingc.loginservertoken.config.security;
 
 import com.alibaba.fastjson.JSON;
@@ -249,7 +249,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 # 实现JWT工具类
 
-```java
+```
 package com.linjingc.loginservertoken.config.jwt;
 
 import com.alibaba.fastjson.JSON;
@@ -510,7 +510,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 # 实体类
 
-```java
+```
 package com.linjingc.loginservertoken.entity;
 
 import lombok.Data;
@@ -560,7 +560,7 @@ public class BasicUser implements UserDetails {
 
 # 配置文件
 
-```java
+```
 spring:
   application:
     name: Login-Server-token

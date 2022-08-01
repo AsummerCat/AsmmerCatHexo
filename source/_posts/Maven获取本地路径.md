@@ -6,7 +6,7 @@ tags: [maven,java]
 
 # Maven 获取本地路径
 
-```java
+```
    <scope>system</scope>        
    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jeecg-p3-biz-chat-1.0.5.jar</systemPath>
 ```

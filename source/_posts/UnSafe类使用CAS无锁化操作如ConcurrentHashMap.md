@@ -6,7 +6,7 @@ tags: [java,jvm]
 
 # Unsafe类操作
 
-```java
+```
     public static void main(String[] args) {
         GwyuTest gwyuTest = new GwyuTest();
         gwyuTest.setId(10);
@@ -38,7 +38,7 @@ tags: [java,jvm]
 
 ### 如果需要获取修改String数组中的内容
 
-```java
+```
             //数组中存储的对象头大小
             int ns=unsafe.arrayIndexScale(String[].class);
             //数组中第一个元素的起始位置

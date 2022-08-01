@@ -1,7 +1,7 @@
 ---
 title: Hystrix监控面板集群turbine
 date: 2019-01-14 10:32:27
-tags: [springCloud,Hystrix,turbine]
+tags: [SpringCloud,Hystrix,turbine]
 ---
 
 # 利用Turbine实现控制台的聚合
@@ -12,7 +12,7 @@ tags: [springCloud,Hystrix,turbine]
 
 # 创建一个项目 导入pom
 
-```java
+```
          <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-turbine</artifactId>
@@ -34,7 +34,7 @@ tags: [springCloud,Hystrix,turbine]
 
 - 创建应用主类`TurbineApplication`，并使用`@EnableTurbine`注解开启Turbine。
 
-```java
+```
 package com.linjing.hystrixturbine;
 
 import org.springframework.boot.SpringApplication;
@@ -57,7 +57,7 @@ public class HystrixTurbineApplication {
 
 - 在`application.yml`加入eureka和turbine的相关配置，具体如下：
 
-```java
+```
 spring:
   application:
     name: Hystrix-Turbine
@@ -103,7 +103,7 @@ Spring Cloud在封装Turbine的时候，还实现了基于消息代理的收集�
 
 这里主要引入了`spring-cloud-starter-turbine-amqp`依赖，它实际上就是包装了`spring-cloud-starter-turbine-stream`和`pring-cloud-starter-stream-rabbit`。
 
-```java
+```
       <dependency>
          <groupId>org.springframework.cloud</groupId>
          <artifactId>spring-cloud-starter-turbine-amqp</artifactId>
@@ -114,7 +114,7 @@ Spring Cloud在封装Turbine的时候，还实现了基于消息代理的收集�
 
 - 在应用主类中使用`@EnableTurbineStream`注解来启用Turbine Stream的配置。
 
-```java
+```
 @Configuration
 @EnableAutoConfiguration
 @EnableTurbineStream
@@ -129,7 +129,7 @@ public class TurbineApplication {
 
 ## 添加配置文件
 
-```java
+```
 spring.application.name=turbine-amqp
 
 server.port=8989
@@ -144,7 +144,7 @@ eureka.client.serviceUrl.defaultZone=http://localhost:1001/eureka/
 
 使其监控信息能够输出到RabbitMQ上。这个修改也非常简单，只需要在`pom.xml`中增加对`spring-cloud-netflix-hystrix-amqp`依赖，具体如下
 
-```java
+```
 <dependencies>
    <dependency>
          <groupId>org.springframework.cloud</groupId>
