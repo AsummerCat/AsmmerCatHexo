@@ -10,7 +10,7 @@ tags: [链路跟踪,cat]
 
 ### 基础用法
 ```
-//开启一个事务, 类型为url, 名称为借口路径
+//开启一个事务, 类型为url, 名称为接口路径
         Transaction t = Cat.newTransaction(CatConstants.TYPE_URL, request.getRequestURL().toString());
         try {
           
