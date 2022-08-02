@@ -45,3 +45,18 @@ agent.service_name={SW_AGENT_NAME:test1}
 java -javagent: SkyWalking的安装目录/agent/skywalking_springboot.jar -jar xxx.jar&"
 
 ```
+
+### 使用探针(探针配置)命令详解
+```
+java -javagent: SkyWalking的安装目录/agent/skywalking-agent.jar 
+-Dskywalking.agent.service_name=a-service
+-Dskywalking.collector.backend_service=192.168.31.10.11800
+-Dskywalking.logging.file_name=a-service-api.log
+-jar xxx.jar&"
+
+详情:
+-Dskywalking.agent.service_name 指定当前服务名称
+-Dskywalking.collector.backend_service 指定上报的服务器
+-Dskywalking.logging.file_name 指定上报后存储在skywalking上的日志名称
+
+```
