@@ -17,7 +17,7 @@ tags: [SpringBoot]
 
 ## 校验工具类
 ```
-package com.syswin.systoon.edusyncmq.utils;
+package com.xxx.xxx.xxx.utils;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections.CollectionUtils;

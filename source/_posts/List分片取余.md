@@ -8,7 +8,7 @@ tags: [java]
 
 <!--more-->
 ```
-package com.syswin.systoon.edusyncmq.utils;
+package com.xxx.xxx.xxx.utils;
 
 import com.google.common.collect.Lists;
 

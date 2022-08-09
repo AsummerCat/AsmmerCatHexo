@@ -61,7 +61,7 @@ rootLogger.level=${LOG_LEVEL}
 rootLogger.appenderRef.console.ref=ConsoleAppender
 rootLogger.appenderRef.file.ref=FileAppender
 
-logger.archetype.name=com.syswin.systoon
+logger.archetype.name=com.xxx.xxx
 logger.archetype.level=${LOG_LEVEL}
 logger.archetype.additivity=false
 logger.archetype.appenderRef.console.ref=ConsoleAppender

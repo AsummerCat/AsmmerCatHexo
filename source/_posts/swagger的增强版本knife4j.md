@@ -79,7 +79,7 @@ https://doc.xiaominfo.com/knife4j/documentation/get_start.html
 
 ###  创建配置文件
 ```
-package com.syswin.systoon.oauth.config;
+package com.xxx.xxx.oauth.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableSwaggerBootstrapUi;
 import org.springframework.context.annotation.Bean;
