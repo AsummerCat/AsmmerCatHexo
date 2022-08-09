@@ -114,7 +114,7 @@ public class Knife4jConfiguration {
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.syswin.systoon.platform.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.xxx.xxx.platform.controller"))
                 .paths(PathSelectors.any())
                 .build();
 

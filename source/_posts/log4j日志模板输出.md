@@ -67,7 +67,7 @@ logger.archetype.additivity=false
 logger.archetype.appenderRef.console.ref=ConsoleAppender
 logger.archetype.appenderRef.file.ref=FileAppender
 
-logger.sql.name=com.syswin.systoon
+logger.sql.name=com.xxx.xxx
 logger.sql.level=TRACE
 logger.sql.additivity=false
 logger.sql.appenderRef.console.ref=ConsoleAppender
