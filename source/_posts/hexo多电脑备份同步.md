@@ -16,6 +16,7 @@ tags: [hexo]
 这样在另外一台电脑第一次操作时，先把hexo整个仓库git clone下来，然后在hexo目录下执行  
 `npm install hexo --save `
 再执行一次  ` npm install`  然后
+`npm install -g hexo-cli`
 
 
 ```
