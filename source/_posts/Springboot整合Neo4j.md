@@ -6,7 +6,7 @@ tags: [SpringBoot,Neo4j]
 # Springboot整合Neo4j
 
 ## demo地址
-
+https://github.com/AsummerCat/neo4jDemo.git/
 
 ## 导入依赖
 ```
