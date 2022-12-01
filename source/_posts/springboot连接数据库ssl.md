@@ -73,12 +73,12 @@ useSSL=true&verifyServerCertificate=false
 
 ## 单向:ca.pem mysql服务器上获取
 ```
-eytool -import -trustcacerts -v -alias Mysql -file "C:\ProgramData\MySQL\MySQL Server 8.0\Data\ca.pem" -keystore "mysql.ks"
+keytool -import -trustcacerts -v -alias Mysql -file "C:\ProgramData\MySQL\MySQL Server 8.0\Data\ca.pem" -keystore "mysql.jks"
 设置密钥并记住密钥
 ```
 验证证书是否导入
 ```
-keytool -list -keystore mysql.ks
+keytool -list -keystore mysql.jks
 ```
 使用
 ```
@@ -86,7 +86,7 @@ ssl:
   cert:
     path: D:/Java/jdk1.8.0_131/bin
   config:
-      url: true&trustCertificateKeyStorePassword=123456&trustCertificateKeyStoreUrl=file:${ssl.cert.path}/mysql.ks
+      url: true&trustCertificateKeyStorePassword=123456&trustCertificateKeyStoreUrl=file:${ssl.cert.path}/mysql.jks
 spring:
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
