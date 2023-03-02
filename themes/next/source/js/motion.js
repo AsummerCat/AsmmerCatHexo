@@ -17,7 +17,12 @@ NexT.motion.integrator = {
   bootstrap: function() {
     if (!CONFIG.motion.async) this.queue = [this.queue];
     this.queue.forEach(sequence => {
-      const timeline = window.anime.timeline({
+     /* const timeline = window.anime.timeline({
+     #   duration: 200,
+     #   easing  : 'linear'
+     # })*/
+	  const timeline = window.anime.timeline();
+      timeline.add({
         duration: 200,
         easing  : 'linear'
       });

@@ -13,6 +13,7 @@ tags: [java,串口]
             <version>2.2</version>
         </dependency>
 ```
+<!--more-->
 
 ## 需要在jdk环境下的 jdk/bin目录中添加
 
@@ -21,7 +22,7 @@ rxtxParallel.dll
 rxtxSerial.dll
 ```
 
-<!---more-->
+
 
 ## 创建串口工具类
 
