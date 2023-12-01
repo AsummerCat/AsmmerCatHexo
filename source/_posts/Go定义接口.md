@@ -49,6 +49,12 @@ func main() {
 
 	phone = new(IPhone)
 	phone.call()
+	//两种实现方式 一种 对象{实例参数} 一种new(对象)
+	phone =NokiaPhone{}
+	phone.call()
+
+	phone = IPhone{}
+	phone.call()
 
 }
 ```
