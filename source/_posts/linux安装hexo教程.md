@@ -38,6 +38,10 @@ hexo地址
 //文章地址
 `git clone https://github.com/AsummerCat/AsummerCat.github.io.git`
 
+进行npm install 使hexo命令可以使用
+```
+npm install -g hexo-cli
+```
 
 
 4.nginx 新增静态文件映射路径
