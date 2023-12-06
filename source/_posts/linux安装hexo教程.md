@@ -7,17 +7,34 @@ tags: [hexo]
 
 `yum install -y nginx git`
 
-<!--more-->
 
 ## 2. 安装nvm node管理
 ```
    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.39.6/install.sh | bash
-2.1、刷新配置即可正常使用
+   
+   如果无法执行,在win上下载拖拽过去
+``` 
+
+<!--more-->
+
+下载sh 命令后
+```
+自定义创建一个文件夹
+mkdir nvm
+手动下载git镜像,然后用install.sh进行编译
+cd nvm
+git clone https://github.com/nvm-sh/nvm.git 
+# 或者
+git clone https://gitee.com/mirrors/nvm
+
+```
+#### 2.1、刷新配置即可正常使用
 #刷新配置
-source ~/.bashrc
+`source ~/.bashrc`
 #判断nvm是否安装
-nvm -v
-2.2、使用nvm下载相关node版本
+`nvm -v`
+##### 2.2、使用nvm下载相关node版本
+```
 nvm install 14.13.2
 
 #nvm常用命令
