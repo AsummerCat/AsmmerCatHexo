@@ -35,14 +35,14 @@ git clone https://gitee.com/mirrors/nvm
 `nvm -v`
 ##### 2.2、使用nvm下载相关node版本
 ```
-nvm install 14.13.2
+nvm install v20.10.0
 
 #nvm常用命令
-nvm uninstall 14.13.2     // 移除 node 14.13.2
-nvm use 14.13.2           // 使用 node 14.13.2
+nvm uninstall v20.10.0     // 移除 node v20.10.0
+nvm use v20.10.0           // 使用 node v20.10.0
 nvm ls                   // 查看目前已安装的 node 及当前所使用的 node
 nvm ls-remote            // 查看目前线上所能安装的所有 node 版本
-nvm alias default 14.13.2 // 使用 14.13.2 作为预设使用的 node 版本
+nvm alias default v20.10.0 // 使用 v20.10.0 作为预设使用的 node 版本
 ```
 nvm默认安装位置: `cd /root/.nvmcd`
 
