@@ -1,7 +1,7 @@
 ---
 title: 整合hutool进行加解密
 date: 2022-08-01 13:48:41
-tags: [java,工具类]
+tags: [java,工具类,加密算法]
 ---
 
 # 整合hutool进行加解密
