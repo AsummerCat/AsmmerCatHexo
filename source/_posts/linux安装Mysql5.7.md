@@ -36,6 +36,10 @@ rpm -ivh mysql57-community-release-el7-11.noarch.rpm
 yum install -y mysql-server
 可以看到这次不再提示安装Mariadb了
 ```
+### 注意 需要关闭mysql大小写敏感 默认是开启的
+```
+lower_case_table_names=1  
+```
 
 ### 安装完成后，启动mysqld服务
 ```

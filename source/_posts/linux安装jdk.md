@@ -66,20 +66,24 @@ java -version
 
 # 普通安装 
 
+如果是要下载oracle的jdk1.8 下载地址:https://download.oracle.com/otn/java/jdk/8u411-b09/43d62d619be4e416215729597d70b8ac/jdk-8u411-linux-x64.tar.gz?AuthParam=1715331869_f5abe810a0f4afda67810e11789da364
 ```
 第一种：安装tar.gz类型的jdk
-下载jdk-7u76-linux-x64.tar.gz 
+下载jdk-7u76-linux-x64.tar.gz
 
 
 上传到linux机器上（/usr/local）
-tar -xvf  jdk-7u76-linux-x64.tar.gz 
+tar -xvf jdk-7u76-linux-x64.tar.gz
 会解压出 jdk1.7.0_79的文件夹
 配置路径 vi /etc/profile
 export JAVA_HOME=/usr/local/jdk1.7.0_79
 export JRE_HOME=$JAVA_HOME/jre
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=./:JAVA_HOME/lib:$JRE_HOME/lib
-重启系统：shutdown -r now
+
+保存配置
+source /etc/profile
+
 测试：java -version
 显示出版本信息
 
