@@ -10,9 +10,9 @@ tags: [RocketMQ,消息队列,SpringBoot]
 
  RabbitAdmin 类可以很好的操作 rabbitMQ，在 Spring 中直接进行注入即可。
 
-​        !!! 注意，autoStartup 必须设置为 true，否则 Spring 容器不会加载 RabbitAdmin 类。
+        !!! 注意，autoStartup 必须设置为 true，否则 Spring 容器不会加载 RabbitAdmin 类。
 
-​    RabbitAdmin 类 的底层实现就是从 Spring 容器中获取 exchange、Bingding、routingkey 以及queue 的 @bean 声明，然后使用 rabbitTemplate 的 execute 方法进行执行对应的声明、修改、删除等一系列 rabbitMQ 基础功能操作。例如添加交换机、删除一个绑定、清空一个队列里的消息等等
+    RabbitAdmin 类 的底层实现就是从 Spring 容器中获取 exchange、Bingding、routingkey 以及queue 的 @bean 声明，然后使用 rabbitTemplate 的 execute 方法进行执行对应的声明、修改、删除等一系列 rabbitMQ 基础功能操作。例如添加交换机、删除一个绑定、清空一个队列里的消息等等
 
 
 

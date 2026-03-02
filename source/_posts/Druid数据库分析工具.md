@@ -8,9 +8,9 @@ tags: [java,mysql,数据库,调优]
 
 ##  一、 Druid的简介
 
-​           Druid是Java语言中最好的数据库连接池，在功能、性能、扩展性方面，都超过其他数据库连接池，包括DBCP、C3P0、Proxool、JBoss DataSource。Druid已经在阿里巴巴部署了超过600个应用，经过生产环境大规模部署的严苛考验。
+           Druid是Java语言中最好的数据库连接池，在功能、性能、扩展性方面，都超过其他数据库连接池，包括DBCP、C3P0、Proxool、JBoss DataSource。Druid已经在阿里巴巴部署了超过600个应用，经过生产环境大规模部署的严苛考验。
 
-​            Druid连接池为监控而生，内置强大的监控功能，监控特性不影响整体性能。功能强大，能防SQL注入，内置Loging能诊断Hack应用行为
+           Druid连接池为监控而生，内置强大的监控功能，监控特性不影响整体性能。功能强大，能防SQL注入，内置Loging能诊断Hack应用行为
 
 ## 二、 哪里下载druid
 
@@ -61,13 +61,13 @@ SQLParse
 | 安全               | SQL防注入       | 是           | 无   | 无              | 无   |
 | 支持配置加密       | 是              | 否           | 否   | 否              |      |
 
-​                   LRU 是一个性能关键指标，特别Oracle，每个Connection对应数据库端的一个进程，如果数据库连接池遵从LRU，有助于数据库服务器优化，这是重要的指标。在测试中，Druid、DBCP、Proxool是遵守LRU的。BoneCP、C3P0则不是。
+                  LRU 是一个性能关键指标，特别Oracle，每个Connection对应数据库端的一个进程，如果数据库连接池遵从LRU，有助于数据库服务器优化，这是重要的指标。在测试中，Druid、DBCP、Proxool是遵守LRU的。BoneCP、C3P0则不是。
 
-​                PSCache是数据库连接池的关键指标。在Oracle中，类似SELECT NAME FROM USER WHERE ID = ?这样的SQL，启用PSCache和不启用PSCache的性能可能是相差一个数量级的。Proxool是不支持PSCache的数据库连接池，如果你使用Oracle、SQL Server、DB2、Sybase这样支持游标的数据库，那你就完全不用考虑Proxool。
+               PSCache是数据库连接池的关键指标。在Oracle中，类似SELECT NAME FROM USER WHERE ID = ?这样的SQL，启用PSCache和不启用PSCache的性能可能是相差一个数量级的。Proxool是不支持PSCache的数据库连接池，如果你使用Oracle、SQL Server、DB2、Sybase这样支持游标的数据库，那你就完全不用考虑Proxool。
 
-​            Oracle 10系列的Driver，如果开启PSCache，会占用大量的内存，必须做特别的处理，启用内部的EnterImplicitCache等方法优化才能够减少内存的占用。这个功能只有DruidDataSource有。如果你使用的是Oracle Jdbc，你应该毫不犹豫采用DruidDataSource。
+           Oracle 10系列的Driver，如果开启PSCache，会占用大量的内存，必须做特别的处理，启用内部的EnterImplicitCache等方法优化才能够减少内存的占用。这个功能只有DruidDataSource有。如果你使用的是Oracle Jdbc，你应该毫不犹豫采用DruidDataSource。
 
-​                  ExceptionSorter是一个很重要的容错特性，如果一个连接产生了一个不可恢复的错误，必须立刻从连接池中去掉，否则会连续产生大量错误。这个特性，目前只有JBossDataSource和Druid实现。Druid的实现参考自JBossDataSource，经过长期生产反馈补充
+                  ExceptionSorter是一个很重要的容错特性，如果一个连接产生了一个不可恢复的错误，必须立刻从连接池中去掉，否则会连续产生大量错误。这个特性，目前只有JBossDataSource和Druid实现。Druid的实现参考自JBossDataSource，经过长期生产反馈补充
 
 ##  七、 Druid使用
 

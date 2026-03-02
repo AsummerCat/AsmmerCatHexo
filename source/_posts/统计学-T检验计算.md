@@ -49,20 +49,20 @@ public class IndependentSamplesT {
 
 
     /**
-     *  * @描述: 独立样本T检验 ，用于检测群体x和群体y之间是否支持零假设<br/>
-     *  * @方法名: independentSamplesT <br/>
-     *  * @param x <br/>
-     *  * @param y <br/>
-     *  * @return <br/>
-     *  * @返回类型 double 分双重检测与单侧检测，结合自由度查询"临界值"对照表，如果实际值大于临界值
+     * * @描述: 独立样本T检验 ，用于检测群体x和群体y之间是否支持零假设<br/>
+     * * @方法名: independentSamplesT <br/>
+     * * @param x <br/>
+     * * @param y <br/>
+     * * @return <br/>
+     * * @返回类型 double 分双重检测与单侧检测，结合自由度查询"临界值"对照表，如果实际值大于临界值
      * 表示不能接受零假设，否则零假设是最有力的假设 <br/>
-     *  * @创建人 micheal <br/>
-     *  * @创建时间 2019年1月5日下午8:57:00 <br/>
-     *  * @修改人 micheal <br/>
-     *  * @修改时间 2019年1月5日下午8:57:00 <br/>
-     *  * @修改备注 <br/>
-     *  * @since <br/>
-     *  * @throws  
+     * * @创建人 micheal <br/>
+     * * @创建时间 2019年1月5日下午8:57:00 <br/>
+     * * @修改人 micheal <br/>
+     * * @修改时间 2019年1月5日下午8:57:00 <br/>
+     * * @修改备注 <br/>
+     * * @since <br/>
+     * * @throws 
      */
     public static double independentSamplesT(double[] x, double[] y) {
         double xMean = StatUtils.mean(x);

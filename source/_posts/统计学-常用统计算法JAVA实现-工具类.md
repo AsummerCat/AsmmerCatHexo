@@ -20,15 +20,15 @@ package com.mdt.newdrugreview.utils;
 import java.math.BigDecimal;
 
 /**
- *  * @类描述：  一个工具类，为了保证计算准确性，将double之间的运算转换为BigDecimal之间的运算 <br/>
- *  * @项目名称：Statistics   <br/>
- *  * @包名： descrptive   <br/>
- *  * @类名称：Mutil   <br/>
+ * * @类描述：  一个工具类，为了保证计算准确性，将double之间的运算转换为BigDecimal之间的运算 <br/>
+ * * @项目名称：Statistics   <br/>
+ * * @包名： descrptive   <br/>
+ * * @类名称：Mutil   <br/>
  */
 public class Mutil {
     /**
-     *  * @描述: 加法 <br/>
-     *  * @方法名: add <br/>
+     * * @描述: 加法 <br/>
+     * * @方法名: add <br/>
      */
     public static double add(double v1, double v2) {
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
@@ -37,8 +37,8 @@ public class Mutil {
     }
 
     /**
-     *  * @描述: 减法 <br/>
-     *  * @方法名: subtract <br/>
+     * * @描述: 减法 <br/>
+     * * @方法名: subtract <br/>
      */
     public static double subtract(double v1, double v2) {
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
@@ -47,8 +47,8 @@ public class Mutil {
     }
 
     /**
-     *  * @描述: 乘法 <br/>
-     *  * @方法名: mul <br/>
+     * * @描述: 乘法 <br/>
+     * * @方法名: mul <br/>
      */
     public static double multiply(double d1, double d2) {// 进行乘法运算
         BigDecimal b1 = new BigDecimal(d1);
@@ -57,8 +57,8 @@ public class Mutil {
     }
 
     /**
-     *  * @描述: 除法 ，四舍五入<br/>
-     *  * @方法名: div <br/>
+     * * @描述: 除法 ，四舍五入<br/>
+     * * @方法名: div <br/>
      */
     public static double divide(double d1, double d2, int len) {// 进行除法运算
         BigDecimal b1 = new BigDecimal(d1);
@@ -68,7 +68,7 @@ public class Mutil {
     }
 
     /**
-     *  * @描述:  除法，四舍五入取整数 ,例如：5/2=3(2.5四舍五入); 5/3=2(1.6四舍五入);<br/>
+     * * @描述:  除法，四舍五入取整数 ,例如：5/2=3(2.5四舍五入); 5/3=2(1.6四舍五入);<br/>
      */
     public static double divide(double d1, double d2) {// 进行除法运算
         BigDecimal b1 = new BigDecimal(d1);
@@ -77,7 +77,7 @@ public class Mutil {
     }
 
     /**
-     *  * @描述: 四舍五入 <br/>
+     * * @描述: 四舍五入 <br/>
      */
     public static double round(double d, int len) {
         BigDecimal b1 = new BigDecimal(d);
