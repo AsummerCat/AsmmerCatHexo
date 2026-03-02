@@ -90,7 +90,7 @@ tag_map:
   RabbitMQ: RabbitMQ
   maven: maven
   多线程: 多线程
-  vue.js: vue.js
+  vue: vue
   AngularJS: AngularJS
   前端模板引擎: 前端模板引擎
   SpringMvc: SpringMvc
@@ -169,6 +169,12 @@ tag_map:
   机器学习: 机器学习
   数学: 数学
   大数据: 大数据
+  物联网: 物联网
+  LangChain: LangChain
+  ollama: ollama
+  软考: 软考
+  go: go
+  其他: 其他
 
   
 # Date / Time format
