@@ -74,7 +74,8 @@ docker pull kibana:7.2.0
 docker run --name kibana --link=elasticsearch:test  -p 5601:5601 -d kibana:7.2.0
 docker start kibana
 ```
-启动以后可以打开浏览器输入http://localhost:5601就可以打开kibana的界面了。
+
+`启动以后可以打开浏览器输入http://localhost:5601就可以打开kibana的界面了。`
 
 
 # es7.0以上版本移除了type

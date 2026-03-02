@@ -1,7 +1,7 @@
 ---
 title: 1.AI及LLM基础
 date: 2026-03-02 10:22:29
-tags: [AI]
+tags: [AI,机器学习]
 ---
 # 1. NLP NLU NLG
 
