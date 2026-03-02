@@ -1,7 +1,7 @@
 ---
 title: NVD漏洞dependency-check基于1.8u252以上版本
 date: 2024-05-04 15:47:11
-tags: [SpringBoot, nvd,dependency-check, maven]
+tags: [SpringBoot, dependency-check, maven]
 ---
 # 基于maven进行漏洞扫描并且生生成报告
 ```

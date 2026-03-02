@@ -73,7 +73,8 @@ spring:
           - StripPrefix=1 # test 转发          
 ```
 
-**注意**：Gateway默认转发是全路径的，设置StripPrefix=1表示从二级url路径转发，即http://localhost:port/activity/test将会转发到http://{activity}/test
+**注意**：
+`Gateway默认转发是全路径的，设置StripPrefix=1表示从二级url路径转发，即http://localhost:port/activity/test将会转发到http://{activity}/test`
 
 ### 第二种 硬编码版本
 

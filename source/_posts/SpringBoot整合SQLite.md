@@ -1,7 +1,7 @@
 ---
 title: SpringBoot整合SQLite
 date: 2024-06-24 22:59:30
-tags: [SpringBoot,SQLite]
+tags: [SpringBoot]
 ---
 # &#x20;1.SQLite安装
 
